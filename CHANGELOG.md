@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.1.0] - 2026-02-03
+### 🏗️ Reorganization & Synthesis
+*   **Tech Pivot:** Definitive shift to "Modern-Ancient Synthesis" (Information Age world with ancestral roots).
+*   **Structure:** Implemented new 4-tier hierarchy (Design Sources, Visual Assets, Applications, Archive).
+*   **Public Release:** Extracted project from private parent repo to standalone public GitHub repository.
+*   **Licensing:** Officially protected under **CC BY-NC-SA 4.0**.
+*   **Standardization:** Renamed all legacy `Planeta 1` files and folders to `Kaelia`.
+*   **Prompts:** Expanded AI visualization library with detailed Gryning settlement guides.
+
 ## [2.0.0] - 2026-02-02
 ### 🚀 Rebirth & Restructuring
 *   **Renaming:** Project renamed from `Proiectul de lume` to `World_Building_Project`.

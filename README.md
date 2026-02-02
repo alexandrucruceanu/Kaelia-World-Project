@@ -6,8 +6,7 @@ Kaelia is a realistic fictional world in its **Information Age**, originally dev
 Each continent developed its own modern infrastructure independently, leading to a planet of high regional identity and minimal globalized colonization. This repository serves as the modern "Command Center" for the restoration and expansion of this project.
 
 ## 📜 Core Lore
-The project focuses exclusively on **Kaelia**, a single terrestrial planet where skyscrapers stand beside ancient shrines, and quantum grids are tuned to ancestral winds.
-combines geography, simulated climatology, and 3D modeling to bring the world of **"Nordica"** (and its neighboring continents) to life.
+The project focuses exclusively on **Kaelia**, a single terrestrial planet where skyscrapers stand beside ancient shrines and quantum grids are tuned to ancestral winds. It combines geography, simulated climatology, and 3D modeling to bring the world of **"Nordica"** (and its neighboring continents) to life.
 
 > **Note:** Originally conceived as a solar system, the scope has been refined to focus exclusively on this single, detailed world. Legacy solar system files have been archived.
 
