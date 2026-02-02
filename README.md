@@ -62,5 +62,10 @@ Texture maps and frame sequences for spherical mapping.
 *   **Photoshop:** For map and graphics editing (`.psd`).
 *   **Google Docs:** For lore writing (`.gdoc` -> `.md`).
 
+## 📜 License
+This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**. 
+
+You are free to share and adapt the material as long as you give appropriate credit, do not use it for commercial purposes, and distribute your contributions under the same license. See the [LICENSE](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/LICENSE) file for the full legal text.
+
 ## 📜 Project History
 Started around 2014 as a creative exercise to design a geographically plausible environment for fictional stories. Recovered from the "Trabajo_Proyectos" archive in 2026.
