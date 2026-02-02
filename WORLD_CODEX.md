@@ -101,22 +101,37 @@ A frigid continent carved by ancient glaciation, creating deep fjords and jagged
 
 ---
 
-### 3. The Mirelands (Continent 4)
-*   **Geography:** Continental Wetland and Dark Forest.
+### 1. The Mirelands (Continent 4)
+*   **Location:** Central-North Hemisphere | **Climate:** Wetland / Taiga / Dark Forest.
 *   **Modern Status:** Leader in **Bio-energy and Environmental Restoration**.
 *   **Culture:** "Cyber-folk" style. Modern tech integrated into the murky, folk-ritual landscape. They use bio-luminescent fiber-optics and fungal server-grids.
-*   **Key Lands:**
-    *   **Misyats ("Moon"):** High-tech lunar-aligned theocracy. Their technology is optimized for low-light environments.
+*   **The Nine States:**
     *   **Niruz:** Agri-tech powerhouse specializing in flood-resistant smart-crops.
-    *   **Tailas & Pateraz:** River-state corridors with high-speed hydro-transport.
+    *   **Tailas:** Southern delta region with high-speed hydro-transport.
     *   **Aghaz:** Fortress-cities on peaks, now serving as secure global data vaults.
+    *   **Pateraz:** River-state corridors and wetland industrial hubs.
+    *   **Misyats:** High-tech lunar-aligned theocracy; optimized for low-light environments.
+    *   **Mesek:** Center for bio-luminescent research and fiber-optic weaving.
+    *   **Menulys:** High-latitude swamp region focusing on carbon sequestration.
+    *   **Redez:** Industrial wetland rim; specialized in amphibious logistics.
+    *   **Nechars:** Northernmost frontier; guardians of the Permafrost Vaults.
 
-### 4. The Guldhorn Reaches (Continent 5)
-*   **Geography:** Southern Temperate Rainforest / Alpine.
-*   **Modern Status:** Global center for **High-Precision Engineering and Finance**.
-*   **Culture:** "Neo-Traditionalist." Skyscrapers look like gothic cathedrals; finance-maesters carry traditional guild-staves that double as neural interfaces.
-*   **Major Hubs:**
-    *   **Guldhorn:** The world's premier digital finance hub. Architecture is a fusion of gold-glass towers and alpine castles.
-    *   **Norgborg:** Naval-militaristic smart city protecting the southern gates.
-    *   **Varelmond:** The "City of Light"—the global center for alchemical (chemical) engineering and high physics.
-    *   **Trade Duchies:** Wealthy regional hubs like **Metsemania** (Sustainable timber nanotechnology).
+### 2. Ax Pelak Yeldo (Central Archipelago)
+*   **Geography:** A massive, dense archipelago located south of The Mirelands, in the strategic center of the global ocean.
+*   **Modern Context:** A highly contested zone for telecommunications and sea-lane monitoring. Home to several independent island-nations and autonomous floating research platforms.
+
+### 3. Antarmund (Continent 5 - Eastern Super-continent)
+*   **Geography:** A massive landmass in the East, spanning from the Arctic to the Southern Temperate zones.
+*   **Modern Status:** Global powerhouse for **Heavy Industry, Finance, and High Physics**.
+*   **Structure:**
+    *   **NorKunta (The Northern Titan):** A massive, technologically advanced state dominating the northern third of the continent. Center of Kaelia’s global aerospace and heavy robotics production.
+    *   **The Southern States (Southern Prosperity Rim):**
+        *   **Guldhorn:** The world's premier digital finance hub.
+        *   **Norgborg:** Naval-militaristic smart city protecting the southern trade gates.
+        *   **Valermond:** The "City of Light"—the global center for alchemical (physics) engineering.
+        *   **Metsemania:** Rainforest nanotechnology and sustainable timber hub.
+        *   **Laendamania & Melynmania:** Sister states specializing in global media and cultural exports.
+        *   **Sigmarignen:** The continent’s historical capital of high-tradition and modern art.
+        *   **Nargkes & Norginde:** Industrial corridor specializing in geothermal heavy machinery.
+        *   **Kasim'Merik & Dirka'Merik:** Maritime powerhouses and autonomous shipping centers.
+        *   **Fyny'Dor & Meit'Val:** Agricultural and luxury resource states of the deep south.

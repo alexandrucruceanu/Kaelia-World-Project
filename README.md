@@ -23,7 +23,9 @@ Contains original, multi-layer editable files for all world-building creative wo
 ### 🎨 02_Visual_Assets
 Finished exports and media organized by scale.
 *   **1.0_Planet_Scale/**: Global datasets including `Cartography/` (maps), `Planetary_Renders/` (renders), and `Climatology_&_Data/` (infographics).
-*   **2.0_Regional_Scale/**: Concept art and high-fidelity captures for each continent (`Nordica`, `Kasy_Federation`, etc.).
+*   **2.0_Regional_Scale/**: Concept art and high-fidelity captures for each major landmass:
+    *   `Nordica`, `Kasy_Federation`, `Betereko`, `The_Mirelands` (Central-North), `Antarmund` (Eastern Super-continent).
+    *   `Ax_Pelak_Yeldo` (Central Archipelago).
 *   **3.0_Orbital_&_Meta/**: Satellite imagery and orbital logistics hubs.
 
 ### 💻 03_Applications

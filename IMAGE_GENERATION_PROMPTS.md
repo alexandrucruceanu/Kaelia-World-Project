@@ -44,18 +44,24 @@ This document provide a library of high-fidelity prompts for the **Information A
 ---
 
 ## ⚔️ Continent 4: The Mirelands
-**Core Aesthetic:** Cyber-Slavic, Bio-luminescent Organic-Tech, wetland mist, lunar motifs.
+**Core Aesthetic:** Cyber-Slavic, Bio-luminescent Organic-Tech, wetland mist, lunar motifs, taiga modernization.
 
 *   **Misyats (The Moon Theocracy):**
     > *Prompt:* A high-tech city in dark wetlands, architecture featuring giant silver lunar motifs and bio-luminescent fiber-optics running through dark wood and stone buildings. Fungal server-grids glowing in the marshes. Slavic patterns integrated into digital displays. Silver moonlight, misty atmosphere.
+*   **Ax Pelak Yeldo (Central Archipelago):**
+    > *Prompt:* A dense cluster of high-tech tropical islands. Sleek white maritime research platforms floating between ancient volcanic peaks. Advanced autonomous hydro-vessels navigating narrow channels. Crystal clear water, vibrant coral reefs seen from above.
 
 ---
 
-## 🏰 Continent 5: The Guldhorn Reaches
-**Core Aesthetic:** Neo-Traditionalist, Cathedral-Skyscrapers, Alpine Finance-Tech.
+## 🏰 Continent 5: Antarmund (Eastern Super-continent)
+**Core Aesthetic:** Neo-Traditionalist, Cathedral-Skyscrapers, Alpine Finance-Tech, Heavy Industrial Aerospace.
 
+*   **NorKunta (The Northern Titan):**
+    > *Prompt:* A massive hyper-industrial metropolis in the frozen north of Antarmund. Gigantic aerospace assembly plants lit by amber floodlights. Heavy robotics moving between monolithic steel structures. Snow falling, steam rising from geothermal vents. Cinematic, 8k.
 *   **Guldhorn (The Wealthy Horn):**
     > *Prompt:* A wealthy peninsula metropolis with skyscrapers that resemble giant gothic cathedrals. Golden-glass facades reflecting the alpine sun. Precision-engineered bridges with traditional heraldic banners. Temperate rainforest foliage bordering the urban core. High-glamour, 8k.
+*   **Valermond (The City of Light):**
+    > *Prompt:* A coastal city dedicated to high physics and alchemical engineering. Sleek glass spires pulsing with clean white light. Particle accelerator rings integrated into the harbor architecture. Sunset lighting, hyper-realistic.
 
 ---
 
