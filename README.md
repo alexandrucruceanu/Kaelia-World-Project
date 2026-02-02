@@ -21,11 +21,10 @@ Contains original, multi-layer editable files for all world-building creative wo
 *   `.psd`: High-resolution map and infographic source layers (Photoshop).
 
 ### 🎨 02_Visual_Assets
-Finished exports and media ready for consumption.
-*   `Maps/`: High-resolution Kaelia projections (Satellite, Political, Altitude).
-*   `Renders/`: Video flythroughs and 3D animations.
-*   `Infographics/`: Climate data, rainfall/temperature charts, and etymology graphics.
-*   `Nordica/`: Specialized regional assets (Gryning, etc.).
+Finished exports and media organized by scale.
+*   **1.0_Planet_Scale/**: Global datasets including `Cartography/` (maps), `Planetary_Renders/` (renders), and `Climatology_&_Data/` (infographics).
+*   **2.0_Regional_Scale/**: Concept art and high-fidelity captures for each continent (`Nordica`, `Kasy_Federation`, etc.).
+*   **3.0_Orbital_&_Meta/**: Satellite imagery and orbital logistics hubs.
 
 ### 💻 03_Applications
 Interactive tools used to explore the world.
