@@ -10,6 +10,16 @@ This document provide a library of high-fidelity prompts for the **Information A
 ### Nations & Cities
 *   **Gryning (Skýjakot - Smart Metropolis):**
     > *Prompt:* Wide cinematic shot of Skýjakot, a hyper-modern smart city built on ancient stone fjords. Architecture features a fusion of sleek glass, sustainable timber, and massive aerodynamically carved smart-wind-turbines integrated into skyscrapers. Glowing blue energy lines run through the streets. Mist-covered mountains in the background. Ultra-realistic, 8k.
+*   **Gryning (Hafnir - Automated Port):**
+    > *Prompt:* A high-tech automated seaport in Gryning. Massive robotic cranes unloading sleek autonomous cargo ships. Architecture is a mix of weathered stone warehouses and glass-and-steel terminal towers. Crisp northern sunlight reflecting off the cold harbor water. National Geographic style, 8k.
+*   **Gryning (Bjarnarfjörður - Mountain Research Station):**
+    > *Prompt:* A modern research station and luxury resort nestled in the jagged peaks of Nordica. Buildings are low-profile, made of dark stone and reinforced glass, partially carved into the mountain. High-tech weather arrays and satellite dishes on the ridges. Dramatic alpine lighting, snow-covered landscape.
+*   **Gryning (Árbær - Rural Smart-Village):**
+    > *Prompt:* A picturesque rural village in the coastal plains. Quaint traditional cottages with turf roofs integrated with solar-glass windows and mini-turbines. Digital looms visible through windows. Lush green grass, distant wind-grid turbines on the horizon. Warm afternoon light.
+*   **Gryning (Vík - Coastal Research Hub):**
+    > *Prompt:* Ultra-modern tourism hub and climate station on a black sand beach. Sleek glass architecture contrasting with the dark volcanic sand and white surf. Soaring basalt cliffs in the background with scientific telemetry glowing on the rock faces. 8k, photorealistic.
+*   **Gryning (Kaldakinn - Glacier Research Hamlet):**
+    > *Prompt:* A cluster of high-tech modular pods on the edge of a massive blue glacier. Scientific equipment, glowing blue data lights, and researchers in modern thermal gear. The ice is ancient and cracked, with mountains rising behind. Cold, atmospheric blue tones.
 *   **Oighear (Khuruldai - Pastoral Tech):**
     > *Prompt:* A sprawling, low-profile modern city on the vast northern plains. High-tech digital yurts with satellite arrays. Pastoral drones herding massive beasts in the foreground. High-speed Tundra-Plain Rail Link visible on the horizon. Golden hour, National Geographic photography style.
 *   **Keunmor (Ardmore - Vertical Mountain City):**
