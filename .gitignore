@@ -1,0 +1,31 @@
+# System files
+[Tt]humbs.db
+[Dd][Ss]_[Ss]tore
+
+# Agent/AI internals
+.gemini/
+.agent/
+brain/
+
+# Temporary/Cache
+*.log
+*.tmp
+.lock-wscript
+
+# Google Drive Shortcuts (Non-tangible files)
+*.gdoc
+*.gsheet
+*.gslides
+
+# Large Media & Legacy Tiled Maps (Excluded for repo efficiency)
+Video/
+"Planeta 1 Multiple Files"/
+"Planeta 1 Equirectangular Spin View Sequence"/
+
+# Standard Large Media
+*.mov
+*.mp4
+*.zip
+*.psd
+*.ftw
+*.c4d
