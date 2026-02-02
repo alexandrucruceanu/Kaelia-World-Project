@@ -1,4 +1,4 @@
-# System files
+﻿# System files
 [Tt]humbs.db
 [Dd][Ss]_[Ss]tore
 
@@ -18,9 +18,9 @@ brain/
 *.gslides
 
 # Large Media & Legacy Tiled Maps (Excluded for repo efficiency)
-Video/
-"Planeta 1 Multiple Files"/
-"Planeta 1 Equirectangular Spin View Sequence"/
+"03_Applications/Legacy_Viewer/"
+"02_Visual_Assets/Renders/"
+"04_Archive/"
 
 # Standard Large Media
 *.mov

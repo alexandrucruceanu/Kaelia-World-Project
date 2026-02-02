@@ -13,54 +13,42 @@ combines geography, simulated climatology, and 3D modeling to bring the world of
 
 ## 📂 Project Structure
 
-### `WORLD_CODEX.md`
-The master reference document. Integrates all geopolitical data, culture, geography, and cosmology into a single unified guide.
+The project is organized into a functional hierarchy to separate raw design sources from public assets and interactive applications.
 
-### `IMAGE_GENERATION_PROMPTS.md`
-A library of high-fidelity prompts for visualizing the world of Kaelia (National Geographic meets High Fantasy).
+### 🏗️ 01_Design_Sources
+Contains original, multi-layer editable files for all world-building creative work.
+*   `.c4d`: 3D planetary models (Cinema4D).
+*   `.ftw`: Fractal Terrains world files (elevation and climate data).
+*   `.psd`: High-resolution map and infographic source layers (Photoshop).
 
-### `Docs/` - Source Models
-*   **3D Models (Cinema 4D):**
-    *   `Kaelia.c4d`: Base planetary model.
-    *   `Kaelia ver 2.c4d`: Iteration 2.
-*   **Terrain Generation:** `Kaelia Equirectangular.ftw` (Fractal Terrains Pro).
+### 🎨 02_Visual_Assets
+Finished exports and media ready for consumption.
+*   `Maps/`: High-resolution Kaelia projections (Satellite, Political, Altitude).
+*   `Renders/`: Video flythroughs and 3D animations.
+*   `Infographics/`: Climate data, rainfall/temperature charts, and etymology graphics.
+*   `Nordica/`: Specialized regional assets (Gryning, etc.).
 
-### `Video/` - Audiovisual Production
-Animations and renders.
-*   **Final Renders:** `Kaelia 3D full.mov`, `Gaia.mp4`.
-*   **Data Layers:** `Climate.mp4`, `Rainfall.mp4`, `Temperature.mp4`.
-*   **Editing:** `Kaelia Equirectangular Spin View Sequence_1.prproj`.
+### 💻 03_Applications
+Interactive tools used to explore the world.
+*   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern Leaflet.js interactive explorer.
+*   **[Legacy Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Legacy_Viewer/Public%20link.htm):** Original 2014 zoomable tiled map.
 
-### `Graphs/` - Climate Data
-Static visualizations.
-*   `Climate (Temperature - Rainfall Graph).psd`.
+### 📦 04_Archive
+Non-essential historical data, solar system sheets, and raw frame sequences.
 
-### `Archive/`
-*   `Sistem solar.xlsx`: Legacy overarching solar system concepts (Depreciated).
+---
 
-### `...Equirectangular.../`
-Texture maps and frame sequences for spherical mapping.
-*   **Main Map:** `Kaelia Equirectangular Sphere Map Names & Frontiers.jpg` - Political map.
-    *   This file defines the "official" political and geographical distribution of the world.
-    *   **Continent 1 (Nordica):** Located in the North-West. Cold region inspired by Nordic/Celtic cultures.
-        *   *Visual Assets:* `Docs/Assets/Nordica/Gryning/`
-        *   *Countries:* **Gryning** (West, windy), **Oighear** (Massive Northern territory), **Keunmor** (Mountainous/Mining), **Brechar** (East, forests), and **Kornmor** (South, temperate).
-        *   *Key Capitals:* Skýjakot (Gryning), Khuruldai (Oighear), Ardmore (Keunmor).
-    *   **Continent 2:** "Kasy" region (Yokasy, Vorkasy, Pomkasy...).
-    *   **Continent 3 (Betereko):** Landmass dominated by the nation of Betereko.
-    *   **Continent 4:** "Az/Ts" region (Niruz, Aghaz, Misyats...).
-    *   **Continent 5:** Southern region with Germanic/Fantasy names (Norgborg, Guldhorn, Metsemania).
+## 📖 Key Documentation
+*   **[WORLD_CODEX.md](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/WORLD_CODEX.md):** The single source of truth for lore, geography, and socio-tech data.
+*   **[IMAGE_GENERATION_PROMPTS.md](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/IMAGE_GENERATION_PROMPTS.md):** A library of prompts for visualizing Kaelia with AI.
+*   **[ROADMAP.md](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/ROADMAP.md):** Current development status and future milestones.
+*   **[CHANGELOG.md](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/CHANGELOG.md):** Record of project-wide updates and refactors.
 
-*   `Kaelia Equirectangular Sphere Map`: Projected texture maps.
-*   `Interactive_Map/`: **[NEW] Modern Map Viewer**. Open `index.html` to view the high-resolution maps of Kaelia.
-*   `Kaelia Multiple Files`: *(Legacy)* Interactive Web Map. A tiled HTML/JPG structure allowing for deep-zoom exploration. Entry point: `Public link.htm`.
+---
 
-## 🛠️ Tools Used (Reconstruction) based on files
-*   **Fractal Terrains 3 / Pro:** For procedural generation of continents, altitude, and climate (`.ftw`).
-*   **Cinema 4D:** For 3D rendering and texturing of the globe (`.c4d`).
-*   **Adobe Premiere Pro:** For compositing video layers (`.prproj`).
-*   **Photoshop:** For map and graphics editing (`.psd`).
-*   **Google Docs:** For lore writing (`.gdoc` -> `.md`).
+## 🛠️ Global Development Environment
+*   **Tech Level:** Modern / Information Age (Modern-Ancient Synthesis).
+*   **Interactive Map:** Access via `03_Applications/Map_Viewer/index.html`.
 
 ## 📜 License
 This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**. 
