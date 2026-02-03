@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0] - 2026-02-03
+### 🗺️ Global Grid Expansion
+*   **Geopolitics:** Completed the definitive mapping of all 37 regions and states across five continents and the central archipelago.
+*   **Visual Roadmap:** Established a 1:1 directory structure in `02_Visual_Assets/2.0_Regional_Scale/` for every mapped entity.
+*   **Prompt Library:** Finalized high-fidelity "Modern-Ancient Synthesis" image generation prompts for all 37 regions.
+*   **Archipelago:** Formally integrated `Ax Pelak Yeldo` into the core planetary lore.
+
 ## [2.1.0] - 2026-02-03
 ### 🏗️ Reorganization & Synthesis
 *   **Tech Pivot:** Definitive shift to "Modern-Ancient Synthesis" (Information Age world with ancestral roots).
