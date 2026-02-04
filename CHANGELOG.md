@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.3.0] - 2026-02-04
+### 🌍 Unified Biome-Corrected Edition
+*   **Climatology:** Synchronized all continental data with Global Biome Scans (Whittaker Classification).
+*   **Nordica:** Reclassified as Sub-Arctic/Taiga; updated Gryning, Oighear, and Keunmor lore to fit frozen reality.
+*   **Kasy Federation:** Reclassified as Mediterranean/Chaparral; updated Solar-Sea and architectural lore.
+*   **Mirelands:** Reclassified as Cold Taiga/Sub-Arctic Swamp; updated Dark-Water States adaptation lore.
+*   **Antarmund:** Implemented North-South gradient (Tundra to Temperate Rainforest); reclassified Southern Rim as Oceanic Temperate.
+*   **Economy:** Added "Strategic Resource Correction" based on global biome scarcity.
+
 ## [2.2.0] - 2026-02-03
 ### 🗺️ Global Grid Expansion
 *   **Geopolitics:** Completed the definitive mapping of all 37 regions and states across five continents and the central archipelago.

@@ -1,7 +1,9 @@
 # 📖 WORLD CODEX: Kaelia
-
-> **Unified Master Reference**
-> This document integrates the legacy 2014 database with modern planetary reconstructions. It serves as the single source of truth for the project's lore, geography, and geopolitics.
+ 
+**Version:** 2.1 (Biome-Corrected)
+**Status:** Unified Master Reference
+ 
+> **Correction Note:** This document supersedes previous versions. Geography and climate data now match the Global Biome Scans (Whittaker Classification).
 
 ---
 
@@ -26,19 +28,22 @@ The name **Kaelia** (pronounced *Kay-lee-ah*) is the standardized global identif
 ---
 
 ## 🌍 Global Geography Overview
-The world is dominated by five major landmasses, organized roughly from North to South and West to East.
+The planet is defined by a severe **North-South Temperature Gradient**. The Northern Hemisphere is locked in Cryosphere (Ice) and Boreal (Taiga) zones, while the Southern Hemisphere enjoys Temperate and Subtropical climates.
 
 ---
 
 ## 🏔️ Continent 1: Nordica
-*Location: North-West Hemisphere | Climate: Frigid/Temperate*
-A frigid continent carved by ancient glaciation, creating deep fjords and jagged peaks. It is divided into five distinct countries.
+* **Location:** North-West Hemisphere
+* **Visual Biome:** **Alpine Tundra (Grey)** & **Boreal Forest (Purple)**
+* **Corrected Climate:** **Sub-Arctic / Taiga.**
+* *Correction:* Previous references to "Temperate" zones are removed except for the extreme southern tip. This is a harsh, frozen continent.
 
-### 1. Gryning
-*   **Geography:** Western coastal plains, battered by harsh west winds. Relatively flat compared to neighbors.
-*   **Modern Infrastructure:** Home to the **Global Wind-Grid**. The landscape is dominated by super-tall, aerodynamically carved smart-turbines that power the entire continent.
-*   **Culture:** Stoic, digital-wind adapters. Traditional seafaring has evolved into high-tech autonomous fishing fleets.
-*   **Metropolis:** **Skýjakot** ("Cloud House") - A hyper-modern smart city built on a stone foundation. Architecture features sleek glass and wood, integrated with massive vertical wind-shafts. 
+### 1. Gryning (The Wind Coast)
+* **Biome:** **Boreal Forest (Purple)**.
+* **Geography:** Dense, dark coniferous forests (Taiga) that run right up to the jagged western coast. The trees here are ancient and hardy, adapted to low light and heavy snow.
+* **Infrastructure Match:** The **Global Wind-Grid** towers rise *above* the dense tree line to catch the high-altitude laminar flow winds, as the forest floor is too wind-blocked by vegetation.
+* **Culture:** Stoic, digital-wind adapters. Traditional seafaring has evolved into high-tech autonomous fishing fleets.
+* **Metropolis:** **Skýjakot** ("Cloud House") - Built *atop* the canopy layer to escape the gloom of the forest floor. Architecture features sleek glass and wood, integrated with massive vertical wind-shafts. 
 *   **Settlements:**
     *   **Hafnir:** High-tech automated port city, center of the Northern shipping lanes.
     *   **Bjarnarfjörður:** Mountain resort and research station for natural phenomena.
@@ -47,11 +52,12 @@ A frigid continent carved by ancient glaciation, creating deep fjords and jagged
 *   **Villages:** Kaldakinn (Glacier research hamlet), Sólheimar (Sustainable tech-hub), Vatnsdalur (Digital artists), Fjallabak (High-altitude transport node).
 *   **Islands:** **Blakkar** (Eastern coast) - Site of a mysterious automated signal array; rumored to be haunted by digital echoes.
 
-### 2. Oighear
-*   **Geography:** Massive northern territory. Western mountains, eastern plains.
-*   **Modern Infrastructure:** The **Tundra-Plain Rail Link** connects the nomadic regions to the industrial hubs.
-*   **Culture:** Proud horse-lords who now utilize high-tech pastoral drones and bio-monitoring for their herds. Nomadic traditions exist alongside modern satellite-linked yurts.
-*   **Metropolis:** **Khuruldai** ("The Assembly") - A sprawling, low-profile modern city designed to blend into the plains. Center of world-leading bio-tech and animal husbandry research.
+### 2. Oighear (The Frost-Lands)
+* **Biome:** **Alpine Tundra (Grey)**.
+* **Geography:** A massive expanse of permafrost and exposed bedrock. It is too cold for trees (Purple zone ends at the border).
+* **Modern Infrastructure:** The **Tundra-Plain Rail Link** is elevated on heat-sinking pylons to prevent melting the permafrost foundation.
+* **Culture:** Proud horse-lords. **Lore Update:** They do not graze on grass; they herd **Reindeer and Muskox** (tundra megafauna) that feed on lichen and moss. They utilize high-tech pastoral drones and bio-monitoring.
+* **Metropolis:** **Khuruldai** ("The Assembly") - A sprawling, low-profile modern city designed to blend into the plains. Center of world-leading bio-tech and animal husbandry research.
 *   **Settlements:**
     *   **Chaghan Khan:** Mountain-integrated mining city using automated nanotech extraction.
     *   **Lahorebaig:** The "Digital Bazaar" - A major international server and trade hub.
@@ -59,11 +65,12 @@ A frigid continent carved by ancient glaciation, creating deep fjords and jagged
     *   **Khüiten Peak:** Vertical alpine city for high-altitude endurance testing and tourism.
 *   **Villages:** Bayan-Ölgii (High-tech nomadic junction), Barchin (Desert-edge solar farm), Bulgan (Media/Writing hub), Erdene Zuu (Ancient temple complex with digital archival vaults).
 
-### 3. Keunmor
-*   **Geography:** Western mountainous region.
-*   **Modern Infrastructure:** **Deep-Core Geothermal Grids**. The nation leads Kaelia in energy production and heavy industrial automation.
-*   **Culture:** Industrialists who view machines as extensions of the clan. Rugged, tech-literate, but socially insular.
-*   **Metropolis:** **Ardmore** ("High Great") - A vertical megastructure city carved into a mountain. Features external glass skylifts and internally heated terraced gardens.
+### 3. Keunmor (The Iron Peaks)
+* **Biome:** **Alpine/Glacial (Grey/White)**.
+* **Geography:** High-altitude glacier fields and bare rock mountains.
+* **Modern Infrastructure:** **Deep-Core Geothermal Grids**. **Lore Update:** Geothermal is a survival necessity. With no biomass for burning and solar being inefficient at this latitude, they rely entirely on the planet's internal heat.
+* **Culture:** Industrialists who view machines as extensions of the clan. Rugged, tech-literate, but socially insular.
+* **Metropolis:** **Ardmore** ("High Great") - A vertical megastructure city carved into a mountain. Features external glass skylifts and internally heated terraced gardens.
 *   **Settlements:**
     *   **Dún na nGall:** Modern deep-water automated seaport.
     *   **Corcaigh:** River-based tech-industrial hub; music and digital arts scene.
@@ -72,28 +79,35 @@ A frigid continent carved by ancient glaciation, creating deep fjords and jagged
 *   **Villages:** An Bun Beag (Smart-fishing), Lios Tuathail (3D-printing artisan hub), Cill Chainnigh (Spiritual-digital learning), Gleann Cholm Cille (Folklore archive).
 
 ### 4. Brechar
-*   **Geography:** Eastern coastal region; sprawling forests and fertile farmland.
-*   **Culture:** Laid-back and nature-loving. The "breadbasket" of Nordica.
+*   **Geography:** Eastern coastal region; sprawling forests (Taiga transitions).
+*   **Culture:** Laid-back and nature-loving. The "secondary breadbasket" of Nordica (specialized cold-crops).
 *   **Conflict:** Often clashes with Keunmor over land rights.
 
 ### 5. Kornmor
-*   **Geography:** Southern tip; milder, temperate climate.
+*   **Geography:** Southern tip; milder, oceanic temperate climate.
 *   **Culture:** Cosmopolitan, trade-focused. Renowned for fine textiles, wines, and art.
 
 ---
 
-### 1. The Kasy Federation (Continent 2)
-*   **Geography:** Equatorial Arid Savanna / Desert.
-*   **Modern Infrastructure:** **The Great Solar-Sea**. Massive fields of mirrored solar arrays and subterranean MAGLEV tunnels.
-*   **Culture:** Master architects of the modern-desert. High-speed commerce and climate-controlled prosperity.
-*   **Urban Hubs:**
+## ☀️ Continent 2: The Kasy Federation
+* **Location:** South-West Archipelago
+* **Visual Biome:** **Chaparral (Olive/Yellow)** & **Temperate Forest (Green)**
+* **Corrected Climate:** **Mediterranean / Semi-Arid.**
+* *Correction:* The "Desert" classification was incorrect. The region is actually a **Chaparral zone** (hot, dry summers; mild, wet winters), similar to California or the Mediterranean.
+
+### 1. Geography: The Golden Isles
+* **The "Solar-Sea" Explained:** The islands are not a sandy desert, but a **scrubland** with intense summer sun. The "Solar-Sea" arrays harvest punishing summer UV radiation while creating shade for **Chaparral agriculture** (olives, grapes, cork) underneath.
+* **Architecture:** Cities like **Yokasy** are built with high surface-to-agriculture ratios on limited real estate.
+* **New Biome Feature:** **The Fire-Season.** Prone to wildfires; architecture is highly fire-resistant with ceramic shells and automated misting.
+* **Culture:** Master architects of the modern-desert. High-speed commerce and climate-controlled prosperity.
+* **Urban Hubs:**
     *   **Yokasy:** Subterranean metropolis; architecture uses light-shafts and natural cooling. The world's primary MAGLEV terminal.
     *   **Vorkasy:** High-tech mega-fauna preservation and eco-tourism.
     *   **Pomkasy:** Coastal smart-port; wealthy from synthetic dyes and pearl-biotech.
     *   **Akasy & Bakausy:** Rival tech-cities specializing in atmospheric water generation.
     *   **Saskasy:** Scientific research outpost in the deep dunes.
 
-### 2. Betereko (Continent 3)
+## ☁️ Continent 3: Betereko
 *   **Geography:** Tropical Monolithic Plateau.
 *   **Modern Status:** A global leader in **Aerospace and Quantum Computing**. The plateau serves as the planet's primary spaceport.
 *   **Culture:** Technocratic and highly regimented. They believe their altitude gives them a "superior perspective" on global data.
@@ -101,10 +115,18 @@ A frigid continent carved by ancient glaciation, creating deep fjords and jagged
 
 ---
 
-### 1. The Mirelands (Continent 4)
-*   **Location:** Central-North Hemisphere | **Climate:** Wetland / Taiga / Dark Forest.
-*   **Modern Status:** Leader in **Bio-energy and Environmental Restoration**.
-*   **Culture:** "Cyber-folk" style. Modern tech integrated into the murky, folk-ritual landscape. They use bio-luminescent fiber-optics and fungal server-grids.
+## 🌲 Continent 4: The Mirelands
+* **Location:** Central "Shattered" Landmass
+* **Visual Biome:** **Boreal Forest (Purple)** with **Wetland Margins (Cyan/Green)**
+* **Corrected Climate:** **Cold Taiga / Sub-Arctic Swamp.**
+
+### 1. The Dark-Water States
+* **Geography:** A flooded Boreal forest (Muskeg). A massive, half-frozen swamp where pine trees grow out of the water.
+* **Lore Update:** The "Dark Forest" name is literal. High latitude + dense coniferous canopy means very little light hits the water.
+* **Adaptation:** The **Bio-luminescent fiber-optics** are crucial; dense tree cover and fog make solar navigation impossible. 
+* **Transport:** The "Amphibious Logistics" of **Redez** are designed for ground too soft for wheels but too thick for boats.
+* **Modern Status:** Leader in **Bio-energy and Environmental Restoration**.
+* **Culture:** "Cyber-folk" style. Modern tech integrated into the murky, folk-ritual landscape. They use bio-luminescent fiber-optics and fungal server-grids.
 *   **The Nine States:**
     *   **Niruz:** Agri-tech powerhouse specializing in flood-resistant smart-crops.
     *   **Tailas:** Southern delta region with high-speed hydro-transport.
@@ -120,18 +142,42 @@ A frigid continent carved by ancient glaciation, creating deep fjords and jagged
 *   **Geography:** A massive, dense archipelago located south of The Mirelands, in the strategic center of the global ocean.
 *   **Modern Context:** A highly contested zone for telecommunications and sea-lane monitoring. Home to several independent island-nations and autonomous floating research platforms.
 
-### 3. Antarmund (Continent 5 - Eastern Super-continent)
-*   **Geography:** A massive landmass in the East, spanning from the Arctic to the Southern Temperate zones.
-*   **Modern Status:** Global powerhouse for **Heavy Industry, Finance, and High Physics**.
-*   **Structure:**
-    *   **NorKunta (The Northern Titan):** A massive, technologically advanced state dominating the northern third of the continent. Center of Kaelia’s global aerospace and heavy robotics production.
-    *   **The Southern States (Southern Prosperity Rim):**
-        *   **Guldhorn:** The world's premier digital finance hub.
-        *   **Norgborg:** Naval-militaristic smart city protecting the southern trade gates.
-        *   **Valermond:** The "City of Light"—the global center for alchemical (physics) engineering.
-        *   **Metsemania:** Rainforest nanotechnology and sustainable timber hub.
-        *   **Laendamania & Melynmania:** Sister states specializing in global media and cultural exports.
-        *   **Sigmarignen:** The continent’s historical capital of high-tradition and modern art.
-        *   **Nargkes & Norginde:** Industrial corridor specializing in geothermal heavy machinery.
-        *   **Kasim'Merik & Dirka'Merik:** Maritime powerhouses and autonomous shipping centers.
-        *   **Fyny'Dor & Meit'Val:** Agricultural and luxury resource states of the deep south.
+## 🏛️ Continent 5: Antarmund (The Eastern Super-Continent)
+* **Location:** Eastern Hemisphere
+* **Visual Biome:** **Gradient** from **Tundra (North)** to **Temperate Rainforest (South)**.
+
+### 1. NorKunta (The Northern Titan)
+* **Biome:** **Alpine Tundra (Grey)** & **Boreal Forest (Purple)**.
+* **Geography:** A mirror of Nordica—harsh, frozen, and industrial.
+* **Survival:** Completely dependent on food imports from the South, explaining militaristic protection of trade routes.
+* **Modern Status:** Center of Kaelia’s global aerospace and heavy robotics production.
+
+### 2. The Southern Prosperity Rim
+* **Biome:** **Temperate Deciduous Forest (Green)** & **Temperate Rainforest (Dark Green)**.
+* **Corrected Climate:** **Oceanic Temperate.**
+* *Correction:* This is the most fertile land on the planet. It is not tropical; it is cool, wet, and lush (similar to Western Europe or New Zealand).
+
+*   **Metsemania:**
+    *   **Biome:** **Temperate Rainforest.**
+    *   **Lore Update:** Instead of "Jungle," this is a massive **Old-Growth Redwood/Sequoia** region. The "Nanotechnology" focuses on wood and cellulose manipulation.
+*   **Fyny'Dor:**
+    *   **Biome:** **Temperate Grassland (Green/Yellow mix).**
+    *   **Role:** The "Breadbasket." The only significant flat, green space suitable for large-scale grain farming.
+*   **Valermond (City of Light):**
+    *   **Setting:** Located in the **Deciduous Forest (Light Green)**. Famous for seasonal changes—blazing red/orange in autumn and lush green in summer. The global center for alchemical (physics) engineering.
+*   **Guldhorn:** The world's premier digital finance hub.
+*   **Norgborg:** Naval-militaristic smart city protecting the southern trade gates.
+*   **Laendamania & Melynmania:** Sister states specializing in global media and cultural exports.
+*   **Sigmarignen:** The continent’s historical capital of high-tradition and modern art.
+*   **Nargkes & Norginde:** Industrial corridor specializing in geothermal heavy machinery.
+*   **Kasim'Merik & Dirka'Merik:** Maritime powerhouses and autonomous shipping centers.
+*   **Meit'Val:** Agricultural and luxury resource states of the deep south.
+
+---
+
+## 🔍 Strategic Resource Correction
+Based on the Biome Map, the global economy is driven by **Scarcity**:
+
+1. **Arable Land is Rare:** Only the **Southern Rim of Antarmund** and parts of **Kasy** (Green zones) can grow food efficiently. The entire Northern half of the world (Grey/Purple) is food-dependent.
+2. **Fuel/Timber Dominance:** **Nordica** and **The Mirelands** (Purple zones) control the planet's biomass fuel and paper/pulp supply.
+3. **Solar Monopoly:** **Kasy** (Yellow/Chaparral) has the only high-efficiency solar index (Dry Summers). The cloudy/rainy North and East cannot rely on solar.

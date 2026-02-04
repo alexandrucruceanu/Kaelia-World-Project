@@ -5,22 +5,22 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 ---
 
 ## 🏔️ Continent 1: Nordica
-**Theme:** Neo-Nordic, Solarpunk-meets-Frigid-Tech, glass/wood/stone fusion.
+**Theme:** Neo-Nordic, Frigid-Industrial, Boreal/Taiga fusion.
 
-### 1. Gryning (Skýjakot & Coastal Plains)
-> *Prompt:* Wide cinematic shot of Skýjakot. Architecture features a fusion of sleek glass, sustainable timber, and massive aerodynamically carved smart-wind-turbines integrated into skyscrapers. Glowing blue energy lines run through the streets. Mist-covered mountains in the background. Ultra-realistic, 8k.
+### 1. Gryning (The Wind Coast & Skýjakot)
+> *Prompt:* Wide cinematic shot of Skýjakot, a city built atop the dense canopy of a dark Boreal forest (Taiga). Architecture features a fusion of sleek glass and sustainable timber. Massive aerodynamically carved smart-wind-turbines rise above the ancient pine line into the high-altitude laminar flow. Glowing blue energy lines run through the canopy-level streets. Mist-covered mountains in the background. Ultra-realistic, 8k.
 
-### 2. Oighear (The Tundra)
-> *Prompt:* A sprawling low-profile city on the icy tundra. Buildings resemble traditional nomadic yurts but constructed from curved white composites and interactive solar-glass. High-tech pastoral drones circling above herds of horses. Sunset over the golden-white steppe.
+### 2. Oighear (The Frost-Lands)
+> *Prompt:* A sprawling low-profile city on the icy Alpine Tundra. Buildings resemble traditional nomadic yurts but constructed from curved white composites and interactive solar-glass. High-tech pastoral drones circling above herds of Reindeer and Muskox on the permafrost plain. High-speed rail link elevated on heat-sinking pylons. Sunset over the golden-white steppe.
 
-### 3. Keunmor (Mountain Stronghold)
-> *Prompt:* A vertical megacity carved into a jagged mountain peak. Massive external glass elevators climbing rock faces. Internally lit terraced gardens protected by heat-shields. Steam rising from deep geothermal vents. Industrial but elegant wood-and-steel finish.
+### 3. Keunmor (The Iron Peaks)
+> *Prompt:* A vertical megacity carved into a jagged Glacial mountain peak. Massive external glass elevators climbing rock faces covered in ice. Internally lit terraced gardens protected by thermal-shields. Steam rising from deep geothermal vents, the primary energy source. Industrial but elegant wood-and-steel finish.
 
 ### 4. Brechar (Forest Heart)
-> *Prompt:* Lush, ancient forests integrated with modular timber farmsteads. Automated agricultural drones hovering over bioluminescent crop fields. Smart-grid lines pulsing gently through the canopy. Atmospheric morning mist.
+> *Prompt:* Dark Boreal forests (Taiga) integrated with modular timber farmsteads. Automated agricultural drones specialized for cold-crops hovering over bioluminescent fields. Smart-grid lines pulsing gently through the dense coniferous canopy. Atmospheric morning mist.
 
 ### 5. Kornmor (Temperate Coast)
-> *Prompt:* Mediterranean-style smart city with white stone and hanging gardens, overlooking a high-tech naval trade hub. Sleek white yachts with solar-sails in the harbor. Terraced architecture reflecting the golden hour sun.
+> *Prompt:* Oceanic temperate smart city with white stone and hanging gardens, overlooking a high-tech naval trade hub. Cool, lush greenery and misty hills. Sleek white yachts with solar-sails in the harbor. Terraced architecture reflecting the silver sunlight.
 
 ### 6. Blakkar (The Echo Island)
 > *Prompt:* An eerie, mist-shrouded island in the North Sea. Features a massive, towering automated signal array made of dark, weathered steel. Glowing orange status lights blinking through the fog. Waves crashing against jagged black cliffs.
@@ -28,25 +28,25 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 ---
 
 ## ☀️ Continent 2: The Kasy Federation
-**Theme:** Desert Solarpunk, Subterranean-Modern, Mirrored Glass, Hydro-Elegance.
+**Theme:** Mediterranean / Chaparral Solarpunk, Scrubland-Modern, Fire-Resistant Architecture.
 
 ### 1. Yokasy (The Under-City)
-> *Prompt:* A cross-section of a subterranean desert city. Massive geometric light-wells carved through red sandstone illuminating a multi-level metropolis with indoor waterfalls and vertical palm-forests. MAGLEV trains gliding through glass tubes.
+> *Prompt:* A cross-section of a subterranean metropolis in a rolling Chaparral scrubland. Massive geometric light-wells carved through red sandstone. Surface area dominated by olive and cork agriculture. MAGLEV trains gliding through glass tubes beneath the fire-resistant city shell.
 
 ### 2. Akasy (Solar Spires)
-> *Prompt:* A city of slender, mirrored pillars in the deep desert. Surface reflects the shifting dunes perfectly. Buildings generate power via concentrated solar-thermal intensity. Sharp shadows, high contrast, blue sky.
+> *Prompt:* A city of slender, mirrored pillars in the golden scrubland. Surface reflects the chaparral vegetation and intense summer sun. Buildings feature active-cooling ceramic facades and automated misting systems for the fire season. Sharp shadows, high contrast, sapphire sky.
 
-### 3. Bakausy (Savannah Hub)
-> *Prompt:* Elevated modular city modules standing above a golden savannah. Architecture blends traditional adobe aesthetics with smart-ceramic cooling systems. Sky-lions (aerostat drones) patrolling the thermals.
+### 3. Bakausy (Scrubland Hub)
+> *Prompt:* Elevated modular city modules standing above a Mediterranean savanna. Architecture blends traditional adobe aesthetics with smart-ceramic fire-proofing. Sky-lions (aerostat drones) patrolling the thermals above olive groves.
 
-### 4. Vorkasy (The Oasis)
-> *Prompt:* A high-tech oasis city surrounded by a massive "Solar Sea" of mirrors. Buildings feature active-cooling ceramic facades and turquoise water channels running through the streets. Digital mirages shimmering on the horizon.
+### 4. Vorkasy (The Solar Sea)
+> *Prompt:* A high-tech city surrounded by a massive "Solar Sea" of mirrors harvesting intense UV. The arrays provide shade for chaparral agriculture (vineyards and olives) underneath. Buildings feature white-ceramic outer shells. Digital mirages shimmering on the hot horizon.
 
 ### 5. Pomkasy (Pearl Coast)
-> *Prompt:* A coastal smart-port with architecture inspired by iridescent seashells. Sleek piers extending into a shimmering blue ocean. Biotechnology labs integrated into the coral-reef harbor.
+> *Prompt:* A coastal smart-port with architecture inspired by iridescent seashells. Sleek piers extending into a shimmering Mediterranean blue ocean. Biotechnology labs integrated into the coral-reef harbor. Fire-resistant misting towers along the boardwalk.
 
-### 6. Saskasy (The Deep Dunes)
-> *Prompt:* A remote scientific research outpost in the center of a vast erg. Modular domes half-buried in sand, featuring advanced atmospheric water generators and sand-storm buffers. Starry night sky with the planetary rings visible.
+### 6. Saskasy (The Golden Erg)
+> *Prompt:* A remote scientific research outpost on the edge of the scrubland and deep dunes. Modular domes featuring advanced atmospheric water generators and sand-storm buffers. Starry night sky with the planetary rings visible.
 
 ---
 
@@ -59,34 +59,34 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 ---
 
 ## ⚔️ Continent 4: The Mirelands
-**Theme:** Cyber-Slavic, Bio-luminescent Organic-Tech, Fungal Server-Grids, Wetland Mist.
+**Theme:** Cyber-Slavic, Cold Taiga / Sub-Arctic Swamp (Muskeg), Bio-luminescent Organic-Tech.
 
 ### 1. Niruz (Smart Crops)
-> *Prompt:* Flooded rice-paddies with robotic planters. Modular labs on stilts connected by fiber-optic bridges glowing with soft blue light. Dark forest background.
+> *Prompt:* Half-frozen flooded Boreal floor with robotic planters. Modular labs on stilts connected by fiber-optic bridges glowing with soft blue light. Dark Taiga forest background with dense pine canopy blocking the sunlight.
 
 ### 2. Tailas (Delta Hub)
-> *Prompt:* A water-city built on a swampy delta. Sleek hydro-skiffs navigating narrow canals lined with carved wooden buildings and neon runic signs. Multi-story stilt-architecture.
+> *Prompt:* A water-city built on a sub-arctic swampy delta. Sleek hydro-skiffs navigating narrow canals through half-frozen water, lined with carved wooden buildings and neon runic signs. Multi-story stilt-architecture.
 
 ### 3. Aghaz (Peak Vaults)
-> *Prompt:* Fortress-cities built on jagged marsh-peaks. Architecture features dark stone and internal fiber-optic cooling. Defensive energy shields visible as a faint shimmer. Global data vaults hidden beneath the mist.
+> *Prompt:* Fortress-cities built on jagged marsh-peaks above the muskeg. Architecture features dark stone and internal fiber-optic cooling. Defensive energy shields visible as a faint shimmer. Global data vaults hidden beneath the dense arctic mist.
 
 ### 4. Pateraz (The River State)
-> *Prompt:* A high-density corridor city along a massive black-water river. Industrial barge-trains powered by bio-gas. Massive water-reclamation plants glowing in the twilight.
+> *Prompt:* A high-density corridor city along a massive black-water river through a flooded forest. Industrial barge-trains powered by bio-gas. Massive water-reclamation plants glowing in the permanent sub-arctic twilight.
 
 ### 5. Misyats (The Moon Theocracy)
-> *Prompt:* A high-tech city in dark wetlands. Architecture features giant silver lunar motifs and bio-luminescent fiber-optics running through dark wood and stone buildings. Slavic patterns integrated into digital displays. Silver moonlight.
+> *Prompt:* A high-tech city in dark sub-arctic wetlands. Architecture features giant silver lunar motifs and bio-luminescent fiber-optics running through dark wood and stone buildings. Slavic patterns integrated into digital displays. Silver moonlight over a frozen swamp.
 
 ### 6. Mesek (Biolumin-Labs)
-> *Prompt:* A forest city where the trees themselves are integrated with fiber-optic networks. Buildings are woven from living vines and glass. Fungal clusters acting as bioluminescent streetlamps.
+> *Prompt:* A flooded Boreal forest city where the coniferous trees are integrated with fiber-optic networks. Buildings are woven from living vines and glass. Fungal clusters acting as bioluminescent streetlamps in the perpetual gloom.
 
 ### 7. Menulys (The Carbon Sink)
-> *Prompt:* A sub-arctic bog region featuring massive fans and carbon-sequestration towers. Industrial but green, with moss-covered machinery and solar-heating networks.
+> *Prompt:* A sub-arctic bog region featuring massive fans and carbon-sequestration towers. Industrial but green, with moss-covered machinery and solar-heating networks for permafrost stabilization.
 
 ### 8. Redez (Amphibious Logistics)
-> *Prompt:* A city on the edge of the world-ocean that transitions from land to water. Buildings are built on massive pontoons. Amphibious trucks moving between floating warehouses.
+> *Prompt:* A city on the edge of the world-ocean built for Muskeg terrain. Buildings are built on massive pontoons. Amphibious trucks with oversized tracks moving between floating warehouses over ground too soft for wheels.
 
 ### 9. Nechars (The Frost Pillar)
-> *Prompt:* The northernmost frontier. A high-tech outpost built on permafrost. Architecture features heavy insulation, triple-pane glass, and massive heating-vents discharging steam into the frozen air. Permafrost seed vaults in the background.
+> *Prompt:* The northernmost frontier. A high-tech outpost built on deep permafrost. Architecture features heavy insulation and heat-sinking pylons. Permafrost seed vaults and digital archival archives deep underground. Steam discharging into the frozen air.
 
 ---
 
@@ -98,34 +98,34 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 ---
 
 ## 🏰 Continent 5: Antarmund (Eastern Super-continent)
-**Theme:** Neo-Traditionalist, Cathedral-Skyscrapers, Alchemical Engineering, Heavy Industry.
+**Theme:** Neo-Traditionalist, Oceanic Temperate, Alchemical Engineering, North-South Gradient.
 
 ### 1. NorKunta (Northern Aerospace)
-> *Prompt:* Massive industrial complex in the frozen north. Gigantic aerospace assembly plants lit by amber floodlights. Heavy robotics moving between monolithic steel structures. Snow falling, steam rising from geothermal vents.
+> *Prompt:* Massive industrial complex in the frozen north. Mirroring Nordica's taiga environment. Gigantic aerospace assembly plants lit by amber floodlights. Heavy robotics moving between monolithic steel structures. Snow falling on Boreal trees.
 
 ### 2. Guldhorn (Finance Hub)
-> *Prompt:* Gold-glass skyscrapers that resemble giant gothic cathedrals. Precision-engineered bridges with digital heraldic flags. Temperate rainforest bordering the financial core. Ultra-luxurious.
+> *Prompt:* Gold-glass skyscrapers that resemble giant gothic cathedrals. Precision-engineered bridges with digital heraldic flags. Dense temperate rainforest bordering the financial core. Ultra-luxurious.
 
 ### 3. Norgborg (The Shield)
-> *Prompt:* A militaristic coastal smart-city. Massive automated naval batteries and sleek patrol warships in the harbor. Architecture is angular and gray, featuring graphene-reinforced walls.
+> *Prompt:* A militaristic coastal smart-city in the Southern Rim. Massive automated naval batteries and sleek patrol warships in the harbor. Architecture is angular and gray, featuring graphene-reinforced walls. Cool, misty temperate climate.
 
-### 4. Valermond (The Light Labs)
-> *Prompt:* Coastal city dedicated to high physics. Sleek glass spires pulsing with clean white light. Particle accelerator rings integrated into the harbor architecture. Sunset lighting, hyper-realistic.
+### 4. Valermond (City of Light)
+> *Prompt:* Coastal city dedicated to high physics, located in a deciduous forest. Sleek glass spires pulsing with clean white light. Famous for seasonal changes—blazing red/orange autumn leaves around the physics labs. Sunset lighting.
 
 ### 5. Metsemania (Nanotech Timber)
-> *Prompt:* A city built within a temperate rainforest. Buildings use "living structures" of nanotechnology-enhanced wood. Gleaming laboratory towers merging with giant trees.
+> *Prompt:* A city built within a temperate rainforest. Architecture merges with massive Old-Growth Redwood and Sequoia trees. Buildings use nanotechnology-enhanced cellulose structures. GLEAMING laboratory towers merging with giant ancient bark.
 
 ### 6. Laendamania (Global Media)
-> *Prompt:* A hyper-vibrant neon city. Massive holographic displays broadcasting across vertical urban canyons. Glass towers with digital "skins" that change color based on global sentiment.
+> *Prompt:* A hyper-vibrant neon city in the Temperate Rim. Massive holographic displays broadcasting across vertical urban canyons. Glass towers with digital "skins". Lush green hills in the distance.
 
 ### 7. Melynmania (Traditional-Digital Arts)
-> *Prompt:* A picturesque riverside city blending classical stone architecture with advanced holographic projection mapping. Artisans using digital chisels on stone.
+> *Prompt:* A picturesque riverside city in the southern temperate zone. Blending classical stone architecture with advanced holographic projection mapping. Artisans using digital chisels on stone.
 
 ### 8. Sigmarignen (The Eternal Capital)
-> *Prompt:* An ancient alpine city retrofitted with holographic art installations and high-tech transit-canopies over cobblestone streets. Traditional alpine chalets with solar-panel roofs.
+> *Prompt:* An ancient city retrofitted with holographic art installations. Traditional architecture with solar-panel roofs. Surrounded by rolling temperate forests and historical monuments.
 
 ### 9. Nargkes (High-Pressure Industry)
-> *Prompt:* Heavy industrial city focused on deep-sea and geothermal engineering. Massive steam-rams and glowing red piping running between soot-stained but modern towers.
+> *Prompt:* Heavy industrial city focused on deep-sea and geothermal engineering. Massive steam-rams and glowing red piping running between modern industrial towers.
 
 ### 10. Norginde (Precision Tools)
 > *Prompt:* A clean, clinical city focused on micro-engineering. Buildings look like polished internal components of a watch. Minimalist white-and-silver aesthetic.
@@ -136,8 +136,8 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 ### 12. Dirka'Merik (Logistics Core)
 > *Prompt:* A city of automated warehouses and high-speed freight rails. Modular architecture that can be rearranged by massive rail-mounted cranes.
 
-### 13. Fyny'Dor (The Bloom State)
-> *Prompt:* A vast agricultural paradise using vertical hydro-farming towers. Architecture is flowery and organic, featuring glass domes housing exotic flora.
+### 13. Fyny'Dor (The Breadbasket)
+> *Prompt:* A vast agricultural paradise in the temperate grasslands. The only significant flat, green space for large-scale grain farming. Vertical hydro-farming towers and massive automated harvesters.
 
 ### 14. Meit'Val (The Southern Retreat)
-> *Prompt:* A luxury coastal resort state. Architecture features floating glass villas and sub-aquatic hotels. Golden beaches and purple sunsets.
+> *Prompt:* A luxury coastal resort state in the deep temperate south. Architecture features floating glass villas and sub-aquatic hotels. Golden beaches and purple sunsets.

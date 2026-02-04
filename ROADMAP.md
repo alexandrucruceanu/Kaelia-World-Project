@@ -12,6 +12,7 @@
 - [x] **Wiki Expansion:** Full entries for all 37 states and regions in `WORLD_CODEX.md`.
 - [x] **Visual Prompting:** High-fidelity AI prompt library for every geopolitical entity.
 - [x] **Asset Framework:** 1:1 directory structure for all regional visuals.
+- [x] **Biome-Correction Audit:** Unified all geography and climate data with Whittaker Classification (v2.1).
 - [x] **Licensing:** Secured under CC BY-NC-SA 4.0.
 
 ## 🟡 Phase 3: Visual & Interactive Expansion (Current Focus)
