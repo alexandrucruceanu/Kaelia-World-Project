@@ -9,7 +9,7 @@
 This is a realistic fictional world recovered from a 2014 archive. It combines 3D modelled geography (Cinema4D/Fractal Terrains) with simulated climate data. We are NO LONGER building a solar system; the focus is exclusively on this single planet.
 
 **Key Data Sources:**
-1.  **Map:** `Names & Frontiers.jpg` serves as the visual truth for political boundaries.
+1.  **Map:** The **Interactive Map Viewer** (`03_Applications/Map_Viewer`) is the primary tool for exploring political boundaries, coordinates, and regional data.
 2.  **Lore:** The `WIKI.md` contains the canonical cultural and geographical descriptions.
 3.  **Climate:** We have hard data (mp4 videos) for Temperature, Rainfall, and Altitude that should guide biome descriptions.
 

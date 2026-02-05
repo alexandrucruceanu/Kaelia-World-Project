@@ -6,6 +6,7 @@
 .gemini/
 .agent/
 brain/
+node_modules/
 
 # Temporary/Cache
 *.log

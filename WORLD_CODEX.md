@@ -107,11 +107,13 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
     *   **Akasy & Bakausy:** Rival tech-cities specializing in atmospheric water generation.
     *   **Saskasy:** Scientific research outpost in the deep dunes.
 
-## ☁️ Continent 3: Betereko
-*   **Geography:** Tropical Monolithic Plateau.
-*   **Modern Status:** A global leader in **Aerospace and Quantum Computing**. The plateau serves as the planet's primary spaceport.
-*   **Culture:** Technocratic and highly regimented. They believe their altitude gives them a "superior perspective" on global data.
-*   **Metropolis:** **Apex** - A city of towers climbing toward the heavens from the plateau's center. High-speed sky-rails connect the various districts.
+## ❄️ Continent 3: Betereko
+*   **Geography:** Sub-Polar Monolithic Plateau.
+*   **Location:** High Southern Latitudes (Proximal to the South Pole).
+*   **Visual Biome:** **Alpine Tundra** & **Ice Caps**.
+*   **Modern Status:** A global leader in **Aerospace and Quantum Computing**. The plateau's high latitude and stable, cold atmospheric conditions make it the planet's primary spaceport for high-inclination orbits.
+*   **Culture:** Technocratic and highly regimented. They believe their isolation and extreme environment give them a "superior perspective" on global data.
+*   **Metropolis:** **Apex** - Perched on the precipice of the eastern cliffs, Apex represents the cleaner air-boundary of the sub-polar south. It is the planet's premier center for long-range telecommunications, data storage, and global meteorology. The city is characterized by dignified stone and glass architecture, hosting international research institutes and massive radio-dish arrays that overlook the "Endless Drop" into the ocean.
 
 ---
 
@@ -150,7 +152,7 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
 * **Biome:** **Alpine Tundra (Grey)** & **Boreal Forest (Purple)**.
 * **Geography:** A mirror of Nordica—harsh, frozen, and industrial.
 * **Survival:** Completely dependent on food imports from the South, explaining militaristic protection of trade routes.
-* **Modern Status:** Center of Kaelia’s global aerospace and heavy robotics production.
+* **Modern Status:** Center of Kaelia’s global aerospace and heavy robotics production. Its heart is **NorKunta Prime**, an industrial powerhouse that bridges a glacial valley and a deep-water harbor. The city is a forest of foundries and automotive plants, fueled by northern minerals and connected to the world via massive ice-breaker shipping lanes.
 
 ### 2. The Southern Prosperity Rim
 * **Biome:** **Temperate Deciduous Forest (Green)** & **Temperate Rainforest (Dark Green)**.

@@ -7,28 +7,85 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
-        body { margin: 0; padding: 0; background-color: #1a1a1a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { margin: 0; padding: 0; background-color: #1a1a1a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
         #map { height: 100vh; width: 100vw; background-color: #0b0b0b; }
         .info-panel {
             position: absolute;
             bottom: 20px;
             left: 20px;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             color: #fff;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 12px;
             max-width: 300px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         h1 { margin: 0 0 10px 0; font-size: 1.2rem; color: #4facfe; }
-        p { margin: 0; font-size: 0.9rem; color: #ccc; }
+        p { margin: 0 0 10px 0; font-size: 0.9rem; color: #ccc; }
+        
+        /* Panels */
+        .add-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            width: 320px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            display: none;
+            transition: all 0.3s ease;
+        }
+        .add-panel.active { display: block; }
+        .add-panel input, .add-panel select, .add-panel textarea {
+            width: 100%; padding: 8px; margin-bottom: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
+            color: white; border-radius: 4px; box-sizing: border-box;
+        }
+        .add-panel select option {
+            background: #1a1a1a;
+            color: white;
+        }
+        .add-panel label { display: block; margin-bottom: 5px; font-size: 0.8rem; color: #aaa; }
+        
+        .btn {
+            background: #4facfe; color: white; border: none; padding: 10px;
+            border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%;
+            transition: opacity 0.2s; margin-bottom: 5px;
+        }
+        .btn:hover { opacity: 0.8; }
+        
+        .controls-top {
+            position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1001;
+            display: flex; gap: 10px;
+        }
+        .btn-toggle { width: auto; padding: 10px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .btn-move-active { background: #f39c12; }
+        .btn-reset { background: #34495e; }
+        
+        /* Custom Marker pulse */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        .draggable-marker {
+            animation: pulse 1.5s infinite ease-in-out;
+            cursor: move !important;
+        }
+
         .leaflet-control-layers {
-            background: rgba(0, 0, 0, 0.8) !important;
+            background: rgba(0, 0, 0, 0.85) !important;
             color: white !important;
             border: 1px solid #444 !important;
-            border-radius: 8px !important;
+            border-radius: 12px !important;
+            padding: 10px !important;
         }
     </style>
 </head>
@@ -36,147 +93,349 @@
 
 <div id="map"></div>
 
+<div class="controls-top">
+    <button class="btn btn-toggle btn-reset" id="resetZoom">🏠 Reset View</button>
+    <button class="btn btn-toggle" id="toggleAddMode">➕ Add City</button>
+    <button class="btn btn-toggle" id="toggleMoveMode">🖐️ Move Mode</button>
+</div>
+
+<div class="add-panel" id="addPanel">
+    <h1>📍 Add New Location</h1>
+    <p>Click on the map to capture coordinates.</p>
+    <label>Name</label><input type="text" id="cityName">
+    <label>Type</label>
+    <select id="cityType">
+        <option value="metropolis">Metropolis</option>
+        <option value="settlement">Settlement</option>
+        <option value="village">Village</option>
+        <option value="special">Special Site</option>
+    </select>
+    <label>Continent</label><select id="continentSelect"></select>
+    <label>Country</label><select id="countrySelect"></select>
+    <label>Coordinates (Y, X)</label><input type="text" id="cityCoords" readonly>
+    <label>Biome / Description</label><textarea id="cityDesc" rows="2"></textarea>
+    <button class="btn" id="saveCity">Save to Database</button>
+</div>
+
 <div class="info-panel">
-    <h1>🌍 Kaelia Explorer (v2.1)</h1>
-    <p>Viewing the biome-corrected world map. Toggle <b>Regional Data</b> to explore key continental hubs and climate zones.</p>
+    <h1>🌍 Kaelia Explorer (v3.5)</h1>
+    <p><b>Move Mode</b> enabled. Drag markers to reposition them instantly.</p>
 </div>
 
 <script>
-    // Configuration
-    // The original images are likely 2:1 ratio (Equirectangular)
-    // We define a coordinate system that maps the image size to map coordinates.
-    // Let's assume a simplified bounds of [[0,0], [1000, 2000]] for easy math.
-    
     var map = L.map('map', {
-        crs: L.CRS.Simple,
-        minZoom: -2,
-        maxZoom: 2,
-        zoomSnap: 0.5,
-        zoomDelta: 0.5
+        crs: L.CRS.Simple, minZoom: -2, maxZoom: 2, zoomSnap: 0.5, zoomDelta: 0.5
     });
 
-    var bounds = [[0,0], [1000,2000]]; // Y, X
-
-    // Layers
+    var bounds = [[0,0], [1000,2000]];
     var satLayer = L.imageOverlay('img/satellite.jpg', bounds);
     var polLayer = L.imageOverlay('img/political.jpg', bounds);
     var altLayer = L.imageOverlay('img/altitude.jpg', bounds);
 
-    // Regional Markers Layer
-    var markerLayer = L.layerGroup();
+    var categoryConfig = {
+        metropolis: { radius: 10, weight: 3, opacity: 1, fillOpacity: 0.9, label: "🏙️ Metropolis" },
+        settlement: { radius: 7, weight: 2, opacity: 1, fillOpacity: 0.7, label: "🏡 Settlement" },
+        village: { radius: 5, weight: 1, opacity: 0.8, fillOpacity: 0.6, label: "🏕️ Village" },
+        special: { radius: 8, weight: 2, opacity: 1, fillOpacity: 0.8, label: "🔬 Research / Special" }
+    };
 
-    var regions = [
-        {
-            name: "Skýjakot (Gryning)",
-            coords: [750, 400],
-            biome: "Boreal Forest (Purple)",
-            desc: "The 'Cloud House' built atop the Taiga canopy. Powered by the Global Wind-Grid.",
-            color: "#8e44ad"
-        },
-        {
-            name: "Oighear (The Frost-Lands)",
-            coords: [850, 500],
-            biome: "Alpine Tundra (Grey)",
-            desc: "Massive permafrost plains. Home to the horse-lords and their Reindeer/Muskox herds.",
-            color: "#7f8c8d"
-        },
-        {
-            name: "Ardmore (Keunmor)",
-            coords: [700, 250],
-            biome: "Alpine/Glacial (White)",
-            desc: "Vertical mountain city powered by deep-core geothermal grit.",
-            color: "#ecf0f1"
-        },
-        {
-            name: "Yokasy (Kasy Federation)",
-            coords: [400, 300],
-            biome: "Chaparral (Olive)",
-            desc: "Subterranean metropolis harvesting solar UV over Mediterranean scrubland.",
-            color: "#556b2f"
-        },
-        {
-            name: "Redez (The Mirelands)",
-            coords: [600, 1000],
-            biome: "Cold Taiga/Swamp (Purple/Cyan)",
-            desc: "Industrial wetland rim specializing in amphibious logistics on Muskeg terrain.",
-            color: "#2c3e50"
-        },
-        {
-            name: "Apex (Betereko Plateau)",
-            coords: [500, 800],
-            biome: "Tropical Plateau",
-            desc: "Global leader in Aerospace and Quantum Computing. Primary Spaceport.",
-            color: "#d35400"
-        },
-        {
-            name: "NorKunta (Antarmund North)",
-            coords: [750, 1600],
-            biome: "Arctic Tundra/Taiga",
-            desc: "Northern industrial powerhouse exporting heavy robotics and aerospace tech.",
-            color: "#34495e"
-        },
-        {
-            name: "Valermond (City of Light)",
-            coords: [420, 1750],
-            biome: "Deciduous Forest",
-            desc: "Center for physics engineering, famous for its vivid seasonal foliage.",
-            color: "#27ae60"
-        },
-        {
-            name: "Metsemania (Antarmund South)",
-            coords: [320, 1550],
-            biome: "Temperate Rainforest",
-            desc: "Old-growth Redwood/Sequoia forests utilizing cellulose nanotechnology.",
-            color: "#1b4f72"
-        },
-        {
-            name: "Fyny'Dor (The Breadbasket)",
-            coords: [250, 1650],
-            biome: "Temperate Grassland",
-            desc: "The primary agricultural engine of the Eastern Super-Continent.",
-            color: "#f1c40f"
+    var layers = {
+        metropolis: L.layerGroup(), settlement: L.layerGroup(), village: L.layerGroup(), special: L.layerGroup()
+    };
+
+    var worldData = {};
+    var editingCityId = null;
+    var moveMode = false;
+    var addMode = false;
+
+    function loadMarkers() {
+        Object.values(layers).forEach(layer => layer.clearLayers());
+
+        fetch('/api/world')
+            .then(res => res.json())
+            .then(data => {
+                worldData = data;
+                populateHierarchy();
+                
+                data.continents.forEach(continent => {
+                    continent.countries.forEach(country => {
+                        country.cities.forEach(city => {
+                            createMarker(city, continent.name, country.name);
+                        });
+                    });
+                });
+            });
+    }
+
+    function createMarker(city, continentName, countryName) {
+        var config = categoryConfig[city.type];
+        var popupContent = `
+            <b>${city.name}</b> [${config.label}]<br>
+            <i>${city.biome || countryName}</i><br><br>
+            ${city.desc}<br><br>
+            <button class="btn" style="padding: 5px; font-size: 0.8rem;" onclick="openEditForm('${city.id}', '${continentName}', '${countryName}')">✏️ Edit</button>
+        `;
+
+        // We use regular Marker for draggability, but style it to look like a circle
+        var markerIcon = L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div style="background-color: ${city.color || '#3498db'}; width: ${config.radius * 2}px; height: ${config.radius * 2}px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 5px rgba(0,0,0,0.5);" class="${moveMode ? 'draggable-marker' : ''}"></div>`,
+            iconSize: [config.radius * 2, config.radius * 2],
+            iconAnchor: [config.radius, config.radius]
+        });
+
+        var marker = L.marker(city.coords, {
+            icon: markerIcon,
+            draggable: moveMode,
+            id: city.id
+        });
+
+        marker.bindPopup(popupContent);
+        
+        marker.on('dragend', function(e) {
+            var newCoords = [parseFloat(e.target.getLatLng().lat.toFixed(1)), parseFloat(e.target.getLatLng().lng.toFixed(1))];
+            city.coords = newCoords;
+            updateCityOnServer(continentName, countryName, city);
+        });
+
+        marker.addTo(layers[city.type]);
+    }
+
+    function updateCityOnServer(continentName, countryName, city) {
+        fetch('/api/cities', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ continentName, countryName, city })
+        }).then(res => {
+            if (res.ok) {
+                console.log(`Repositioned ${city.name} to ${city.coords}`);
+            }
+        });
+    }
+
+    window.openEditForm = function(cityId, continentName, countryName) {
+        var continent = worldData.continents.find(c => c.name === continentName);
+        var country = continent.countries.find(c => c.name === countryName);
+        var city = country.cities.find(c => c.id === cityId);
+        
+        editingCityId = cityId;
+        addMode = true;
+        moveMode = false;
+        updateMoveModeUI();
+
+        document.getElementById('cityName').value = city.name;
+        document.getElementById('cityType').value = city.type;
+        document.getElementById('continentSelect').value = continentName;
+        document.getElementById('continentSelect').onchange();
+        document.getElementById('countrySelect').value = countryName;
+        document.getElementById('cityCoords').value = city.coords.join(', ');
+        document.getElementById('cityDesc').value = city.desc;
+        currentCoords = city.coords;
+
+        document.getElementById('addPanel').classList.add('active');
+        document.getElementById('toggleAddMode').innerText = "❌ Cancel Editing";
+        document.querySelector('#addPanel h1').innerText = "✏️ Edit Location";
+    };
+
+    function populateHierarchy() {
+        var contSelect = document.getElementById('continentSelect');
+        var countSelect = document.getElementById('countrySelect');
+        contSelect.innerHTML = '';
+        worldData.continents.forEach(c => {
+            var opt = document.createElement('option');
+            opt.value = c.name; opt.innerText = c.name;
+            contSelect.appendChild(opt);
+        });
+
+        const updateCountries = () => {
+            countSelect.innerHTML = '';
+            var continent = worldData.continents.find(c => c.name === contSelect.value);
+            if (continent) {
+                continent.countries.forEach(ct => {
+                    var opt = document.createElement('option');
+                    opt.value = ct.name; opt.innerText = ct.name;
+                    countSelect.appendChild(opt);
+                });
+            }
+        };
+        contSelect.onchange = updateCountries;
+        updateCountries();
+    }
+
+    // Grid Layer
+    var gridLayer = L.layerGroup();
+    function drawGrid() {
+        gridLayer.clearLayers();
+        var step = 100;
+        var gridStyle = { color: 'rgba(255,255,255,0.15)', weight: 1, interactive: false };
+        
+        // Lat lines (Horizontal)
+        for (var y = 0; y <= 1000; y += step) {
+            L.polyline([[y, 0], [y, 2000]], gridStyle).addTo(gridLayer);
         }
-    ];
+        // Lng lines (Vertical)
+        for (var x = 0; x <= 2000; x += step) {
+            L.polyline([[0, x], [1000, x]], gridStyle).addTo(gridLayer);
+        }
+    }
+    drawGrid();
 
-    regions.forEach(function(region) {
-        L.circleMarker(region.coords, {
-            radius: 8,
-            fillColor: region.color,
-            color: "#fff",
-            weight: 2,
-            opacity: 1,
-            fillOpacity: 0.8
-        }).bindPopup("<b>" + region.name + "</b><br><i>" + region.biome + "</i><br><br>" + region.desc)
-          .addTo(markerLayer);
-    });
+    // Frontiers Overlay (Refined T15 - Solid Gold)
+    var frontiersOverlay = L.imageOverlay('data/frontiers_refined_t15_d1.png', bounds, { opacity: 1.0, interactive: false });
 
-    // Add default layers
-    polLayer.addTo(map);
-    markerLayer.addTo(map);
+    // Composite Political Layer (Satellite + Frontiers)
+    var politicalComposite = L.layerGroup([satLayer, frontiersOverlay]);
 
-    // Fit map to bounds initially
+    politicalComposite.addTo(map); // Default View: Satellite + Frontiers
+    Object.values(layers).forEach(l => l.addTo(map));
+    gridLayer.addTo(map);
     map.fitBounds(bounds);
     map.setZoom(-0.5);
+    loadMarkers();
 
-    // Layer Controls
-    var baseMaps = {
-        "🗺️ Political": polLayer,
-        "🛰️ Satellite": satLayer,
-        "🏔️ Altitude Data": altLayer
+    L.control.layers({
+        "🗺️ Political": politicalComposite, "🛰️ Satellite": satLayer, "🏔️ Altitude Data": altLayer
+    }, {
+        "🏙️ Metropolises": layers.metropolis, "🏡 Settlements": layers.settlement,
+        "🏕️ Villages": layers.village, "🔬 Research/Special": layers.special,
+        "🌐 Coordinate Grid": gridLayer,
+        "🚩 Frontiers & Names": frontiersOverlay
+    }, { collapsed: false }).addTo(map);
+
+    var currentCoords = null;
+    document.getElementById('resetZoom').onclick = function() {
+        map.fitBounds(bounds);
+        map.setZoom(-0.5);
     };
 
-    var overlayMaps = {
-        "🏷️ Regional Data": markerLayer
+    document.getElementById('toggleAddMode').onclick = function() {
+        if (addMode) {
+            addMode = false; editingCityId = null;
+            this.innerText = "➕ Add City";
+            document.getElementById('addPanel').classList.remove('active');
+            document.querySelector('#addPanel h1').innerText = "📍 Add New Location";
+            document.body.style.cursor = 'default';
+        } else {
+            addMode = true; moveMode = false; updateMoveModeUI();
+            this.innerText = "❌ Cancel Adding";
+            document.getElementById('addPanel').classList.add('active');
+            document.body.style.cursor = 'crosshair';
+        }
     };
 
-    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
+    document.getElementById('toggleMoveMode').onclick = function() {
+        moveMode = !moveMode;
+        if (moveMode) { addMode = false; document.getElementById('addPanel').classList.remove('active'); document.getElementById('toggleAddMode').innerText = "➕ Add City"; }
+        updateMoveModeUI();
+        loadMarkers(); // Re-render markers with dragging enabled/disabled
+    };
 
-    // Simple coordinate info for debugging/lore
-    map.on('click', function(e) {
-        console.log("Map Clicked at:", e.latlng.lat.toFixed(1), e.latlng.lng.toFixed(1));
+    function updateMoveModeUI() {
+        var btn = document.getElementById('toggleMoveMode');
+        btn.classList.toggle('btn-move-active', moveMode);
+        btn.innerText = moveMode ? "✅ Disable Move" : "🖐️ Move Mode";
+        document.body.style.cursor = moveMode ? 'all-scroll' : 'default';
+    }
+
+    // --- Scale Control (Custom for CRS.Simple) ---
+    L.Control.ScaleCustom = L.Control.extend({
+        onAdd: function(map) {
+            var el = L.DomUtil.create('div', 'leaflet-control-scale custom-scale');
+            el.style.backgroundColor = 'rgba(255,255,255,0.7)';
+            el.style.padding = '5px 10px';
+            el.style.border = '2px solid #777';
+            el.style.borderTop = 'none';
+            el.style.lineHeight = '1.1';
+            el.style.fontSize = '11px';
+            el.style.fontWeight = 'bold';
+            el.style.color = '#333';
+            el.style.boxShadow = '0 1px 5px rgba(0,0,0,0.4)';
+            el.style.whiteSpace = 'nowrap';
+            el.style.transition = 'width 0.2s';
+            el.innerHTML = '<div class="scale-label" style="text-align:center;"></div>';
+            return el;
+        },
+        onRemove: function(map) {}
     });
 
-</script>
+    var scaleControl = new L.Control.ScaleCustom({ position: 'bottomright' });
+    scaleControl.addTo(map);
 
+    function updateScale() {
+        var el = document.querySelector('.custom-scale');
+        if (!el) return;
+
+        // Logic: 
+        // 1. world width = 2000 units
+        // 2. real width = 40,000 km (Earth circumference)
+        // 3. 1 unit = 20 km
+        
+        // Calculate map width in pixels at current zoom
+        var p1 = map.project([0,0], map.getZoom());
+        var p2 = map.project([0,100], map.getZoom()); // 100 units horizontal
+        var pxPer100Units = p2.x - p1.x;
+        
+        var kmPer100Units = 100 * 20; // 2000 km
+        var pxPerKm = pxPer100Units / kmPer100Units;
+
+        // Find a nice round distance (e.g. 100km, 500km, 1000km) that fits in ~100-200px
+        var targetPx = 150;
+        var maxKm = targetPx / pxPerKm;
+        
+        var rounding = [10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10];
+        var finalKm = 10;
+        for (var i = 0; i < rounding.length; i++) {
+            if (maxKm >= rounding[i]) {
+                finalKm = rounding[i];
+                break;
+            }
+        }
+
+        var finalPx = finalKm * pxPerKm;
+        
+        el.style.width = finalPx + 'px';
+        el.querySelector('.scale-label').innerText = finalKm + " km";
+    }
+
+    map.on('zoomend moveend', updateScale);
+    // Initial call
+    setTimeout(updateScale, 500); 
+
+    map.on('click', function(e) {
+        if (!addMode) return;
+        currentCoords = [parseFloat(e.latlng.lat.toFixed(1)), parseFloat(e.latlng.lng.toFixed(1))];
+        document.getElementById('cityCoords').value = currentCoords.join(', ');
+    });
+
+    document.getElementById('saveCity').onclick = function() {
+        var name = document.getElementById('cityName').value;
+        var type = document.getElementById('cityType').value;
+        var continentName = document.getElementById('continentSelect').value;
+        var countryName = document.getElementById('countrySelect').value;
+        var desc = document.getElementById('cityDesc').value;
+
+        if (!name || !currentCoords) return alert("Please provide a name and click the map for coordinates.");
+
+        var city = {
+            id: editingCityId, name: name, type: type, coords: currentCoords, desc: desc, color: "#3498db"
+        };
+
+        var method = editingCityId ? 'PUT' : 'POST';
+        fetch('/api/cities', {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ continentName, countryName, city })
+        }).then(res => {
+            if (res.ok) {
+                alert(editingCityId ? "City updated!" : "City saved!");
+                editingCityId = null; addMode = false;
+                document.getElementById('addPanel').classList.remove('active');
+                document.getElementById('toggleAddMode').innerText = "➕ Add City";
+                document.body.style.cursor = 'default';
+                loadMarkers();
+            }
+        });
+    };
+</script>
 </body>
 </html>

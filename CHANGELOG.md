@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.0] - 2026-02-05
+### 🗺️ Map Viewer Enhanced
+*   **Frontier Extraction:** Implemented advanced "Image Difference" algorithm to extract country borders and names from the original map.
+*   **Solid-Gold Refinement:** Replaced extracted pixel colors with synthesized "Solid Gold" (RGB 0, 215, 255) to eliminate blue compression artifacts and ensure perfect vector-like clarity.
+*   **Coordinate Grid:** Can now toggle a 100x100 global coordinate grid overlay.
+*   **Scale Control:** Added dynamic Google-Maps style scale bar (calibrated to Earth-Scale 40,000km).
+*   **UI Polish:** Simplified layer menu and established a "Composite" Political view (Satellite + Gold Frontiers) as the default.
+
 ## [2.3.0] - 2026-02-04
 ### 🌍 Unified Biome-Corrected Edition
 *   **Climatology:** Synchronized all continental data with Global Biome Scans (Whittaker Classification).

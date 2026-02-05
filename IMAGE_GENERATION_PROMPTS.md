@@ -53,8 +53,8 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 ## ⛰️ Continent 3: Betereko
 **Theme:** Technocratic Aerospace, High-Altitude Brutalism, Quantum Grids.
 
-### 1. Apex (The Plateau City)
-> *Prompt:* A massive city of brutalist towers on a tropical monolithic plateau. Buildings are connected by high-speed kinetic sky-rails. A massive heavy-lift rocket ascending into the clouds in the background. Glowing quantum-data lines crisscrossing the skyline. High-altitude atmosphere.
+### 1. Apex (The High-Altitude Observatory)
+> *Prompt:* Wide cinematic shot of Apex, a city of dignified stone and glass architecture perched on the precipice of a massive sub-polar monolithic plateau. The skyline is dominated by massive modern radio-dish arrays and sleek telecommunications towers overlooking a sheer cliff edge. Clear, thin high-altitude atmosphere with a deep blue sky. Soft sunlight reflecting off glass facades. The "Endless Drop" cliff face falling away into a misty ocean below. Contemporary Information Age aesthetic.
 
 ---
 
@@ -100,8 +100,8 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 ## 🏰 Continent 5: Antarmund (Eastern Super-continent)
 **Theme:** Neo-Traditionalist, Oceanic Temperate, Alchemical Engineering, North-South Gradient.
 
-### 1. NorKunta (Northern Aerospace)
-> *Prompt:* Massive industrial complex in the frozen north. Mirroring Nordica's taiga environment. Gigantic aerospace assembly plants lit by amber floodlights. Heavy robotics moving between monolithic steel structures. Snow falling on Boreal trees.
+### 1. NorKunta (Northern Industrial Powerhouse)
+> *Prompt:* Epic wide shot of NorKunta Prime, a massive industrial metropolis spanning a glacial valley that opens into a deep-water harbor. The skyline is dominated by colossal steel foundries and automotive assembly plants lit by the amber glow of molten metal. Huge ice-breaker ships are docked at industrial piers equipped with heavy-lift gantry cranes. Smoke and steam rising into the cold arctic air against a backdrop of snow-covered jagged peaks. Snow falling gently. Gritty but highly advanced Information Age aesthetic. 8k, hyper-detailed.
 
 ### 2. Guldhorn (Finance Hub)
 > *Prompt:* Gold-glass skyscrapers that resemble giant gothic cathedrals. Precision-engineered bridges with digital heraldic flags. Dense temperate rainforest bordering the financial core. Ultra-luxurious.

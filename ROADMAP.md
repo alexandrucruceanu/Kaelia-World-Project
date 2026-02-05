@@ -16,7 +16,8 @@
 - [x] **Licensing:** Secured under CC BY-NC-SA 4.0.
 
 ## 🟡 Phase 3: Visual & Interactive Expansion (Current Focus)
-- [/] **Modern Map Viewer:** Expand Leaflet implementation with regional markers.
+- [x] **Modern Map Viewer:** Expanded Leaflet implementation with regional markers and overlay controls.
+- [x] **Frontier Extraction:** Successfully extracted and refined transparent overlays for political boundaries.
 - [ ] **Image Generation:** Begin populating `02_Visual_Assets` with AI-generated captures.
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.

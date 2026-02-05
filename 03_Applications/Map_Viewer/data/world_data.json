@@ -1,0 +1,446 @@
+{
+  "continents": [
+    {
+      "name": "Nordica",
+      "countries": [
+        {
+          "name": "Gryning",
+          "cities": [
+            {
+              "id": "city_1",
+              "name": "Skýjakot",
+              "type": "metropolis",
+              "coords": [
+                750,
+                400
+              ],
+              "biome": "Boreal Forest",
+              "desc": "The 'Cloud House' built atop the Taiga canopy.",
+              "color": "#8e44ad"
+            },
+            {
+              "id": "city_2",
+              "name": "Hafnir",
+              "type": "settlement",
+              "coords": [
+                730,
+                350
+              ],
+              "biome": "Boreal Forest",
+              "desc": "High-tech automated port city.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_3",
+              "name": "Bjarnarfjörður",
+              "type": "settlement",
+              "coords": [
+                780,
+                420
+              ],
+              "biome": "Research Station",
+              "desc": "Mountain resort and research station.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_4",
+              "name": "Árbær",
+              "type": "village",
+              "coords": [
+                740,
+                450
+              ],
+              "biome": "Boreal Forest",
+              "desc": "Rural smart-village.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_5",
+              "name": "Vík",
+              "type": "settlement",
+              "coords": [
+                720,
+                320
+              ],
+              "biome": "Coastal Hub",
+              "desc": "Coastal hub for tourism and research.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_6",
+              "name": "Kaldakinn",
+              "type": "village",
+              "coords": [
+                800,
+                380
+              ],
+              "biome": "Glacier Research",
+              "desc": "Glacier research hamlet.",
+              "color": "#7f8c8d"
+            },
+            {
+              "id": "city_7",
+              "name": "Blakkar Array",
+              "type": "special",
+              "coords": [
+                745,
+                520
+              ],
+              "biome": "Automated Array",
+              "desc": "Mysterious automated signal array.",
+              "color": "#e67e22"
+            }
+          ]
+        },
+        {
+          "name": "Oighear",
+          "cities": [
+            {
+              "id": "city_8",
+              "name": "Khuruldai",
+              "type": "metropolis",
+              "coords": [
+                850,
+                500
+              ],
+              "biome": "Alpine Tundra",
+              "desc": "Sprawling city blending into the plains.",
+              "color": "#7f8c8d"
+            },
+            {
+              "id": "city_9",
+              "name": "Chaghan Khan",
+              "type": "settlement",
+              "coords": [
+                870,
+                550
+              ],
+              "biome": "Mining City",
+              "desc": "Mountain-integrated mining city.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_10",
+              "name": "Lahorebaig",
+              "type": "settlement",
+              "coords": [
+                830,
+                550
+              ],
+              "biome": "Digital Bazaar",
+              "desc": "Major international server and trade hub.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_11",
+              "name": "Erdene Zuu",
+              "type": "special",
+              "coords": [
+                840,
+                480
+              ],
+              "biome": "Ancient/Digital",
+              "desc": "Ancient temple complex with digital vaults.",
+              "color": "#e67e22"
+            }
+          ]
+        },
+        {
+          "name": "Keunmor",
+          "cities": [
+            {
+              "id": "city_12",
+              "name": "Ardmore",
+              "type": "metropolis",
+              "coords": [
+                700,
+                250
+              ],
+              "biome": "Alpine/Glacial",
+              "desc": "Vertical mountain city carved into rock.",
+              "color": "#ecf0f1"
+            },
+            {
+              "id": "city_13",
+              "name": "Dún na nGall",
+              "type": "settlement",
+              "coords": [
+                680,
+                200
+              ],
+              "biome": "Deep-water Port",
+              "desc": "Modern deep-water automated seaport.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_14",
+              "name": "Baile Átha Cliath",
+              "type": "settlement",
+              "coords": [
+                650,
+                270
+              ],
+              "biome": "Financial Hub",
+              "desc": "Financial capital.",
+              "color": "#3498db"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kasy Federation",
+      "countries": [
+        {
+          "name": "The Golden Isles",
+          "cities": [
+            {
+              "id": "city_15",
+              "name": "Yokasy",
+              "type": "metropolis",
+              "coords": [
+                400,
+                300
+              ],
+              "biome": "Chaparral",
+              "desc": "Subterranean metropolis; MAGLEV terminal.",
+              "color": "#556b2f"
+            },
+            {
+              "id": "city_16",
+              "name": "Vorkasy",
+              "type": "settlement",
+              "coords": [
+                380,
+                280
+              ],
+              "biome": "Eco-Tourism",
+              "desc": "High-tech mega-fauna preservation.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_17",
+              "name": "Pomkasy",
+              "type": "settlement",
+              "coords": [
+                420,
+                330
+              ],
+              "biome": "Smart-Port",
+              "desc": "Coastal smart-port.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_18",
+              "name": "Saskasy",
+              "type": "special",
+              "coords": [
+                350,
+                250
+              ],
+              "biome": "Deep Dunes",
+              "desc": "Scientific research outpost.",
+              "color": "#e67e22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Betereko",
+      "countries": [
+        {
+          "name": "The Plateau",
+          "cities": [
+            {
+              "id": "city_19",
+              "name": "Apex",
+              "type": "metropolis",
+              "coords": [
+                132.2,
+                422.1
+              ],
+              "biome": "Polar Plateau",
+              "desc": "High-altitude observatory and data hub. Overlooking the 'Endless Drop' eastern cliffs.",
+              "color": "#3498db"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Mirelands",
+      "countries": [
+        {
+          "name": "The Dark-Water States",
+          "cities": [
+            {
+              "id": "city_20",
+              "name": "Redez",
+              "type": "metropolis",
+              "coords": [
+                600,
+                1000
+              ],
+              "biome": "Wetland Rim",
+              "desc": "Industrial wetland rim.",
+              "color": "#2c3e50"
+            },
+            {
+              "id": "city_21",
+              "name": "Niruz",
+              "type": "settlement",
+              "coords": [
+                620,
+                950
+              ],
+              "biome": "Agri-Tech",
+              "desc": "Powerhouse for flood-resistant crops.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_22",
+              "name": "Misyats",
+              "type": "settlement",
+              "coords": [
+                640,
+                1050
+              ],
+              "biome": "Theocracy",
+              "desc": "High-tech lunar-aligned theocracy.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_23",
+              "name": "Nechars",
+              "type": "special",
+              "coords": [
+                680,
+                1020
+              ],
+              "biome": "Permafrost Vaults",
+              "desc": "Guardians of the Permafrost Vaults.",
+              "color": "#e67e22"
+            }
+          ]
+        },
+        {
+          "name": "Ax Pelak Yeldo",
+          "cities": [
+            {
+              "id": "city_24",
+              "name": "Central Hub",
+              "type": "special",
+              "coords": [
+                500,
+                1000
+              ],
+              "biome": "Archipelago",
+              "desc": "Telecom and shipping monitor hub.",
+              "color": "#e67e22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Antarmund",
+      "countries": [
+        {
+          "name": "NorKunta",
+          "cities": [
+            {
+              "id": "city_25",
+              "name": "NorKunta Prime",
+              "type": "metropolis",
+              "coords": [
+                689.4,
+                1612.9
+              ],
+              "biome": "Arctic Industrial",
+              "desc": "Industrial powerhouse in a glacial valley with a heavy ice-breaker harbor.",
+              "color": "#34495e"
+            }
+          ]
+        },
+        {
+          "name": "Southern Prosperity Rim",
+          "cities": [
+            {
+              "id": "id_26",
+              "name": "Valermond",
+              "type": "metropolis",
+              "coords": [
+                325,
+                1746.5
+              ],
+              "biome": "Deciduous Forest",
+              "desc": "City of Light. Physics engineering center.",
+              "color": "#27ae60"
+            },
+            {
+              "id": "city_27",
+              "name": "Metsemania",
+              "type": "metropolis",
+              "coords": [
+                320,
+                1550
+              ],
+              "biome": "Temperate Rainforest",
+              "desc": "Old-growth Sequoia region.",
+              "color": "#1b4f72"
+            },
+            {
+              "id": "city_28",
+              "name": "Fyny'Dor",
+              "type": "settlement",
+              "coords": [
+                250,
+                1650
+              ],
+              "biome": "Grassland",
+              "desc": "Primary agricultural engine.",
+              "color": "#f1c40f"
+            },
+            {
+              "id": "city_29",
+              "name": "Guldhorn",
+              "type": "settlement",
+              "coords": [
+                329.5,
+                1788
+              ],
+              "biome": "Digital Finance",
+              "desc": "Digital finance hub.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_30",
+              "name": "Norgborg",
+              "type": "settlement",
+              "coords": [
+                300,
+                1780
+              ],
+              "biome": "Naval Hub",
+              "desc": "Militaristic smart city.",
+              "color": "#3498db"
+            },
+            {
+              "id": "city_31",
+              "name": "Sigmarignen",
+              "type": "settlement",
+              "coords": [
+                326.5,
+                1619.5
+              ],
+              "biome": "Historical Capital",
+              "desc": "Capital of tradition and modern art.",
+              "color": "#3498db"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

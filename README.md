@@ -32,7 +32,7 @@ Finished exports and media organized by scale.
 
 ### 💻 03_Applications
 Interactive tools used to explore the world.
-*   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern Leaflet.js interactive explorer.
+*   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern Leaflet.js interactive explorer. Features **Coordinate Grid**, **Regional Markers**, and toggleable **Frontier Overlays**.
 *   **[Legacy Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Legacy_Viewer/Public%20link.htm):** Original 2014 zoomable tiled map.
 
 ### 📦 04_Archive
