@@ -116,6 +116,7 @@ const server = http.createServer((req, res) => {
     }
 
     // Static File Serving
+    console.log(`Serving: ${req.url}`); // Debug logging
     let filePath = '.' + req.url;
     if (filePath === './') filePath = './index.html';
 

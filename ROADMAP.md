@@ -18,8 +18,10 @@
 ## 🟡 Phase 3: Visual & Interactive Expansion (Current Focus)
 - [x] **Modern Map Viewer:** Full "Google Maps" refactor (Search, Sidebar, Zoom-Labels).
 - [x] **Frontier Extraction:** Successfully extracted and refined transparent overlays for political boundaries.
-- [x] **Image Generation Framework:** Established `02_Visual_Assets` structure for manual AI generation workflow.
+- [x] **Altitude Integration:** High-fidelity 16-bit terrain mapping and precise city elevation tracking.
+- [x] **Heraldry System:** Implementation of mottos, descriptions, and UI integration for all entities.
 - [x] **NorKunta Expansion:** Detailed lore and visuals for Northern Antarmund (Cryo-Vault 09, Koldfisk, Borealis).
+- [ ] **AI Asset Generation:** Batch generation of flags, coats of arms, and regional landscape cards.
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.
 

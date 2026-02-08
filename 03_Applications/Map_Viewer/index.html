@@ -46,6 +46,49 @@
 
             <div class="divider"></div>
 
+            <div class="info-row">
+                <span class="icon">📍</span>
+                <span id="detail-coords" class="value">0, 0</span>
+            </div>
+            <div class="info-row">
+                <span class="icon">🌦️</span>
+                <span id="detail-climate" class="value">-</span>
+            </div>
+            <div class="info-row">
+                <span class="icon">🏔️</span>
+                <span id="detail-altitude" class="value">-</span>
+            </div>
+            <div class="info-row" id="detail-pop-row" style="display: none;">
+                <span class="icon">👥</span>
+                <span id="detail-pop">--</span>
+            </div>
+            <div class="info-row">
+                <span class="icon">🏳️</span>
+                <span id="detail-region">World Map</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div id="heraldry-section" style="margin-bottom: 20px;">
+                <h3 style="font-size: 1rem; color: #202124; margin-bottom: 10px;">Heraldry & Motto</h3>
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                    <div style="text-align: center;">
+                        <img id="detail-flag" src="" alt="Flag" style="width: 80px; height: 50px; object-fit: cover; border: 1px solid #dadce0; border-radius: 4px; background: #eee; display: none;">
+                        <div style="font-size: 0.7rem; color: #70757a; margin-top: 4px;">Flag</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <img id="detail-arms" src="" alt="Arms" style="width: 60px; height: 75px; object-fit: contain; background: transparent; display: none;">
+                        <div style="font-size: 0.7rem; color: #70757a; margin-top: 4px;">Arms</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <p id="detail-motto" style="font-style: italic; font-weight: 500; color: #202124; margin: 0; font-size: 1rem; line-height: 1.2;"></p>
+                        <p id="detail-heraldry-desc" style="font-size: 0.8rem; color: #5f6368; margin-top: 5px; line-height: 1.3;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
             <div id="detail-lore-container" style="display:none; margin-bottom: 20px;">
                 <h3 style="font-size: 1rem; color: #202124; margin-bottom: 5px;">Lore & Background</h3>
                 <p id="detail-lore" style="font-size: 0.9rem; color: #4b4f56; line-height: 1.5;"></p>
@@ -64,18 +107,6 @@
                 </div>
             </div>
 
-            <div class="info-row">
-                <span class="icon">📍</span>
-                <span id="detail-coords">--</span>
-            </div>
-            <div class="info-row" id="detail-pop-row" style="display: none;">
-                <span class="icon">👥</span>
-                <span id="detail-pop">--</span>
-            </div>
-            <div class="info-row">
-                <span class="icon">🏳️</span>
-                <span id="detail-region">World Map</span>
-            </div>
              <div class="info-row">
                 <span class="icon">📝</span>
                 <button class="link-btn">Add a missing place</button>
@@ -118,6 +149,17 @@
             <label class="margin-top">Coordinates</label>
             <input type="text" id="edit-coords" class="google-input" readonly>
 
+            <div class="row margin-top">
+                <div class="col">
+                    <label>Altitude</label>
+                    <input type="text" id="edit-altitude" class="google-input" readonly placeholder="Detecting...">
+                </div>
+                <div class="col">
+                    <label>Climate</label>
+                    <input type="text" id="edit-climate" class="google-input" placeholder="Detecting...">
+                </div>
+            </div>
+
             <label class="margin-top">Description / Biome</label>
             <textarea id="edit-desc" class="google-input" rows="4" placeholder="Enter details..."></textarea>
             
@@ -135,6 +177,11 @@
     <button id="fab-move" class="fab show-tooltip" data-tooltip="Move Mode">🖐️</button>
     <button id="fab-reset" class="fab show-tooltip" data-tooltip="Reset View">🏠</button>
 </div>
+
+<!-- Hidden Canvases for Auto-Detection -->
+<canvas id="climate-canvas" style="display:none;"></canvas>
+<canvas id="political-canvas" style="display:none;"></canvas>
+<canvas id="altitude-canvas" style="display:none;"></canvas>
 
 <script src="js/app.js"></script>
 </body>

@@ -23,6 +23,7 @@ The name **Kaelia** (pronounced *Kay-lee-ah*) is the standardized global identif
 *   **Climate:** Realistic weather system with polar caps, strong trade winds, and defined seasonal variations.
 *   **Technology Level:** **Modern / Information Age** (equivalent to 21st Century Earth).
 *   **Development Philosophy:** **Modern-Ancient Synthesis**. Unlike Earth, Kaelia's development was characterized by **Minimal Colonization**. Each continent achieved modern technological levels independently, preserving their ancestral traditions, aesthetics, and social structures. Technology is viewed as a high-fidelity extension of cultural heritage rather than a replacement for it.
+*   **Global Heraldry System:** A standardized protocol for digital and physical identification. Every country and major metropolis maintains a unique **Heraldry Object** consisting of a **Motto**, a **Flag** (3:2 ratio), and a **Coat of Arms**. These symbols are integrated into all maritime, aerospace, and digital protocols.
 *   **Anomalies:** Low Magic. "Magic" is scientifically categorized as an advanced understanding of environmental energies (e.g., Quantum Wind-Grids in Gryning).
 
 ---

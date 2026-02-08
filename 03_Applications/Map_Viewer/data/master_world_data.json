@@ -51,6 +51,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "1213m",
+              "heraldry": {
+                "motto": "Above the Clouds, Always Grounded",
+                "description": "Violet field with a white cloud and silver pine.",
+                "flag": "/assets/heraldry/flags/city_skýjakot.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_skýjakot.png"
               }
             },
             {
@@ -69,7 +76,14 @@
                 "desc": "High-tech automated port city, center of the Northern shipping lanes.",
                 "source": "WORLD_CODEX.md"
               },
-              "image": "assets/images/2.0_Regional_Scale/Nordica/Gryning/hafnir.png"
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Gryning/hafnir.png",
+              "altitude": "1949m",
+              "heraldry": {
+                "motto": "Gateway to the North",
+                "description": "Blue anchor on a silver field.",
+                "flag": "/assets/heraldry/flags/city_hafnir.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_hafnir.png"
+              }
             },
             {
               "id": "city_3",
@@ -86,6 +100,13 @@
               "lore": {
                 "desc": "Mountain resort and research station for natural phenomena.",
                 "source": "WORLD_CODEX.md"
+              },
+              "altitude": "1549m",
+              "heraldry": {
+                "motto": "Knowledge from the Peak",
+                "description": "White peak with a blue sapphire.",
+                "flag": "/assets/heraldry/flags/city_bjarnarfjörður.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_bjarnarfjörður.png"
               }
             },
             {
@@ -103,6 +124,13 @@
               "lore": {
                 "desc": "Rural smart-village; center of traditional-digital handicraft exports.",
                 "source": "WORLD_CODEX.md"
+              },
+              "altitude": "71m",
+              "heraldry": {
+                "motto": "The Hand that Crafts",
+                "description": "Green leaf with silver circuits.",
+                "flag": "/assets/heraldry/flags/city_árbær.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_árbær.png"
               }
             },
             {
@@ -120,6 +148,13 @@
               "lore": {
                 "desc": "Coastal hub known for ultra-modern tourism and climate research on the black sand banks.",
                 "source": "WORLD_CODEX.md"
+              },
+              "altitude": "2075m",
+              "heraldry": {
+                "motto": "Echoes on the Black Sand",
+                "description": "Black beach with a white breaking wave.",
+                "flag": "/assets/heraldry/flags/city_vík.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_vík.png"
               }
             },
             {
@@ -134,7 +169,14 @@
               "population": "850",
               "desc": "Glacier research hamlet.",
               "color": "#7f8c8d",
-              "image": "assets/images/2.0_Regional_Scale/Nordica/Gryning/kaldakinn.png"
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Gryning/kaldakinn.png",
+              "altitude": "2567m",
+              "heraldry": {
+                "motto": "Witnesses of the Ice",
+                "description": "White glacier on deep blue.",
+                "flag": "/assets/heraldry/flags/city_kaldakinn.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_kaldakinn.png"
+              }
             },
             {
               "id": "city_7",
@@ -181,9 +223,22 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-392m",
+              "heraldry": {
+                "motto": "Listening to the Void",
+                "description": "Orange signal tower on dark grey.",
+                "flag": "/assets/heraldry/flags/city_blakkar_array.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_blakkar_array.png"
               }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Over the Canopy, Towards the Light",
+            "description": "Deep violet with a silver stylized pine tree.",
+            "flag": "/assets/heraldry/flags/country_gryning.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_gryning.png"
+          }
         },
         {
           "name": "Oighear",
@@ -200,7 +255,14 @@
               "population": "890,000",
               "desc": "Sprawling city blending into the plains.",
               "color": "#7f8c8d",
-              "image": "assets/images/2.0_Regional_Scale/Nordica/Oighear/khuruldai.png"
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Oighear/khuruldai.png",
+              "altitude": "1206m",
+              "heraldry": {
+                "motto": "Unity in the Tundra",
+                "description": "Sky blue field with three white tents.",
+                "flag": "/assets/heraldry/flags/city_khuruldai.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_khuruldai.png"
+              }
             },
             {
               "id": "city_9",
@@ -217,6 +279,13 @@
               "lore": {
                 "desc": "Mountain-integrated mining city using automated nanotech extraction.",
                 "source": "WORLD_CODEX.md"
+              },
+              "altitude": "913m",
+              "heraldry": {
+                "motto": "Deep Mines, Deep Wisdom",
+                "description": "Golden pickaxe on a mountain profile.",
+                "flag": "/assets/heraldry/flags/city_chaghan_khan.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_chaghan_khan.png"
               }
             },
             {
@@ -234,6 +303,13 @@
               "lore": {
                 "desc": "The \"Digital Bazaar\" - A major international server and trade hub.",
                 "source": "WORLD_CODEX.md"
+              },
+              "altitude": "456m",
+              "heraldry": {
+                "motto": "The Pulse of the Bazaar",
+                "description": "Silk-patterned field with a digital eye.",
+                "flag": "/assets/heraldry/flags/city_lahorebaig.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_lahorebaig.png"
               }
             },
             {
@@ -247,9 +323,22 @@
               "biome": "Ancient/Digital",
               "population": "350 (Monks/Admins)",
               "desc": "Ancient temple complex with digital vaults.",
-              "color": "#e67e22"
+              "color": "#e67e22",
+              "altitude": "492m",
+              "heraldry": {
+                "motto": "Ancient Faith, Infinite Data",
+                "description": "Golden bell over a circuit board.",
+                "flag": "/assets/heraldry/flags/city_erdene_zuu.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_erdene_zuu.png"
+              }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Tradition Guarded by the Vault",
+            "description": "Sky blue and stone grey vertical bicolor.",
+            "flag": "/assets/heraldry/flags/country_oighear.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_oighear.png"
+          }
         },
         {
           "name": "Keunmor",
@@ -266,7 +355,14 @@
               "population": "3,500,000",
               "desc": "Vertical mountain city carved into rock.",
               "color": "#ecf0f1",
-              "image": "assets/images/2.0_Regional_Scale/Nordica/Keunmor/ardmore.png"
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Keunmor/ardmore.png",
+              "altitude": "1735m",
+              "heraldry": {
+                "motto": "Carved from the Bone of the World",
+                "description": "Stone-carved eagle on a white shield.",
+                "flag": "/assets/heraldry/flags/city_ardmore.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_ardmore.png"
+              }
             },
             {
               "id": "city_13",
@@ -283,6 +379,13 @@
               "lore": {
                 "desc": "Modern deep-water automated seaport.",
                 "source": "WORLD_CODEX.md"
+              },
+              "altitude": "41m",
+              "heraldry": {
+                "motto": "The Iron Port",
+                "description": "Sleek iron ship on iron-grey water.",
+                "flag": "/assets/heraldry/flags/city_dún_na_ngall.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_dún_na_ngall.png"
               }
             },
             {
@@ -300,9 +403,22 @@
               "lore": {
                 "desc": "The continent's financial capital; a hyper-dense urban forest.",
                 "source": "WORLD_CODEX.md"
+              },
+              "altitude": "2141m",
+              "heraldry": {
+                "motto": "Growth in Every Stone",
+                "description": "A stone bridge between two green banks.",
+                "flag": "/assets/heraldry/flags/city_baile_átha_cliath.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_baile_átha_cliath.png"
               }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Unshakable as the Root of the World",
+            "description": "White with a jagged dark grey horizontal stripe.",
+            "flag": "/assets/heraldry/flags/country_keunmor.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_keunmor.png"
+          }
         }
       ]
     },
@@ -360,6 +476,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-1255m",
+              "heraldry": {
+                "motto": "Under the Light-Well",
+                "description": "A red sandstone arch with a golden sun filtering down.",
+                "flag": "/assets/heraldry/flags/city_yokasy.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_yokasy.png"
               }
             },
             {
@@ -410,6 +533,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-241m",
+              "heraldry": {
+                "motto": "Preserving the Pulse",
+                "description": "A green gazelle on a solar mirror field.",
+                "flag": "/assets/heraldry/flags/city_vorkasy.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_vorkasy.png"
               }
             },
             {
@@ -461,6 +591,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-1607m",
+              "heraldry": {
+                "motto": "Pearls of the Deep",
+                "description": "An iridescent shell over a biotech flask.",
+                "flag": "/assets/heraldry/flags/city_pomkasy.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_pomkasy.png"
               }
             },
             {
@@ -511,9 +648,22 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-882m",
+              "heraldry": {
+                "motto": "Dunes of Discovery",
+                "description": "A nomadic tent under a ringed planet sky.",
+                "flag": "/assets/heraldry/flags/city_saskasy.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_saskasy.png"
               }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Sunlight Deep, Roots Wide",
+            "description": "Gold and olive green diagonal bicolor.",
+            "flag": "/assets/heraldry/flags/country_the_golden_isles.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_the_golden_isles.png"
+          }
         }
       ]
     },
@@ -575,9 +725,22 @@
                     }
                   ]
                 }
+              },
+              "altitude": "91m",
+              "heraldry": {
+                "motto": "The Infinite Horizon",
+                "description": "A telescope atop a white cliff.",
+                "flag": "/assets/heraldry/flags/city_apex.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_apex.png"
               }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "The Infinite Watch",
+            "description": "Deep cobalt blue with a single white star.",
+            "flag": "/assets/heraldry/flags/country_the_plateau.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_the_plateau.png"
+          }
         }
       ]
     },
@@ -635,6 +798,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-593m",
+              "heraldry": {
+                "motto": "Drifting Forward",
+                "description": "A floating warehouse on a dark teal field.",
+                "flag": "/assets/heraldry/flags/city_redez.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_redez.png"
               }
             },
             {
@@ -686,6 +856,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "33m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_niruz.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_niruz.png"
               }
             },
             {
@@ -730,6 +907,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-495m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_misyats.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_misyats.png"
               }
             },
             {
@@ -774,9 +958,22 @@
                     }
                   ]
                 }
+              },
+              "altitude": "794m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_nechars.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_nechars.png"
               }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Where Water Ends, Industry Begins",
+            "description": "Dark teal with a copper gear.",
+            "flag": "/assets/heraldry/flags/country_the_dark-water_states.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_the_dark-water_states.png"
+          }
         },
         {
           "name": "Ax Pelak Yeldo",
@@ -792,9 +989,22 @@
               "biome": "Archipelago",
               "population": "5,000",
               "desc": "Telecom and shipping monitor hub.",
-              "color": "#e67e22"
+              "color": "#e67e22",
+              "altitude": "-3302m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_central_hub.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_central_hub.png"
+              }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Thriving in the Surge",
+            "description": "Seafoam green with three silver waves.",
+            "flag": "/assets/heraldry/flags/country_ax_pelak_yeldo.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_ax_pelak_yeldo.png"
+          }
         }
       ]
     },
@@ -868,6 +1078,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "262m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_norkunta_prime.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_norkunta_prime.png"
               }
             },
             {
@@ -924,6 +1141,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "133m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_jarnhöfn.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_jarnhöfn.png"
               }
             },
             {
@@ -987,6 +1211,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "2577m",
+              "heraldry": {
+                "motto": "Anvil of the Gods",
+                "description": "A massive hammer striking an icy spark.",
+                "flag": "/assets/heraldry/flags/city_titansmidja.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_titansmidja.png"
               }
             },
             {
@@ -1051,6 +1282,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "3726m",
+              "heraldry": {
+                "motto": "Where Winds Whisper",
+                "description": "A stylized wind turbine with three golden blades.",
+                "flag": "/assets/heraldry/flags/city_aero-valli.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_aero-valli.png"
               }
             },
             {
@@ -1108,6 +1346,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "407m",
+              "heraldry": {
+                "motto": "The South Gate",
+                "description": "A solid iron gate on a field of white snow.",
+                "flag": "/assets/heraldry/flags/city_sydgard.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_sydgard.png"
               }
             },
             {
@@ -1156,6 +1401,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "929m",
+              "heraldry": {
+                "motto": "Frozen Wisdom",
+                "description": "A crystalline vault door on a white field.",
+                "flag": "/assets/heraldry/flags/city_cryo-vault_09.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_cryo-vault_09.png"
               }
             },
             {
@@ -1211,6 +1463,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "1495m",
+              "heraldry": {
+                "motto": "Under the Dancing Lights",
+                "description": "A stylized aurora over a research dome.",
+                "flag": "/assets/heraldry/flags/city_borealis_station.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_borealis_station.png"
               }
             },
             {
@@ -1266,6 +1525,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "126m",
+              "heraldry": {
+                "motto": "Harvesting the Cold",
+                "description": "A silver fish skeleton on a black industrial rig.",
+                "flag": "/assets/heraldry/flags/city_koldfisk_rig.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_koldfisk_rig.png"
               }
             },
             {
@@ -1321,6 +1587,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "2042m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_ice-hauler's_rest.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_ice-hauler's_rest.png"
               }
             },
             {
@@ -1367,6 +1640,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "90m",
+              "heraldry": {
+                "motto": "Standing at the End",
+                "description": "A lone tower at the edge of a white cliff.",
+                "flag": "/assets/heraldry/flags/city_glacial_edge.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_glacial_edge.png"
               }
             },
             {
@@ -1414,6 +1694,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "3475m",
+              "heraldry": {
+                "motto": "Sounds of the Earth",
+                "description": "A series of expanding sound waves over a mountain.",
+                "flag": "/assets/heraldry/flags/city_echo_ridge.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_echo_ridge.png"
               }
             },
             {
@@ -1461,6 +1748,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-54m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_sleet-watch.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_sleet-watch.png"
               }
             },
             {
@@ -1508,9 +1802,22 @@
                     }
                   ]
                 }
+              },
+              "altitude": "3563m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_thermal-springs.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_thermal-springs.png"
               }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Forged in the Glacial Dark",
+            "description": "Charcoal grey with a glowing cyan line.",
+            "flag": "/assets/heraldry/flags/country_norkunta.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_norkunta.png"
+          }
         },
         {
           "name": "Southern Prosperity Rim",
@@ -1563,6 +1870,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "1892m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_valermond.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_valermond.png"
               }
             },
             {
@@ -1613,6 +1927,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "-123m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_metsemania.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_metsemania.png"
               }
             },
             {
@@ -1662,6 +1983,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "2749m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_fyny'dor.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_fyny'dor.png"
               }
             },
             {
@@ -1712,6 +2040,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "205m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_guldhorn.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_guldhorn.png"
               }
             },
             {
@@ -1762,6 +2097,13 @@
                     }
                   ]
                 }
+              },
+              "altitude": "447m",
+              "heraldry": {
+                "motto": "City of the Eternal Pine",
+                "description": "A tall, dark green pine tree on a grey shield.",
+                "flag": "/assets/heraldry/flags/city_norgborg.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_norgborg.png"
               }
             },
             {
@@ -1806,9 +2148,22 @@
                     }
                   ]
                 }
+              },
+              "altitude": "1287m",
+              "heraldry": {
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_sigmarignen.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_sigmarignen.png"
               }
             }
-          ]
+          ],
+          "heraldry": {
+            "motto": "Peace and Prosperity",
+            "description": "A simple bicolor field.",
+            "flag": "/assets/heraldry/flags/country_southern_prosperity_rim.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_southern_prosperity_rim.png"
+          }
         }
       ]
     }

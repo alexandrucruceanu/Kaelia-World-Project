@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0] - 2026-02-08
+### 🗺️ Data Enrichment & Heraldry System
+*   **Altitude Integration:** Implemented high-fidelity altitude mapping using 16-bit MDR terrain data. Cities now display precise elevation in meters.
+*   **Heraldry System:** Integrated a global heraldry system. Added mottos, visual descriptions, and asset placeholders (Flags/Coats of Arms) for all 9 countries and 43 cities.
+*   **Sidebar Refinement:** Completely reordered and restyled the Sidebar Details View. Added descriptive icons (📍, 🌦️, 🏔️, 👥, 🏳️) and standardized data presentation.
+*   **Automation:** Developed `batch_heraldry.py` and `update_altitudes_mdr.py` for large-scale data synchronization and 16-bit to 8-bit map conversion.
+
 ## [2.6.0] - 2026-02-08
 ### ❄️ NorKunta Expansion & UI Polish
 *   **New Locations:** Added **Cryo-Vault 09** (Subterranean deep-storage) and **Ice-Hauler's Rest** (Logistics hub).

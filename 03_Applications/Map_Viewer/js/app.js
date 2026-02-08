@@ -23,7 +23,7 @@ var layers = {
 };
 
 var gridLayer = L.layerGroup();
-var frontiersOverlay = L.imageOverlay('data/frontiers_refined_t15_d1.png', bounds, { opacity: 1.0, interactive: false });
+var frontiersOverlay = L.imageOverlay('data/frontiers_overlay.png', bounds, { opacity: 1.0, interactive: false });
 var politicalComposite = L.layerGroup([satLayer, frontiersOverlay]);
 
 var worldData = {};
@@ -33,33 +33,9 @@ var addMode = false;
 var tempMarker = null; // Marker for adding new loc
 
 // --- Initialization ---
-function init() {
-    loadMarkers();
-    drawGrid();
-    setupEventListeners();
+// --- Initialization ---
+// (Moved to bottom of file)
     
-    // Default View: Political Composite
-    politicalComposite.addTo(map);
-    Object.values(layers).forEach(l => l.addTo(map));
-    gridLayer.addTo(map);
-    map.fitBounds(bounds);
-    map.setZoom(-0.5);
-
-    // Layer Control (Top Right, Collapsed)
-    L.control.layers({
-        "🗺️ Political": politicalComposite, 
-        "🛰️ Satellite": satLayer, 
-        "🏔️ Altitude": altLayer
-    }, {
-        "�️ Capitals": layers.capital,
-        "�🏙️ Metropolises": layers.metropolis, 
-        "🏡 Settlements": layers.settlement, 
-        "🏕️ Villages": layers.village, 
-        "🔬 Special": layers.special,
-        "🌐 Grid": gridLayer,
-        "🚩 Frontiers": frontiersOverlay
-    }, { collapsed: true }).addTo(map);
-}
 
 // --- Data Loading ---
 function loadMarkers() {
@@ -111,6 +87,11 @@ function createMarker(city, continentName, countryName) {
         if (!moveMode) return;
         var newCoords = [parseFloat(e.target.getLatLng().lat.toFixed(1)), parseFloat(e.target.getLatLng().lng.toFixed(1))];
         city.coords = newCoords;
+        
+        // Auto-Update Data on Move
+        city.climate = getClimateAt(newCoords[0], newCoords[1]);
+        // city.altitude = getAltitudeAt(newCoords[0], newCoords[1]); // Optional if added to schema
+        
         updateCityOnServer(continentName, countryName, city);
         openSidebarDetails(city, continentName, countryName); // Update stats
     });
@@ -158,7 +139,38 @@ function openSidebarDetails(city, continentName, countryName) {
         popRow.style.display = 'none';
     }
     document.getElementById('detail-coords').innerText = city.coords.join(', ');
+    document.getElementById('detail-climate').innerText = city.climate || getClimateAt(city.coords[0], city.coords[1]);
+    document.getElementById('detail-altitude').innerText = city.altitude || getAltitudeAt(city.coords[0], city.coords[1]);
     document.getElementById('detail-region').innerText = `${countryName}, ${continentName}`;
+    
+    // Heraldry Display
+    const heraldry = city.heraldry || {};
+    const mottoEl = document.getElementById('detail-motto');
+    const hDescEl = document.getElementById('detail-heraldry-desc');
+    const flagImg = document.getElementById('detail-flag');
+    const armsImg = document.getElementById('detail-arms');
+
+    if (heraldry.motto) {
+        mottoEl.innerText = `"${heraldry.motto}"`;
+        hDescEl.innerText = heraldry.description || "";
+        
+        if (heraldry.flag) {
+            flagImg.src = heraldry.flag;
+            flagImg.style.display = 'block';
+        } else {
+            flagImg.style.display = 'none';
+        }
+
+        if (heraldry.coat_of_arms) {
+            armsImg.src = heraldry.coat_of_arms;
+            armsImg.style.display = 'block';
+        } else {
+            armsImg.style.display = 'none';
+        }
+        document.getElementById('heraldry-section').style.display = 'block';
+    } else {
+        document.getElementById('heraldry-section').style.display = 'none';
+    }
     
     // Lore Display
     const loreContainer = document.getElementById('detail-lore-container');
@@ -222,6 +234,7 @@ function openSidebarEdit(city = null, continentName = null, countryName = null) 
         document.getElementById('edit-type').value = city.type;
         document.getElementById('edit-coords').value = city.coords.join(', ');
         document.getElementById('edit-pop').value = city.population || "";
+        document.getElementById('edit-climate').value = city.climate || getClimateAt(city.coords[0], city.coords[1]); // Use existing or detect
         document.getElementById('edit-desc').value = city.desc;
         
         setDropdowns(continentName, countryName);
@@ -231,10 +244,104 @@ function openSidebarEdit(city = null, continentName = null, countryName = null) 
         document.getElementById('edit-name').value = "";
         document.getElementById('edit-desc').value = "";
         document.getElementById('edit-pop').value = "";
+        document.getElementById('edit-climate').value = "Click map to detect";
         // Coords should be set by click map logic
     }
     
     openSidebar();
+}
+
+// --- Climate Detection Logic ---
+var climateContext = null;
+var climateMapData = null;
+var mapWidth = 6000; // Intrinsic size of the map image
+var mapHeight = 3000;
+
+// Approximate Whittaker / Map Colors (Standardized)
+// User can Calibrate this by logging clicks if needed.
+var colorToClimate = [
+    { name: "Polar Ice Cap", color: [255, 255, 255] }, // White
+    { name: "Tundra / Alpine", color: [160, 210, 230] }, // Light Blue-Grey
+    { name: "Boreal Forest (Taiga)", color: [0, 90, 80] }, // Dark Teal
+    { name: "Temperate Rainforest", color: [30, 160, 80] }, // Lush Green
+    { name: "Temperate Seasonal Forest", color: [100, 200, 100] }, // Medium Green
+    { name: "Tropical Rainforest", color: [0, 60, 0] }, // Deep Dark Green
+    { name: "Tropical Seasonal Forest", color: [50, 100, 30] }, // Olive Green
+    { name: "Savanna", color: [200, 220, 100] }, // Yellow-Green
+    { name: "Subtropical Desert", color: [255, 230, 100] }, // Sand Yellow
+    { name: "Cold Desert", color: [180, 180, 180] }, // Grey
+    { name: "Chaparral / Mediterranean", color: [180, 150, 50] }, // Brownish Green
+    { name: "Ocean", color: [20, 40, 90] } // Deep Blue (Mask out)
+];
+
+function initClimateMap() {
+    var canvas = document.getElementById('climate-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d', { willReadFrequently: true });
+    
+    var img = new Image();
+    img.src = 'data/climate_map.jpg';
+    img.onload = function() {
+        canvas.width = mapWidth;
+        canvas.height = mapHeight;
+        ctx.drawImage(img, 0, 0, mapWidth, mapHeight);
+        climateContext = ctx;
+        console.log("Climate Map Loaded & Rasterized.");
+    };
+    img.onerror = function() {
+        console.error("Failed to load climate_map.jpg.");
+    };
+}
+
+function getClimateAt(lat, lng) {
+    if (!climateContext) return "Loading Map...";
+    
+    // 1. Convert Lat/Lng to Pixel Coordinates (Simple Equirectangular)
+    // Map bounds: [0,0] is Bottom-Left, [1000, 2000] is Top-Right (per lines 8-9) or [0,0] to [3000, 6000] pixel space?
+    // In `app.js` line 8: `var bounds = [[0,0], [1000,2000]];`
+    // Image is 6000x3000.
+    // So Lat (0-1000) maps to Height (3000-0) ... Wait, Leaflet coordinates are Y, X.
+    // [0,0] in Leaflet usually Bottom-Left?
+    // Let's assume standard image overlay behavior:
+    // Image Bottom-Left is (0,0) in Leaflet. Image Top-Right is (1000, 2000).
+    // Canvas Top-Left (0,0) corresponds to Leaflet (1000, 0) because Canvas Y goes down.
+    
+    // Normalize Height (Y)
+    // Leaflet Y: 0 to 1000. Canvas Y: 3000 to 0.
+    // CanvasY = (1 - (Lat / 1000)) * 3000
+    var yPct = 1 - (lat / 1000);
+    var pixelY = Math.floor(yPct * mapHeight);
+    
+    // Normalize Width (X)
+    // Leaflet X: 0 to 2000. Canvas X: 0 to 6000.
+    // CanvasX = (Lng / 2000) * 6000
+    var xPct = lng / 2000;
+    var pixelX = Math.floor(xPct * mapWidth);
+    
+    // Bounds Check
+    if (pixelX < 0 || pixelX >= mapWidth || pixelY < 0 || pixelY >= mapHeight) return "Out of Bounds";
+    
+    // 2. Sample Pixel
+    var p = climateContext.getImageData(pixelX, pixelY, 1, 1).data; // [R, G, B, A]
+    
+    // 3. Find Closest Match (Euclidean Distance)
+    var minDist = Infinity;
+    var bestMatch = "Unknown";
+    
+    colorToClimate.forEach(c => {
+        var dist = Math.sqrt(
+            Math.pow(p[0] - c.color[0], 2) +
+            Math.pow(p[1] - c.color[1], 2) +
+            Math.pow(p[2] - c.color[2], 2)
+        );
+        if (dist < minDist) {
+            minDist = dist;
+            bestMatch = c.name;
+        }
+    });
+
+    console.log(`Sampled [${p[0]},${p[1]},${p[2]}] at ${Math.round(lat)},${Math.round(lng)} -> ${bestMatch}`);
+    return bestMatch; // + ` (${Math.round(minDist)})`;
 }
 
 function setDropdowns(cont, count) {
@@ -298,8 +405,32 @@ function setupEventListeners() {
             if (tempMarker) map.removeLayer(tempMarker);
             tempMarker = L.marker(coords).addTo(map);
             
-            document.getElementById('edit-coords').value = coords.join(', ');
+            if (tempMarker) map.removeLayer(tempMarker);
+            tempMarker = L.marker(coords).addTo(map);
+            
+            // 1. Open Sidebar FIRST (resets form to defaults)
             openSidebarEdit(null); // Open in Add Mode
+            
+            // 2. Auto-Detect Data (with safety)
+            try {
+                var climate = getClimateAt(coords[0], coords[1]);
+                var political = getPoliticalAt(coords[0], coords[1]);
+                var alt = getAltitudeAt(coords[0], coords[1]);
+    
+                // 3. Populate Form with Detected Data (Overwriting defaults)
+                document.getElementById('edit-climate').value = climate;
+                document.getElementById('edit-altitude').value = alt;
+                // Only try to set dropdowns if we have valid data
+                if (political.continent !== "Unknown") {
+                    setDropdowns(political.continent, political.country);
+                }
+            } catch (err) {
+                console.error("Auto-Detect Failed:", err);
+            }
+            
+            // 4. Always set Coords (Critical)
+            document.getElementById('edit-coords').value = coords.join(', ');
+            document.getElementById('edit-coords').value = coords.join(', ');
             
         } else {
             // If click on empty space, close sidebar
@@ -356,42 +487,56 @@ function saveCityData() {
     var continentName = document.getElementById('edit-continent').value;
     var countryName = document.getElementById('edit-country').value;
     var desc = document.getElementById('edit-desc').value;
-    var population = document.getElementById('edit-pop').value;
+    var pop = document.getElementById('edit-pop').value;
+    var climate = document.getElementById('edit-climate').value;
+    var alt = document.getElementById('edit-altitude').value; 
     var coordsStr = document.getElementById('edit-coords').value;
     
     if (!name || !coordsStr) { alert("Name and Coordinates required."); return; }
     
     var coords = coordsStr.split(',').map(Number);
     
-    var city = {
-        id: currentCity ? currentCity.city.id : null, 
-        name, type, coords, desc, population, color: "#ea4335"
+    // Logic: If 'edit-country' is dropdown, use value. If readonly, use value.
+    // Ensure we are sending data that server expects structure for.
+    
+    var cityData = {
+        id: currentCity ? currentCity.city.id : Date.now().toString(), // Simple ID gen
+        name: name,
+        type: type,
+        coords: coords,
+        population: pop,
+        climate: climate,
+        desc: desc,
+        altitude: alt 
     };
 
-    var method = city.id ? 'PUT' : 'POST';
+    var method = currentCity ? 'PUT' : 'POST'; // Correct Logic: existing city = PUT
     
     fetch('/api/cities', {
         method: method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ continentName, countryName, city })
-    }).then(res => {
+        body: JSON.stringify({ continentName, countryName, city: cityData }) // Send correct object
+    }).then(async res => {
         if (res.ok) {
-            // alert("Saved!");
+            // Success
             loadMarkers();
-            if (currentCity) {
-                // Determine new ID (if post, we don't know it without response parsing, 
-                // but let's just reload markers and close for now or fetch new city)
-                // Ideally API returns new city object.
-            }
             if (addMode) { 
                 addMode = false; 
                 document.getElementById('fab-add').classList.remove('active');
-                map.removeLayer(tempMarker);
-                tempMarker = null;
+                if (tempMarker) { map.removeLayer(tempMarker); tempMarker = null; }
                 document.getElementById('map').style.cursor = "";
             }
             closeSidebar();
+            // console.log("Saved successfully");
+        } else {
+            // Error
+            var txt = await res.text();
+            alert("Save Failed: " + txt);
+            console.error("Save Failed:", txt);
         }
+    }).catch(err => {
+        alert("Network Error: " + err);
+        console.error("Network Error:", err);
     });
 }
 
@@ -486,4 +631,117 @@ map.on('zoomend moveend', updateScale);
 setTimeout(updateScale, 500);
 
 // Initialize
+// Initialize
+function init() {
+    loadMarkers();
+    initClimateMap();
+    initPoliticalMap(); // New
+    initAltitudeMap();  // New
+    drawGrid();
+    setupEventListeners();
+    
+    // Default View: Political Composite
+    politicalComposite.addTo(map);
+    Object.values(layers).forEach(l => l.addTo(map));
+    gridLayer.addTo(map);
+    map.fitBounds(bounds);
+    map.setZoom(-0.5);
+
+    // Layer Control (Top Right, Collapsed)
+    L.control.layers({
+        "🗺️ Political": politicalComposite, 
+        "🛰️ Satellite": satLayer, 
+        "🏔️ Altitude": altLayer
+    }, {
+        "🏛️ Capitals": layers.capital,
+        "🏙️ Metropolises": layers.metropolis, 
+        "🏡 Settlements": layers.settlement, 
+        "🏕️ Villages": layers.village, 
+        "🔬 Special": layers.special,
+        "🌐 Grid": gridLayer,
+        "🚩 Frontiers": frontiersOverlay
+    }, { collapsed: true }).addTo(map);
+}
+
 init();
+
+// --- Political & Altitude Detection ---
+var politicalContext = null;
+var politicalLookup = null;
+var altitudeContext = null;
+
+function initPoliticalMap() {
+    // Load Lookup JSON
+    fetch('/data/political_lookup.json')
+        .then(res => res.json())
+        .then(data => { politicalLookup = data; });
+
+    // Load Mask Image
+    var canvas = document.getElementById('political-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d', { willReadFrequently: true });
+    
+    var img = new Image();
+    img.src = '/data/political_mask.png';
+    img.onload = function() {
+        canvas.width = mapWidth;
+        canvas.height = mapHeight;
+        ctx.drawImage(img, 0, 0, mapWidth, mapHeight);
+        politicalContext = ctx;
+        console.log("Political Mask Loaded.");
+    };
+}
+
+function initAltitudeMap() {
+    var canvas = document.getElementById('altitude-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d', { willReadFrequently: true });
+    
+    var img = new Image();
+    img.src = '/data/altitude_hifi.png';
+    img.onload = function() {
+        canvas.width = mapWidth;
+        canvas.height = mapHeight;
+        ctx.drawImage(img, 0, 0, mapWidth, mapHeight);
+        altitudeContext = ctx;
+        console.log("Altitude Map Loaded.");
+    };
+}
+
+function getPoliticalAt(lat, lng) {
+    if (!politicalContext || !politicalLookup) return { country: "Unknown", continent: "Unknown" };
+    
+    var xy = getPixelFromLatLng(lat, lng);
+    if (!xy) return { country: "Out of Bounds", continent: "Out of Bounds" };
+
+    var p = politicalContext.getImageData(xy.x, xy.y, 1, 1).data;
+    var key = `${p[0]},${p[1]},${p[2]}`;
+    console.log(`Political Sample: [${xy.x},${xy.y}] -> RGB(${key})`); // Debug
+    
+    return politicalLookup[key] || { country: "Wilderness/Ocean", continent: "Unknown" };
+}
+
+function getAltitudeAt(lat, lng) {
+    if (!altitudeContext) return "Unknown";
+
+    var xy = getPixelFromLatLng(lat, lng);
+    if (!xy) return "0m";
+
+    var p = altitudeContext.getImageData(xy.x, xy.y, 1, 1).data;
+    // Hi-Fi PNG is linear: 0 = -10,000m, 255 = +10,000m
+    var val = p[0]; 
+    console.log(`Altitude Sample: [${xy.x},${xy.y}] -> Val(${val})`);
+    var meters = Math.round((val / 255) * 20000 - 10000); 
+    return `${meters}m`;
+}
+
+// Reuse logic from getClimateAt to avoid duplication
+function getPixelFromLatLng(lat, lng) {
+    var yPct = 1 - (lat / 1000);
+    var pixelY = Math.floor(yPct * mapHeight);
+    var xPct = lng / 2000;
+    var pixelX = Math.floor(xPct * mapWidth);
+    
+    if (pixelX < 0 || pixelX >= mapWidth || pixelY < 0 || pixelY >= mapHeight) return null;
+    return { x: pixelX, y: pixelY };
+}

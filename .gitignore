@@ -2,6 +2,19 @@
 [Tt]humbs.db
 [Dd][Ss]_[Ss]tore
 
+# Large binary files and design sources
+01_Design_Sources/
+02_Visual_Assets/
+Archive/
+*.mp4
+*.mov
+*.c4d
+*.psd
+*.ftw
+!03_Applications/Map_Viewer/data/*.png
+!03_Applications/Map_Viewer/data/*.jpg
+!03_Applications/Map_Viewer/data/*.json
+
 # Agent/AI internals
 .gemini/
 .agent/

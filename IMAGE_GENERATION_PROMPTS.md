@@ -816,6 +816,28 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
 
 ---
 
+## 🏛️ Heraldic Assets: Flags and Coats of Arms
+**Theme:** Minimalist, Professional Heraldry, Modern-Ancient Synthesis.
+
+### 🚩 National Flags (3:2 Ratio)
+> *Prompt Template:* A minimalist national flag for [Country/City]. 3:2 aspect ratio. [Field Color] field. In the center, a [Icon Description] icon with sleek, modern geometric lines. Professional heraldic design, flat vector style.
+
+### 🛡️ Coats of Arms (Heater Shield)
+> *Prompt Template:* A coat of arms for [Country/City]. A [Shield Color] heater-shaped shield. In the center, a [Central Charge Description]. [Secondary Element Description if applicable]. Professional heraldic design, clean lines, slightly metallic finish. White background.
+
+### 🏙️ Examples:
+1. **Skýjakot (Metropolis):**
+   * **Flag:** Violet field with a white stylized cloud icon and a silver pine tree growing through it.
+   * **Arms:** Violet shield with a silver pine tree and three small glowing blue sparks.
+2. **Yokasy (Golden Isles):**
+   * **Flag:** Red sandstone color with a stylized golden sun-disk.
+   * **Arms:** Sandstone shield with a golden arch and a single olive branch.
+3. **NorKunta Prime (Industrial Center):**
+   * **Flag:** Charcoal grey with a glowing cyan horizontal line.
+   * **Arms:** Charcoal shield with a massive silver steel gear and a blue ice-crystal.
+
+---
+
 ## 🌊 Ax Pelak Yeldo (Central Archipelago)
 **Theme:** Maritime High-Tech, Floating Research Hubs, Volcanic-Glass Fusion.
 
