@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.6.0] - 2026-02-08
+### ❄️ NorKunta Expansion & UI Polish
+*   **New Locations:** Added **Cryo-Vault 09** (Subterranean deep-storage) and **Ice-Hauler's Rest** (Logistics hub).
+*   **Lore Updates:** Expanded **Borealis Station** to a 60k population research metropolis and **Koldfisk Rig** to an 80k temperate agricultural hub.
+*   **Visual Refinement:** Standardized new aerial/landscape prompts to **4:3 aspect ratio** with enhanced atmospheric details (Dusk, Aurora, Coastal).
+*   **UI Tweaks:** Widened Sidebar to 450px and Search Bar to 400px for better readability.
+
+## [2.5.0] - 2026-02-07
+### 🚀 Map Viewer 2.0 (Google Maps Refactor)
+*   **UI Overhaul:** Complete redesign mimicking Google Maps with a floating search bar, slide-out details drawer, and floating action buttons (FABs).
+*   **Search**: Implemented real-time city search with auto-complete and "fly-to" functionality.
+*   **Zoom Logic:** City labels now dynamically appear/disappear based on zoom level (Metropolises always visible, Villages only at high zoom).
+*   **Code Structure:** Refactored Monolithic `index.html` into modular `css/style.css` and `js/app.js`.
+*   **Manual Workflow:** Verified and automated the `02_Visual_Assets` directory structure for upcoming image generation.
+
 ## [2.4.0] - 2026-02-05
 ### 🗺️ Map Viewer Enhanced
 *   **Frontier Extraction:** Implemented advanced "Image Difference" algorithm to extract country borders and names from the original map.

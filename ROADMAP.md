@@ -16,9 +16,10 @@
 - [x] **Licensing:** Secured under CC BY-NC-SA 4.0.
 
 ## 🟡 Phase 3: Visual & Interactive Expansion (Current Focus)
-- [x] **Modern Map Viewer:** Expanded Leaflet implementation with regional markers and overlay controls.
+- [x] **Modern Map Viewer:** Full "Google Maps" refactor (Search, Sidebar, Zoom-Labels).
 - [x] **Frontier Extraction:** Successfully extracted and refined transparent overlays for political boundaries.
-- [ ] **Image Generation:** Begin populating `02_Visual_Assets` with AI-generated captures.
+- [x] **Image Generation Framework:** Established `02_Visual_Assets` structure for manual AI generation workflow.
+- [x] **NorKunta Expansion:** Detailed lore and visuals for Northern Antarmund (Cryo-Vault 09, Koldfisk, Borealis).
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.
 

@@ -152,7 +152,13 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
 * **Biome:** **Alpine Tundra (Grey)** & **Boreal Forest (Purple)**.
 * **Geography:** A mirror of Nordica—harsh, frozen, and industrial.
 * **Survival:** Completely dependent on food imports from the South, explaining militaristic protection of trade routes.
-* **Modern Status:** Center of Kaelia’s global aerospace and heavy robotics production. Its heart is **NorKunta Prime**, an industrial powerhouse that bridges a glacial valley and a deep-water harbor. The city is a forest of foundries and automotive plants, fueled by northern minerals and connected to the world via massive ice-breaker shipping lanes.
+* **Modern Status:** Center of Kaelia’s global aerospace and heavy robotics production.
+*   **Key Locations:**
+    *   **NorKunta Prime (Capital):** An industrial powerhouse and "Capital" city that bridges a glacial valley and a deep-water harbor. The city is a forest of foundries and automotive plants, fueled by northern minerals and connected to the world via massive ice-breaker shipping lanes.
+    *   **Borealis Station:** A high-tech settlement of 60,000 inhabitants. It serves as an atmospheric research hub and energy collection site, defined by massive "Aurora Harvesting" tesla-coil arrays that power the region.
+    *   **Koldfisk Rig:** A temperate agricultural metropolis of 80,000 people. Situated on a coastal lake fed by two rivers, it utilizes massive heating systems to maintain a green, arable micro-climate for hydroponics and vertical farming.
+    *   **Cryo-Vault 09:** A designated special location. A massive subterranean deep-storage facility carved into ancient blue ice, used for preserving biological samples from Kaelia's pre-glacial history.
+    *   **Ice-Hauler's Rest:** A vital logistics hub and truck stop for the treacherous ice road network, housing 3,500 people and serving as a beacon of warmth and commerce in the tundra.
 
 ### 2. The Southern Prosperity Rim
 * **Biome:** **Temperate Deciduous Forest (Green)** & **Temperate Rainforest (Dark Green)**.

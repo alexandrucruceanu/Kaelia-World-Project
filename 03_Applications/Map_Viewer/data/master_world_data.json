@@ -1,0 +1,1816 @@
+{
+  "continents": [
+    {
+      "name": "Nordica",
+      "countries": [
+        {
+          "name": "Gryning",
+          "cities": [
+            {
+              "id": "city_1",
+              "name": "Skýjakot",
+              "type": "metropolis",
+              "coords": [
+                750,
+                400
+              ],
+              "biome": "Boreal Forest",
+              "population": "1,250,000",
+              "desc": "The 'Cloud House' built atop the Taiga canopy.",
+              "color": "#8e44ad",
+              "visual_data": {
+                "prompt": "Wide cinematic shot of Skýjakot, a city built atop the dense canopy of a dark Boreal forest (Taiga). Architecture features a fusion of sleek glass and sustainable timber. Massive aerodynamically carved smart-wind-turbines rise above the ancient pine line into the high-altitude laminar flow. Glowing blue energy lines run through the canopy-level streets. Mist-covered mountains in the background. Ultra-realistic, 8k.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Cinematic Photorealism, 8k",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Wide shot of Skýjakot, a city built atop the dense canopy of a dark Boreal forest.",
+                    "lighting": "Diffused nordic light, glowing blue energy lines",
+                    "atmosphere": "Misty, cold, industrial-natural fusion"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide cinematic shot, slightly elevated",
+                    "focal_point": "Aerodynamic wind-turbines rising above the pines"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Sleek glass fused with sustainable timber",
+                        "action": "Suspended at canopy level"
+                      }
+                    },
+                    {
+                      "id": "surroundings",
+                      "visual_attributes": {
+                        "appearance": "Ancient dark pine forest (Taiga)",
+                        "background": "Mist-covered mountains"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_2",
+              "name": "Hafnir",
+              "type": "settlement",
+              "coords": [
+                730,
+                350
+              ],
+              "biome": "Boreal Forest",
+              "population": "85,000",
+              "desc": "High-tech automated port city.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "High-tech automated port city, center of the Northern shipping lanes.",
+                "source": "WORLD_CODEX.md"
+              },
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Gryning/hafnir.png"
+            },
+            {
+              "id": "city_3",
+              "name": "Bjarnarfjörður",
+              "type": "settlement",
+              "coords": [
+                780,
+                420
+              ],
+              "biome": "Research Station",
+              "population": "12,500",
+              "desc": "Mountain resort and research station.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Mountain resort and research station for natural phenomena.",
+                "source": "WORLD_CODEX.md"
+              }
+            },
+            {
+              "id": "city_4",
+              "name": "Árbær",
+              "type": "village",
+              "coords": [
+                740,
+                450
+              ],
+              "biome": "Boreal Forest",
+              "population": "2,400",
+              "desc": "Rural smart-village.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Rural smart-village; center of traditional-digital handicraft exports.",
+                "source": "WORLD_CODEX.md"
+              }
+            },
+            {
+              "id": "city_5",
+              "name": "Vík",
+              "type": "settlement",
+              "coords": [
+                720,
+                320
+              ],
+              "biome": "Coastal Hub",
+              "population": "45,000",
+              "desc": "Coastal hub for tourism and research.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Coastal hub known for ultra-modern tourism and climate research on the black sand banks.",
+                "source": "WORLD_CODEX.md"
+              }
+            },
+            {
+              "id": "city_6",
+              "name": "Kaldakinn",
+              "type": "village",
+              "coords": [
+                800,
+                380
+              ],
+              "biome": "Glacier Research",
+              "population": "850",
+              "desc": "Glacier research hamlet.",
+              "color": "#7f8c8d",
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Gryning/kaldakinn.png"
+            },
+            {
+              "id": "city_7",
+              "name": "Blakkar Array",
+              "type": "special",
+              "coords": [
+                745,
+                520
+              ],
+              "biome": "Automated Array",
+              "population": "0 (Automated)",
+              "desc": "Mysterious automated signal array.",
+              "color": "#e67e22",
+              "visual_data": {
+                "prompt": "An eerie, mist-shrouded island in the North Sea. Features a massive, towering automated signal array made of dark, weathered steel. Glowing orange status lights blinking through the fog. Waves crashing against jagged black cliffs.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Cinematic Mood Piece",
+                    "aspect_ratio": "21:9"
+                  },
+                  "global_context": {
+                    "scene_description": "An eerie, mist-shrouded island with a massive signal array.",
+                    "lighting": "Gloomy fog, blinking orange status lights",
+                    "atmosphere": "Haunted, industrial, lonely"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide shot from the sea",
+                    "focal_point": "The towering weathered steel array"
+                  },
+                  "objects": [
+                    {
+                      "id": "structure",
+                      "visual_attributes": {
+                        "appearance": "Dark weathered steel tower",
+                        "features": "Glowing orange lights"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Jagged black cliffs",
+                        "action": "Waves crashing"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Oighear",
+          "cities": [
+            {
+              "id": "city_8",
+              "name": "Khuruldai",
+              "type": "metropolis",
+              "coords": [
+                850,
+                500
+              ],
+              "biome": "Alpine Tundra",
+              "population": "890,000",
+              "desc": "Sprawling city blending into the plains.",
+              "color": "#7f8c8d",
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Oighear/khuruldai.png"
+            },
+            {
+              "id": "city_9",
+              "name": "Chaghan Khan",
+              "type": "settlement",
+              "coords": [
+                870,
+                550
+              ],
+              "biome": "Mining City",
+              "population": "120,000",
+              "desc": "Mountain-integrated mining city.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Mountain-integrated mining city using automated nanotech extraction.",
+                "source": "WORLD_CODEX.md"
+              }
+            },
+            {
+              "id": "city_10",
+              "name": "Lahorebaig",
+              "type": "settlement",
+              "coords": [
+                830,
+                550
+              ],
+              "biome": "Digital Bazaar",
+              "population": "210,000",
+              "desc": "Major international server and trade hub.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "The \"Digital Bazaar\" - A major international server and trade hub.",
+                "source": "WORLD_CODEX.md"
+              }
+            },
+            {
+              "id": "city_11",
+              "name": "Erdene Zuu",
+              "type": "special",
+              "coords": [
+                840,
+                480
+              ],
+              "biome": "Ancient/Digital",
+              "population": "350 (Monks/Admins)",
+              "desc": "Ancient temple complex with digital vaults.",
+              "color": "#e67e22"
+            }
+          ]
+        },
+        {
+          "name": "Keunmor",
+          "cities": [
+            {
+              "id": "city_12",
+              "name": "Ardmore",
+              "type": "metropolis",
+              "coords": [
+                700,
+                250
+              ],
+              "biome": "Alpine/Glacial",
+              "population": "3,500,000",
+              "desc": "Vertical mountain city carved into rock.",
+              "color": "#ecf0f1",
+              "image": "assets/images/2.0_Regional_Scale/Nordica/Keunmor/ardmore.png"
+            },
+            {
+              "id": "city_13",
+              "name": "Dún na nGall",
+              "type": "settlement",
+              "coords": [
+                680,
+                200
+              ],
+              "biome": "Deep-water Port",
+              "population": "450,000",
+              "desc": "Modern deep-water automated seaport.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Modern deep-water automated seaport.",
+                "source": "WORLD_CODEX.md"
+              }
+            },
+            {
+              "id": "city_14",
+              "name": "Baile Átha Cliath",
+              "type": "settlement",
+              "coords": [
+                650,
+                270
+              ],
+              "biome": "Financial Hub",
+              "population": "1,800,000",
+              "desc": "Financial capital.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "The continent's financial capital; a hyper-dense urban forest.",
+                "source": "WORLD_CODEX.md"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kasy Federation",
+      "countries": [
+        {
+          "name": "The Golden Isles",
+          "cities": [
+            {
+              "id": "city_15",
+              "name": "Yokasy",
+              "type": "metropolis",
+              "coords": [
+                400,
+                300
+              ],
+              "biome": "Chaparral",
+              "population": "6,200,000",
+              "desc": "Subterranean metropolis; MAGLEV terminal.",
+              "color": "#556b2f",
+              "lore": {
+                "desc": "Subterranean metropolis; architecture uses light-shafts and natural cooling. The world's primary MAGLEV terminal.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A cross-section of a subterranean metropolis in a rolling Chaparral scrubland. Massive geometric light-wells carved through red sandstone. Surface area dominated by olive and cork agriculture. MAGLEV trains gliding through glass tubes beneath the fire-resistant city shell.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Architectural Cutaway",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Cross-section of a subterranean metropolis in a rolling scrubland.",
+                    "lighting": "Natural light filtering down massive shafts",
+                    "atmosphere": "Cool, protected, bustling"
+                  },
+                  "composition": {
+                    "camera_angle": "Cutaway or looking down a light-well",
+                    "focal_point": "The MAGLEV trains gliding in glass tubes"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Red sandstone carved geometric wells",
+                        "features": "Subterranean levels"
+                      }
+                    },
+                    {
+                      "id": "surface",
+                      "visual_attributes": {
+                        "appearance": "Olive and cork agriculture"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_16",
+              "name": "Vorkasy",
+              "type": "settlement",
+              "coords": [
+                380,
+                280
+              ],
+              "biome": "Eco-Tourism",
+              "population": "75,000",
+              "desc": "High-tech mega-fauna preservation.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "High-tech mega-fauna preservation and eco-tourism.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A high-tech city surrounded by a massive \"Solar Sea\" of mirrors harvesting intense UV. The arrays provide shade for chaparral agriculture (vineyards and olives) underneath. Buildings feature white-ceramic outer shells. Digital mirages shimmering on the hot horizon.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Aerial Landscape",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "High-tech city surrounded by a massive field of mirrors.",
+                    "lighting": "Harsh bright sunlight, digital mirages",
+                    "atmosphere": "Technological, hot, shimmering"
+                  },
+                  "composition": {
+                    "camera_angle": "High angle aerial",
+                    "focal_point": "The grid of mirrors protecting the crops"
+                  },
+                  "objects": [
+                    {
+                      "id": "infrastructure",
+                      "visual_attributes": {
+                        "appearance": "See of mirrors/solar arrays",
+                        "function": "Shading agriculture"
+                      }
+                    },
+                    {
+                      "id": "buildings",
+                      "visual_attributes": {
+                        "appearance": "White-ceramic outer shells"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_17",
+              "name": "Pomkasy",
+              "type": "settlement",
+              "coords": [
+                420,
+                330
+              ],
+              "biome": "Smart-Port",
+              "population": "320,000",
+              "desc": "Coastal smart-port.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Coastal smart-port; wealthy from synthetic dyes and pearl-biotech.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A coastal smart-port with architecture inspired by iridescent seashells. Sleek piers extending into a shimmering Mediterranean blue ocean. Biotechnology labs integrated into the coral-reef harbor. Fire-resistant misting towers along the boardwalk.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Coastal Landscape",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Coastal smart-port with iridescent seashell architecture.",
+                    "lighting": "Bright, shimmering ocean reflection",
+                    "atmosphere": "Fresh, aquatic, wealthy"
+                  },
+                  "composition": {
+                    "camera_angle": "From the water looking at the piers",
+                    "focal_point": "The iridescent shell-like buildings"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Iridescent seashell shapes",
+                        "features": "Fire-resistant misting towers"
+                      }
+                    },
+                    {
+                      "id": "water",
+                      "visual_attributes": {
+                        "appearance": "Shimmering Mediterranean blue",
+                        "features": "Coral-reef harbor labs"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_18",
+              "name": "Saskasy",
+              "type": "special",
+              "coords": [
+                350,
+                250
+              ],
+              "biome": "Deep Dunes",
+              "population": "150 (Scientists)",
+              "desc": "Scientific research outpost.",
+              "color": "#e67e22",
+              "lore": {
+                "desc": "Scientific research outpost in the deep dunes.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A remote scientific research outpost on the edge of the scrubland and deep dunes. Modular domes featuring advanced atmospheric water generators and sand-storm buffers. Starry night sky with the planetary rings visible.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Night Sci-Fi Photography",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Remote research outpost on the edge of deep dunes.",
+                    "lighting": "Starry night sky, planetary rings visible",
+                    "atmosphere": "Isolated, scientific, cosmic"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide shot showing the isolation",
+                    "focal_point": "Modular domes glowing in the dark"
+                  },
+                  "objects": [
+                    {
+                      "id": "structures",
+                      "visual_attributes": {
+                        "appearance": "Modular domes",
+                        "features": "Atmospheric water generators"
+                      }
+                    },
+                    {
+                      "id": "sky",
+                      "visual_attributes": {
+                        "appearance": "Starry with visible planetary rings"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Betereko",
+      "countries": [
+        {
+          "name": "The Plateau",
+          "cities": [
+            {
+              "id": "city_19",
+              "name": "Apex",
+              "type": "metropolis",
+              "coords": [
+                132.2,
+                422.1
+              ],
+              "biome": "Polar Plateau",
+              "population": "240,000",
+              "desc": "High-altitude observatory and data hub. Overlooking the 'Endless Drop' eastern cliffs.",
+              "color": "#3498db",
+              "visual_data": {
+                "prompt": "Wide cinematic shot of Apex, a city of dignified stone and glass architecture perched on the precipice of a massive sub-polar monolithic plateau. The skyline is dominated by massive modern radio-dish arrays and sleek telecommunications towers overlooking a sheer cliff edge. Clear, thin high-altitude atmosphere with a deep blue sky. Soft sunlight reflecting off glass facades. The \"Endless Drop\" cliff face falling away into a misty ocean below. Contemporary Information Age aesthetic.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Cinematic Wide Shot",
+                    "aspect_ratio": "21:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Apex, a city parked on the precipice of a massive plateau.",
+                    "lighting": "Clear, thin high-altitude sunlight",
+                    "atmosphere": "Thin air, vertigo-inducing, scientific"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide cinematic shot",
+                    "focal_point": "Radio-dish arrays overlooking the drop"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Dignified stone and glass",
+                        "style": "High-altitude brutalism"
+                      }
+                    },
+                    {
+                      "id": "infrastructure",
+                      "visual_attributes": {
+                        "appearance": "Massive radio-dishes",
+                        "features": "Telecommunications towers"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "The 'Endless Drop' cliff face",
+                        "background": "Misty ocean far below"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Mirelands",
+      "countries": [
+        {
+          "name": "The Dark-Water States",
+          "cities": [
+            {
+              "id": "city_20",
+              "name": "Redez",
+              "type": "metropolis",
+              "coords": [
+                600,
+                1000
+              ],
+              "biome": "Wetland Rim",
+              "population": "1,100,000",
+              "desc": "Industrial wetland rim.",
+              "color": "#2c3e50",
+              "lore": {
+                "desc": "Industrial wetland rim; specialized in amphibious logistics.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A city on the edge of the world-ocean built for Muskeg terrain. Buildings are built on massive pontoons. Amphibious trucks with oversized tracks moving between floating warehouses over ground too soft for wheels.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Action/Vehicle Focus",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "City on the ocean edge built for Muskeg terrain.",
+                    "lighting": "Grey daylight",
+                    "atmosphere": "Logistical, muddy, heavy"
+                  },
+                  "composition": {
+                    "camera_angle": "Tracking shot of a vehicle",
+                    "focal_point": "Amphibious truck with oversized tracks"
+                  },
+                  "objects": [
+                    {
+                      "id": "vehicle",
+                      "visual_attributes": {
+                        "appearance": "Truck with oversized tracks",
+                        "action": "Moving between warehouses"
+                      }
+                    },
+                    {
+                      "id": "buildings",
+                      "visual_attributes": {
+                        "appearance": "Warehouses on pontoons"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_21",
+              "name": "Niruz",
+              "type": "settlement",
+              "coords": [
+                620,
+                950
+              ],
+              "biome": "Agri-Tech",
+              "population": "560,000",
+              "desc": "Powerhouse for flood-resistant crops.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Agri-tech powerhouse specializing in flood-resistant smart-crops.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "Half-frozen flooded Boreal floor with robotic planters. Modular labs on stilts connected by fiber-optic bridges glowing with soft blue light. Dark Taiga forest background with dense pine canopy blocking the sunlight.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Environmental Concept",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Half-frozen flooded Boreal floor with robotic planters.",
+                    "lighting": "Soft blue glow from fiber-optics, low natural light",
+                    "atmosphere": "Damp, cold, glowing"
+                  },
+                  "composition": {
+                    "camera_angle": "Low angle near water surface",
+                    "focal_point": "Modular labs on stilts"
+                  },
+                  "objects": [
+                    {
+                      "id": "structures",
+                      "visual_attributes": {
+                        "action": "Standing on stilts",
+                        "features": "Fiber-optic bridges"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Flooded Pine forest",
+                        "features": "Robotic planters"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_22",
+              "name": "Misyats",
+              "type": "settlement",
+              "coords": [
+                640,
+                1050
+              ],
+              "biome": "Theocracy",
+              "population": "230,000",
+              "desc": "High-tech lunar-aligned theocracy.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "High-tech lunar-aligned theocracy; optimized for low-light environments.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A high-tech city in dark sub-arctic wetlands. Architecture features giant silver lunar motifs and bio-luminescent fiber-optics running through dark wood and stone buildings. Slavic patterns integrated into digital displays. Silver moonlight over a frozen swamp.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Fantasy/Sci-Fi Fusion",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "High-tech city in wetlands with lunar motifs.",
+                    "lighting": "Silver moonlight, bio-luminescence",
+                    "atmosphere": "Sacred, technological, silent"
+                  },
+                  "composition": {
+                    "camera_angle": "Looking up at a building",
+                    "focal_point": "Giant silver lunar motif on a building"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Dark wood and stone",
+                        "features": "Silver lunar motifs, Slavic patterns"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_23",
+              "name": "Nechars",
+              "type": "special",
+              "coords": [
+                680,
+                1020
+              ],
+              "biome": "Permafrost Vaults",
+              "population": "500 (Guardians)",
+              "desc": "Guardians of the Permafrost Vaults.",
+              "color": "#e67e22",
+              "lore": {
+                "desc": "Northernmost frontier; guardians of the Permafrost Vaults.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "The northernmost frontier. A high-tech outpost built on deep permafrost. Architecture features heavy insulation and heat-sinking pylons. Permafrost seed vaults and digital archival archives deep underground. Steam discharging into the frozen air.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Landscape",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Northernmost high-tech frontier outpost on deep permafrost.",
+                    "lighting": "Harsh white ice glare",
+                    "atmosphere": "Extreme cold, survivalist, secure"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide shot showing isolation",
+                    "focal_point": "Heat-sinking pylons supporting the base"
+                  },
+                  "objects": [
+                    {
+                      "id": "outpost",
+                      "visual_attributes": {
+                        "appearance": "Heavy insulation, pylons",
+                        "features": "Steam discharging"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ax Pelak Yeldo",
+          "cities": [
+            {
+              "id": "city_24",
+              "name": "Central Hub",
+              "type": "special",
+              "coords": [
+                500,
+                1000
+              ],
+              "biome": "Archipelago",
+              "population": "5,000",
+              "desc": "Telecom and shipping monitor hub.",
+              "color": "#e67e22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Antarmund",
+      "countries": [
+        {
+          "name": "NorKunta",
+          "cities": [
+            {
+              "id": "city_25",
+              "name": "NorKunta Prime",
+              "type": "metropolis",
+              "coords": [
+                689.4,
+                1612.9
+              ],
+              "biome": "Arctic Industrial",
+              "population": "4,200,000",
+              "desc": "Colossal industrial-residential metropolis with 'The Hearths' mega-blocks and neon commercial veins.",
+              "image": "assets/images/Antarmund/NorKunta/NorKunta_Prime.png",
+              "color": "#34495e",
+              "lore": {
+                "type": "region",
+                "desc": ""
+              },
+              "visual_data": {
+                "prompt": "High-altitude aerial view of NorKunta Prime, a colossal industrial-residential metropolis spanning a glacial valley. The city center is dominated by massive steel foundries and automotive assembly plants, their smokestacks rising like cathedral spires, lit by the amber glow of molten metal. Surrounding the industrial core are high-density residential districts ('The Hearths')—brutalist concrete mega-blocks built into the valley walls, glowing with warm internal light to combat the arctic night. Commercial avenues cut through the snow like veins of neon fire, bustling with open-air markets and heated transport hubs. The deep-water harbor is packed with massive ice-breaker ships and heavy-lift gantry cranes. Snow falls gently over the gritty, powerful, high-tech landscape.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Aerial Metropolis",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Colossal industrial-residential metropolis in a glacial valley.",
+                    "lighting": "Amber industrial glow, warm residential lights, neon commercial strips",
+                    "atmosphere": "Gritty, powerful, bustling, snowy"
+                  },
+                  "composition": {
+                    "camera_angle": "High-altitude aerial looking down the valley",
+                    "focal_point": "The integration of industry and residential zones"
+                  },
+                  "objects": [
+                    {
+                      "id": "industry",
+                      "visual_attributes": {
+                        "appearance": "Steel foundries like cathedrals",
+                        "action": "Molten metal glow"
+                      }
+                    },
+                    {
+                      "id": "residential",
+                      "visual_attributes": {
+                        "appearance": "Brutalist concrete mega-blocks",
+                        "location": "Built into valley walls",
+                        "lighting": "Warm internal light"
+                      }
+                    },
+                    {
+                      "id": "commercial",
+                      "visual_attributes": {
+                        "appearance": "Neon-lit avenues",
+                        "features": "Heated transport hubs"
+                      }
+                    },
+                    {
+                      "id": "harbor",
+                      "visual_attributes": {
+                        "appearance": "Deep-water port with ice-breakers"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_1",
+              "name": "Jarnhöfn",
+              "type": "settlement",
+              "coords": [
+                821.6,
+                1832.7
+              ],
+              "biome": "Ice-Rimmed Harbor",
+              "population": "850,000",
+              "desc": "Sprawling industrial-residential metropolis on a frozen sea with massive naval shipyards.",
+              "image": "assets/images/Antarmund/NorKunta/Jarnhofn.png",
+              "color": "#95a5a6",
+              "visual_data": {
+                "prompt": "High-altitude aerial shot of Jarnhöfn, a sprawling industrial-residential metropolis on the edge of a frozen sea. In the foreground, colossal naval shipyards swarm with gantry cranes looming over the unfinished hulls of nuclear ice-breakers, the water choked with jagged ice but kept open by thermal discharge. The midground reveals 'The Barracks'—density packed residential districts of blocky reinforced concrete, glowing with warm orange streetlights and dotted with neon-lit commercial zones around heated rail lines. In the background, the frozen ocean stretches to the horizon, broken only by the thermal wakes of departing ships. Atmosphere is heavy, metallic, and bustling with survivalist energy.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Aerial Cityscape",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Sprawling industrial-residential metropolis on a frozen coast.",
+                    "lighting": "Arctic twilight with warm orange city lights and neon signs",
+                    "atmosphere": "Bustling, cold, survivalist, heavy"
+                  },
+                  "composition": {
+                    "camera_angle": "High-altitude aerial looking down at the coast",
+                    "focal_point": "The contrast between the dark shipyard and the glowing hab-blocks"
+                  },
+                  "objects": [
+                    {
+                      "id": "districts",
+                      "visual_attributes": {
+                        "residential": "Dense blocky concrete hab-blocks",
+                        "commercial": "Neon-lit modular zones near rails",
+                        "lighting": "Warm orange streetlights"
+                      }
+                    },
+                    {
+                      "id": "industry",
+                      "visual_attributes": {
+                        "appearance": "Nuclear naval shipyards",
+                        "action": "Cranes constructing ice-breakers"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Frozen sea",
+                        "features": "Thermal wakes and jagged ice"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_2",
+              "name": "Titansmidja",
+              "type": "settlement",
+              "coords": [
+                783.5,
+                1770.6
+              ],
+              "biome": "Volcanic Caldera",
+              "population": "150,000",
+              "desc": "Concentric industrial city in a caldera with a steaming meltwater river and 'Magma Core' industry.",
+              "image": "assets/images/Antarmund/NorKunta/Titansmidja.png",
+              "color": "#e74c3c",
+              "visual_data": {
+                "prompt": "High-altitude aerial view of Titansmidja, a concentric industrial city sited inside a massive blackened volcanic caldera surrounded by a blinding white glacier. A small, fast-flowing river of glacial meltwater cuts through the city center, steaming as it runs past geothermal exchanges. The central crater houses the 'Magma Core' heavy industry—robotic assembly lines glowing with molten metal. Radiating outwards are the residential rings: terraced stone-and-steel apartments climbing the caldera walls, illuminated by warm amber streetlights. Commercial districts cluster around the riverbanks, featuring glass-roofed markets and heated plazas. Thick columns of steam rise from the river and the forge, blending with the clouds.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Cinematic Aerial",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Concentric industrial city inside a volcanic caldera with a river.",
+                    "lighting": "Glow of molten metal and warm city lights against white snow",
+                    "atmosphere": "Intense, geothermally active, structured"
+                  },
+                  "composition": {
+                    "camera_angle": "High-altitude aerial establishing shot",
+                    "focal_point": "The river cutting through the glowing industrial core"
+                  },
+                  "objects": [
+                    {
+                      "id": "landscape",
+                      "visual_attributes": {
+                        "appearance": "Black volcanic caldera surrounded by glacier",
+                        "river": "Fast-flowing steaming meltwater"
+                      }
+                    },
+                    {
+                      "id": "industry",
+                      "visual_attributes": {
+                        "appearance": "Magma Core heavy industry",
+                        "action": "Glowing with molten metal"
+                      }
+                    },
+                    {
+                      "id": "residential",
+                      "visual_attributes": {
+                        "appearance": "Terraced stone-and-steel apartments",
+                        "location": "Climbing caldera walls",
+                        "lighting": "Warm amber"
+                      }
+                    },
+                    {
+                      "id": "commercial",
+                      "visual_attributes": {
+                        "appearance": "Glass-roofed markets",
+                        "location": "Riverbanks"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_3",
+              "name": "Aero-Valli",
+              "type": "special",
+              "coords": [
+                614.8,
+                1570.1
+              ],
+              "biome": "High-Altitude Spires",
+              "population": "4,500 (Military Personnel)",
+              "desc": "High-altitude military airbase with extensive barracks, runways, and experimental aircraft.",
+              "image": "assets/images/Antarmund/NorKunta/Aero-Valli.png",
+              "color": "#ea4335",
+              "visual_data": {
+                "prompt": "High-altitude aerial shot of Aero-Valli, a sprawling and highly active military airbase carved into a jagged mountain ridge. The facility features a main runway paralleled by taxiways and fortified blast pens. Behind the flight line lies a dense cantonment area: rows of austere multi-story concrete barracks for personnel, reinforced command bunkers, and modular housing blocks for civilian contractors. A central administrative complex and communications relay dominates the ridge. The tarmac is busy with ground operations: maintenance crews swarming around experimental fighter jets, fuel trucks refueling aircraft, and loaders arming hardpoints. The architecture is utilitarian, brutalist, and reinforced against the elements. The sense of scale and operational tempo is immense.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Realistic Military Airbase",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Busy high-altitude military airbase with extensive housing and support.",
+                    "lighting": "Clear, harsh high-altitude sunlight casting sharp shadows",
+                    "atmosphere": "Active, disciplined, high-tech military operations"
+                  },
+                  "composition": {
+                    "camera_angle": "High-altitude aerial survey",
+                    "focal_point": "The busy apron and taxiways"
+                  },
+                  "objects": [
+                    {
+                      "id": "infrastructure",
+                      "visual_attributes": {
+                        "appearance": "Main runway with parallel taxiways",
+                        "features": "Blast pens, reinforced hangars, radar arrays"
+                      }
+                    },
+                    {
+                      "id": "buildings",
+                      "visual_attributes": {
+                        "appearance": "Grid of concrete barracks and bunkers",
+                        "secondary": "Modular civilian housing blocks",
+                        "feature": "Central administrative complex"
+                      }
+                    },
+                    {
+                      "id": "aircraft_active",
+                      "visual_attributes": {
+                        "appearance": "Experimental fighter jets",
+                        "action": "Taxiing, refueling, arming",
+                        "count": "Multiple units in motion"
+                      }
+                    },
+                    {
+                      "id": "ground_support",
+                      "visual_attributes": {
+                        "appearance": "Fuel trucks and loaders",
+                        "personnel": "Maintenance crews on tarmac"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_4",
+              "name": "Sydgard",
+              "type": "metropolis",
+              "coords": [
+                528,
+                1644.8
+              ],
+              "biome": "Temperate Fjord",
+              "population": "2,800,000",
+              "desc": "The 'Green Gateway' positioned in a gulf where five rivers converge. A sprawling metropolis of high-rises and leafy suburbs.",
+              "image": "assets/images/Antarmund/NorKunta/Sydgard.png",
+              "color": "#27ae60",
+              "visual_data": {
+                "prompt": "High-altitude aerial view of Sydgard, a sprawling temperate metropolis situated in a massive gulf where five major rivers converge into the sea. The city center features dense clusters of glass-and-steel high-rises along the waterfronts, surrounded by extensive green recreational parks and busting commercial districts. Radiating outward are vast, leafy suburbs of single-family homes that stretch along the riverbanks and into the rolling hills. The five rivers cut through the city like arteries, spanned by sleek modern bridges. The deep blue gulf is busy with maritime traffic, while the city layout integrates nature with urban sprawl.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Modern Eco-City Aerial",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Sprawling metropolis at the convergence of five rivers.",
+                    "lighting": "Bright daylight, clear visibility",
+                    "atmosphere": "Vibrant, expansive, connected"
+                  },
+                  "composition": {
+                    "camera_angle": "High-altitude aerial looking inland from the gulf",
+                    "focal_point": "The convergence of the rivers at the city center"
+                  },
+                  "objects": [
+                    {
+                      "id": "geography",
+                      "visual_attributes": {
+                        "features": "Massive gulf, five converging rivers",
+                        "surroundings": "Rolling green hills"
+                      }
+                    },
+                    {
+                      "id": "urban_core",
+                      "visual_attributes": {
+                        "appearance": "Glass-and-steel high-rises",
+                        "location": "Waterfronts and city center",
+                        "features": "Commercial districts, recreational parks"
+                      }
+                    },
+                    {
+                      "id": "suburbs",
+                      "visual_attributes": {
+                        "appearance": "Sprawl of single-family homes",
+                        "location": "Radiating outwards along riverbanks",
+                        "vibe": "Leafy, residential"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_5",
+              "name": "Cryo-Vault 09",
+              "type": "settlement",
+              "coords": [
+                804.8,
+                1877.7
+              ],
+              "biome": "Permafrost Bunker",
+              "population": "45,000",
+              "desc": "Heavily guarded global seed bank and DNA repository buried deep in the permafrost.",
+              "image": "assets/images/Antarmund/NorKunta/Cryo-Vault_09.png",
+              "color": "#95a5a6",
+              "visual_data": {
+                "prompt": "Cinematic shot of Cryo-Vault 09, a heavily fortress-like entrance set into a permafrost cliff. Massive blast doors are guarded by automated turrets and patrolling drones. Scientists in orange extreme-cold gear are unloading canisters from a heavy snow-crawler. The structure is brutalist concrete reinforced with steel, covered in frost.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Sci-Fi Bunker",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Heavily guarded seed bank entrance in permafrost.",
+                    "lighting": "Overcast, flat arctic light",
+                    "atmosphere": "Secure, sterile, important"
+                  },
+                  "composition": {
+                    "camera_angle": "Eye-level establishing shot",
+                    "focal_point": "The massive blast doors"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Brutalist concrete bunker",
+                        "features": "Blast doors, automated turrets"
+                      }
+                    },
+                    {
+                      "id": "characters",
+                      "visual_attributes": {
+                        "appearance": "Scientists in orange gear",
+                        "action": "Unloading cargo"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_6",
+              "name": "Borealis Station",
+              "type": "settlement",
+              "coords": [
+                773.9,
+                1658.5
+              ],
+              "biome": "Tundra Plains",
+              "population": "60,000",
+              "desc": "Atmospheric research hub and 'Aurora Harvesting' energy arrays.",
+              "image": "assets/images/Antarmund/NorKunta/Borealis_Station.png",
+              "color": "#95a5a6",
+              "visual_data": {
+                "prompt": "High-altitude aerial night shot of Borealis Station, a sprawling settlement of 60,000 people on the frozen tundra. The layout is concentric, radiating out from massive central \"Aurora Harvesting\" tesla-coil towers that cast a green and purple glow over the city. Surrounding this energy core are dense rings of modular, heated residential blocks and large habitation domes, glowing with warm amber streetlights. The outer perimeter is lined with research labs and hangars. The scale is massive, a glowing jewel in the dark expanse of snow.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Aerial Cityscape",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Sprawling polar city of 60,000 around energy towers.",
+                    "lighting": "Night time, aurora glow, warm city lights",
+                    "atmosphere": "Bustling, resilient, expansive"
+                  },
+                  "composition": {
+                    "camera_angle": "High altitude aerial view",
+                    "focal_point": "The central tesla-coil array surrounded by city rings"
+                  },
+                  "objects": [
+                    {
+                      "id": "city_layout",
+                      "visual_attributes": {
+                        "appearance": "Concentric rings of buildings",
+                        "density": "High, 60k population scale"
+                      }
+                    },
+                    {
+                      "id": "residential",
+                      "visual_attributes": {
+                        "appearance": "Modular blocks and large domes",
+                        "lighting": "Warm amber windows"
+                      }
+                    },
+                    {
+                      "id": "core",
+                      "visual_attributes": {
+                        "appearance": "Massive tesla-coil towers",
+                        "action": "Glowing with aurora energy"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_7",
+              "name": "Koldfisk Rig",
+              "type": "settlement",
+              "coords": [
+                647.4,
+                1830.7
+              ],
+              "biome": "Frozen Lakes",
+              "population": "80,000",
+              "desc": "Massive inland aquaculture facility utilizing heated glacial lakes.",
+              "image": "assets/images/Antarmund/NorKunta/Koldfisk_Rig.png",
+              "color": "#95a5a6",
+              "visual_data": {
+                "prompt": "Wide aerial shot of Koldfisk Rig, a bustling temperate agricultural metropolis of 80,000 on the shore of a massive coastal lake. The skyline is defined by dense clusters of eco-brutalist residential towers and massive agro-industrial processing plants rising from the green banks. The central rig is expanded with floating districts of housing and hydroponics. Two winding rivers feed the deep blue lake, their banks lined with high-density housing and vertical farming silos. The surrounding land is a patchwork of intensive geometric farmland. Soft, natural sunlight illuminates the thriving green city.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Agricultural Metropolis Aerial",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Bustling agricultural metropolis on a coastal lake.",
+                    "lighting": "Soft natural daylight",
+                    "atmosphere": "Thriving, dense, renovated, green"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide aerial shot showing city layout and lake",
+                    "focal_point": "The dense residential towers and floating districts"
+                  },
+                  "objects": [
+                    {
+                      "id": "city_infrastructure",
+                      "visual_attributes": {
+                        "appearance": "Eco-brutalist residential towers",
+                        "density": "High, 80k population scale"
+                      }
+                    },
+                    {
+                      "id": "agro_industry",
+                      "visual_attributes": {
+                        "appearance": "Vertical farming silos",
+                        "features": "Hydropanic processing plants"
+                      }
+                    },
+                    {
+                      "id": "water_features",
+                      "visual_attributes": {
+                        "appearance": "Coastal lake and two rivers",
+                        "features": "Floating housing districts"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_8",
+              "name": "Ice-Hauler's Rest",
+              "type": "village",
+              "coords": [
+                673.9,
+                1674.1
+              ],
+              "biome": "Ice Road Hub",
+              "population": "3,500",
+              "desc": "Vital truck stop and logistics hub for the treacherous ice road network.",
+              "image": "assets/images/Antarmund/NorKunta/Ice-Hauler's_Rest.png",
+              "color": "#bdc3c7",
+              "visual_data": {
+                "prompt": "Aerial view at dusk of Ice-Hauler's Rest, a sprawling logistics hub at a major highway intersection on the tundra. The scene is illuminated by thousands of headlights and amber streetlamps. A massive truck parking lot is packed with armored ice-haulers. Surrounding the interchange are clusters of motels, roadside diners, 24-hour car and truck repair shops, and a colossal gas station complex. Beyond the commercial zone, modular residential units for 3,500 inhabitants form organized grids. The atmosphere is busy, transient, and glowing against the darkening snowy landscape.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Logistics Hub Aerial",
+                    "aspect_ratio": "4:3"
+                  },
+                  "global_context": {
+                    "scene_description": "Busy logistics hub at highway intersection at dusk.",
+                    "lighting": "Dusk, amber streetlights, vehicle headlights",
+                    "atmosphere": "Busy, commercial, transient, glowing"
+                  },
+                  "composition": {
+                    "camera_angle": "High angle aerial view",
+                    "focal_point": "The highway intersection and truck stop"
+                  },
+                  "objects": [
+                    {
+                      "id": "infrastructure",
+                      "visual_attributes": {
+                        "appearance": "Major highway intersection",
+                        "features": "Massive truck parking lot"
+                      }
+                    },
+                    {
+                      "id": "commercial",
+                      "visual_attributes": {
+                        "appearance": "Motels, diners, repair shops",
+                        "lighting": "Neon and amber signage"
+                      }
+                    },
+                    {
+                      "id": "residential",
+                      "visual_attributes": {
+                        "appearance": "Modular housing grids",
+                        "density": "Organized, 3,500 population scale"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_9",
+              "name": "Glacial Edge",
+              "type": "village",
+              "coords": [
+                830,
+                1750
+              ],
+              "biome": "Glacier Approach",
+              "population": "2,200",
+              "desc": "Tourism and expedition launch point for glacier traversals.",
+              "color": "#bdc3c7",
+              "visual_data": {
+                "prompt": "A vibrant, colorful forward operating base at the foot of a colossal blue glacier wall. Bright orange and yellow modular habitats and dome tents stand out against the white snow. Expedition rovers are being loaded with climbing gear. The glacier wall looms hundreds of meters high in the background, signaling the start of the 'High Ice'.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Adventure Photography",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Expedition base at the foot of a glacier.",
+                    "lighting": "Bright, high-contrast sunlight",
+                    "atmosphere": "Adventure, preparation, scale"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide shot showing scale of glacier",
+                    "focal_point": "Contrast between small colorful tents and huge ice wall"
+                  },
+                  "objects": [
+                    {
+                      "id": "camp",
+                      "visual_attributes": {
+                        "appearance": "Colorful tents and habs",
+                        "colors": "Orange, Yellow"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Colossal blue glacier wall"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_10",
+              "name": "Echo Ridge",
+              "type": "village",
+              "coords": [
+                597.8,
+                1630.9
+              ],
+              "biome": "Mountain Mining",
+              "population": "5,000",
+              "desc": "Small mining outpost extracting rare earth metals from the ridge.",
+              "color": "#bdc3c7",
+              "visual_data": {
+                "prompt": "A precarious mining outpost clinging to a jagged, wind-swept mountain ridge. Scaffolding and drilling rigs hang over the edge. Large rock-crushers pulverize stone, creating dust clouds that mix with the snow. Industrial floodlights cut through the dust. The architecture is temporary, industrial, and bolted directly into the rock.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Industrial Concept",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Mining outpost on a jagged ridge.",
+                    "lighting": "Industrial floodlights in dust/snow",
+                    "atmosphere": "Dangerous, noisy, industrial"
+                  },
+                  "composition": {
+                    "camera_angle": "Side profile of the ridge",
+                    "focal_point": "Drilling rigs hanging over the edge"
+                  },
+                  "objects": [
+                    {
+                      "id": "machinery",
+                      "visual_attributes": {
+                        "appearance": "Drills and rock crushers",
+                        "location": "Clinging to cliff"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Jagged mountain ridge",
+                        "weather": "Wind-swept"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_11",
+              "name": "Sleet-Watch",
+              "type": "village",
+              "coords": [
+                693.7,
+                1416.7
+              ],
+              "biome": "Storm Coast",
+              "population": "1,500",
+              "desc": "Advanced weather monitoring hamlet on the stormy western slopes.",
+              "color": "#bdc3c7",
+              "visual_data": {
+                "prompt": "A remote hamlet dominated by white spherical radomes and sensor masts. Located on a rocky coastal promontory where dark storm waves crash against the cliffs. The buildings are hunkered low, aerodynamic to survive the constant gale-force winds. Rain and sleet lash the lens.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Moody Landscape",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Weather monitoring station in a storm.",
+                    "lighting": "Dark, moody, grey",
+                    "atmosphere": "Stormy, isolated, technical"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide shot of the promontory",
+                    "focal_point": "White radomes against dark sky"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Radomes and sensor masts",
+                        "style": "Aerodynamic low bunkers"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Stormy coast",
+                        "action": "Waves crashing"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_nk_12",
+              "name": "Thermal-Springs",
+              "type": "village",
+              "coords": [
+                524.6,
+                1566.3
+              ],
+              "biome": "Geothermal Oasis",
+              "population": "4,100",
+              "desc": "Recreation and spa town for weary industrial workers.",
+              "color": "#bdc3c7",
+              "visual_data": {
+                "prompt": "A cozy, inviting village centering on large natural hot spring pools. Steam rises from the turquoise water, contrasting with the surrounding snow-covered pine trees. Traditional timber-frame lodges with warm yellow windows ring the pools. People are relaxing in the water despite the freezing air.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Travel/Leisure",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Hot spring spa town in winter.",
+                    "lighting": "Soft twilight, steam, warm windows",
+                    "atmosphere": "Relaxing, cozy, thermal"
+                  },
+                  "composition": {
+                    "camera_angle": "Eye-level across the pool",
+                    "focal_point": "Steam rising from turquoise water"
+                  },
+                  "objects": [
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Natural hot springs",
+                        "feature": "Steam and turquoise water"
+                      }
+                    },
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Timber-frame lodges",
+                        "lighting": "Warm yellow"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Southern Prosperity Rim",
+          "cities": [
+            {
+              "id": "id_26",
+              "name": "Valermond",
+              "type": "metropolis",
+              "coords": [
+                325,
+                1746.5
+              ],
+              "biome": "Deciduous Forest",
+              "population": "2,800,000",
+              "desc": "City of Light. Physics engineering center.",
+              "color": "#27ae60",
+              "lore": {
+                "desc": "",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "Coastal city dedicated to high physics, located in a deciduous forest. Sleek glass spires pulsing with clean white light. Famous for seasonal changes—blazing red/orange autumn leaves around the physics labs. Sunset lighting.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Vibrant Architectural",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Coastal city in a deciduous forest with glass spires.",
+                    "lighting": "Sunset lighting, clean white pulse from spires",
+                    "atmosphere": "Academic, brilliant, autumnal"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide shot of the skyline",
+                    "focal_point": "Glass spires amidst red/orange autumn leaves"
+                  },
+                  "objects": [
+                    {
+                      "id": "buildings",
+                      "visual_attributes": {
+                        "appearance": "Sleek glass spires",
+                        "action": "Pulsing with white light"
+                      }
+                    },
+                    {
+                      "id": "environment",
+                      "visual_attributes": {
+                        "appearance": "Deciduous forest in autumn colors"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_27",
+              "name": "Metsemania",
+              "type": "metropolis",
+              "coords": [
+                320,
+                1550
+              ],
+              "biome": "Temperate Rainforest",
+              "population": "1,900,000",
+              "desc": "Old-growth Sequoia region.",
+              "color": "#1b4f72",
+              "lore": {
+                "desc": "",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A city built within a temperate rainforest. Architecture merges with massive Old-Growth Redwood and Sequoia trees. Buildings use nanotechnology-enhanced cellulose structures. GLEAMING laboratory towers merging with giant ancient bark.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Bio-Futurism",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "City built within a temperate rainforest merging with trees.",
+                    "lighting": "Dappled forest light, gleaming labs",
+                    "atmosphere": "Organic, ancient, scientific"
+                  },
+                  "composition": {
+                    "camera_angle": "Looking up a giant tree",
+                    "focal_point": "Lab tower merging with bark"
+                  },
+                  "objects": [
+                    {
+                      "id": "architecture",
+                      "visual_attributes": {
+                        "appearance": "Gleaming laboratory towers",
+                        "action": "Merging with Old-Growth Sequoias"
+                      }
+                    },
+                    {
+                      "id": "material",
+                      "visual_attributes": {
+                        "type": "Nanotech-enhanced cellulose"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_28",
+              "name": "Fyny'Dor",
+              "type": "settlement",
+              "coords": [
+                250,
+                1650
+              ],
+              "biome": "Grassland",
+              "population": "600,000",
+              "desc": "Primary agricultural engine.",
+              "color": "#f1c40f",
+              "lore": {
+                "desc": "",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A vast agricultural paradise in the temperate grasslands. The only significant flat, green space for large-scale grain farming. Vertical hydro-farming towers and massive automated harvesters.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Agricultural Sci-Fi",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Vast agricultural paradise in temperate grasslands.",
+                    "lighting": "Golden hour over wheat fields",
+                    "atmosphere": "Abundant, peaceful, expansive"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide horizon shot",
+                    "focal_point": "Vertical hydro-farming towers"
+                  },
+                  "objects": [
+                    {
+                      "id": "structures",
+                      "visual_attributes": {
+                        "appearance": "Vertical hydro-farming towers"
+                      }
+                    },
+                    {
+                      "id": "machinery",
+                      "visual_attributes": {
+                        "appearance": "Massive automated harvesters"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_29",
+              "name": "Guldhorn",
+              "type": "settlement",
+              "coords": [
+                329.5,
+                1788
+              ],
+              "biome": "Digital Finance",
+              "population": "3,100,000",
+              "desc": "Digital finance hub.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "The world's premier digital finance hub.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "Gold-glass skyscrapers that resemble giant gothic cathedrals. Precision-engineered bridges with digital heraldic flags. Dense temperate rainforest bordering the financial core. Ultra-luxurious.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Architectural Visualization",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Gold-glass skyscrapers resembling giant gothic cathedrals.",
+                    "lighting": "Golden hour, reflective",
+                    "atmosphere": "Luxurious, imposing, wealthy"
+                  },
+                  "composition": {
+                    "camera_angle": "Low angle looking up skyscrapers",
+                    "focal_point": "Gothic details on glass towers"
+                  },
+                  "objects": [
+                    {
+                      "id": "skyscrapers",
+                      "visual_attributes": {
+                        "appearance": "Gold-glass, neo-gothic shape",
+                        "style": "Cathedral-like"
+                      }
+                    },
+                    {
+                      "id": "bridges",
+                      "visual_attributes": {
+                        "features": "Digital heraldic flags"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_30",
+              "name": "Norgborg",
+              "type": "settlement",
+              "coords": [
+                300,
+                1780
+              ],
+              "biome": "Naval Hub",
+              "population": "1,200,000",
+              "desc": "Militaristic smart city.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "Naval-militaristic smart city protecting the southern trade gates.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "A militaristic coastal smart-city in the Southern Rim. Massive automated naval batteries and sleek patrol warships in the harbor. Architecture is angular and gray, featuring graphene-reinforced walls. Cool, misty temperate climate.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Military Sci-Fi",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Militaristic coastal smart-city with naval batteries.",
+                    "lighting": "Cool, grey, misty",
+                    "atmosphere": "Secure, disciplined, strong"
+                  },
+                  "composition": {
+                    "camera_angle": "Overlooking the harbor defenses",
+                    "focal_point": "Sleek patrol warships"
+                  },
+                  "objects": [
+                    {
+                      "id": "defenses",
+                      "visual_attributes": {
+                        "appearance": "Massive automated naval batteries",
+                        "material": "Graphene-reinforced walls"
+                      }
+                    },
+                    {
+                      "id": "ships",
+                      "visual_attributes": {
+                        "appearance": "Sleek angular warships"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "city_31",
+              "name": "Sigmarignen",
+              "type": "settlement",
+              "coords": [
+                326.5,
+                1619.5
+              ],
+              "biome": "Historical Capital",
+              "population": "950,000",
+              "desc": "Capital of tradition and modern art.",
+              "color": "#3498db",
+              "lore": {
+                "desc": "The continent’s historical capital of high-tradition and modern art.",
+                "source": "WORLD_CODEX.md"
+              },
+              "visual_data": {
+                "prompt": "An ancient city retrofitted with holographic art installations. Traditional architecture with solar-panel roofs. Surrounded by rolling temperate forests and historical monuments.",
+                "schema": {
+                  "meta": {
+                    "image_type": "Historical/Modern Mix",
+                    "aspect_ratio": "16:9"
+                  },
+                  "global_context": {
+                    "scene_description": "Ancient retrofitted city surrounded by forest.",
+                    "lighting": "Daylight",
+                    "atmosphere": "Regal, timeless, adaptive"
+                  },
+                  "composition": {
+                    "camera_angle": "Wide establishing shot",
+                    "focal_point": "Traditional building with solar-panel roof"
+                  },
+                  "objects": [
+                    {
+                      "id": "building",
+                      "visual_attributes": {
+                        "style": "Traditional/Historical",
+                        "features": "Solar-panel roofs, holographic art"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

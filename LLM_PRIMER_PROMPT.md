@@ -9,7 +9,7 @@
 This is a realistic fictional world recovered from a 2014 archive. It combines 3D modelled geography (Cinema4D/Fractal Terrains) with simulated climate data. We are NO LONGER building a solar system; the focus is exclusively on this single planet.
 
 **Key Data Sources:**
-1.  **Map:** The **Interactive Map Viewer** (`03_Applications/Map_Viewer`) is the primary tool for exploring political boundaries, coordinates, and regional data.
+1.  **Map:** The **Interactive Map Viewer** (`03_Applications/Map_Viewer`) is the primary tool. It functions like Google Maps (Search, Zoom, Details) and contains all political boundaries and city data.
 2.  **Lore:** The `WIKI.md` contains the canonical cultural and geographical descriptions.
 3.  **Climate:** We have hard data (mp4 videos) for Temperature, Rainfall, and Altitude that should guide biome descriptions.
 
@@ -18,7 +18,9 @@ This is a realistic fictional world recovered from a 2014 archive. It combines 3
 2.  **Continent 2:** The "Kasy" lands (Yokasy, Vorkasy...).
 3.  **Betereko:** A monolithic landmass.
 4.  **Continent 4:** Slavic-sounding names (Misyats, Aghaz...).
-5.  **Continent 5:** Germanic names (Norgborg, Guldhorn...).
+5.  **Continent 5 (Antarmund):**
+    *   **North (NorKunta):** High-Tech Tundra. Locations: NorKunta Prime (Industrial Capital), Borealis Station (Aurora Energy), Koldfisk Rig (Agro-Metropolis), Cryo-Vault 09 (Deep Storage), Ice-Hauler's Rest (Logistics).
+    *   **South:** Temperate Rainforest/Oceanic. Locations: Fyny'Dor (Breadbasket), Meit'Val (Resort), Valermond (City of Light). Germanic/Scandinavian naming convention.
 
 **Your Goal:**
 Help me expand the lore, resolve inconsistencies between the map and the text, and write narrative content. Maintain a tone that is "National Geographic meets High Fantasy" — realistic, grounded, but imaginative.

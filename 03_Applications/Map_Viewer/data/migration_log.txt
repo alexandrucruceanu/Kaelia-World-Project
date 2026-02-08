@@ -1,0 +1,17 @@
+Loading base data from G:\Mi unidad\01_Alex\30_Tecnologia_y_Proyectos\World_Building_Project\03_Applications\Map_Viewer\data\world_data.json...
+Parsing Lore from G:\Mi unidad\01_Alex\30_Tecnologia_y_Proyectos\World_Building_Project\WORLD_CODEX.md...
+Parsing Prompts from G:\Mi unidad\01_Alex\30_Tecnologia_y_Proyectos\World_Building_Project\IMAGE_GENERATION_PROMPTS.md...
+Loaded 75 Lore entries.
+Lore Keys Sample: Root Origins, Kae (Kasyal), Lia (Gaelic/Keunmorian), Common Translation, Cultural Variants, Planetary Type, Orbit, Tectonics, Climate, Technology Level
+Loaded 48 Prompt entries.
+Prompt Keys Sample: Gryning (The Wind Coast & Skýjakot), Oighear (The Frost-Lands), Keunmor (The Iron Peaks), Brechar (Forest Heart), Kornmor (Temperate Coast), Blakkar (The Echo Island), Yokasy (The Under-City), Akasy (Solar Spires), Bakausy (Scrubland Hub), Vorkasy (The Solar Sea)
+Scanning for images in G:\Mi unidad\01_Alex\30_Tecnologia_y_Proyectos\World_Building_Project\02_Visual_Assets...
+Found 120 potential image assets.
+Merging data...
+Checking city: Skýjakot
+Lore match: NOT FOUND
+Prompt match: FOUND
+Checking city: Hafnir
+Lore match: FOUND
+Prompt match: NOT FOUND
+Success! Master database written to G:\Mi unidad\01_Alex\30_Tecnologia_y_Proyectos\World_Building_Project\03_Applications\Map_Viewer\data\master_world_data.json
