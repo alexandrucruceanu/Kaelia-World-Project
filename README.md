@@ -33,6 +33,7 @@ Finished exports and media organized by scale.
 ### 💻 03_Applications
 Interactive tools used to explore the world.
 *   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern interactive explorer (Google Maps style). Features **Search**, **City Details Drawer**, **Zoom-dependent Labels**, and **Add/Edit Capabilities**.
+*   **[Kaelia Encyclopedia](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/wiki/index.html):** Comprehensive multi-page wiki with detailed profiles, lore, and heraldry for every continent, country, and city.
 *   **[Legacy Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Legacy_Viewer/Public%20link.htm):** Original 2014 zoomable tiled map.
 
 ### 📦 04_Archive

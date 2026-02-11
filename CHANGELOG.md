@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.8.0] - 2026-02-11
+### 📚 Kaelia Encyclopedia & Heraldry
+*   **Wiki Expansion:** Transformed the single-page wiki into a comprehensive **Multi-Page Encyclopedia** (`wiki/index.html`) with dedicated profiles for all 5 continents, 40 countries, and 74 cities.
+*   **Heraldry Integration:** Completed the **Global Heraldry System**. Every entity now possesses a unique, lore-accurate **Motto** and **Visual Description** (Flag/Coat of Arms) in the master data.
+*   **Map Viewer:** Added a **"Wiki" Floating Action Button (FAB)** for direct access to the encyclopedia.
+*   **Data Integrity:** Validated 375+ internal wiki links and ensured 100% city coverage for all nations.
+*   **Tools:** Created `verify_wiki_links.py` for automated crawler testing and `heraldry_prompts.md` for batch asset generation.
+
 ## [2.7.0] - 2026-02-08
 ### 🗺️ Data Enrichment & Heraldry System
 *   **Altitude Integration:** Implemented high-fidelity altitude mapping using 16-bit MDR terrain data. Cities now display precise elevation in meters.

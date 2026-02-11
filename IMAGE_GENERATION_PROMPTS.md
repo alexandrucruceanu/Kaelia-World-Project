@@ -1848,3 +1848,6 @@ This library provides high-fidelity prompts for the **Information Age** of Kaeli
   ]
 }
 ```
+
+## ??? Heraldry Prompts
+See [heraldry_prompts.md](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/heraldry_prompts.md) for a complete list of 110+ heraldry image generation prompts for all countries and cities.

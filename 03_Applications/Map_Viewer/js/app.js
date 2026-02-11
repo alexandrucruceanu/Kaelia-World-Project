@@ -364,6 +364,10 @@ function setupEventListeners() {
     document.getElementById('fab-reset').onclick = () => {
         map.setView([500, 1000], -0.5);
     };
+
+    document.getElementById('fab-wiki').onclick = () => {
+        window.open('wiki/index.html', '_blank');
+    };
     
     document.getElementById('fab-move').onclick = function() {
         moveMode = !moveMode;

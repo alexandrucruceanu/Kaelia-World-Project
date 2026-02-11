@@ -56,8 +56,8 @@
               "heraldry": {
                 "motto": "Above the Clouds, Always Grounded",
                 "description": "Violet field with a white cloud and silver pine.",
-                "flag": "/assets/heraldry/flags/city_skýjakot.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_skýjakot.png"
+                "flag": "/assets/heraldry/flags/city_sk_jakot.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_sk_jakot.png"
               }
             },
             {
@@ -77,7 +77,7 @@
                 "source": "WORLD_CODEX.md"
               },
               "image": "assets/images/2.0_Regional_Scale/Nordica/Gryning/hafnir.png",
-              "altitude": "1949m",
+              "altitude": "1947m",
               "heraldry": {
                 "motto": "Gateway to the North",
                 "description": "Blue anchor on a silver field.",
@@ -105,8 +105,8 @@
               "heraldry": {
                 "motto": "Knowledge from the Peak",
                 "description": "White peak with a blue sapphire.",
-                "flag": "/assets/heraldry/flags/city_bjarnarfjörður.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_bjarnarfjörður.png"
+                "flag": "/assets/heraldry/flags/city_bjarnarfj_r_ur.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_bjarnarfj_r_ur.png"
               }
             },
             {
@@ -125,12 +125,12 @@
                 "desc": "Rural smart-village; center of traditional-digital handicraft exports.",
                 "source": "WORLD_CODEX.md"
               },
-              "altitude": "71m",
+              "altitude": "84m",
               "heraldry": {
                 "motto": "The Hand that Crafts",
                 "description": "Green leaf with silver circuits.",
-                "flag": "/assets/heraldry/flags/city_árbær.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_árbær.png"
+                "flag": "/assets/heraldry/flags/city_rb_r.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_rb_r.png"
               }
             },
             {
@@ -149,12 +149,12 @@
                 "desc": "Coastal hub known for ultra-modern tourism and climate research on the black sand banks.",
                 "source": "WORLD_CODEX.md"
               },
-              "altitude": "2075m",
+              "altitude": "2077m",
               "heraldry": {
                 "motto": "Echoes on the Black Sand",
                 "description": "Black beach with a white breaking wave.",
-                "flag": "/assets/heraldry/flags/city_vík.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_vík.png"
+                "flag": "/assets/heraldry/flags/city_v_k.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_v_k.png"
               }
             },
             {
@@ -183,8 +183,8 @@
               "name": "Blakkar Array",
               "type": "special",
               "coords": [
-                745,
-                520
+                743.9,
+                516.11
               ],
               "biome": "Automated Array",
               "population": "0 (Automated)",
@@ -224,7 +224,7 @@
                   ]
                 }
               },
-              "altitude": "-392m",
+              "altitude": "3m",
               "heraldry": {
                 "motto": "Listening to the Void",
                 "description": "Orange signal tower on dark grey.",
@@ -258,8 +258,8 @@
               "image": "assets/images/2.0_Regional_Scale/Nordica/Oighear/khuruldai.png",
               "altitude": "1206m",
               "heraldry": {
-                "motto": "Unity in the Tundra",
-                "description": "Sky blue field with three white tents.",
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
                 "flag": "/assets/heraldry/flags/city_khuruldai.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_khuruldai.png"
               }
@@ -280,10 +280,10 @@
                 "desc": "Mountain-integrated mining city using automated nanotech extraction.",
                 "source": "WORLD_CODEX.md"
               },
-              "altitude": "913m",
+              "altitude": "910m",
               "heraldry": {
-                "motto": "Deep Mines, Deep Wisdom",
-                "description": "Golden pickaxe on a mountain profile.",
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
                 "flag": "/assets/heraldry/flags/city_chaghan_khan.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_chaghan_khan.png"
               }
@@ -304,10 +304,10 @@
                 "desc": "The \"Digital Bazaar\" - A major international server and trade hub.",
                 "source": "WORLD_CODEX.md"
               },
-              "altitude": "456m",
+              "altitude": "452m",
               "heraldry": {
-                "motto": "The Pulse of the Bazaar",
-                "description": "Silk-patterned field with a digital eye.",
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
                 "flag": "/assets/heraldry/flags/city_lahorebaig.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_lahorebaig.png"
               }
@@ -326,8 +326,8 @@
               "color": "#e67e22",
               "altitude": "492m",
               "heraldry": {
-                "motto": "Ancient Faith, Infinite Data",
-                "description": "Golden bell over a circuit board.",
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
                 "flag": "/assets/heraldry/flags/city_erdene_zuu.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_erdene_zuu.png"
               }
@@ -356,10 +356,10 @@
               "desc": "Vertical mountain city carved into rock.",
               "color": "#ecf0f1",
               "image": "assets/images/2.0_Regional_Scale/Nordica/Keunmor/ardmore.png",
-              "altitude": "1735m",
+              "altitude": "1738m",
               "heraldry": {
-                "motto": "Carved from the Bone of the World",
-                "description": "Stone-carved eagle on a white shield.",
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
                 "flag": "/assets/heraldry/flags/city_ardmore.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_ardmore.png"
               }
@@ -380,12 +380,12 @@
                 "desc": "Modern deep-water automated seaport.",
                 "source": "WORLD_CODEX.md"
               },
-              "altitude": "41m",
+              "altitude": "29m",
               "heraldry": {
-                "motto": "The Iron Port",
-                "description": "Sleek iron ship on iron-grey water.",
-                "flag": "/assets/heraldry/flags/city_dún_na_ngall.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_dún_na_ngall.png"
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_d_n_na_ngall.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_d_n_na_ngall.png"
               }
             },
             {
@@ -404,12 +404,12 @@
                 "desc": "The continent's financial capital; a hyper-dense urban forest.",
                 "source": "WORLD_CODEX.md"
               },
-              "altitude": "2141m",
+              "altitude": "2152m",
               "heraldry": {
-                "motto": "Growth in Every Stone",
-                "description": "A stone bridge between two green banks.",
-                "flag": "/assets/heraldry/flags/city_baile_átha_cliath.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_baile_átha_cliath.png"
+                "motto": "Prosperity and Peace",
+                "description": "A simple field with a city gear symbol.",
+                "flag": "/assets/heraldry/flags/city_baile_tha_cliath.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_baile_tha_cliath.png"
               }
             }
           ],
@@ -418,6 +418,64 @@
             "description": "White with a jagged dark grey horizontal stripe.",
             "flag": "/assets/heraldry/flags/country_keunmor.png",
             "coat_of_arms": "/assets/heraldry/arms/country_keunmor.png"
+          }
+        },
+        {
+          "name": "Brechar",
+          "cities": [
+            {
+              "id": "city_auto_1_brechar",
+              "name": "Brechar Capital",
+              "type": "metropolis",
+              "coords": [
+                725.1,
+                481.93
+              ],
+              "altitude": "122m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Brechar.",
+              "heraldry": {
+                "motto": "Eastern Watch",
+                "description": "Golden leaf on a forest green field.",
+                "flag": "/assets/heraldry/flags/city_brechar_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_brechar_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Roots in the East, Breath in the Wind",
+            "description": "Forest green with three golden leaves.",
+            "flag": "/assets/heraldry/flags/country_brechar.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_brechar.png"
+          }
+        },
+        {
+          "name": "Kornmor",
+          "cities": [
+            {
+              "id": "city_auto_1_kornmor",
+              "name": "Kornmor Capital",
+              "type": "metropolis",
+              "coords": [
+                645.02,
+                310.79
+              ],
+              "altitude": "1049m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Kornmor.",
+              "heraldry": {
+                "motto": "Woven from History",
+                "description": "Silver spindle on a silken white field.",
+                "flag": "/assets/heraldry/flags/city_kornmor_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_kornmor_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Elegance in Every Thread",
+            "description": "Silken white with a gold spindle.",
+            "flag": "/assets/heraldry/flags/country_kornmor.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_kornmor.png"
           }
         }
       ]
@@ -433,8 +491,8 @@
               "name": "Yokasy",
               "type": "metropolis",
               "coords": [
-                400,
-                300
+                403.56,
+                288.33
               ],
               "biome": "Chaparral",
               "population": "6,200,000",
@@ -477,7 +535,7 @@
                   ]
                 }
               },
-              "altitude": "-1255m",
+              "altitude": "5m",
               "heraldry": {
                 "motto": "Under the Light-Well",
                 "description": "A red sandstone arch with a golden sun filtering down.",
@@ -490,8 +548,8 @@
               "name": "Vorkasy",
               "type": "settlement",
               "coords": [
-                380,
-                280
+                382.57,
+                277.34
               ],
               "biome": "Eco-Tourism",
               "population": "75,000",
@@ -534,10 +592,10 @@
                   ]
                 }
               },
-              "altitude": "-241m",
+              "altitude": "26m",
               "heraldry": {
-                "motto": "Preserving the Pulse",
-                "description": "A green gazelle on a solar mirror field.",
+                "motto": "Pulse Guardian",
+                "description": "Green sine-wave on emerald.",
                 "flag": "/assets/heraldry/flags/city_vorkasy.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_vorkasy.png"
               }
@@ -547,8 +605,8 @@
               "name": "Pomkasy",
               "type": "settlement",
               "coords": [
-                420,
-                330
+                403.56,
+                288.33
               ],
               "biome": "Smart-Port",
               "population": "320,000",
@@ -592,10 +650,10 @@
                   ]
                 }
               },
-              "altitude": "-1607m",
+              "altitude": "5m",
               "heraldry": {
-                "motto": "Pearls of the Deep",
-                "description": "An iridescent shell over a biotech flask.",
+                "motto": "Shell of Prosperity",
+                "description": "Iridescent spiral on blue.",
                 "flag": "/assets/heraldry/flags/city_pomkasy.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_pomkasy.png"
               }
@@ -605,8 +663,8 @@
               "name": "Saskasy",
               "type": "special",
               "coords": [
-                350,
-                250
+                362.3,
+                237.79
               ],
               "biome": "Deep Dunes",
               "population": "150 (Scientists)",
@@ -649,10 +707,10 @@
                   ]
                 }
               },
-              "altitude": "-882m",
+              "altitude": "11m",
               "heraldry": {
-                "motto": "Dunes of Discovery",
-                "description": "A nomadic tent under a ringed planet sky.",
+                "motto": "Nomad Gate",
+                "description": "Ochre triangle on a tan field.",
                 "flag": "/assets/heraldry/flags/city_saskasy.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_saskasy.png"
               }
@@ -663,6 +721,180 @@
             "description": "Gold and olive green diagonal bicolor.",
             "flag": "/assets/heraldry/flags/country_the_golden_isles.png",
             "coat_of_arms": "/assets/heraldry/arms/country_the_golden_isles.png"
+          }
+        },
+        {
+          "name": "Akasy",
+          "cities": [
+            {
+              "id": "city_auto_1_akasy",
+              "name": "Akasy Capital",
+              "type": "metropolis",
+              "coords": [
+                371.09,
+                167.24
+              ],
+              "altitude": "1384m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Akasy.",
+              "heraldry": {
+                "motto": "Water is Life",
+                "description": "Blue drop on a sand beige field.",
+                "flag": "/assets/heraldry/flags/city_akasy_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_akasy_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Thirst for Innovation",
+            "description": "Sand beige with a blue drop emblem.",
+            "flag": "/assets/heraldry/flags/country_akasy.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_akasy.png"
+          }
+        },
+        {
+          "name": "Bakausy",
+          "cities": [
+            {
+              "id": "city_auto_1_bakausy",
+              "name": "Bakausy Capital",
+              "type": "metropolis",
+              "coords": [
+                383.54,
+                180.66
+              ],
+              "altitude": "1195m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Bakausy.",
+              "heraldry": {
+                "motto": "The Oasis Found",
+                "description": "Silver palm tree on a burnt orange field.",
+                "flag": "/assets/heraldry/flags/city_bakausy_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_bakausy_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Mirage of Progress",
+            "description": "Burnt orange with a shimmering silver horizon line.",
+            "flag": "/assets/heraldry/flags/country_bakausy.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_bakausy.png"
+          }
+        },
+        {
+          "name": "Pomkasy",
+          "cities": [
+            {
+              "id": "city_auto_1_pomkasy",
+              "name": "Pomkasy Capital",
+              "type": "metropolis",
+              "coords": [
+                390.14,
+                111.82
+              ],
+              "altitude": "781m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Pomkasy.",
+              "heraldry": {
+                "motto": "Jewel of the Gulf",
+                "description": "Blue iridescent shell on indigo.",
+                "flag": "/assets/heraldry/flags/city_pomkasy_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_pomkasy_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Pearls of the Southern Tide",
+            "description": "Iridescent pearl on a deep sea blue field.",
+            "flag": "/assets/heraldry/flags/country_pomkasy.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_pomkasy.png"
+          }
+        },
+        {
+          "name": "Saskasy",
+          "cities": [
+            {
+              "id": "city_auto_1_saskasy",
+              "name": "Saskasy Capital",
+              "type": "metropolis",
+              "coords": [
+                321.78,
+                203.61
+              ],
+              "altitude": "350m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Saskasy.",
+              "heraldry": {
+                "motto": "Dune Master",
+                "description": "Stylized golden dune on ochre.",
+                "flag": "/assets/heraldry/flags/city_saskasy_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_saskasy_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Dunes that Never Rest",
+            "description": "Ochre field with a stylized wind-swept dune.",
+            "flag": "/assets/heraldry/flags/country_saskasy.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_saskasy.png"
+          }
+        },
+        {
+          "name": "Vorkasy",
+          "cities": [
+            {
+              "id": "city_auto_1_vorkasy",
+              "name": "Vorkasy Capital",
+              "type": "metropolis",
+              "coords": [
+                462.89,
+                212.89
+              ],
+              "altitude": "266m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Vorkasy.",
+              "heraldry": {
+                "motto": "Heartbeat of the Scrub",
+                "description": "Golden pulse-line on emerald.",
+                "flag": "/assets/heraldry/flags/city_vorkasy_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_vorkasy_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Guardian of the Living Pulse",
+            "description": "Emerald green with a pulse-line in gold.",
+            "flag": "/assets/heraldry/flags/country_vorkasy.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_vorkasy.png"
+          }
+        },
+        {
+          "name": "Yokasy",
+          "cities": [
+            {
+              "id": "city_auto_1_yokasy",
+              "name": "Yokasy Capital",
+              "type": "metropolis",
+              "coords": [
+                440.43,
+                141.85
+              ],
+              "altitude": "1558m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Yokasy.",
+              "heraldry": {
+                "motto": "First Light",
+                "description": "Golden sun rising between red pillars.",
+                "flag": "/assets/heraldry/flags/city_yokasy_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_yokasy_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Wellspring of the Sand",
+            "description": "Red sandstone color with a central blue circle.",
+            "flag": "/assets/heraldry/flags/country_yokasy.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_yokasy.png"
           }
         }
       ]
@@ -726,7 +958,7 @@
                   ]
                 }
               },
-              "altitude": "91m",
+              "altitude": "102m",
               "heraldry": {
                 "motto": "The Infinite Horizon",
                 "description": "A telescope atop a white cliff.",
@@ -740,6 +972,35 @@
             "description": "Deep cobalt blue with a single white star.",
             "flag": "/assets/heraldry/flags/country_the_plateau.png",
             "coat_of_arms": "/assets/heraldry/arms/country_the_plateau.png"
+          }
+        },
+        {
+          "name": "Betereko",
+          "cities": [
+            {
+              "id": "city_auto_1_betereko",
+              "name": "Betereko Capital",
+              "type": "metropolis",
+              "coords": [
+                129.15,
+                421.63
+              ],
+              "altitude": "21m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Betereko.",
+              "heraldry": {
+                "motto": "Peak of Precision",
+                "description": "Silver upward chevron on monolithic grey.",
+                "flag": "/assets/heraldry/flags/city_betereko_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_betereko_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Calculated Ascent",
+            "description": "Monolithic grey with a silver upward chevron.",
+            "flag": "/assets/heraldry/flags/country_betereko.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_betereko.png"
           }
         }
       ]
@@ -755,8 +1016,8 @@
               "name": "Redez",
               "type": "metropolis",
               "coords": [
-                600,
-                1000
+                604.49,
+                1004.15
               ],
               "biome": "Wetland Rim",
               "population": "1,100,000",
@@ -799,7 +1060,7 @@
                   ]
                 }
               },
-              "altitude": "-593m",
+              "altitude": "10m",
               "heraldry": {
                 "motto": "Drifting Forward",
                 "description": "A floating warehouse on a dark teal field.",
@@ -859,8 +1120,8 @@
               },
               "altitude": "33m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "Grounded and Growing",
+                "description": "Brown field with vibrant green circuits.",
                 "flag": "/assets/heraldry/flags/city_niruz.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_niruz.png"
               }
@@ -870,8 +1131,8 @@
               "name": "Misyats",
               "type": "settlement",
               "coords": [
-                640,
-                1050
+                644.29,
+                1045.65
               ],
               "biome": "Theocracy",
               "population": "230,000",
@@ -908,10 +1169,10 @@
                   ]
                 }
               },
-              "altitude": "-495m",
+              "altitude": "28m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "Night Watch",
+                "description": "A silver owl on a dark blue field.",
                 "flag": "/assets/heraldry/flags/city_misyats.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_misyats.png"
               }
@@ -959,10 +1220,10 @@
                   ]
                 }
               },
-              "altitude": "794m",
+              "altitude": "811m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "Silent Snow",
+                "description": "A white owl flying over a grey forest.",
                 "flag": "/assets/heraldry/flags/city_nechars.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_nechars.png"
               }
@@ -971,8 +1232,8 @@
           "heraldry": {
             "motto": "Where Water Ends, Industry Begins",
             "description": "Dark teal with a copper gear.",
-            "flag": "/assets/heraldry/flags/country_the_dark-water_states.png",
-            "coat_of_arms": "/assets/heraldry/arms/country_the_dark-water_states.png"
+            "flag": "/assets/heraldry/flags/country_the_dark_water_states.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_the_dark_water_states.png"
           }
         },
         {
@@ -983,17 +1244,17 @@
               "name": "Central Hub",
               "type": "special",
               "coords": [
-                500,
-                1000
+                591.8,
+                1030.27
               ],
               "biome": "Archipelago",
               "population": "5,000",
               "desc": "Telecom and shipping monitor hub.",
               "color": "#e67e22",
-              "altitude": "-3302m",
+              "altitude": "1m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "The Meeting Point",
+                "description": "Black circle on a white field.",
                 "flag": "/assets/heraldry/flags/city_central_hub.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_central_hub.png"
               }
@@ -1004,6 +1265,267 @@
             "description": "Seafoam green with three silver waves.",
             "flag": "/assets/heraldry/flags/country_ax_pelak_yeldo.png",
             "coat_of_arms": "/assets/heraldry/arms/country_ax_pelak_yeldo.png"
+          }
+        },
+        {
+          "name": "Aghaz",
+          "cities": [
+            {
+              "id": "city_auto_1_aghaz",
+              "name": "Aghaz Capital",
+              "type": "metropolis",
+              "coords": [
+                704.83,
+                870.61
+              ],
+              "altitude": "2211m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Aghaz.",
+              "heraldry": {
+                "motto": "Guardian of Secrets",
+                "description": "Bronze gate on a black field.",
+                "flag": "/assets/heraldry/flags/city_aghaz_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_aghaz_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Fortress of the Silent Data",
+            "description": "Black field with a bronze gate.",
+            "flag": "/assets/heraldry/flags/country_aghaz.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_aghaz.png"
+          }
+        },
+        {
+          "name": "Menulys",
+          "cities": [
+            {
+              "id": "city_auto_1_menulys",
+              "name": "Menulys Capital",
+              "type": "metropolis",
+              "coords": [
+                597.17,
+                1033.94
+              ],
+              "altitude": "175m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Menulys.",
+              "heraldry": {
+                "motto": "Breathe Deep",
+                "description": "Black circular sink on moss green.",
+                "flag": "/assets/heraldry/flags/city_menulys_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_menulys_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Capturing the Carbon, Preserving the Breath",
+            "description": "Moss green with a black circular sink.",
+            "flag": "/assets/heraldry/flags/country_menulys.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_menulys.png"
+          }
+        },
+        {
+          "name": "Mesek",
+          "cities": [
+            {
+              "id": "city_auto_1_mesek",
+              "name": "Mesek Capital",
+              "type": "metropolis",
+              "coords": [
+                667.48,
+                1002.44
+              ],
+              "altitude": "1325m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Mesek.",
+              "heraldry": {
+                "motto": "Bioluminescent Heart",
+                "description": "Cyan glow on dark indigo.",
+                "flag": "/assets/heraldry/flags/city_mesek_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_mesek_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Guiding Light in the Gloom",
+            "description": "Bioluminescent cyan on a dark indigo field.",
+            "flag": "/assets/heraldry/flags/country_mesek.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_mesek.png"
+          }
+        },
+        {
+          "name": "Misyats",
+          "cities": [
+            {
+              "id": "city_auto_1_misyats",
+              "name": "Misyats Capital",
+              "type": "metropolis",
+              "coords": [
+                710.69,
+                1014.65
+              ],
+              "altitude": "1474m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Misyats.",
+              "heraldry": {
+                "motto": "Lunar Sentinel",
+                "description": "Silver crescent on midnight blue.",
+                "flag": "/assets/heraldry/flags/city_misyats_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_misyats_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Shadowed by the Moon, Lit by Faith",
+            "description": "Silver crescent on a midnight blue field.",
+            "flag": "/assets/heraldry/flags/country_misyats.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_misyats.png"
+          }
+        },
+        {
+          "name": "Nechars",
+          "cities": [
+            {
+              "id": "city_auto_1_nechars",
+              "name": "Nechars Capital",
+              "type": "metropolis",
+              "coords": [
+                592.53,
+                855.22
+              ],
+              "altitude": "248m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Nechars.",
+              "heraldry": {
+                "motto": "Frost Wall",
+                "description": "Steel grey field with a white frostflake.",
+                "flag": "/assets/heraldry/flags/city_nechars_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_nechars_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Wardens of the Eternal Frost",
+            "description": "Steel grey with a white frostflake.",
+            "flag": "/assets/heraldry/flags/country_nechars.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_nechars.png"
+          }
+        },
+        {
+          "name": "Niruz",
+          "cities": [
+            {
+              "id": "city_auto_1_niruz",
+              "name": "Niruz Capital",
+              "type": "metropolis",
+              "coords": [
+                770.75,
+                831.54
+              ],
+              "altitude": "84m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Niruz.",
+              "heraldry": {
+                "motto": "Sprout through Storm",
+                "description": "Golden sprout on mud brown.",
+                "flag": "/assets/heraldry/flags/city_niruz_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_niruz_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Growth Against the Tide",
+            "description": "Mud brown with a golden sprout rising from water.",
+            "flag": "/assets/heraldry/flags/country_niruz.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_niruz.png"
+          }
+        },
+        {
+          "name": "Pateraz",
+          "cities": [
+            {
+              "id": "city_auto_1_pateraz",
+              "name": "Pateraz Capital",
+              "type": "metropolis",
+              "coords": [
+                702.15,
+                916.99
+              ],
+              "altitude": "690m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Pateraz.",
+              "heraldry": {
+                "motto": "Riverflow",
+                "description": "Teal and copper horizontal stripes.",
+                "flag": "/assets/heraldry/flags/city_pateraz_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_pateraz_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Vessels of the Flow",
+            "description": "Teal and copper horizontal stripes.",
+            "flag": "/assets/heraldry/flags/country_pateraz.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_pateraz.png"
+          }
+        },
+        {
+          "name": "Redez",
+          "cities": [
+            {
+              "id": "city_auto_1_redez",
+              "name": "Redez Capital",
+              "type": "metropolis",
+              "coords": [
+                647.71,
+                909.18
+              ],
+              "altitude": "215m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Redez.",
+              "heraldry": {
+                "motto": "Treads of Progress",
+                "description": "Rust orange field with tread-tracks.",
+                "flag": "/assets/heraldry/flags/city_redez_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_redez_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Adaptive, Enduring, Amphibious",
+            "description": "Rust orange with a stylized tread-track.",
+            "flag": "/assets/heraldry/flags/country_redez.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_redez.png"
+          }
+        },
+        {
+          "name": "Tailaz",
+          "cities": [
+            {
+              "id": "city_auto_1_tailaz",
+              "name": "Tailaz Capital",
+              "type": "metropolis",
+              "coords": [
+                722.17,
+                816.65
+              ],
+              "altitude": "2129m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Tailaz.",
+              "heraldry": {
+                "motto": "Delta Spirit",
+                "description": "Silver veins on a cyan field.",
+                "flag": "/assets/heraldry/flags/city_tailaz_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_tailaz_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Legacy of the Delta",
+            "description": "Cyan field with silver branching veins.",
+            "flag": "/assets/heraldry/flags/country_tailaz.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_tailaz.png"
           }
         }
       ]
@@ -1081,8 +1603,8 @@
               },
               "altitude": "262m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "Heart of the Titan",
+                "description": "A massive steel gear over a blue glacier.",
                 "flag": "/assets/heraldry/flags/city_norkunta_prime.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_norkunta_prime.png"
               }
@@ -1142,12 +1664,12 @@
                   ]
                 }
               },
-              "altitude": "133m",
+              "altitude": "153m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
-                "flag": "/assets/heraldry/flags/city_jarnhöfn.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_jarnhöfn.png"
+                "motto": "The Iron Harbor",
+                "description": "An iron anchor frozen in a blue block of ice.",
+                "flag": "/assets/heraldry/flags/city_jarnh_fn.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_jarnh_fn.png"
               }
             },
             {
@@ -1212,7 +1734,7 @@
                   ]
                 }
               },
-              "altitude": "2577m",
+              "altitude": "2569m",
               "heraldry": {
                 "motto": "Anvil of the Gods",
                 "description": "A massive hammer striking an icy spark.",
@@ -1283,12 +1805,12 @@
                   ]
                 }
               },
-              "altitude": "3726m",
+              "altitude": "3712m",
               "heraldry": {
                 "motto": "Where Winds Whisper",
                 "description": "A stylized wind turbine with three golden blades.",
-                "flag": "/assets/heraldry/flags/city_aero-valli.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_aero-valli.png"
+                "flag": "/assets/heraldry/flags/city_aero_valli.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_aero_valli.png"
               }
             },
             {
@@ -1402,12 +1924,12 @@
                   ]
                 }
               },
-              "altitude": "929m",
+              "altitude": "945m",
               "heraldry": {
                 "motto": "Frozen Wisdom",
                 "description": "A crystalline vault door on a white field.",
-                "flag": "/assets/heraldry/flags/city_cryo-vault_09.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_cryo-vault_09.png"
+                "flag": "/assets/heraldry/flags/city_cryo_vault_09.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_cryo_vault_09.png"
               }
             },
             {
@@ -1526,7 +2048,7 @@
                   ]
                 }
               },
-              "altitude": "126m",
+              "altitude": "110m",
               "heraldry": {
                 "motto": "Harvesting the Cold",
                 "description": "A silver fish skeleton on a black industrial rig.",
@@ -1588,12 +2110,12 @@
                   ]
                 }
               },
-              "altitude": "2042m",
+              "altitude": "2028m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
-                "flag": "/assets/heraldry/flags/city_ice-hauler's_rest.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_ice-hauler's_rest.png"
+                "motto": "Warmth in the Waste",
+                "description": "A glowing orange lantern on charcoal grey.",
+                "flag": "/assets/heraldry/flags/city_ice_hauler_s_rest.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_ice_hauler_s_rest.png"
               }
             },
             {
@@ -1708,8 +2230,8 @@
               "name": "Sleet-Watch",
               "type": "village",
               "coords": [
-                693.7,
-                1416.7
+                694.09,
+                1417.24
               ],
               "biome": "Storm Coast",
               "population": "1,500",
@@ -1749,12 +2271,12 @@
                   ]
                 }
               },
-              "altitude": "-54m",
+              "altitude": "16m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
-                "flag": "/assets/heraldry/flags/city_sleet-watch.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_sleet-watch.png"
+                "motto": "Eyes in the Storm",
+                "description": "A grey watchtower amidst driving white sleet.",
+                "flag": "/assets/heraldry/flags/city_sleet_watch.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_sleet_watch.png"
               }
             },
             {
@@ -1803,12 +2325,12 @@
                   ]
                 }
               },
-              "altitude": "3563m",
+              "altitude": "3558m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
-                "flag": "/assets/heraldry/flags/city_thermal-springs.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_thermal-springs.png"
+                "motto": "Heat from the Heart",
+                "description": "Steam rising from a cleft in the stone.",
+                "flag": "/assets/heraldry/flags/city_thermal_springs.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_thermal_springs.png"
               }
             }
           ],
@@ -1871,7 +2393,7 @@
                   ]
                 }
               },
-              "altitude": "1892m",
+              "altitude": "1893m",
               "heraldry": {
                 "motto": "Prosperity and Peace",
                 "description": "A simple field with a city gear symbol.",
@@ -1884,8 +2406,8 @@
               "name": "Metsemania",
               "type": "metropolis",
               "coords": [
-                320,
-                1550
+                318.12,
+                1552.0
               ],
               "biome": "Temperate Rainforest",
               "population": "1,900,000",
@@ -1928,10 +2450,10 @@
                   ]
                 }
               },
-              "altitude": "-123m",
+              "altitude": "28m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "The Great Redwood",
+                "description": "A giant sequoia tree with silver leaves.",
                 "flag": "/assets/heraldry/flags/city_metsemania.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_metsemania.png"
               }
@@ -1988,8 +2510,8 @@
               "heraldry": {
                 "motto": "Prosperity and Peace",
                 "description": "A simple field with a city gear symbol.",
-                "flag": "/assets/heraldry/flags/city_fyny'dor.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_fyny'dor.png"
+                "flag": "/assets/heraldry/flags/city_fyny_dor.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_fyny_dor.png"
               }
             },
             {
@@ -2041,10 +2563,10 @@
                   ]
                 }
               },
-              "altitude": "205m",
+              "altitude": "195m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "The Golden Horn",
+                "description": "Golden horn on a black field.",
                 "flag": "/assets/heraldry/flags/city_guldhorn.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_guldhorn.png"
               }
@@ -2098,7 +2620,7 @@
                   ]
                 }
               },
-              "altitude": "447m",
+              "altitude": "426m",
               "heraldry": {
                 "motto": "City of the Eternal Pine",
                 "description": "A tall, dark green pine tree on a grey shield.",
@@ -2149,20 +2671,397 @@
                   ]
                 }
               },
-              "altitude": "1287m",
+              "altitude": "1291m",
               "heraldry": {
-                "motto": "Prosperity and Peace",
-                "description": "A simple field with a city gear symbol.",
+                "motto": "The Artist's Gate",
+                "description": "Golden brush on purple.",
                 "flag": "/assets/heraldry/flags/city_sigmarignen.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_sigmarignen.png"
               }
             }
           ],
           "heraldry": {
-            "motto": "Peace and Prosperity",
-            "description": "A simple bicolor field.",
+            "motto": "Lush Lands, Boundless Wealth",
+            "description": "Rich green with a golden horn of plenty.",
             "flag": "/assets/heraldry/flags/country_southern_prosperity_rim.png",
             "coat_of_arms": "/assets/heraldry/arms/country_southern_prosperity_rim.png"
+          }
+        },
+        {
+          "name": "Dirka'Merik",
+          "cities": [
+            {
+              "id": "city_auto_1_dirka'merik",
+              "name": "Dirka'Merik Capital",
+              "type": "metropolis",
+              "coords": [
+                319.34,
+                1489.5
+              ],
+              "altitude": "1516m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Dirka'Merik.",
+              "heraldry": {
+                "motto": "Safe Harbor",
+                "description": "Golden compass on navy blue.",
+                "flag": "/assets/heraldry/flags/city_dirka_merik_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_dirka_merik_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Commerce through the Storm",
+            "description": "Navy blue with a golden compass.",
+            "flag": "/assets/heraldry/flags/country_dirka_merik.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_dirka_merik.png"
+          }
+        },
+        {
+          "name": "Fyny'Dor",
+          "cities": [
+            {
+              "id": "city_auto_1_fyny'dor",
+              "name": "Fyny'Dor Capital",
+              "type": "metropolis",
+              "coords": [
+                318.12,
+                1428.22
+              ],
+              "altitude": "3041m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Fyny'Dor.",
+              "heraldry": {
+                "motto": "Bountiful Field",
+                "description": "Amber gold field with a wheat stalk.",
+                "flag": "/assets/heraldry/flags/city_fyny_dor_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_fyny_dor_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "The Endless Harvest",
+            "description": "Amber gold with a stylized wheat stalk.",
+            "flag": "/assets/heraldry/flags/country_fyny_dor.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_fyny_dor.png"
+          }
+        },
+        {
+          "name": "Guldhorn",
+          "cities": [
+            {
+              "id": "city_auto_1_guldhorn",
+              "name": "Guldhorn Capital",
+              "type": "metropolis",
+              "coords": [
+                355.22,
+                1106.93
+              ],
+              "altitude": "989m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Guldhorn.",
+              "heraldry": {
+                "motto": "Wealth in Data",
+                "description": "Black electronic trace on a gold field.",
+                "flag": "/assets/heraldry/flags/city_guldhorn_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_guldhorn_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Digital Sovereignty, Physical Wealth",
+            "description": "Golden field with a black electronic traces.",
+            "flag": "/assets/heraldry/flags/country_guldhorn.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_guldhorn.png"
+          }
+        },
+        {
+          "name": "Kasim'Merik",
+          "cities": [
+            {
+              "id": "city_auto_1_kasim'merik",
+              "name": "Kasim'Merik Capital",
+              "type": "metropolis",
+              "coords": [
+                329.1,
+                1524.66
+              ],
+              "altitude": "127m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Kasim'Merik.",
+              "heraldry": {
+                "motto": "Master Mariner",
+                "description": "White sail on deep azure.",
+                "flag": "/assets/heraldry/flags/city_kasim_merik_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_kasim_merik_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Master of the Eastern Tides",
+            "description": "Deep azure with a white sail.",
+            "flag": "/assets/heraldry/flags/country_kasim_merik.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_kasim_merik.png"
+          }
+        },
+        {
+          "name": "Laendamania",
+          "cities": [
+            {
+              "id": "city_auto_1_laendamania",
+              "name": "Laendamania Capital",
+              "type": "metropolis",
+              "coords": [
+                333.5,
+                1626.46
+              ],
+              "altitude": "971m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Laendamania.",
+              "heraldry": {
+                "motto": "The Broadcaster",
+                "description": "Silver antenna on magenta.",
+                "flag": "/assets/heraldry/flags/city_laendamania_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_laendamania_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Echoes of the Southern Voice",
+            "description": "Magenta with a silver broadcast icon.",
+            "flag": "/assets/heraldry/flags/country_laendamania.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_laendamania.png"
+          }
+        },
+        {
+          "name": "Meit'Val",
+          "cities": [
+            {
+              "id": "city_auto_1_meit'val",
+              "name": "Meit'Val Capital",
+              "type": "metropolis",
+              "coords": [
+                274.17,
+                1387.45
+              ],
+              "altitude": "2743m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Meit'Val.",
+              "heraldry": {
+                "motto": "The Vine of Plenty",
+                "description": "Golden vine on burgundy.",
+                "flag": "/assets/heraldry/flags/city_meit_val_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_meit_val_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Luxury from the Earth",
+            "description": "Burgundy with a golden vine.",
+            "flag": "/assets/heraldry/flags/country_meit_val.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_meit_val.png"
+          }
+        },
+        {
+          "name": "Melynmania",
+          "cities": [
+            {
+              "id": "city_auto_1_melynmania",
+              "name": "Melynmania Capital",
+              "type": "metropolis",
+              "coords": [
+                296.88,
+                1709.96
+              ],
+              "altitude": "1900m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Melynmania.",
+              "heraldry": {
+                "motto": "The Autumn Leaf",
+                "description": "Red maple leaf on yellow.",
+                "flag": "/assets/heraldry/flags/city_melynmania_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_melynmania_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Vibrancy in the Deciduous Heart",
+            "description": "Yellow field with a red maple leaf.",
+            "flag": "/assets/heraldry/flags/country_melynmania.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_melynmania.png"
+          }
+        },
+        {
+          "name": "Metsemania",
+          "cities": [
+            {
+              "id": "city_auto_1_metsemania",
+              "name": "Metsemania Capital",
+              "type": "metropolis",
+              "coords": [
+                174.56,
+                1539.31
+              ],
+              "altitude": "2m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Metsemania.",
+              "heraldry": {
+                "motto": "Wood and Logic",
+                "description": "Green shield with a silver circuit-tree.",
+                "flag": "/assets/heraldry/flags/city_metsemania_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_metsemania_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Synthesis of the Ancient Wood",
+            "description": "Dark forest green with silver nanobots.",
+            "flag": "/assets/heraldry/flags/country_metsemania.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_metsemania.png"
+          }
+        },
+        {
+          "name": "Norgborg",
+          "cities": [
+            {
+              "id": "city_auto_1_norgborg",
+              "name": "Norgborg Capital",
+              "type": "metropolis",
+              "coords": [
+                421.88,
+                1227.54
+              ],
+              "altitude": "1431m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Norgborg.",
+              "heraldry": {
+                "motto": "Iron Pine",
+                "description": "Dark green pine branch on iron grey.",
+                "flag": "/assets/heraldry/flags/city_norgborg_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_norgborg_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Shield of the Southern Gate",
+            "description": "Iron grey with a dark green pine bough.",
+            "flag": "/assets/heraldry/flags/country_norgborg.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_norgborg.png"
+          }
+        },
+        {
+          "name": "Norginde",
+          "cities": [
+            {
+              "id": "city_auto_1_norginde",
+              "name": "Norginde Capital",
+              "type": "metropolis",
+              "coords": [
+                419.19,
+                1313.48
+              ],
+              "altitude": "769m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Norginde.",
+              "heraldry": {
+                "motto": "Core Heat",
+                "description": "Crimson field with a grey mountain silhouette.",
+                "flag": "/assets/heraldry/flags/city_norginde_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_norginde_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Heat of the Core, Strength of the Peak",
+            "description": "Crimson with a grey mountain silhouette.",
+            "flag": "/assets/heraldry/flags/country_norginde.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_norginde.png"
+          }
+        },
+        {
+          "name": "Norgkes",
+          "cities": [
+            {
+              "id": "city_auto_1_norgkes",
+              "name": "Norgkes Capital",
+              "type": "metropolis",
+              "coords": [
+                436.52,
+                1310.55
+              ],
+              "altitude": "172m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Norgkes.",
+              "heraldry": {
+                "motto": "Interlocking Strength",
+                "description": "Three silver gears on a white field.",
+                "flag": "/assets/heraldry/flags/city_norgkes_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_norgkes_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Precision in Every Gear",
+            "description": "Silver field with three interlocking gears.",
+            "flag": "/assets/heraldry/flags/country_norgkes.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_norgkes.png"
+          }
+        },
+        {
+          "name": "Sigmarignen",
+          "cities": [
+            {
+              "id": "city_auto_1_sigmarignen",
+              "name": "Sigmarignen Capital",
+              "type": "metropolis",
+              "coords": [
+                396.24,
+                1227.78
+              ],
+              "altitude": "1531m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Sigmarignen.",
+              "heraldry": {
+                "motto": "High Tradition",
+                "description": "Royal purple field with a golden crown.",
+                "flag": "/assets/heraldry/flags/city_sigmarignen_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_sigmarignen_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "Artistry of the High Tradition",
+            "description": "Royal purple with a golden laurel.",
+            "flag": "/assets/heraldry/flags/country_sigmarignen.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_sigmarignen.png"
+          }
+        },
+        {
+          "name": "Varelmond",
+          "cities": [
+            {
+              "id": "city_auto_1_varelmond",
+              "name": "Varelmond Capital",
+              "type": "metropolis",
+              "coords": [
+                297.36,
+                1214.11
+              ],
+              "altitude": "796m",
+              "population": "500,000",
+              "desc": "The primary capital and economic hub of Varelmond.",
+              "heraldry": {
+                "motto": "Alchemical Spark",
+                "description": "Prismatic white field with an orange ember.",
+                "flag": "/assets/heraldry/flags/city_varelmond_capital.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_varelmond_capital.png"
+              }
+            }
+          ],
+          "heraldry": {
+            "motto": "The Alchemical Beacon",
+            "description": "Prismatic white with a glowing orange spark.",
+            "flag": "/assets/heraldry/flags/country_varelmond.png",
+            "coat_of_arms": "/assets/heraldry/arms/country_varelmond.png"
           }
         }
       ]

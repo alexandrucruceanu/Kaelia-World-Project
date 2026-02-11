@@ -21,6 +21,8 @@
 - [x] **Altitude Integration:** High-fidelity 16-bit terrain mapping and precise city elevation tracking.
 - [x] **Heraldry System:** Implementation of mottos, descriptions, and UI integration for all entities.
 - [x] **NorKunta Expansion:** Detailed lore and visuals for Northern Antarmund (Cryo-Vault 09, Koldfisk, Borealis).
+- [x] **Interactive Encyclopedia:** Generated multi-page HTML wiki linked to Map Viewer.
+- [x] **Heraldry Prompts:** Created batch prompt library for flags and coats of arms (`heraldry_prompts.md`).
 - [ ] **AI Asset Generation:** Batch generation of flags, coats of arms, and regional landscape cards.
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.

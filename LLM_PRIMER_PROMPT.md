@@ -11,7 +11,8 @@ This is a realistic fictional world recovered from a 2014 archive. It combines 3
 **Key Data Sources:**
 1.  **Map:** The **Interactive Map Viewer** (`03_Applications/Map_Viewer`) is the primary tool. It functions like Google Maps (Search, Zoom, Details) and contains all political boundaries, city data, and **Heraldry (Mottos/Descriptions)**.
 2.  **Lore:** The `WORLD_CODEX.md` contains the canonical cultural and geographical descriptions.
-3.  **Climate & Elevation:** We have hard data (MDR files/Altitude Maps) for Temperature, Rainfall, and Altitude that guide biome and elevation descriptions.
+3.  **Encyclopedia:** The `03_Applications/Map_Viewer/wiki/` directory contains generated, detailed profiles for 40 countries and 70+ cities including mottos and specific lore.
+4.  **Climate & Elevation:** We have hard data (MDR files/Altitude Maps) for Temperature, Rainfall, and Altitude that guide biome and elevation descriptions.
 
 **The World (Five Continents):**
 1.  **Nordica:** Detailed Nordic/Celtic setting. Nations: Gryning (Windy), Oighear (Mongolian-like), Keunmor (Irish/Mining), Brechar (Farm/Forest), Kornmor (Cosmopolitan/Trade).

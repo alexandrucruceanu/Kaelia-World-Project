@@ -5,7 +5,7 @@ import numpy as np
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-MDR_FILE = os.path.join(BASE_DIR, '01_Design_Sources', 'Kaelia Equirectangular')
+MDR_FILE = os.path.join(BASE_DIR, '01_Design_Sources', 'Kaelia Equirectangular.mdr')
 OUTPUT_FILE = os.path.join(BASE_DIR, '03_Applications', 'Map_Viewer', 'data', 'altitude_hifi.png')
 
 # MDR Specs
