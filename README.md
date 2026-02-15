@@ -6,7 +6,7 @@ Kaelia is a realistic fictional world in its **Information Age**, originally dev
 Each continent developed its own modern infrastructure independently, leading to a planet of high regional identity and minimal globalized colonization. This repository serves as the modern "Command Center" for the restoration and expansion of this project.
 
 ## 📜 Core Lore
-The project focuses exclusively on **Kaelia**, a single terrestrial planet defined by a severe **North-South Temperature Gradient**. Key features include the frozen taigas of **Nordica**, the industrial tundra of **NorKunta**, the Mediterranean chaparrals of the **Kasy Federation**, and the lush temperate rainforests of **Antarmund**.
+The project focuses exclusively on **Kaelia**, a single terrestrial planet defined by a severe **North-South Temperature Gradient**. The world is organized into **5 continents, 36 countries, and 61 cities**. Key features include the frozen taigas of **Nordica**, the industrial tundra of **NorKunta**, the Mediterranean chaparrals of the **Kasy Federation**, the unified technocracy of **Betereko**, and the lush temperate rainforests of **Antarmund**.
 
 It combines geography, simulated climatology (Whittaker Classification), and 3D modeling to bring the "Modern-Ancient Synthesis" to life.
 
@@ -32,8 +32,8 @@ Finished exports and media organized by scale.
 
 ### 💻 03_Applications
 Interactive tools used to explore the world.
-*   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern interactive explorer (Google Maps style). Features **Search**, **City Details Drawer**, **Zoom-dependent Labels**, and **Add/Edit Capabilities**.
-*   **[Kaelia Encyclopedia](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/wiki/index.html):** Comprehensive multi-page wiki with detailed profiles, lore, and heraldry for every continent, country, and city.
+*   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern interactive explorer (Google Maps style). Features **Search**, **City Details Drawer** with **Image Carousel**, **Climate Legend**, **Zoom-dependent Labels**, **Direct Wiki Linking**, and **Add/Edit Capabilities**.
+*   **[Kaelia Encyclopedia](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/wiki/index.html):** Comprehensive multi-page wiki with profiles for **36 countries** and **61 cities**, including lore, heraldry, and **Image Carousels**. Features **Dark Mode** and **High-Res Image Lightbox**.
 *   **[Legacy Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Legacy_Viewer/Public%20link.htm):** Original 2014 zoomable tiled map.
 
 ### 📦 04_Archive

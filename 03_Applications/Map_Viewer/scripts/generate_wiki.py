@@ -11,27 +11,118 @@ WIKI_DIR = os.path.join(BASE_DIR, 'wiki')
 
 # Design Tokens (Wikipedi-esque)
 CSS = """
-body { font-family: sans-serif; line-height: 1.6; color: #202122; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f6f6f6; }
-.header-container { border-bottom: 1px solid #a2a9b1; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
-h1 { font-family: 'Linux Libertine','Georgia','Times',serif; font-size: 1.8em; margin-bottom: 0.25em; }
-h2 { border-bottom: 1px solid #a2a9b1; font-family: 'Linux Libertine','Georgia','Times',serif; font-size: 1.5em; margin-top: 1.5em; }
+/* Dark Theme Variables */
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --link-color: #8ab4f8;
+    --border-color: #444;
+    --header-border: #666;
+    --infobox-bg: #2a2a2a;
+    --infobox-header: #333;
+    --infobox-title-bg: #444;
+    --table-header: #333;
+    --code-bg: #2d2d2d;
+    --blockquote-border: #666;
+}
+
+body { font-family: sans-serif; line-height: 1.6; color: var(--text-color); max-width: 1200px; margin: 0 auto; padding: 20px; background: var(--bg-color); }
+.header-container { border-bottom: 1px solid var(--header-border); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+h1, h2, h3, h4, h5, h6 { color: #fff; font-family: 'Linux Libertine','Georgia','Times',serif; }
+h1 { font-size: 1.8em; margin-bottom: 0.25em; }
+h2 { border-bottom: 1px solid var(--header-border); font-size: 1.5em; margin-top: 1.5em; }
 h3 { font-size: 1.2em; margin-top: 1.2em; }
-.infobox { float: right; width: 300px; background: #f8f9fa; border: 1px solid #a2a9b1; padding: 10px; margin-left: 20px; font-size: 0.9em; }
-.infobox th { text-align: left; background: #eaecf0; padding: 5px; }
+
+.infobox { float: right; width: 300px; background: var(--infobox-bg); border: 1px solid var(--border-color); padding: 10px; margin-left: 20px; font-size: 0.9em; color: var(--text-color); }
+.infobox th { text-align: left; background: var(--table-header); padding: 5px; color: #fff; }
 .infobox td { padding: 5px; }
-.infobox-title { text-align: center; font-weight: bold; font-size: 1.25em; background: #cedff2; padding: 5px; }
-.toc { background: #f8f9fa; border: 1px solid #a2a9b1; display: inline-block; padding: 10px; margin-bottom: 20px; min-width: 200px; }
+.infobox-title { text-align: center; font-weight: bold; font-size: 1.25em; background: var(--infobox-title-bg); padding: 5px; color: #fff; }
+
+.toc { background: var(--infobox-bg); border: 1px solid var(--border-color); display: inline-block; padding: 10px; margin-bottom: 20px; min-width: 200px; }
 .toc-title { font-weight: bold; text-align: center; margin-bottom: 5px; }
+
 .section-content { margin-bottom: 20px; }
 ul { margin-top: 0; }
-a { color: #0645ad; text-decoration: none; }
+a { color: var(--link-color); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
 .city-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-.city-table th, .city-table td { border: 1px solid #a2a9b1; padding: 6px; text-align: left; }
-.city-table th { background: #eaecf0; }
-.breadcrumb { font-size: 0.8em; color: #72777d; margin-bottom: 10px; }
-.hero-img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; border: 1px solid #dadce0; }
-.motto { font-style: italic; color: #555; text-align: center; display: block; margin-top: 5px; border-top: 1px solid #eee; padding-top: 5px; }
+.city-table th, .city-table td { border: 1px solid var(--border-color); padding: 6px; text-align: left; }
+.city-table th { background: var(--table-header); color: #fff; }
+
+.breadcrumb { font-size: 0.8em; color: #aaa; margin-bottom: 10px; }
+.hero-img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; border: 1px solid #555; }
+.motto { font-style: italic; color: #aaa; text-align: center; display: block; margin-top: 5px; border-top: 1px solid #444; padding-top: 5px; }
+
+/* Scrollbar refinement */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #777; }
+
+/* Lightbox/Modal */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+.modal-content { margin: auto; display: block; width: 80%; max-width: 700px; max-height: 90vh; object-fit: contain; animation-name: zoom; animation-duration: 0.6s; margin-top: 5vh; }
+.modal-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+.modal-close:hover, .modal-close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+.caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; }
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+.clickable-img { cursor: pointer; transition: 0.3s; }
+.clickable-img:hover { opacity: 0.7; }
+
+/* Wiki Carousel Styles */
+.wiki-carousel {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: var(--infobox-bg);
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.wiki-carousel-inner {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    height: 100%;
+}
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.wiki-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 4px;
+}
+.wiki-carousel-btn.prev { left: 5px; }
+.wiki-carousel-btn.next { right: 5px; }
+.wiki-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+.wiki-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
+.wiki-indicator.active {
+    background: white;
+}
 """
 
 def slugify(text):
@@ -61,17 +152,124 @@ def wrap_html(content, title, depth=0):
         <div style="font-size: 0.9em;"><a href="{rel}../index.html">← Back to Map</a></div>
     </div>
     {content}
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption" class="caption"></div>
+    </div>
+
+    <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+
+    function openModal(src, alt) {{
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = alt || "";
+    }}
+
+    function closeModal() {{
+      modal.style.display = "none";
+    }}
+    
+    // Close on click outside
+    window.onclick = function(event) {{
+      if (event.target == modal) {{
+        modal.style.display = "none";
+      }}
+    }}
+    
+    // Wiki Carousel Logic
+    var currentWikiSlide = 0;
+    function updateWikiCarousel() {{
+        var inner = document.getElementById('wiki-carousel-inner');
+        if (!inner) return;
+        var slides = inner.getElementsByClassName('carousel-slide');
+        if (slides.length === 0) return;
+        
+        if (currentWikiSlide >= slides.length) currentWikiSlide = 0;
+        if (currentWikiSlide < 0) currentWikiSlide = slides.length - 1;
+        
+        inner.style.transform = 'translateX(-' + (currentWikiSlide * 100) + '%)';
+        
+        var dots = document.getElementsByClassName('wiki-indicator');
+        for (var i = 0; i < dots.length; i++) {{
+            dots[i].classList.toggle('active', i === currentWikiSlide);
+        }}
+    }}
+    
+    function moveWikiSlide(n) {{
+        currentWikiSlide += n;
+        updateWikiCarousel();
+    }}
+    
+    function setWikiSlide(n) {{
+        currentWikiSlide = n;
+        updateWikiCarousel();
+    }}
+    </script>
 </body>
 </html>"""
 
 def markdown_to_html(text):
     if not text: return ""
-    text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', text)
-    text = re.sub(r'\*(.*?)\*', r'<i>\1</i>', text)
-    text = re.sub(r'^- (.*)', r'<li>\1</li>', text, flags=re.MULTILINE)
-    text = re.sub(r'(<li>.*</li>)', r'<ul>\1</ul>', text, flags=re.DOTALL)
-    text = text.replace('\n', '<br>')
-    return text
+    lines = text.split('\n')
+    html_lines = []
+    in_list = False
+    
+    for line in lines:
+        line = line.strip()
+        
+        # Handle empty lines (reset lists)
+        if not line:
+            if in_list:
+                html_lines.append("</ul>")
+                in_list = False
+            html_lines.append("<br>")
+            continue
+
+        # Handle formatting
+        # Bold **text**
+        line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', line)
+        # Italic *text*
+        line = re.sub(r'(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)', r'<i>\1</i>', line)
+
+        # Headers
+        if line.startswith('### '):
+            if in_list: html_lines.append("</ul>"); in_list = False
+            html_lines.append(f"<h3>{line[4:]}</h3>")
+            continue
+        elif line.startswith('## '):
+            if in_list: html_lines.append("</ul>"); in_list = False
+            html_lines.append(f"<h2>{line[3:]}</h2>")
+            continue
+        elif line.startswith('# '):
+             if in_list: html_lines.append("</ul>"); in_list = False
+             html_lines.append(f"<h1>{line[2:]}</h1>")
+             continue
+
+        # Lists (Handle both - and *)
+        if line.startswith('- ') or line.startswith('* '):
+            if not in_list:
+                html_lines.append("<ul>")
+                in_list = True
+            html_lines.append(f"<li>{line[2:]}</li>")
+            continue
+        
+        # Regular text
+        if in_list:
+            html_lines.append("</ul>")
+            in_list = False
+        html_lines.append(f"{line}<br>")
+
+    if in_list:
+        html_lines.append("</ul>")
+        
+    return "\n".join(html_lines)
 
 def extract_section(text, section_name):
     pattern = rf'## .*?{re.escape(section_name)}.*?\n(.*?)(?=\n## |$)'
@@ -84,12 +282,68 @@ def generate_city_page(city, country_name, continent_name):
     slug = slugify(city['name'])
     rel = "../"
     
+    # Scan for images in standardize path
+    content_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(WIKI_DIR))))
+    # Wait, slugify is too aggressive for directory names which are MixCase often (Antarmund, NorKunta).
+    # Let's use more stable logic matching sync_city_image_data.py
+    def sanitize(text): return "".join(x for x in text if x.isalnum() or x in " _-").strip().replace(" ", "_")
+    
+    s_cont = sanitize(continent_name)
+    s_country = sanitize(country_name)
+    s_city = sanitize(city['name']).lower()
+    
+    img_dir_rel = f"assets/images/{s_cont}/{s_country}/{s_city}"
+    img_dir_abs = os.path.join(BASE_DIR, img_dir_rel)
+    
+    found_images = []
+    if os.path.exists(img_dir_abs):
+        for f in os.listdir(img_dir_abs):
+            if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
+                found_images.append(f"../../{img_dir_rel}/{f}")
+    
+    # Sort: main first
+    found_images.sort(key=lambda x: 0 if '_main' in x else 1)
+    
+    hero_html = ""
+    if len(found_images) > 1:
+        # Carousel HTML
+        slides = "".join([f'<img src="{src}" class="hero-img carousel-slide {"active" if i==0 else ""}" alt="{city["name"]}" onclick="openModal(this.src, \'{city["name"]}\')">' for i, src in enumerate(found_images)])
+        dots = "".join([f'<div class="wiki-indicator {"active" if i==0 else ""}" onclick="setWikiSlide({i})"></div>' for i in range(len(found_images))])
+        hero_html = f"""
+        <div class="wiki-carousel">
+            <div class="wiki-carousel-inner" id="wiki-carousel-inner">
+                {slides}
+            </div>
+            <button class="wiki-carousel-btn prev" onclick="moveWikiSlide(-1)">❮</button>
+            <button class="wiki-carousel-btn next" onclick="moveWikiSlide(1)">❯</button>
+            <div class="wiki-indicators">{dots}</div>
+        </div>
+        """
+    elif len(found_images) == 1:
+        hero_html = f'<img src="{found_images[0]}" class="hero-img clickable-img" alt="{city["name"]}" onclick="openModal(this.src, \'{city["name"]}\')">'
+    else:
+        hero_html = f'<img src="../../{city.get("image", "img/satellite.jpg")}" class="hero-img clickable-img" alt="{city["name"]}" onclick="openModal(this.src, \'{city["name"]}\')">'
+
+    # Heraldry Images
+    flag_img = ""
+    if city.get('heraldry', {}).get('flag'):
+        flag_src = "../../" + city["heraldry"]["flag"].lstrip("/")
+        flag_img = f'<img src="{flag_src}" class="clickable-img" style="width:100px; border:1px solid #666; margin: 2px;" title="Flag" onclick="openModal(this.src, \'Flag of {city["name"]}\')">'
+    
+    arms_img = ""
+    if city.get('heraldry', {}).get('coat_of_arms'):
+        arms_src = "../../" + city["heraldry"]["coat_of_arms"].lstrip("/")
+        arms_img = f'<img src="{arms_src}" class="clickable-img" style="width:80px; border:none; margin: 2px;" title="Coat of Arms" onclick="openModal(this.src, \'Coat of Arms of {city["name"]}\')">'
+
     infobox = f"""<div class="infobox">
         <div class="infobox-title">{city['name']}</div>
         <table>
             <tr><td colspan="2" style="text-align:center">
-                <img src="../../{city.get('image', 'img/satellite.jpg')}" class="hero-img" alt="{city['name']}">
-                {f'<img src="../../{city["heraldry"]["flag"].lstrip("/")}" style="width:100px; border:1px solid #ccc;">' if city.get('heraldry', {}).get('flag') else ''}
+                {hero_html}
+                <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin-top:5px;">
+                    {flag_img}
+                    {arms_img}
+                </div>
                 {f'<div class="motto">"{city["heraldry"]["motto"]}"</div>' if city.get('heraldry', {}).get('motto') else ''}
             </td></tr>
             <tr><th>Continent</th><td><a href="../continents/{slugify(continent_name)}.html">{continent_name}</a></td></tr>
@@ -128,10 +382,25 @@ def generate_country_page(country, continent_name):
     
     cities_html = "".join([f'<li><a href="../cities/{slugify(c["name"])}.html">{c["name"]}</a> ({c["type"]})</li>' for c in country['cities']])
     
+    # Heraldry Images
+    flag_img = ""
+    if country.get('heraldry', {}).get('flag'):
+        flag_src = "../../" + country["heraldry"]["flag"].lstrip("/")
+        flag_img = f'<img src="{flag_src}" class="hero-img clickable-img" alt="Flag of {country["name"]}" style="width:100%; height:auto;" onclick="openModal(this.src, \'Flag of {country["name"]}\')">'
+    
+    arms_img = ""
+    if country.get('heraldry', {}).get('coat_of_arms'):
+        arms_src = "../../" + country["heraldry"]["coat_of_arms"].lstrip("/")
+        arms_img = f'<div style="text-align:center; margin-top:5px;"><img src="{arms_src}" class="clickable-img" style="width:100px; height:auto;" alt="Coat of Arms" onclick="openModal(this.src, \'Coat of Arms of {country["name"]}\')"></div>'
+
     infobox = f"""<div class="infobox">
         <div class="infobox-title">{country['name']}</div>
         <table>
-            {f'<tr><td colspan="2" style="text-align:center"><img src="../../{country["heraldry"]["flag"].lstrip("/")}" class="hero-img" alt="Flag of {country["name"]}"><div class="motto">"{country["heraldry"]["motto"]}"</div></td></tr>' if country.get('heraldry', {}).get('flag') else ''}
+            <tr><td colspan="2" style="text-align:center">
+                {flag_img}
+                {arms_img}
+                {f'<div class="motto">"{country["heraldry"]["motto"]}"</div>' if country.get('heraldry', {}).get('motto') else ''}
+            </td></tr>
             <tr><th>Continent</th><td><a href="../continents/{slugify(continent_name)}.html">{continent_name}</a></td></tr>
             <tr><th>Cities</th><td>{len(country['cities'])}</td></tr>
         </table>
@@ -200,7 +469,7 @@ def generate_index(world_data, codex_text):
     infobox = f"""<div class="infobox">
         <div class="infobox-title">Kaelia</div>
         <table>
-            <tr><td colspan="2" style="text-align:center"><img src="../data/altitude_map.jpg" alt="Map of Kaelia" style="width:100%"></td></tr>
+            <tr><td colspan="2" style="text-align:center"><img src="../data/altitude_map.jpg" alt="Map of Kaelia" class="clickable-img" style="width:100%" onclick="openModal(this.src, 'Map of Kaelia')"></td></tr>
             <tr><th>Type</th><td>Terrestrial</td></tr>
             <tr><th>Star</th><td>G-type</td></tr>
             <tr><th>Orbit</th><td>1.1 AU</td></tr>

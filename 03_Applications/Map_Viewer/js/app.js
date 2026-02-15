@@ -9,6 +9,7 @@ var bounds = [[0,0], [1000,2000]];
 var satLayer = L.imageOverlay('img/satellite.jpg', bounds);
 var polLayer = L.imageOverlay('img/political.jpg', bounds);
 var altLayer = L.imageOverlay('img/altitude.jpg', bounds);
+var climateLayer = L.imageOverlay('data/climate_map.jpg', bounds);
 
 var categoryConfig = {
     capital: { radius: 12, weight: 4, opacity: 1, fillOpacity: 1, label: "🏛️ Capital", badge: "Capital City" },
@@ -28,9 +29,14 @@ var politicalComposite = L.layerGroup([satLayer, frontiersOverlay]);
 
 var worldData = {};
 var currentCity = null; // Currently selected city
+var currentCityForGeneration = null; // City targeted for visual generation
 var moveMode = false;
 var addMode = false;
 var tempMarker = null; // Marker for adding new loc
+
+// Carousel State
+var carouselImages = [];
+var currentSlide = 0;
 
 // --- Initialization ---
 // --- Initialization ---
@@ -47,13 +53,25 @@ function loadMarkers() {
             worldData = data;
             populateHierarchy(); // Populate dropdowns
             
+            console.log(`--- Loading Markers ---`);
+            let count = 0;
             data.continents.forEach(continent => {
                 continent.countries.forEach(country => {
+                    if (!country.cities) {
+                        console.warn(`  [WARN] Country ${country.name} has no cities array.`);
+                        return;
+                    }
                     country.cities.forEach(city => {
-                        createMarker(city, continent.name, country.name);
+                        try {
+                            createMarker(city, continent.name, country.name);
+                            count++;
+                        } catch (e) {
+                            console.error(`  [ERR] Failed to create marker for ${city.name}:`, e);
+                        }
                     });
                 });
             });
+            console.log(`--- Loaded ${count} markers ---`);
         });
 }
 
@@ -97,7 +115,8 @@ function createMarker(city, continentName, countryName) {
     });
 
     marker.activeReference = { city, continentName, countryName }; // Store Ref
-    marker.addTo(layers[city.type]);
+    var targetLayer = layers[city.type] || layers.settlement;
+    marker.addTo(targetLayer);
 }
 
 // --- UI Logic: Sidebar ---
@@ -108,6 +127,25 @@ function closeSidebar() {
     document.getElementById('sidebar').classList.remove('open');
     currentCity = null;
     map.closePopup(); // Should handle map deselect logic
+}
+
+// --- Utils ---
+function updateCarousel() {
+    const inner = document.getElementById('sidebar-carousel');
+    const dots = document.querySelectorAll('.indicator');
+    
+    inner.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+    });
+}
+
+function slugify(text) {
+    if (!text) return "";
+    return text.toString().toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
 }
 
 function openSidebarDetails(city, continentName, countryName) {
@@ -122,12 +160,52 @@ function openSidebarDetails(city, continentName, countryName) {
     document.getElementById('detail-type').innerText = categoryConfig[city.type]?.badge || city.type;
     document.getElementById('detail-desc').innerText = city.desc || "No description available.";
 
-    // Header Image
-    const bgElement = document.getElementById('detail-bg');
-    if (city.image) {
-        bgElement.src = city.image;
-    } else {
-        bgElement.src = "img/satellite.jpg";
+    // Try to load generated image logic
+    if (city) {
+        fetch(`/api/city-images?cityId=${city.id}`)
+            .then(res => res.json())
+            .then(images => {
+                const carouselInner = document.getElementById('sidebar-carousel');
+                const indicators = document.getElementById('carousel-indicators');
+                carouselInner.innerHTML = '';
+                indicators.innerHTML = '';
+                carouselImages = images;
+                currentSlide = 0;
+
+                if (images && images.length > 0) {
+                    images.forEach((src, idx) => {
+                        const img = document.createElement('img');
+                        img.src = src;
+                        img.className = 'hero-image';
+                        img.alt = city.name;
+                        if (idx === 0) img.id = 'detail-image'; // Preserve ID for other logic
+                        carouselInner.appendChild(img);
+
+                        const dot = document.createElement('div');
+                        dot.className = 'indicator' + (idx === 0 ? ' active' : '');
+                        dot.onclick = () => { currentSlide = idx; updateCarousel(); };
+                        indicators.appendChild(dot);
+                    });
+                    
+                    document.getElementById('carousel-prev').style.display = images.length > 1 ? 'block' : 'none';
+                    document.getElementById('carousel-next').style.display = images.length > 1 ? 'block' : 'none';
+                } else {
+                    // Fallback to placeholder
+                    const img = document.createElement('img');
+                    img.src = 'img/satellite.jpg';
+                    img.id = 'detail-image';
+                    img.className = 'hero-image';
+                    carouselInner.appendChild(img);
+                    document.getElementById('carousel-prev').style.display = 'none';
+                    document.getElementById('carousel-next').style.display = 'none';
+                }
+                updateCarousel();
+            })
+            .catch(() => {
+                // error, keep placeholder
+                const carouselInner = document.getElementById('sidebar-carousel');
+                carouselInner.innerHTML = '<img id="detail-image" class="hero-image" src="img/satellite.jpg">';
+            });
     }
 
     // Population Display
@@ -182,12 +260,37 @@ function openSidebarDetails(city, continentName, countryName) {
         loreContainer.style.display = 'none';
     }
 
+
     // Visual Data Display
     const visContainer = document.getElementById('detail-visuals-container');
     if (city.visual_data) {
         visContainer.style.display = 'block';
-        document.getElementById('detail-prompt').innerText = city.visual_data.prompt || "No text prompt.";
         
+        // Setup Copy Button
+        const copyBtn = document.getElementById('btn-copy-schema');
+        if (copyBtn) {
+            copyBtn.innerText = "Copy Schema";
+            copyBtn.onclick = () => {
+                const schemaStr = JSON.stringify(city.visual_data.schema, null, 2);
+                navigator.clipboard.writeText(schemaStr).then(() => {
+                    copyBtn.innerText = "Copied!";
+                    setTimeout(() => copyBtn.innerText = "Copy Schema", 2000);
+                });
+            };
+        }
+
+        // Setup Generate Button
+        let genBtn = document.getElementById('btn-generate-visual');
+        if (!genBtn) {
+            genBtn = document.createElement('button');
+            genBtn.id = 'btn-generate-visual';
+            genBtn.className = 'action-btn';
+            genBtn.style.marginTop = '10px';
+            genBtn.innerText = "✨ Generate Visual";
+            visContainer.appendChild(genBtn);
+        }
+        genBtn.onclick = () => openVisualModal(city);
+
         const schemaDiv = document.getElementById('detail-schema');
         if (city.visual_data.schema && city.visual_data.schema.meta) {
                  const meta = city.visual_data.schema.meta;
@@ -213,6 +316,28 @@ function openSidebarDetails(city, continentName, countryName) {
         }
     } else {
         visContainer.style.display = 'none';
+    }
+    
+    // Wiki Link Button
+    // We'll assume there's a button with ID 'btn-open-wiki' or we create one in the 'action-buttons' div
+    let btnRow = document.querySelector('#sidebar-details .action-buttons');
+    let openWikiBtn = document.getElementById('btn-open-wiki');
+    
+    if (!openWikiBtn && btnRow) {
+        openWikiBtn = document.createElement('button');
+        openWikiBtn.id = 'btn-open-wiki';
+        openWikiBtn.className = 'btn-google-action';
+        openWikiBtn.innerHTML = '<span class="icon">📖</span> Wiki';
+        // Insert before Edit button
+        const editBtn = document.getElementById('btn-edit-loc');
+        btnRow.insertBefore(openWikiBtn, editBtn);
+    }
+    
+    if (openWikiBtn) {
+        openWikiBtn.onclick = () => {
+            const slug = slugify(city.name);
+            window.open(`wiki/cities/${slug}.html`, '_blank');
+        };
     }
     
     // Show Edit Button
@@ -259,19 +384,21 @@ var mapHeight = 3000;
 
 // Approximate Whittaker / Map Colors (Standardized)
 // User can Calibrate this by logging clicks if needed.
+// Approximate Colors from 'Climate (Temperature - Rainfall Graph).jpg'
 var colorToClimate = [
     { name: "Polar Ice Cap", color: [255, 255, 255] }, // White
-    { name: "Tundra / Alpine", color: [160, 210, 230] }, // Light Blue-Grey
-    { name: "Boreal Forest (Taiga)", color: [0, 90, 80] }, // Dark Teal
-    { name: "Temperate Rainforest", color: [30, 160, 80] }, // Lush Green
-    { name: "Temperate Seasonal Forest", color: [100, 200, 100] }, // Medium Green
-    { name: "Tropical Rainforest", color: [0, 60, 0] }, // Deep Dark Green
-    { name: "Tropical Seasonal Forest", color: [50, 100, 30] }, // Olive Green
-    { name: "Savanna", color: [200, 220, 100] }, // Yellow-Green
-    { name: "Subtropical Desert", color: [255, 230, 100] }, // Sand Yellow
-    { name: "Cold Desert", color: [180, 180, 180] }, // Grey
-    { name: "Chaparral / Mediterranean", color: [180, 150, 50] }, // Brownish Green
-    { name: "Ocean", color: [20, 40, 90] } // Deep Blue (Mask out)
+    { name: "Tundra or Alpine", color: [192, 192, 192] }, // Grey
+    { name: "Boreal or Alpine Forest", color: [154, 153, 255] }, // Periwinkle
+    { name: "Chaparral", color: [180, 150, 50] }, // Olive / Dark Yellow-Green
+    { name: "Temperate Grassland", color: [51, 153, 103] }, // Medium Green
+    { name: "Temperate Forest", color: [152, 203, 0] }, // Bright Lime Green
+    { name: "Desert", color: [255, 204, 0] }, // Golden Orange
+    { name: "Savannah", color: [255, 255, 1] }, // Bright Yellow
+    { name: "Tropical Shrublands", color: [232, 160, 32] }, // Amber / Orange (Estimated)
+    { name: "Tropical Deciduous Forest", color: [205, 255, 204] }, // Pale Green
+    { name: "Tropical Evergreen Forest", color: [0, 100, 100] }, // Dark Teal / Cyan
+    { name: "Cold Desert", color: [150, 150, 150] }, // Darker Grey (Estimated)
+    { name: "Ocean", color: [11, 14, 241] } // Blue (Updated from Map Analysis)
 ];
 
 function initClimateMap() {
@@ -401,6 +528,18 @@ function setupEventListeners() {
 
     document.getElementById('btn-save-data').onclick = saveCityData;
     
+    // Carousel Controls
+    document.getElementById('carousel-prev').onclick = () => {
+        if (carouselImages.length === 0) return;
+        currentSlide = (currentSlide - 1 + carouselImages.length) % carouselImages.length;
+        updateCarousel();
+    };
+    document.getElementById('carousel-next').onclick = () => {
+        if (carouselImages.length === 0) return;
+        currentSlide = (currentSlide + 1) % carouselImages.length;
+        updateCarousel();
+    };
+    
     // Map Click (Add Mode or Close Sidebar)
     map.on('click', function(e) {
         if (addMode) {
@@ -485,6 +624,19 @@ function handleSearch(e) {
     }
 }
 
+function openVisualModal(city) {
+    currentCityForGeneration = city;
+    document.getElementById('visual-modal').style.display = 'block';
+    document.getElementById('vm-city-name').innerText = city.name;
+    document.getElementById('vm-status').innerText = "";
+    document.getElementById('btn-generate-confirm').disabled = false;
+}
+
+function closeVisualModal() {
+    document.getElementById('visual-modal').style.display = 'none';
+    currentCityForGeneration = null;
+}
+
 function saveCityData() {
     var name = document.getElementById('edit-name').value;
     var type = document.getElementById('edit-type').value;
@@ -499,7 +651,6 @@ function saveCityData() {
     if (!name || !coordsStr) { alert("Name and Coordinates required."); return; }
     
     var coords = coordsStr.split(',').map(Number);
-    
     // Logic: If 'edit-country' is dropdown, use value. If readonly, use value.
     // Ensure we are sending data that server expects structure for.
     
@@ -542,6 +693,90 @@ function saveCityData() {
         alert("Network Error: " + err);
         console.error("Network Error:", err);
     });
+}
+
+function executeVisualGeneration() {
+    if (!currentCityForGeneration) return;
+    
+    const model = document.getElementById('vm-model-select').value;
+    const statusDiv = document.getElementById('vm-status');
+    const btn = document.getElementById('btn-generate-confirm');
+    
+    btn.disabled = true;
+    statusDiv.innerHTML = "<span>⏳ Generating... This may take 10-20 seconds.</span>";
+    statusDiv.style.color = "blue";
+
+    fetch('/api/generate-visual', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            cityId: currentCityForGeneration.id,
+            model: model
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            statusDiv.innerText = "✅ Success! Image generated.";
+            statusDiv.style.color = "green";
+            
+            // Auto Update Main Image
+            const img = document.getElementById('detail-image');
+            img.src = data.image_path + "?t=" + new Date().getTime();
+            img.style.display = 'block';
+            
+            // Refresh Gallery
+            updateGallery(currentCityForGeneration.id);
+
+            setTimeout(closeVisualModal, 1500);
+        } else {
+            statusDiv.innerText = "❌ Error: " + data.message;
+            statusDiv.style.color = "red";
+            btn.disabled = false;
+        }
+    })
+    .catch(err => {
+        statusDiv.innerText = "❌ Network Error";
+        statusDiv.style.color = "red";
+        console.error(err);
+        btn.disabled = false;
+    });
+}
+
+function updateGallery(cityId) {
+    const galleryContainer = document.getElementById('detail-gallery');
+    if (!galleryContainer) {
+        // Create if missing (it should be in index.html, but we can inject if needed)
+        // ideally index.html should have a #detail-gallery div
+        return; 
+    }
+    
+    galleryContainer.innerHTML = 'Loading gallery...';
+    
+    fetch(`/api/city-images?cityId=${cityId}`)
+        .then(res => res.json())
+        .then(images => {
+            galleryContainer.innerHTML = '';
+            if (images.length === 0) {
+                galleryContainer.innerHTML = '<p style="font-size:0.8em; color:#666;">No generated images yet.</p>';
+                return;
+            }
+            
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'gallery-thumb';
+                img.onclick = () => {
+                    // Set as main image on click
+                    const mainImg = document.getElementById('detail-image');
+                    mainImg.src = src;
+                };
+                galleryContainer.appendChild(img);
+            });
+        })
+        .catch(err => {
+            galleryContainer.innerHTML = 'Error loading gallery.';
+        });
 }
 
 function updateCityOnServer(continentName, countryName, city) {
@@ -613,6 +848,35 @@ L.Control.ScaleCustom = L.Control.extend({
 var scaleControl = new L.Control.ScaleCustom({ position: 'bottomright' });
 scaleControl.addTo(map);
 
+// --- Climate Legend Control ---
+var climateLegend = L.control({ position: 'bottomright' });
+
+climateLegend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    div.style.cssText = 'background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2); font-size: 12px; line-height: 18px; color: #555;';
+    
+    var html = '<strong>Climate Zones</strong><br>';
+    
+    colorToClimate.forEach(function (c) {
+        if (c.name === "Ocean") return; // Skip Ocean
+        var rgb = `rgb(${c.color[0]}, ${c.color[1]}, ${c.color[2]})`;
+        html += `<i style="background:${rgb}; width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7;"></i> ${c.name}<br>`;
+    });
+
+    div.innerHTML = html;
+    return div;
+};
+
+// Toggle Legend on Layer Change
+// Toggle Legend on Layer Change (Base Layer)
+map.on('baselayerchange', function (e) {
+    if (e.name === '🌦️ Climate') {
+        climateLegend.addTo(map);
+    } else {
+        map.removeControl(climateLegend);
+    }
+});
+
 function updateScale() {
     var el = document.querySelector('.custom-scale');
     if (!el) return;
@@ -655,7 +919,8 @@ function init() {
     L.control.layers({
         "🗺️ Political": politicalComposite, 
         "🛰️ Satellite": satLayer, 
-        "🏔️ Altitude": altLayer
+        "🏔️ Altitude": altLayer,
+        "🌦️ Climate": climateLayer
     }, {
         "🏛️ Capitals": layers.capital,
         "🏙️ Metropolises": layers.metropolis, 

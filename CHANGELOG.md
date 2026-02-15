@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.1.0] - 2026-02-15
+### 🏗️ Global Hierarchy Refactor & Map Fix
+*   **Data Hierarchy Flattening:** Removed all intermediate regional groupings (e.g., "Southern Prosperity Rim", "The Dark-Water States", "The Golden Isles") and promoted all constituent states to top-level **Country** objects within their respective continents. The world now has a clean 3-tier hierarchy: **Continent → Country → City**.
+*   **Betereko Consolidation:** Merged "The Plateau" and "Betereko" into a single unified **Continent-State** (similar to Australia). **Apex** is the sole capital.
+*   **Map Display Crash Fix:** Identified and resolved a critical bug where an invalid city type (`industrial` for Pelak) was crashing the Map Viewer's marker loading loop, preventing all Mirelands and Antarmund cities from rendering. Added a defensive fallback in `js/app.js` for unknown city types.
+*   **Wiki Regeneration:** Rebuilt the multi-page HTML Encyclopedia to reflect the new 36-country, 61-city hierarchy.
+*   **Data Integrity:** Validated all 61 city entries for unique IDs, valid coordinates, standardized types, and correct color codes.
+
+## [3.0.0] - 2026-02-14
+### 🖼️ Image Carousel & Sidebar Polish
+*   **Sidebar Image Carousel:** Replaced the static hero image in the Map Viewer sidebar with a fully interactive **multi-image carousel**. Users can now browse all generated landscapes for a city using navigation arrows and dot indicators.
+*   **Wiki Image Carousel:** Updated `generate_wiki.py` to detect multiple city images and embed CSS-based carousels into each wiki city profile infobox.
+*   **City Images API:** Added a new `/api/city-images` endpoint to `server.js` that scans the `assets/images/` directory to dynamically return all available images for a given city.
+*   **Sidebar Display Fix:** Fixed a critical CSS flex-layout bug where the carousel container was collapsed to 0px height by the parent `display: flex`. Resolved with `flex-shrink: 0` and `min-height`.
+*   **Binary Serving Fix:** Corrected binary image serving in `server.js` (removed erroneous `utf-8` encoding for non-text files).
+*   **Cache-Busting Headers:** Added `Cache-Control: no-cache` headers to the development server to prevent stale CSS/JS/HTML during active development.
+*   **Climate Legend:** Added a toggle-able Leaflet legend control for the Climate layer, populated from `colorToClimate` data.
+
+## [2.9.0] - 2026-02-14
+### 🎨 Visual & Interactive Polish
+*   **Wiki Dark Mode:** Implemented a default slate-dark theme for the encyclopedia, improving readability and matching the project's modern aesthetic.
+*   **Wiki Lightbox:** Added a full-screen image preview modal for all flags, coats of arms, and reference landscapes within the wiki.
+*   **Asset Hybridization:** Developed a cost-effective separate pipeline for Heraldry (Flash model) vs Landscapes (Pro model).
+*   **Sidebar Integration:** Added direct "Wiki" concept links to the interactive map sidebar for seamless navigation between the map and lore.
+
 ## [2.8.0] - 2026-02-11
 ### 📚 Kaelia Encyclopedia & Heraldry
 *   **Wiki Expansion:** Transformed the single-page wiki into a comprehensive **Multi-Page Encyclopedia** (`wiki/index.html`) with dedicated profiles for all 5 continents, 40 countries, and 74 cities.

@@ -4,27 +4,118 @@
     <meta charset="UTF-8">
     <title>Antarmund - KaeliaWiki</title>
     <style>
-body { font-family: sans-serif; line-height: 1.6; color: #202122; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f6f6f6; }
-.header-container { border-bottom: 1px solid #a2a9b1; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
-h1 { font-family: 'Linux Libertine','Georgia','Times',serif; font-size: 1.8em; margin-bottom: 0.25em; }
-h2 { border-bottom: 1px solid #a2a9b1; font-family: 'Linux Libertine','Georgia','Times',serif; font-size: 1.5em; margin-top: 1.5em; }
+/* Dark Theme Variables */
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --link-color: #8ab4f8;
+    --border-color: #444;
+    --header-border: #666;
+    --infobox-bg: #2a2a2a;
+    --infobox-header: #333;
+    --infobox-title-bg: #444;
+    --table-header: #333;
+    --code-bg: #2d2d2d;
+    --blockquote-border: #666;
+}
+
+body { font-family: sans-serif; line-height: 1.6; color: var(--text-color); max-width: 1200px; margin: 0 auto; padding: 20px; background: var(--bg-color); }
+.header-container { border-bottom: 1px solid var(--header-border); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+h1, h2, h3, h4, h5, h6 { color: #fff; font-family: 'Linux Libertine','Georgia','Times',serif; }
+h1 { font-size: 1.8em; margin-bottom: 0.25em; }
+h2 { border-bottom: 1px solid var(--header-border); font-size: 1.5em; margin-top: 1.5em; }
 h3 { font-size: 1.2em; margin-top: 1.2em; }
-.infobox { float: right; width: 300px; background: #f8f9fa; border: 1px solid #a2a9b1; padding: 10px; margin-left: 20px; font-size: 0.9em; }
-.infobox th { text-align: left; background: #eaecf0; padding: 5px; }
+
+.infobox { float: right; width: 300px; background: var(--infobox-bg); border: 1px solid var(--border-color); padding: 10px; margin-left: 20px; font-size: 0.9em; color: var(--text-color); }
+.infobox th { text-align: left; background: var(--table-header); padding: 5px; color: #fff; }
 .infobox td { padding: 5px; }
-.infobox-title { text-align: center; font-weight: bold; font-size: 1.25em; background: #cedff2; padding: 5px; }
-.toc { background: #f8f9fa; border: 1px solid #a2a9b1; display: inline-block; padding: 10px; margin-bottom: 20px; min-width: 200px; }
+.infobox-title { text-align: center; font-weight: bold; font-size: 1.25em; background: var(--infobox-title-bg); padding: 5px; color: #fff; }
+
+.toc { background: var(--infobox-bg); border: 1px solid var(--border-color); display: inline-block; padding: 10px; margin-bottom: 20px; min-width: 200px; }
 .toc-title { font-weight: bold; text-align: center; margin-bottom: 5px; }
+
 .section-content { margin-bottom: 20px; }
 ul { margin-top: 0; }
-a { color: #0645ad; text-decoration: none; }
+a { color: var(--link-color); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
 .city-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-.city-table th, .city-table td { border: 1px solid #a2a9b1; padding: 6px; text-align: left; }
-.city-table th { background: #eaecf0; }
-.breadcrumb { font-size: 0.8em; color: #72777d; margin-bottom: 10px; }
-.hero-img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; border: 1px solid #dadce0; }
-.motto { font-style: italic; color: #555; text-align: center; display: block; margin-top: 5px; border-top: 1px solid #eee; padding-top: 5px; }
+.city-table th, .city-table td { border: 1px solid var(--border-color); padding: 6px; text-align: left; }
+.city-table th { background: var(--table-header); color: #fff; }
+
+.breadcrumb { font-size: 0.8em; color: #aaa; margin-bottom: 10px; }
+.hero-img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; border: 1px solid #555; }
+.motto { font-style: italic; color: #aaa; text-align: center; display: block; margin-top: 5px; border-top: 1px solid #444; padding-top: 5px; }
+
+/* Scrollbar refinement */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #777; }
+
+/* Lightbox/Modal */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+.modal-content { margin: auto; display: block; width: 80%; max-width: 700px; max-height: 90vh; object-fit: contain; animation-name: zoom; animation-duration: 0.6s; margin-top: 5vh; }
+.modal-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+.modal-close:hover, .modal-close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+.caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; }
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+.clickable-img { cursor: pointer; transition: 0.3s; }
+.clickable-img:hover { opacity: 0.7; }
+
+/* Wiki Carousel Styles */
+.wiki-carousel {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: var(--infobox-bg);
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.wiki-carousel-inner {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    height: 100%;
+}
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.wiki-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 4px;
+}
+.wiki-carousel-btn.prev { left: 5px; }
+.wiki-carousel-btn.next { right: 5px; }
+.wiki-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+.wiki-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
+.wiki-indicator.active {
+    background: white;
+}
 </style>
 </head>
 <body>
@@ -42,17 +133,137 @@ a:hover { text-decoration: underline; }
     <div class="infobox">
         <div class="infobox-title">Antarmund</div>
         <table>
-            <tr><th>Countries</th><td>15</td></tr>
+            <tr><th>Countries</th><td>14</td></tr>
         </table>
     </div>
     <div class="section-content">
         <p><b>Antarmund</b> is one of the major landmasses of Kaelia.</p>
-        * <b>Location:</b> Eastern Hemisphere<br>* <b>Visual Biome:</b> <b>Gradient</b> from <b>Tundra (North)</b> to <b>Temperate Rainforest (South)</b>.<br><br>### 1. NorKunta (The Northern Titan)<br>* <b>Biome:</b> <b>Alpine Tundra (Grey)</b> & <b>Boreal Forest (Purple)</b>.<br>* <b>Geography:</b> A mirror of Nordica—harsh, frozen, and industrial.<br>* <b>Survival:</b> Completely dependent on food imports from the South, explaining militaristic protection of trade routes.<br>* <b>Modern Status:</b> Center of Kaelia’s global aerospace and heavy robotics production.<br>*   <b>Key Locations:</b><br>    *   <b>NorKunta Prime (Capital):</b> An industrial powerhouse and "Capital" city that bridges a glacial valley and a deep-water harbor. The city is a forest of foundries and automotive plants, fueled by northern minerals and connected to the world via massive ice-breaker shipping lanes.<br>    *   <b>Borealis Station:</b> A high-tech settlement of 60,000 inhabitants. It serves as an atmospheric research hub and energy collection site, defined by massive "Aurora Harvesting" tesla-coil arrays that power the region.<br>    *   <b>Koldfisk Rig:</b> A temperate agricultural metropolis of 80,000 people. Situated on a coastal lake fed by two rivers, it utilizes massive heating systems to maintain a green, arable micro-climate for hydroponics and vertical farming.<br>    *   <b>Cryo-Vault 09:</b> A designated special location. A massive subterranean deep-storage facility carved into ancient blue ice, used for preserving biological samples from Kaelia's pre-glacial history.<br>    *   <b>Ice-Hauler's Rest:</b> A vital logistics hub and truck stop for the treacherous ice road network, housing 3,500 people and serving as a beacon of warmth and commerce in the tundra.<br><br>### 2. The Southern Prosperity Rim<br>* <b>Biome:</b> <b>Temperate Deciduous Forest (Green)</b> & <b>Temperate Rainforest (Dark Green)</b>.<br>* <b>Corrected Climate:</b> <b>Oceanic Temperate.</b><br><i> </i>Correction:* This is the most fertile land on the planet. It is not tropical; it is cool, wet, and lush (similar to Western Europe or New Zealand).<br><br>*   <b>Metsemania:</b><br>    *   <b>Biome:</b> <b>Temperate Rainforest.</b><br>    *   <b>Lore Update:</b> Instead of "Jungle," this is a massive <b>Old-Growth Redwood/Sequoia</b> region. The "Nanotechnology" focuses on wood and cellulose manipulation.<br>*   <b>Fyny'Dor:</b><br>    *   <b>Biome:</b> <b>Temperate Grassland (Green/Yellow mix).</b><br>    *   <b>Role:</b> The "Breadbasket." The only significant flat, green space suitable for large-scale grain farming.<br>*   <b>Valermond (City of Light):</b><br>    *   <b>Setting:</b> Located in the <b>Deciduous Forest (Light Green)</b>. Famous for seasonal changes—blazing red/orange in autumn and lush green in summer. The global center for alchemical (physics) engineering.<br>*   <b>Guldhorn:</b> The world's premier digital finance hub.<br>*   <b>Norgborg:</b> Naval-militaristic smart city protecting the southern trade gates.<br>*   <b>Laendamania & Melynmania:</b> Sister states specializing in global media and cultural exports.<br>*   <b>Sigmarignen:</b> The continent’s historical capital of high-tradition and modern art.<br>*   <b>Nargkes & Norginde:</b> Industrial corridor specializing in geothermal heavy machinery.<br>*   <b>Kasim'Merik & Dirka'Merik:</b> Maritime powerhouses and autonomous shipping centers.<br>*   <b>Meit'Val:</b> Agricultural and luxury resource states of the deep south.<br><br>---
+        <ul>
+<li><b>Location:</b> Eastern Hemisphere</li>
+<li><b>Visual Biome:</b> <b>Gradient</b> from <b>Tundra (North)</b> to <b>Temperate Rainforest (South)</b>.</li>
+</ul>
+<br>
+<h3>1. NorKunta</h3>
+<ul>
+<li><b>Description:</b> Center of Kaelia’s global aerospace and heavy robotics production. Mirror of Nordica—harsh, frozen, and industrial.</li>
+</ul>
+<br>
+<h3>2. Metsemania</h3>
+<ul>
+<li><b>Description:</b> Massive Old-Growth Redwood/Sequoia region focusing on bio-integrated nanotechnology.</li>
+</ul>
+<br>
+<h3>3. Fyny'Dor</h3>
+<ul>
+<li><b>Description:</b> The "Breadbasket" region; cool, wet, and suitable for large-scale grain farming.</li>
+</ul>
+<br>
+<h3>4. Valermond</h3>
+<ul>
+<li><b>Description:</b> Alchemical (physics) engineering center set in vibrant deciduous forests.</li>
+</ul>
+<br>
+<h3>5. Guldhorn</h3>
+<ul>
+<li><b>Description:</b> The world's premier digital finance hub.</li>
+</ul>
+<br>
+<h3>6. Norgborg</h3>
+<ul>
+<li><b>Description:</b> Naval-militaristic smart city protecting the southern trade gates.</li>
+</ul>
+<br>
+<h3>7. Laendamania & Melynmania</h3>
+<ul>
+<li><b>Description:</b> Sister states specializing in global media and cultural exports.</li>
+</ul>
+<br>
+<h3>8. Sigmarignen</h3>
+<ul>
+<li><b>Description:</b> The continent’s historical capital of high-tradition and modern art.</li>
+</ul>
+<br>
+<h3>9. Nargkes & Norginde</h3>
+<ul>
+<li><b>Description:</b> Industrial corridor specializing in geothermal heavy machinery.</li>
+</ul>
+<br>
+<h3>10. Kasim'Merik & Dirka'Merik</h3>
+<ul>
+<li><b>Description:</b> Maritime powerhouses and autonomous shipping centers.</li>
+</ul>
+<br>
+<h3>11. Meit'Val</h3>
+<ul>
+<li><b>Description:</b> Agricultural and luxury resource states of the deep south.</li>
+</ul>
+<br>
+---<br>
     </div>
     <h2>Geopolitics</h2>
     <div class="section-content">
-        <ul><li><a href="../countries/norkunta.html">NorKunta</a></li><li><a href="../countries/southern_prosperity_rim.html">Southern Prosperity Rim</a></li><li><a href="../countries/dirka_merik.html">Dirka'Merik</a></li><li><a href="../countries/fyny_dor.html">Fyny'Dor</a></li><li><a href="../countries/guldhorn.html">Guldhorn</a></li><li><a href="../countries/kasim_merik.html">Kasim'Merik</a></li><li><a href="../countries/laendamania.html">Laendamania</a></li><li><a href="../countries/meit_val.html">Meit'Val</a></li><li><a href="../countries/melynmania.html">Melynmania</a></li><li><a href="../countries/metsemania.html">Metsemania</a></li><li><a href="../countries/norgborg.html">Norgborg</a></li><li><a href="../countries/norginde.html">Norginde</a></li><li><a href="../countries/norgkes.html">Norgkes</a></li><li><a href="../countries/sigmarignen.html">Sigmarignen</a></li><li><a href="../countries/varelmond.html">Varelmond</a></li></ul>
+        <ul><li><a href="../countries/norkunta.html">NorKunta</a></li><li><a href="../countries/dirka_merik.html">Dirka'Merik</a></li><li><a href="../countries/fyny_dor.html">Fyny'Dor</a></li><li><a href="../countries/guldhorn.html">Guldhorn</a></li><li><a href="../countries/kasim_merik.html">Kasim'Merik</a></li><li><a href="../countries/laendamania.html">Laendamania</a></li><li><a href="../countries/meit_val.html">Meit'Val</a></li><li><a href="../countries/melynmania.html">Melynmania</a></li><li><a href="../countries/metsemania.html">Metsemania</a></li><li><a href="../countries/norgborg.html">Norgborg</a></li><li><a href="../countries/norginde.html">Norginde</a></li><li><a href="../countries/norgkes.html">Norgkes</a></li><li><a href="../countries/sigmarignen.html">Sigmarignen</a></li><li><a href="../countries/valermond.html">Valermond</a></li></ul>
     </div>
     
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption" class="caption"></div>
+    </div>
+
+    <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+
+    function openModal(src, alt) {
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = alt || "";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    
+    // Close on click outside
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    
+    // Wiki Carousel Logic
+    var currentWikiSlide = 0;
+    function updateWikiCarousel() {
+        var inner = document.getElementById('wiki-carousel-inner');
+        if (!inner) return;
+        var slides = inner.getElementsByClassName('carousel-slide');
+        if (slides.length === 0) return;
+        
+        if (currentWikiSlide >= slides.length) currentWikiSlide = 0;
+        if (currentWikiSlide < 0) currentWikiSlide = slides.length - 1;
+        
+        inner.style.transform = 'translateX(-' + (currentWikiSlide * 100) + '%)';
+        
+        var dots = document.getElementsByClassName('wiki-indicator');
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle('active', i === currentWikiSlide);
+        }
+    }
+    
+    function moveWikiSlide(n) {
+        currentWikiSlide += n;
+        updateWikiCarousel();
+    }
+    
+    function setWikiSlide(n) {
+        currentWikiSlide = n;
+        updateWikiCarousel();
+    }
+    </script>
 </body>
 </html>

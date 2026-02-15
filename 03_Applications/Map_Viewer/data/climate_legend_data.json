@@ -1,0 +1,97 @@
+{
+  "source_image": "Climate (Temperature - Rainfall Graph).jpg",
+  "extraction_method": "Color Clustering Analysis",
+  "legend_data": [
+    {
+      "climate": "Polar Ice Cap",
+      "rgb": [255, 255, 255],
+      "hex": "#FFFFFF",
+      "pixel_count": 5888,
+      "notes": "White (Background or Ice)"
+    },
+    {
+      "climate": "Tundra or Alpine",
+      "rgb": [192, 192, 192],
+      "hex": "#C0C0C0",
+      "pixel_count": 4779,
+      "notes": "Dominant Grey"
+    },
+    {
+      "climate": "Boreal or Alpine Forest",
+      "rgb": [154, 153, 255],
+      "hex": "#9A99FF",
+      "pixel_count": 2585,
+      "notes": "Periwinkle / Light Purple"
+    },
+    {
+      "climate": "Chaparral",
+      "rgb": [180, 150, 50],
+      "hex": "#B49632",
+      "pixel_count": 0,
+      "notes": "Olive / Dark Yellow-Green"
+    },
+    {
+      "climate": "Temperate Grassland",
+      "rgb": [51, 153, 103],
+      "hex": "#339967",
+      "pixel_count": 552,
+      "notes": "Medium Green"
+    },
+    {
+      "climate": "Temperate Forest",
+      "rgb": [152, 203, 0],
+      "hex": "#98CB00",
+      "pixel_count": 3587,
+      "notes": "Bright Lime Green"
+    },
+    {
+      "climate": "Desert",
+      "rgb": [255, 204, 0],
+      "hex": "#FFCC00",
+      "pixel_count": 478,
+      "notes": "Golden Orange"
+    },
+    {
+      "climate": "Savannah",
+      "rgb": [255, 255, 1],
+      "hex": "#FFFF01",
+      "pixel_count": 687,
+      "notes": "Bright Yellow"
+    },
+    {
+      "climate": "Tropical Shrublands",
+      "rgb": [232, 160, 32],
+      "hex": "#E8A020",
+      "pixel_count": 0,
+      "notes": "Amber / Orange (Estimated)"
+    },
+    {
+      "climate": "Tropical Deciduous Forest",
+      "rgb": [205, 255, 204],
+      "hex": "#CDFFCC",
+      "pixel_count": 1349,
+      "notes": "Pale Green"
+    },
+    {
+      "climate": "Tropical Evergreen Forest",
+      "rgb": [0, 100, 100],
+      "hex": "#006464",
+      "pixel_count": 0,
+      "notes": "Dark Teal / Cyan"
+    },
+    {
+      "climate": "Cold Desert",
+      "rgb": [150, 150, 150],
+      "hex": "#969696",
+      "pixel_count": 0,
+      "notes": "Darker Grey (Estimated, map-only)"
+    },
+    {
+      "climate": "Ocean",
+      "rgb": [11, 14, 241],
+      "hex": "#0B0EF1",
+      "pixel_count": 2115,
+      "notes": "Blue (Updated from Map Analysis)"
+    }
+  ]
+}

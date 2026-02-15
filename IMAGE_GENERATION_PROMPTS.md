@@ -2,6 +2,11 @@
 
 This library provides high-fidelity prompts for the **Information Age** of Kaelia. The aesthetic is **"Modern-Ancient Synthesis"**: 21st-century technology fused with deep ancestral traditions and regional aesthetics.
 
+> **Note:** For automated batch generation, refer to `scripts/generate_assets_hybrid.py`. We use a **Hybrid Strategy**:
+> *   **Heraldry (Flags/Arms):** Generated via `gemini-2.5-flash` for high-speed vector-like graphics.
+> *   **Landscapes:** Generated via `gemini-3-pro` for high-fidelity photorealism.
+
+
 ---
 
 ## 🏔️ Continent 1: Nordica

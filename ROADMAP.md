@@ -21,9 +21,12 @@
 - [x] **Altitude Integration:** High-fidelity 16-bit terrain mapping and precise city elevation tracking.
 - [x] **Heraldry System:** Implementation of mottos, descriptions, and UI integration for all entities.
 - [x] **NorKunta Expansion:** Detailed lore and visuals for Northern Antarmund (Cryo-Vault 09, Koldfisk, Borealis).
-- [x] **Interactive Encyclopedia:** Generated multi-page HTML wiki linked to Map Viewer.
+- [x] **Interactive Encyclopedia:** Generated multi-page HTML wiki linked to Map Viewer (Dark Mode + Lightbox).
 - [x] **Heraldry Prompts:** Created batch prompt library for flags and coats of arms (`heraldry_prompts.md`).
-- [ ] **AI Asset Generation:** Batch generation of flags, coats of arms, and regional landscape cards.
+- [x] **Image Carousel System:** Multi-image carousel in the Map Viewer sidebar and wiki city profiles. Dynamic `/api/city-images` endpoint.
+- [x] **Climate Legend:** Toggle-able Leaflet legend control for the Climate layer.
+- [x] **Data Consolidation:** Flattened world hierarchy to a clean 3-tier structure (Continent → Country → City). Consolidated Betereko. Fixed Map Viewer crash (Pelak invalid type). Regenerated wiki for 36 countries and 61 cities.
+- [/] **AI Asset Generation:** Batch generation of flags, coats of arms, and regional landscape cards (Hybrid Pipeline Active).
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.
 

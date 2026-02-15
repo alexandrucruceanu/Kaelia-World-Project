@@ -26,7 +26,14 @@
 <div id="sidebar">
     <!-- View: Location Details -->
     <div id="sidebar-details" class="sidebar-content active">
-        <img id="detail-bg" class="hero-image" src="img/satellite.jpg" alt="Location Image">
+        <div class="carousel-container">
+            <div id="sidebar-carousel" class="carousel-inner">
+                <img id="detail-image" class="hero-image" src="img/satellite.jpg" alt="Location Image">
+            </div>
+            <button id="carousel-prev" class="carousel-btn prev">❮</button>
+            <button id="carousel-next" class="carousel-btn next">❯</button>
+            <div id="carousel-indicators" class="carousel-indicators"></div>
+        </div>
 
         <div class="content-padding">
             <h1 id="detail-title">Welcome to Kaelia</h1>
@@ -97,7 +104,10 @@
             <div id="detail-visuals-container" style="display:none; margin-bottom: 20px;">
                 <h3 style="font-size: 1rem; color: #202124; margin-bottom: 5px;">Visual Generation Data</h3>
                 <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #dadce0;">
-                    <p><strong>Prompt:</strong> <span id="detail-prompt" style="font-style: italic; color: #5f6368;"></span></p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span style="font-weight: 500; color: #5f6368;">Schema</span>
+                        <button id="btn-copy-schema" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; border: 1px solid #dadce0; background: white; border-radius: 4px;">Copy Schema</button>
+                    </div>
                     <div id="detail-schema" style="margin-top: 8px; border-top: 1px solid #eee; padding-top: 8px;"></div>
                     
                     <details style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 5px;">
@@ -105,6 +115,9 @@
                         <pre id="detail-json" style="white-space: pre-wrap; word-wrap: break-word; font-family: monospace; color: #444; background: #eee; padding: 5px; border-radius: 4px; margin-top: 5px; font-size: 0.75rem;"></pre>
                     </details>
                 </div>
+                
+                <h4 style="font-size: 0.8rem; color: #5f6368; margin: 10px 0 5px 0;">Gallery</h4>
+                <div id="detail-gallery" class="gallery-container"></div>
             </div>
 
              <div class="info-row">
@@ -183,6 +196,25 @@
 <canvas id="climate-canvas" style="display:none;"></canvas>
 <canvas id="political-canvas" style="display:none;"></canvas>
 <canvas id="altitude-canvas" style="display:none;"></canvas>
+
+<!-- Visual Generation Modal -->
+<div id="visual-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeVisualModal()">&times;</span>
+        <h2 style="margin-top: 0;">✨ Generate Visual</h2>
+        <p style="font-size: 0.9rem; color: #555;">Generate a high-quality landscape for <b id="vm-city-name"></b>.</p>
+        
+        <label style="font-size: 0.8rem; font-weight: 500; color: #5f6368; display: block; margin-top: 15px;">Model Quality</label>
+        <select id="vm-model-select" class="google-input">
+            <option value="fast">Flash (Fast)</option>
+            <option value="pro">Pro (Hifi Preview)</option>
+        </select>
+        
+        <div id="vm-status" style="font-size: 0.85rem; margin: 10px 0; min-height: 20px;"></div>
+        
+        <button id="btn-generate-confirm" class="action-btn" onclick="executeVisualGeneration()">Confirm Generation</button>
+    </div>
+</div>
 
 <script src="js/app.js"></script>
 </body>

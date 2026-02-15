@@ -4,27 +4,118 @@
     <meta charset="UTF-8">
     <title>Blakkar Array - KaeliaWiki</title>
     <style>
-body { font-family: sans-serif; line-height: 1.6; color: #202122; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f6f6f6; }
-.header-container { border-bottom: 1px solid #a2a9b1; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
-h1 { font-family: 'Linux Libertine','Georgia','Times',serif; font-size: 1.8em; margin-bottom: 0.25em; }
-h2 { border-bottom: 1px solid #a2a9b1; font-family: 'Linux Libertine','Georgia','Times',serif; font-size: 1.5em; margin-top: 1.5em; }
+/* Dark Theme Variables */
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --link-color: #8ab4f8;
+    --border-color: #444;
+    --header-border: #666;
+    --infobox-bg: #2a2a2a;
+    --infobox-header: #333;
+    --infobox-title-bg: #444;
+    --table-header: #333;
+    --code-bg: #2d2d2d;
+    --blockquote-border: #666;
+}
+
+body { font-family: sans-serif; line-height: 1.6; color: var(--text-color); max-width: 1200px; margin: 0 auto; padding: 20px; background: var(--bg-color); }
+.header-container { border-bottom: 1px solid var(--header-border); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+h1, h2, h3, h4, h5, h6 { color: #fff; font-family: 'Linux Libertine','Georgia','Times',serif; }
+h1 { font-size: 1.8em; margin-bottom: 0.25em; }
+h2 { border-bottom: 1px solid var(--header-border); font-size: 1.5em; margin-top: 1.5em; }
 h3 { font-size: 1.2em; margin-top: 1.2em; }
-.infobox { float: right; width: 300px; background: #f8f9fa; border: 1px solid #a2a9b1; padding: 10px; margin-left: 20px; font-size: 0.9em; }
-.infobox th { text-align: left; background: #eaecf0; padding: 5px; }
+
+.infobox { float: right; width: 300px; background: var(--infobox-bg); border: 1px solid var(--border-color); padding: 10px; margin-left: 20px; font-size: 0.9em; color: var(--text-color); }
+.infobox th { text-align: left; background: var(--table-header); padding: 5px; color: #fff; }
 .infobox td { padding: 5px; }
-.infobox-title { text-align: center; font-weight: bold; font-size: 1.25em; background: #cedff2; padding: 5px; }
-.toc { background: #f8f9fa; border: 1px solid #a2a9b1; display: inline-block; padding: 10px; margin-bottom: 20px; min-width: 200px; }
+.infobox-title { text-align: center; font-weight: bold; font-size: 1.25em; background: var(--infobox-title-bg); padding: 5px; color: #fff; }
+
+.toc { background: var(--infobox-bg); border: 1px solid var(--border-color); display: inline-block; padding: 10px; margin-bottom: 20px; min-width: 200px; }
 .toc-title { font-weight: bold; text-align: center; margin-bottom: 5px; }
+
 .section-content { margin-bottom: 20px; }
 ul { margin-top: 0; }
-a { color: #0645ad; text-decoration: none; }
+a { color: var(--link-color); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
 .city-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-.city-table th, .city-table td { border: 1px solid #a2a9b1; padding: 6px; text-align: left; }
-.city-table th { background: #eaecf0; }
-.breadcrumb { font-size: 0.8em; color: #72777d; margin-bottom: 10px; }
-.hero-img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; border: 1px solid #dadce0; }
-.motto { font-style: italic; color: #555; text-align: center; display: block; margin-top: 5px; border-top: 1px solid #eee; padding-top: 5px; }
+.city-table th, .city-table td { border: 1px solid var(--border-color); padding: 6px; text-align: left; }
+.city-table th { background: var(--table-header); color: #fff; }
+
+.breadcrumb { font-size: 0.8em; color: #aaa; margin-bottom: 10px; }
+.hero-img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; border: 1px solid #555; }
+.motto { font-style: italic; color: #aaa; text-align: center; display: block; margin-top: 5px; border-top: 1px solid #444; padding-top: 5px; }
+
+/* Scrollbar refinement */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #777; }
+
+/* Lightbox/Modal */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+.modal-content { margin: auto; display: block; width: 80%; max-width: 700px; max-height: 90vh; object-fit: contain; animation-name: zoom; animation-duration: 0.6s; margin-top: 5vh; }
+.modal-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+.modal-close:hover, .modal-close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+.caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; }
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+.clickable-img { cursor: pointer; transition: 0.3s; }
+.clickable-img:hover { opacity: 0.7; }
+
+/* Wiki Carousel Styles */
+.wiki-carousel {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: var(--infobox-bg);
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.wiki-carousel-inner {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    height: 100%;
+}
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.wiki-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 4px;
+}
+.wiki-carousel-btn.prev { left: 5px; }
+.wiki-carousel-btn.next { right: 5px; }
+.wiki-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+.wiki-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
+.wiki-indicator.active {
+    background: white;
+}
 </style>
 </head>
 <body>
@@ -43,8 +134,11 @@ a:hover { text-decoration: underline; }
         <div class="infobox-title">Blakkar Array</div>
         <table>
             <tr><td colspan="2" style="text-align:center">
-                <img src="../../assets/heraldry/flags/city_blakkar_array.png" style="width:45%; margin:2%; border:1px solid #ccc;" title="Flag">
-                <img src="../../assets/heraldry/arms/city_blakkar_array.png" style="width:45%; margin:2%;" title="Coat of Arms">
+                <img src="../../assets/images/Nordica/Gryning/blakkar_array/blakkar_array_main.png" class="hero-img clickable-img" alt="Blakkar Array" onclick="openModal(this.src, 'Blakkar Array')">
+                <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin-top:5px;">
+                    <img src="../../assets/heraldry/flags/city_blakkar_array.png" class="clickable-img" style="width:100px; border:1px solid #666; margin: 2px;" title="Flag" onclick="openModal(this.src, 'Flag of Blakkar Array')">
+                    <img src="../../assets/heraldry/arms/city_blakkar_array.png" class="clickable-img" style="width:80px; border:none; margin: 2px;" title="Coat of Arms" onclick="openModal(this.src, 'Coat of Arms of Blakkar Array')">
+                </div>
                 <div class="motto">"Listening to the Void"</div>
             </td></tr>
             <tr><th>Continent</th><td><a href="../continents/nordica.html">Nordica</a></td></tr>
@@ -52,16 +146,75 @@ a:hover { text-decoration: underline; }
             <tr><th>Type</th><td>Special</td></tr>
             <tr><th>Population</th><td>0 (Automated)</td></tr>
             <tr><th>Altitude</th><td>3m</td></tr>
-            <tr><th>Climate</th><td>Automated Array</td></tr>
-            <tr><th>Heraldry</th><td>Orange signal tower on dark grey.</td></tr>
+            <tr><th>Climate</th><td>Ocean</td></tr>
             <tr><th>Coordinates</th><td>[743.9, 516.11]</td></tr>
         </table>
     </div>
     <div class="section-content">
-        <p><b>Blakkar Array</b> is a special located in <a href="../countries/gryning.html">Gryning</a>, <a href="../continents/nordica.html">Nordica</a>. It is situated at an altitude of 3m and is characterized by a Automated Array climate.</p>
+        <p><b>Blakkar Array</b> is a special located in <a href="../countries/gryning.html">Gryning</a>, <a href="../continents/nordica.html">Nordica</a>. It is situated at an altitude of 3m and is characterized by a Ocean climate.</p>
         <h3>Description</h3>
         <p>Mysterious automated signal array.</p>
     </div>
-    <h2>Visual Profile</h2><div class="section-content"><p><i>"An eerie, mist-shrouded island in the North Sea. Features a massive, towering automated signal array made of dark, weathered steel. Glowing orange status lights blinking through the fog. Waves crashing against jagged black cliffs."</i></p></div>
+    <h2>History & Lore</h2><div class="section-content">Blakkar Array is a remote island settlement known for its towering, automated signal array that hums with an eerie, otherworldly energy. Whispers circulate among Nordicans of digital ghosts haunting the island, remnants of the array's original programming gone awry.<br></div>
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption" class="caption"></div>
+    </div>
+
+    <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+
+    function openModal(src, alt) {
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = alt || "";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    
+    // Close on click outside
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    
+    // Wiki Carousel Logic
+    var currentWikiSlide = 0;
+    function updateWikiCarousel() {
+        var inner = document.getElementById('wiki-carousel-inner');
+        if (!inner) return;
+        var slides = inner.getElementsByClassName('carousel-slide');
+        if (slides.length === 0) return;
+        
+        if (currentWikiSlide >= slides.length) currentWikiSlide = 0;
+        if (currentWikiSlide < 0) currentWikiSlide = slides.length - 1;
+        
+        inner.style.transform = 'translateX(-' + (currentWikiSlide * 100) + '%)';
+        
+        var dots = document.getElementsByClassName('wiki-indicator');
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle('active', i === currentWikiSlide);
+        }
+    }
+    
+    function moveWikiSlide(n) {
+        currentWikiSlide += n;
+        updateWikiCarousel();
+    }
+    
+    function setWikiSlide(n) {
+        currentWikiSlide = n;
+        updateWikiCarousel();
+    }
+    </script>
 </body>
 </html>

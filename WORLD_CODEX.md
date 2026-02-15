@@ -1,6 +1,6 @@
 # 📖 WORLD CODEX: Kaelia
  
-**Version:** 2.1 (Biome-Corrected)
+**Version:** 3.1.0 (Hierarchy Refactor)
 **Status:** Unified Master Reference
  
 > **Correction Note:** This document supersedes previous versions. Geography and climate data now match the Global Biome Scans (Whittaker Classification).
@@ -96,25 +96,31 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
 * **Corrected Climate:** **Mediterranean / Semi-Arid.**
 * *Correction:* The "Desert" classification was incorrect. The region is actually a **Chaparral zone** (hot, dry summers; mild, wet winters), similar to California or the Mediterranean.
 
-### 1. Geography: The Golden Isles
-* **The "Solar-Sea" Explained:** The islands are not a sandy desert, but a **scrubland** with intense summer sun. The "Solar-Sea" arrays harvest punishing summer UV radiation while creating shade for **Chaparral agriculture** (olives, grapes, cork) underneath.
-* **Architecture:** Cities like **Yokasy** are built with high surface-to-agriculture ratios on limited real estate.
-* **New Biome Feature:** **The Fire-Season.** Prone to wildfires; architecture is highly fire-resistant with ceramic shells and automated misting.
-* **Culture:** Master architects of the modern-desert. High-speed commerce and climate-controlled prosperity.
-* **Urban Hubs:**
-    *   **Yokasy:** Subterranean metropolis; architecture uses light-shafts and natural cooling. The world's primary MAGLEV terminal.
-    *   **Vorkasy:** High-tech mega-fauna preservation and eco-tourism.
-    *   **Pomkasy:** Coastal smart-port; wealthy from synthetic dyes and pearl-biotech.
-    *   **Akasy & Bakausy:** Rival tech-cities specializing in atmospheric water generation.
-    *   **Saskasy:** Scientific research outpost in the deep dunes.
+### 1. Akasy & Bakausy
+* **Description:** Rival tech-cities specializing in atmospheric water generation.
+* **Biome:** **Chaparral**.
+
+### 2. Yokasy
+* **Description:** Subterranean metropolis; architecture uses light-shafts and natural cooling. The world's primary MAGLEV terminal.
+
+### 3. Vorkasy
+* **Description:** High-tech mega-fauna preservation and eco-tourism.
+
+### 4. Pomkasy
+* **Description:** Coastal smart-port; wealthy from synthetic dyes and pearl-biotech.
+
+### 5. Saskasy
+* **Description:** Scientific research outpost in the deep dunes.
 
 ## ❄️ Continent 3: Betereko
+*   **Political Status:** A unified **Continent-State** (similar to Earth's Australia). The entire landmass is governed as a single sovereign entity: **The Betereko Technocracy**.
 *   **Geography:** Sub-Polar Monolithic Plateau.
 *   **Location:** High Southern Latitudes (Proximal to the South Pole).
 *   **Visual Biome:** **Alpine Tundra** & **Ice Caps**.
 *   **Modern Status:** A global leader in **Aerospace and Quantum Computing**. The plateau's high latitude and stable, cold atmospheric conditions make it the planet's primary spaceport for high-inclination orbits.
 *   **Culture:** Technocratic and highly regimented. They believe their isolation and extreme environment give them a "superior perspective" on global data.
-*   **Metropolis:** **Apex** - Perched on the precipice of the eastern cliffs, Apex represents the cleaner air-boundary of the sub-polar south. It is the planet's premier center for long-range telecommunications, data storage, and global meteorology. The city is characterized by dignified stone and glass architecture, hosting international research institutes and massive radio-dish arrays that overlook the "Endless Drop" into the ocean.
+*   **Metropolis (Capital):** **Apex** - Perched on the precipice of the eastern cliffs, Apex represents the cleaner air-boundary of the sub-polar south. It is the planet's premier center for long-range telecommunications, data storage, and global meteorology. The city is characterized by dignified stone and glass architecture, hosting international research institutes and massive radio-dish arrays that overlook the "Endless Drop" into the ocean.
+
 
 ---
 
@@ -123,23 +129,32 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
 * **Visual Biome:** **Boreal Forest (Purple)** with **Wetland Margins (Cyan/Green)**
 * **Corrected Climate:** **Cold Taiga / Sub-Arctic Swamp.**
 
-### 1. The Dark-Water States
-* **Geography:** A flooded Boreal forest (Muskeg). A massive, half-frozen swamp where pine trees grow out of the water.
-* **Lore Update:** The "Dark Forest" name is literal. High latitude + dense coniferous canopy means very little light hits the water.
-* **Adaptation:** The **Bio-luminescent fiber-optics** are crucial; dense tree cover and fog make solar navigation impossible. 
-* **Transport:** The "Amphibious Logistics" of **Redez** are designed for ground too soft for wheels but too thick for boats.
-* **Modern Status:** Leader in **Bio-energy and Environmental Restoration**.
-* **Culture:** "Cyber-folk" style. Modern tech integrated into the murky, folk-ritual landscape. They use bio-luminescent fiber-optics and fungal server-grids.
-*   **The Nine States:**
-    *   **Niruz:** Agri-tech powerhouse specializing in flood-resistant smart-crops.
-    *   **Tailas:** Southern delta region with high-speed hydro-transport.
-    *   **Aghaz:** Fortress-cities on peaks, now serving as secure global data vaults.
-    *   **Pateraz:** River-state corridors and wetland industrial hubs.
-    *   **Misyats:** High-tech lunar-aligned theocracy; optimized for low-light environments.
-    *   **Mesek:** Center for bio-luminescent research and fiber-optic weaving.
-    *   **Menulys:** High-latitude swamp region focusing on carbon sequestration.
-    *   **Redez:** Industrial wetland rim; specialized in amphibious logistics.
-    *   **Nechars:** Northernmost frontier; guardians of the Permafrost Vaults.
+### 1. Niruz
+* **Description:** Agri-tech powerhouse specializing in flood-resistant smart-crops.
+
+### 2. Tailas
+* **Description:** Southern delta region with high-speed hydro-transport.
+
+### 3. Aghaz
+* **Description:** Fortress-cities on peaks, now serving as secure global data vaults.
+
+### 4. Pateraz
+* **Description:** River-state corridors and wetland industrial hubs.
+
+### 5. Misyats
+* **Description:** High-tech lunar-aligned theocracy; optimized for low-light environments.
+
+### 6. Mesek
+* **Description:** Center for bio-luminescent research and fiber-optic weaving.
+
+### 7. Menulys
+* **Description:** High-latitude swamp region focusing on carbon sequestration.
+
+### 8. Redez
+* **Description:** Industrial wetland rim; specialized in amphibious logistics.
+
+### 9. Nechars
+* **Description:** Northernmost frontier; guardians of the Permafrost Vaults.
 
 ### 2. Ax Pelak Yeldo (Central Archipelago)
 *   **Geography:** A massive, dense archipelago located south of The Mirelands, in the strategic center of the global ocean.
@@ -149,38 +164,38 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
 * **Location:** Eastern Hemisphere
 * **Visual Biome:** **Gradient** from **Tundra (North)** to **Temperate Rainforest (South)**.
 
-### 1. NorKunta (The Northern Titan)
-* **Biome:** **Alpine Tundra (Grey)** & **Boreal Forest (Purple)**.
-* **Geography:** A mirror of Nordica—harsh, frozen, and industrial.
-* **Survival:** Completely dependent on food imports from the South, explaining militaristic protection of trade routes.
-* **Modern Status:** Center of Kaelia’s global aerospace and heavy robotics production.
-*   **Key Locations:**
-    *   **NorKunta Prime (Capital):** An industrial powerhouse and "Capital" city that bridges a glacial valley and a deep-water harbor. The city is a forest of foundries and automotive plants, fueled by northern minerals and connected to the world via massive ice-breaker shipping lanes.
-    *   **Borealis Station:** A high-tech settlement of 60,000 inhabitants. It serves as an atmospheric research hub and energy collection site, defined by massive "Aurora Harvesting" tesla-coil arrays that power the region.
-    *   **Koldfisk Rig:** A temperate agricultural metropolis of 80,000 people. Situated on a coastal lake fed by two rivers, it utilizes massive heating systems to maintain a green, arable micro-climate for hydroponics and vertical farming.
-    *   **Cryo-Vault 09:** A designated special location. A massive subterranean deep-storage facility carved into ancient blue ice, used for preserving biological samples from Kaelia's pre-glacial history.
-    *   **Ice-Hauler's Rest:** A vital logistics hub and truck stop for the treacherous ice road network, housing 3,500 people and serving as a beacon of warmth and commerce in the tundra.
+### 1. NorKunta
+* **Description:** Center of Kaelia’s global aerospace and heavy robotics production. Mirror of Nordica—harsh, frozen, and industrial.
 
-### 2. The Southern Prosperity Rim
-* **Biome:** **Temperate Deciduous Forest (Green)** & **Temperate Rainforest (Dark Green)**.
-* **Corrected Climate:** **Oceanic Temperate.**
-* *Correction:* This is the most fertile land on the planet. It is not tropical; it is cool, wet, and lush (similar to Western Europe or New Zealand).
+### 2. Metsemania
+* **Description:** Massive Old-Growth Redwood/Sequoia region focusing on bio-integrated nanotechnology.
 
-*   **Metsemania:**
-    *   **Biome:** **Temperate Rainforest.**
-    *   **Lore Update:** Instead of "Jungle," this is a massive **Old-Growth Redwood/Sequoia** region. The "Nanotechnology" focuses on wood and cellulose manipulation.
-*   **Fyny'Dor:**
-    *   **Biome:** **Temperate Grassland (Green/Yellow mix).**
-    *   **Role:** The "Breadbasket." The only significant flat, green space suitable for large-scale grain farming.
-*   **Valermond (City of Light):**
-    *   **Setting:** Located in the **Deciduous Forest (Light Green)**. Famous for seasonal changes—blazing red/orange in autumn and lush green in summer. The global center for alchemical (physics) engineering.
-*   **Guldhorn:** The world's premier digital finance hub.
-*   **Norgborg:** Naval-militaristic smart city protecting the southern trade gates.
-*   **Laendamania & Melynmania:** Sister states specializing in global media and cultural exports.
-*   **Sigmarignen:** The continent’s historical capital of high-tradition and modern art.
-*   **Nargkes & Norginde:** Industrial corridor specializing in geothermal heavy machinery.
-*   **Kasim'Merik & Dirka'Merik:** Maritime powerhouses and autonomous shipping centers.
-*   **Meit'Val:** Agricultural and luxury resource states of the deep south.
+### 3. Fyny'Dor
+* **Description:** The "Breadbasket" region; cool, wet, and suitable for large-scale grain farming.
+
+### 4. Valermond
+* **Description:** Alchemical (physics) engineering center set in vibrant deciduous forests.
+
+### 5. Guldhorn
+* **Description:** The world's premier digital finance hub.
+
+### 6. Norgborg
+* **Description:** Naval-militaristic smart city protecting the southern trade gates.
+
+### 7. Laendamania & Melynmania
+* **Description:** Sister states specializing in global media and cultural exports.
+
+### 8. Sigmarignen
+* **Description:** The continent’s historical capital of high-tradition and modern art.
+
+### 9. Nargkes & Norginde
+* **Description:** Industrial corridor specializing in geothermal heavy machinery.
+
+### 10. Kasim'Merik & Dirka'Merik
+* **Description:** Maritime powerhouses and autonomous shipping centers.
+
+### 11. Meit'Val
+* **Description:** Agricultural and luxury resource states of the deep south.
 
 ---
 
