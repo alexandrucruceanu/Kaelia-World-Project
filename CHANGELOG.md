@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.3.0] - 2026-02-15
+### 🏷️ Movable Labels & Prompt Explorer
+*   **Movable Labels:** Enabled **drag-and-drop** functionality for Continent and Country labels in the Map Viewer. Users can now toggle "Move Mode" (Hand FAB) to reposition labels, with new coordinates automatically persisted to `master_world_data.json` via new `PUT` API endpoints.
+*   **Prompt Explorer:** Launched a dedicated `/prompt-explorer` tool. A searchable interface to view all 5 prompt types (Landscape Main, Seq1, Seq2, Flag, Arms) for every city, alongside detailed metadata (Type, Biome, Lore) and a **Similarity Score** metric to gauge prompt accuracy.
+*   **Prompt Migration:** Migrated all hardcoded prompt generation logic to a persistent JSON-based system.
+*   **Visual Enhancements:** Fixed the "Aerial" camera angle in `landscape_main` prompts to be "High-angle oblique" (45-degree) for better artistic composition.
+
+## [3.2.0] - 2026-02-15
+### 🌐 3D Globe View & Generation API
+*   **3D Globe View:** Integrated `globe.gl` library to render an interactive 3D globe. City markers are projected onto the sphere with color-coded points, hover labels, and click-through to the existing sidebar details. Auto-rotate and a **2D/3D Toggle FAB** (🌍/🗺️) allow seamless switching between the flat map and the globe.
+*   **Generation API Expansion:** Expanded `server.js` with two new endpoints: `/api/construct-prompt` (returns AI-ready prompts from world data) and `/api/generate-visual` (triggers Python-based image generation with type-aware routing for landscapes and heraldry). Includes automatic **file management** (sequential naming, archiving old heraldry to `_archive/`).
+*   **Heraldry Prompt Constructor:** Added `construct_heraldry_prompt()` to `generate_assets_hybrid.py` for data-driven, lore-aware flag and coat of arms prompt generation.
+*   **Asset Auditor:** Created `check_assets.js` to validate all city image references in `master_world_data.json` against the actual filesystem, producing a detailed `asset_report_utf8.txt`.
+*   **Wiki Regeneration:** Regenerated all 61 city, 36 country, and 5 continent wiki pages to reflect the latest data hierarchy and carousel support.
+*   **App Restructure:** Reorganized the full Map Viewer application (assets, scripts, wiki content) into the public repository for self-contained deployment.
+
 ## [3.1.0] - 2026-02-15
 ### 🏗️ Global Hierarchy Refactor & Map Fix
 *   **Data Hierarchy Flattening:** Removed all intermediate regional groupings (e.g., "Southern Prosperity Rim", "The Dark-Water States", "The Golden Isles") and promoted all constituent states to top-level **Country** objects within their respective continents. The world now has a clean 3-tier hierarchy: **Continent → Country → City**.

@@ -233,8 +233,9 @@ a:hover { text-decoration: underline; }
         wikiGenCityId = cityId;
         wikiGenType = genType;
         var titles = {
-            'landscape_main': '🖼️ Generate Main Landscape',
-            'landscape_seq': '📸 Generate Gallery Image',
+            'landscape_main': '🖼️ Generate Main (Aerial)',
+            'landscape_seq1': '📸 Generate Seq1 (Eye-Level)',
+            'landscape_seq2': '🧑‍🏭 Generate Seq2 (Reportage)',
             'heraldry_flag': '🏴 Generate Flag',
             'heraldry_arms': '🛡️ Generate Coat of Arms'
         };
@@ -260,8 +261,9 @@ a:hover { text-decoration: underline; }
             document.getElementById('wiki-gen-prompt').value = data.prompt || 'Enter prompt manually.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         })
-        .catch(function() {
-            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt. Enter your own.';
+        .catch(function(err) {
+            console.error(err);
+            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt from server. Please check console logs.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         });
     }

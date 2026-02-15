@@ -220,8 +220,9 @@ def wrap_html(content, title, depth=0):
         wikiGenCityId = cityId;
         wikiGenType = genType;
         var titles = {{
-            'landscape_main': '🖼️ Generate Main Landscape',
-            'landscape_seq': '📸 Generate Gallery Image',
+            'landscape_main': '🖼️ Generate Main (Aerial)',
+            'landscape_seq1': '📸 Generate Seq1 (Eye-Level)',
+            'landscape_seq2': '🧑‍🏭 Generate Seq2 (Reportage)',
             'heraldry_flag': '🏴 Generate Flag',
             'heraldry_arms': '🛡️ Generate Coat of Arms'
         }};
@@ -247,8 +248,9 @@ def wrap_html(content, title, depth=0):
             document.getElementById('wiki-gen-prompt').value = data.prompt || 'Enter prompt manually.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         }})
-        .catch(function() {{
-            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt. Enter your own.';
+        .catch(function(err) {{
+            console.error(err);
+            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt from server. Please check console logs.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         }});
     }}
@@ -395,8 +397,13 @@ def generate_city_page(city, country_name, continent_name):
             if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
                 found_images.append(f"../../{img_dir_rel}/{f}")
     
-    # Sort: main first
-    found_images.sort(key=lambda x: 0 if '_main' in x else 1)
+    # Sort: main, then seq1, then seq2, then others
+    def sort_key(x):
+        if '_main' in x: return 0
+        if '_seq1' in x: return 1
+        if '_seq2' in x: return 2
+        return 3
+    found_images.sort(key=sort_key)
     
     hero_html = ""
     if len(found_images) > 1:
@@ -470,10 +477,11 @@ def generate_city_page(city, country_name, continent_name):
     content += f"""
     <h2>Generate Assets</h2>
     <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-        <button onclick="wikiGenerate('{city_id}', 'landscape_main')" class="wiki-gen-btn" style="padding: 8px 14px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🖼️ New Main Image</button>
-        <button onclick="wikiGenerate('{city_id}', 'landscape_seq')" class="wiki-gen-btn" style="padding: 8px 14px; background: #d93025; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">📸 Add to Gallery</button>
-        <button onclick="wikiGenerate('{city_id}', 'heraldry_flag')" class="wiki-gen-btn" style="padding: 8px 14px; background: #137333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🏴 Generate Flag</button>
-        <button onclick="wikiGenerate('{city_id}', 'heraldry_arms')" class="wiki-gen-btn" style="padding: 8px 14px; background: #b06000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🛡️ Generate Arms</button>
+        <button onclick="wikiGenerate('{city_id}', 'landscape_main')" class="wiki-gen-btn" style="padding: 8px 14px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🖼️ Main (Aerial)</button>
+        <button onclick="wikiGenerate('{city_id}', 'landscape_seq1')" class="wiki-gen-btn" style="padding: 8px 14px; background: #e37400; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">📸 Seq1 (Eye-Level)</button>
+        <button onclick="wikiGenerate('{city_id}', 'landscape_seq2')" class="wiki-gen-btn" style="padding: 8px 14px; background: #d93025; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🧑‍🏭 Seq2 (Activity)</button>
+        <button onclick="wikiGenerate('{city_id}', 'heraldry_flag')" class="wiki-gen-btn" style="padding: 8px 14px; background: #137333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🏴 Flag</button>
+        <button onclick="wikiGenerate('{city_id}', 'heraldry_arms')" class="wiki-gen-btn" style="padding: 8px 14px; background: #b06000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🛡️ Arms</button>
     </div>
     <div id="wiki-gen-modal" style="display:none; background: #f8f9fa; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
         <h3 id="wiki-gen-title" style="margin-top:0; font-size: 1rem;"></h3>

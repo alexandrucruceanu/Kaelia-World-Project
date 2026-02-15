@@ -73,6 +73,56 @@ const server = http.createServer((req, res) => {
         return;
     }
 
+    // --- Update Continent Endpoint ---
+    if (req.url === '/api/continents' && req.method === 'PUT') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', () => {
+            const { continentName, coords } = JSON.parse(body);
+            fs.readFile(DATA_FILE, 'utf8', (err, data) => {
+                if (err) { res.writeHead(500); return res.end('Error reading data'); }
+                const world = JSON.parse(data);
+                const continent = world.continents.find(c => c.name === continentName);
+                if (!continent) { res.writeHead(404); return res.end('Continent not found'); }
+                
+                continent.coords = coords; // Save coords
+                
+                fs.writeFile(DATA_FILE, JSON.stringify(world, null, 2), (err) => {
+                    if (err) { res.writeHead(500); return res.end('Error saving data'); }
+                    res.writeHead(200);
+                    res.end('Updated');
+                });
+            });
+        });
+        return;
+    }
+
+    // --- Update Country Endpoint ---
+    if (req.url === '/api/countries' && req.method === 'PUT') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', () => {
+            const { continentName, countryName, coords } = JSON.parse(body);
+            fs.readFile(DATA_FILE, 'utf8', (err, data) => {
+                if (err) { res.writeHead(500); return res.end('Error reading data'); }
+                const world = JSON.parse(data);
+                const continent = world.continents.find(c => c.name === continentName);
+                if (!continent) { res.writeHead(404); return res.end('Continent not found'); }
+                const country = continent.countries.find(c => c.name === countryName);
+                if (!country) { res.writeHead(404); return res.end('Country not found'); }
+                
+                country.coords = coords; // Save coords
+                
+                fs.writeFile(DATA_FILE, JSON.stringify(world, null, 2), (err) => {
+                    if (err) { res.writeHead(500); return res.end('Error saving data'); }
+                    res.writeHead(200);
+                    res.end('Updated');
+                });
+            });
+        });
+        return;
+    }
+
     if (req.url === '/api/cities' && req.method === 'PUT') {
         let body = '';
         req.on('data', chunk => { body += chunk.toString(); });
@@ -124,7 +174,7 @@ const server = http.createServer((req, res) => {
             const { cityId, genType } = JSON.parse(body);
             const { spawn } = require('child_process');
             const pythonScript = path.join(__dirname, 'scripts', 'generate_assets_hybrid.py');
-            const pyType = (genType === 'heraldry_flag') ? 'flag' : (genType === 'heraldry_arms') ? 'arms' : 'landscape';
+            const pyType = genType;
             
             const pyProcess = spawn('python', [pythonScript, '--id', cityId, '--type', pyType, '--construct-only']);
             let stdoutData = '';
@@ -143,6 +193,12 @@ const server = http.createServer((req, res) => {
     }
 
     // --- Generate Visual Endpoint (expanded) ---
+    if (req.url === '/prompt-explorer') {
+        const html = fs.readFileSync(path.join(__dirname, 'public', 'prompt_explorer.html'), 'utf8');
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        return res.end(html);
+    }
+
     if (req.url === '/api/generate-visual' && req.method === 'POST') {
         let body = '';
         req.on('data', chunk => { body += chunk.toString(); });
@@ -185,49 +241,37 @@ const server = http.createServer((req, res) => {
             let pyType = 'landscape';
 
             if (genType === 'landscape_main') {
-                // If main exists, rename to next sequence number
+                // Main Image: [city]_main.png
+                // If main exists, we might want to archive it or overwrite. 
+                // Creating a backup before overwrite seems prudent, or just Overwrite for now as per "New Main Image"
                 const imgDir = targetCity.image ? path.join(__dirname, path.dirname(targetCity.image)) :
                     path.join(__dirname, 'assets', 'images', safeName(tContinent), safeName(tCountry), safeCity);
-                const mainFile = path.join(imgDir, `${safeCity}_main.png`);
                 
-                if (fs.existsSync(mainFile)) {
-                    // Find next sequence number
-                    let idx = 1;
-                    while (fs.existsSync(path.join(imgDir, `${safeCity}_${idx}.png`))) idx++;
-                    const seqFile = path.join(imgDir, `${safeCity}_${idx}.png`);
-                    fs.renameSync(mainFile, seqFile);
-                    console.log(`  📁 Moved old main to ${path.basename(seqFile)}`);
-                }
-                // Output to main
                 if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
-                outputPath = mainFile;
-                pyType = 'landscape';
+                outputPath = path.join(imgDir, `${safeCity}_main.png`);
+                pyType = 'landscape_main';
 
-            } else if (genType === 'landscape_seq') {
-                // Just find next sequence slot
+            } else if (genType === 'landscape_seq1') {
+                // Sequence 1: [city]_seq1.png
                 const imgDir = targetCity.image ? path.join(__dirname, path.dirname(targetCity.image)) :
                     path.join(__dirname, 'assets', 'images', safeName(tContinent), safeName(tCountry), safeCity);
                 if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
-                let idx = 1;
-                while (fs.existsSync(path.join(imgDir, `${safeCity}_${idx}.png`))) idx++;
-                outputPath = path.join(imgDir, `${safeCity}_${idx}.png`);
-                pyType = 'landscape';
+                outputPath = path.join(imgDir, `${safeCity}_seq1.png`);
+                pyType = 'landscape_seq1';
+
+            } else if (genType === 'landscape_seq2') {
+                // Sequence 2: [city]_seq2.png
+                const imgDir = targetCity.image ? path.join(__dirname, path.dirname(targetCity.image)) :
+                    path.join(__dirname, 'assets', 'images', safeName(tContinent), safeName(tCountry), safeCity);
+                if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
+                outputPath = path.join(imgDir, `${safeCity}_seq2.png`);
+                pyType = 'landscape_seq2';
 
             } else if (genType === 'heraldry_flag' || genType === 'heraldry_arms') {
                 const sub = genType === 'heraldry_flag' ? 'flags' : 'arms';
                 const heraldryFile = path.join(__dirname, 'assets', 'heraldry', sub, `city_${safeCity}.png`);
-                
-                // Archive old heraldry if it exists
-                if (fs.existsSync(heraldryFile)) {
-                    const archiveDir = path.join(__dirname, 'assets', 'heraldry', '_archive', sub);
-                    if (!fs.existsSync(archiveDir)) fs.mkdirSync(archiveDir, { recursive: true });
-                    const timestamp = new Date().toISOString().replace(/[:.]/g, '-').substring(0,19);
-                    const archiveName = `city_${safeCity}_${timestamp}.png`;
-                    fs.renameSync(heraldryFile, path.join(archiveDir, archiveName));
-                    console.log(`  📦 Archived old ${sub} to _archive/${sub}/${archiveName}`);
-                }
                 outputPath = heraldryFile;
-                pyType = genType === 'heraldry_flag' ? 'flag' : 'arms';
+                pyType = genType;
             }
 
             // Build Python command
@@ -369,26 +413,42 @@ const server = http.createServer((req, res) => {
     let filePath = '.' + req.url;
     if (filePath === './') filePath = './index.html';
 
-    const extname = String(path.extname(filePath)).toLowerCase();
-    const contentType = MIME_TYPES[extname] || 'application/octet-stream';
+    const serveFile = (pathToSend) => {
+        const extname = String(path.extname(pathToSend)).toLowerCase();
+        const contentType = MIME_TYPES[extname] || 'application/octet-stream';
 
-    fs.readFile(filePath, (error, content) => {
-        if (error) {
-            if (error.code == 'ENOENT') {
-                res.writeHead(404);
-                res.end('File not found');
+        fs.readFile(pathToSend, (error, content) => {
+            if (error) {
+                if (error.code == 'ENOENT') {
+                    res.writeHead(404);
+                    res.end('File not found');
+                } else {
+                    res.writeHead(500);
+                    res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
+                }
             } else {
-                res.writeHead(500);
-                res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
+                res.writeHead(200, { 
+                    'Content-Type': contentType,
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                });
+                res.end(content);
             }
+        });
+    };
+
+    // Check if path is directory
+    fs.stat(filePath, (err, stats) => {
+        if (err) {
+            // If file doesn't exist, try serving it anyway to let readFile handle 404/500
+            // or just let it fail. But specific error handling in readFile is better.
+            serveFile(filePath);
+        } else if (stats.isDirectory()) {
+            // Try serving index.html
+            serveFile(path.join(filePath, 'index.html'));
         } else {
-            res.writeHead(200, { 
-                'Content-Type': contentType,
-                'Cache-Control': 'no-cache, no-store, must-revalidate',
-                'Pragma': 'no-cache',
-                'Expires': '0'
-            });
-            res.end(content);
+            serveFile(filePath);
         }
     });
 });

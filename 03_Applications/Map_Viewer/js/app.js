@@ -122,42 +122,60 @@ function loadMarkers() {
                         }
                     });
                     
-                    // Create Country Label
-                    if (countryCityCount > 0) {
-                        var cLat = countryLatSum / countryCityCount;
-                        var cLng = countryLngSum / countryCityCount;
-                        var countryLabel = L.marker([cLat, cLng], {
-                            icon: L.divIcon({
-                                className: 'country-label-icon',
-                                html: `<div class="country-label">${country.name}</div>`,
-                                iconSize: [100, 20],
-                                iconAnchor: [50, 10]
-                            }),
-                            interactive: false
-                        });
-                        countryLabel.addTo(layers.countryLabels);
-                    }
-                });
-                
-                // Create Continent Label
-                if (contCityCount > 0) {
-                    var cLat = contLatSum / contCityCount;
-                    var cLng = contLngSum / contCityCount;
-                    var continentLabel = L.marker([cLat, cLng], {
+                // Create Country Label
+                if (countryCityCount > 0) {
+                    var cLat = country.coords ? country.coords[0] : (countryLatSum / countryCityCount);
+                    var cLng = country.coords ? country.coords[1] : (countryLngSum / countryCityCount);
+                    
+                    var countryLabel = L.marker([cLat, cLng], {
                         icon: L.divIcon({
-                            className: 'continent-label-icon',
-                            html: `<div class="continent-label">${continent.name}</div>`,
-                            iconSize: [200, 40],
-                            iconAnchor: [100, 20]
+                            className: 'country-label-icon',
+                            html: `<div class="country-label">${country.name}</div>`,
+                            iconSize: [100, 20],
+                            iconAnchor: [50, 10]
                         }),
-                        interactive: false
+                        draggable: false, // Toggled by moveMode
+                        interactive: true
                     });
-                    continentLabel.addTo(layers.continentLabels);
+                    
+                    countryLabel.on('dragend', function(e) {
+                       var newCoords = [parseFloat(e.target.getLatLng().lat.toFixed(1)), parseFloat(e.target.getLatLng().lng.toFixed(1))];
+                       country.coords = newCoords;
+                       updateCountryOnServer(continent.name, country.name, newCoords);
+                    });
+
+                    countryLabel.addTo(layers.countryLabels);
                 }
             });
-            console.log(`--- Loaded ${count} markers ---`);
-            updateLayerVisibility(); // Set initial state based on zoom
+            
+            // Create Continent Label
+            if (contCityCount > 0) {
+                var cLat = continent.coords ? continent.coords[0] : (contLatSum / contCityCount);
+                var cLng = continent.coords ? continent.coords[1] : (contLngSum / contCityCount);
+                
+                var continentLabel = L.marker([cLat, cLng], {
+                    icon: L.divIcon({
+                        className: 'continent-label-icon',
+                        html: `<div class="continent-label">${continent.name}</div>`,
+                        iconSize: [200, 40],
+                        iconAnchor: [100, 20]
+                    }),
+                    draggable: false, // Toggled by moveMode
+                    interactive: true
+                });
+
+                continentLabel.on('dragend', function(e) {
+                   var newCoords = [parseFloat(e.target.getLatLng().lat.toFixed(1)), parseFloat(e.target.getLatLng().lng.toFixed(1))];
+                   continent.coords = newCoords;
+                   updateContinentOnServer(continent.name, newCoords);
+                });
+
+                continentLabel.addTo(layers.continentLabels);
+            }
         });
+        console.log(`--- Loaded ${count} markers ---`);
+        updateLayerVisibility(); // Set initial state based on zoom
+    });
 }
 
 function createMarker(city, continentName, countryName) {
@@ -1012,6 +1030,26 @@ function updateCityOnServer(continentName, countryName, city) {
         body: JSON.stringify({ continentName, countryName, city })
     }).then(res => {
         if (res.ok) console.log(`Updated ${city.name}`);
+    });
+}
+
+function updateContinentOnServer(continentName, coords) {
+    fetch('/api/continents', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ continentName, coords })
+    }).then(res => {
+        if (res.ok) console.log(`Updated Continent ${continentName}`);
+    });
+}
+
+function updateCountryOnServer(continentName, countryName, coords) {
+    fetch('/api/countries', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ continentName, countryName, coords })
+    }).then(res => {
+        if (res.ok) console.log(`Updated Country ${countryName}`);
     });
 }
 

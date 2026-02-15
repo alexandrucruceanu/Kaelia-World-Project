@@ -134,7 +134,16 @@ a:hover { text-decoration: underline; }
         <div class="infobox-title">Norginde Capital</div>
         <table>
             <tr><td colspan="2" style="text-align:center">
-                <img src="../../assets/images/Antarmund/Norginde/norginde_capital/norginde_capital_main.png" class="hero-img clickable-img" alt="Norginde Capital" onclick="openModal(this.src, 'Norginde Capital')">
+                
+        <div class="wiki-carousel">
+            <div class="wiki-carousel-inner" id="wiki-carousel-inner">
+                <img src="../../assets/images/Antarmund/Norginde/norginde_capital/norginde_capital_main.png" class="hero-img carousel-slide active" alt="Norginde Capital" onclick="openModal(this.src, 'Norginde Capital')"><img src="../../assets/images/Antarmund/Norginde/norginde_capital/norginde_capital_seq1.png" class="hero-img carousel-slide " alt="Norginde Capital" onclick="openModal(this.src, 'Norginde Capital')"><img src="../../assets/images/Antarmund/Norginde/norginde_capital/norginde_capital_seq2.png" class="hero-img carousel-slide " alt="Norginde Capital" onclick="openModal(this.src, 'Norginde Capital')">
+            </div>
+            <button class="wiki-carousel-btn prev" onclick="moveWikiSlide(-1)">❮</button>
+            <button class="wiki-carousel-btn next" onclick="moveWikiSlide(1)">❯</button>
+            <div class="wiki-indicators"><div class="wiki-indicator active" onclick="setWikiSlide(0)"></div><div class="wiki-indicator " onclick="setWikiSlide(1)"></div><div class="wiki-indicator " onclick="setWikiSlide(2)"></div></div>
+        </div>
+        
                 <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin-top:5px;">
                     <img src="../../assets/heraldry/flags/city_norginde_capital.png" class="clickable-img" style="width:100px; border:1px solid #666; margin: 2px;" title="Flag" onclick="openModal(this.src, 'Flag of Norginde Capital')">
                     <img src="../../assets/heraldry/arms/city_norginde_capital.png" class="clickable-img" style="width:80px; border:none; margin: 2px;" title="Coat of Arms" onclick="openModal(this.src, 'Coat of Arms of Norginde Capital')">
@@ -158,10 +167,11 @@ a:hover { text-decoration: underline; }
     <h2>History & Lore</h2><div class="section-content">Norginde Capital, a frozen metropolis in the northern reaches of Antarmund, stands as a testament to industrial might and frigid adaptation. Serving as a critical nexus for aerospace engineering and heavy robotics, the city thrives despite its harsh climate, relying on imports from the south and fiercely defending the trade routes that sustain it.<br></div>
     <h2>Generate Assets</h2>
     <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-        <button onclick="wikiGenerate('city_auto_1_norginde', 'landscape_main')" class="wiki-gen-btn" style="padding: 8px 14px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🖼️ New Main Image</button>
-        <button onclick="wikiGenerate('city_auto_1_norginde', 'landscape_seq')" class="wiki-gen-btn" style="padding: 8px 14px; background: #d93025; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">📸 Add to Gallery</button>
-        <button onclick="wikiGenerate('city_auto_1_norginde', 'heraldry_flag')" class="wiki-gen-btn" style="padding: 8px 14px; background: #137333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🏴 Generate Flag</button>
-        <button onclick="wikiGenerate('city_auto_1_norginde', 'heraldry_arms')" class="wiki-gen-btn" style="padding: 8px 14px; background: #b06000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🛡️ Generate Arms</button>
+        <button onclick="wikiGenerate('city_auto_1_norginde', 'landscape_main')" class="wiki-gen-btn" style="padding: 8px 14px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🖼️ Main (Aerial)</button>
+        <button onclick="wikiGenerate('city_auto_1_norginde', 'landscape_seq1')" class="wiki-gen-btn" style="padding: 8px 14px; background: #e37400; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">📸 Seq1 (Eye-Level)</button>
+        <button onclick="wikiGenerate('city_auto_1_norginde', 'landscape_seq2')" class="wiki-gen-btn" style="padding: 8px 14px; background: #d93025; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🧑‍🏭 Seq2 (Activity)</button>
+        <button onclick="wikiGenerate('city_auto_1_norginde', 'heraldry_flag')" class="wiki-gen-btn" style="padding: 8px 14px; background: #137333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🏴 Flag</button>
+        <button onclick="wikiGenerate('city_auto_1_norginde', 'heraldry_arms')" class="wiki-gen-btn" style="padding: 8px 14px; background: #b06000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🛡️ Arms</button>
     </div>
     <div id="wiki-gen-modal" style="display:none; background: #f8f9fa; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
         <h3 id="wiki-gen-title" style="margin-top:0; font-size: 1rem;"></h3>
@@ -246,8 +256,9 @@ a:hover { text-decoration: underline; }
         wikiGenCityId = cityId;
         wikiGenType = genType;
         var titles = {
-            'landscape_main': '🖼️ Generate Main Landscape',
-            'landscape_seq': '📸 Generate Gallery Image',
+            'landscape_main': '🖼️ Generate Main (Aerial)',
+            'landscape_seq1': '📸 Generate Seq1 (Eye-Level)',
+            'landscape_seq2': '🧑‍🏭 Generate Seq2 (Reportage)',
             'heraldry_flag': '🏴 Generate Flag',
             'heraldry_arms': '🛡️ Generate Coat of Arms'
         };
@@ -273,8 +284,9 @@ a:hover { text-decoration: underline; }
             document.getElementById('wiki-gen-prompt').value = data.prompt || 'Enter prompt manually.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         })
-        .catch(function() {
-            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt. Enter your own.';
+        .catch(function(err) {
+            console.error(err);
+            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt from server. Please check console logs.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         });
     }

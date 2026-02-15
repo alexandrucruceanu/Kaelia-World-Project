@@ -137,16 +137,16 @@ a:hover { text-decoration: underline; }
                 
         <div class="wiki-carousel">
             <div class="wiki-carousel-inner" id="wiki-carousel-inner">
-                <img src="../../assets/images/Antarmund/NorKunta/aero-valli/aero-valli_main.png" class="hero-img carousel-slide active" alt="Aero-Valli" onclick="openModal(this.src, 'Aero-Valli')"><img src="../../assets/images/Antarmund/NorKunta/aero-valli/aero-valli_1.png" class="hero-img carousel-slide " alt="Aero-Valli" onclick="openModal(this.src, 'Aero-Valli')">
+                <img src="../../assets/images/Antarmund/NorKunta/aero-valli/aero-valli_main.png" class="hero-img carousel-slide active" alt="Aero-Valli" onclick="openModal(this.src, 'Aero-Valli')"><img src="../../assets/images/Antarmund/NorKunta/aero-valli/aero-valli_seq1.png" class="hero-img carousel-slide " alt="Aero-Valli" onclick="openModal(this.src, 'Aero-Valli')"><img src="../../assets/images/Antarmund/NorKunta/aero-valli/aero-valli_seq2.png" class="hero-img carousel-slide " alt="Aero-Valli" onclick="openModal(this.src, 'Aero-Valli')">
             </div>
             <button class="wiki-carousel-btn prev" onclick="moveWikiSlide(-1)">❮</button>
             <button class="wiki-carousel-btn next" onclick="moveWikiSlide(1)">❯</button>
-            <div class="wiki-indicators"><div class="wiki-indicator active" onclick="setWikiSlide(0)"></div><div class="wiki-indicator " onclick="setWikiSlide(1)"></div></div>
+            <div class="wiki-indicators"><div class="wiki-indicator active" onclick="setWikiSlide(0)"></div><div class="wiki-indicator " onclick="setWikiSlide(1)"></div><div class="wiki-indicator " onclick="setWikiSlide(2)"></div></div>
         </div>
         
                 <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin-top:5px;">
-                    <img src="../../assets/heraldry/flags/city_aero_valli.png" class="clickable-img" style="width:100px; border:1px solid #666; margin: 2px;" title="Flag" onclick="openModal(this.src, 'Flag of Aero-Valli')">
-                    <img src="../../assets/heraldry/arms/city_aero_valli.png" class="clickable-img" style="width:80px; border:none; margin: 2px;" title="Coat of Arms" onclick="openModal(this.src, 'Coat of Arms of Aero-Valli')">
+                    <img src="../../assets/heraldry/flags/city_aero-valli.png" class="clickable-img" style="width:100px; border:1px solid #666; margin: 2px;" title="Flag" onclick="openModal(this.src, 'Flag of Aero-Valli')">
+                    <img src="../../assets/heraldry/arms/city_aero-valli.png" class="clickable-img" style="width:80px; border:none; margin: 2px;" title="Coat of Arms" onclick="openModal(this.src, 'Coat of Arms of Aero-Valli')">
                 </div>
                 <div class="motto">"Where Winds Whisper"</div>
             </td></tr>
@@ -167,10 +167,11 @@ a:hover { text-decoration: underline; }
     <h2>History & Lore</h2><div class="section-content">Perched on the highest accessible peaks, Aero-Valli is the watchful eye of the north. Home to the elite 'Skyguard' squadrons, it serves as both a cutting-edge aerospace testing ground and the first line of defense against atmospheric anomalies. Its inhabitants live in pressurized modules, accustomed to the thin air and piercing sunlight.<br></div>
     <h2>Generate Assets</h2>
     <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-        <button onclick="wikiGenerate('city_nk_3', 'landscape_main')" class="wiki-gen-btn" style="padding: 8px 14px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🖼️ New Main Image</button>
-        <button onclick="wikiGenerate('city_nk_3', 'landscape_seq')" class="wiki-gen-btn" style="padding: 8px 14px; background: #d93025; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">📸 Add to Gallery</button>
-        <button onclick="wikiGenerate('city_nk_3', 'heraldry_flag')" class="wiki-gen-btn" style="padding: 8px 14px; background: #137333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🏴 Generate Flag</button>
-        <button onclick="wikiGenerate('city_nk_3', 'heraldry_arms')" class="wiki-gen-btn" style="padding: 8px 14px; background: #b06000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🛡️ Generate Arms</button>
+        <button onclick="wikiGenerate('city_nk_3', 'landscape_main')" class="wiki-gen-btn" style="padding: 8px 14px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🖼️ Main (Aerial)</button>
+        <button onclick="wikiGenerate('city_nk_3', 'landscape_seq1')" class="wiki-gen-btn" style="padding: 8px 14px; background: #e37400; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">📸 Seq1 (Eye-Level)</button>
+        <button onclick="wikiGenerate('city_nk_3', 'landscape_seq2')" class="wiki-gen-btn" style="padding: 8px 14px; background: #d93025; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🧑‍🏭 Seq2 (Activity)</button>
+        <button onclick="wikiGenerate('city_nk_3', 'heraldry_flag')" class="wiki-gen-btn" style="padding: 8px 14px; background: #137333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🏴 Flag</button>
+        <button onclick="wikiGenerate('city_nk_3', 'heraldry_arms')" class="wiki-gen-btn" style="padding: 8px 14px; background: #b06000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🛡️ Arms</button>
     </div>
     <div id="wiki-gen-modal" style="display:none; background: #f8f9fa; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
         <h3 id="wiki-gen-title" style="margin-top:0; font-size: 1rem;"></h3>
@@ -255,8 +256,9 @@ a:hover { text-decoration: underline; }
         wikiGenCityId = cityId;
         wikiGenType = genType;
         var titles = {
-            'landscape_main': '🖼️ Generate Main Landscape',
-            'landscape_seq': '📸 Generate Gallery Image',
+            'landscape_main': '🖼️ Generate Main (Aerial)',
+            'landscape_seq1': '📸 Generate Seq1 (Eye-Level)',
+            'landscape_seq2': '🧑‍🏭 Generate Seq2 (Reportage)',
             'heraldry_flag': '🏴 Generate Flag',
             'heraldry_arms': '🛡️ Generate Coat of Arms'
         };
@@ -282,8 +284,9 @@ a:hover { text-decoration: underline; }
             document.getElementById('wiki-gen-prompt').value = data.prompt || 'Enter prompt manually.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         })
-        .catch(function() {
-            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt. Enter your own.';
+        .catch(function(err) {
+            console.error(err);
+            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt from server. Please check console logs.';
             document.getElementById('wiki-gen-prompt').disabled = false;
         });
     }

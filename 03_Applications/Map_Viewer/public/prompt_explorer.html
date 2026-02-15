@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaelia Prompt Explorer</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #121212; color: #e0e0e0; margin: 0; padding: 20px; }
+        h1 { color: #bb86fc; text-align: center; }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .search-bar { padding: 20px; background: #1e1e1e; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; display: flex; gap: 10px; }
+        input[type="text"] { flex-grow: 1; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; }
+        button { padding: 10px 20px; border-radius: 4px; border: none; cursor: pointer; background: #03dac6; color: black; font-weight: bold; }
+        button:hover { opacity: 0.9; }
+
+        .results { margin-top: 20px; display: grid; gap: 20px; }
+        
+        .city-card { background: #1e1e1e; border: 1px solid #333; border-radius: 8px; padding: 20px; }
+        .city-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px; }
+        .city-title { font-size: 1.5em; color: #bb86fc; margin: 0; }
+        .city-meta { color: #888; font-size: 0.9em; }
+
+        .prompt-section { margin-top: 15px; }
+        .prompt-type { font-weight: bold; color: #03dac6; margin-bottom: 5px; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px; }
+        
+        .prompt-box { 
+            background: #2d2d2d; 
+            padding: 10px; 
+            border-radius: 4px; 
+            font-family: 'Consolas', 'Monaco', monospace; 
+            font-size: 0.9em; 
+            white-space: pre-wrap; 
+            color: #a0a0a0;
+            position: relative;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 2px 8px;
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+        .copy-btn:active { background: #03dac6; color: black; }
+
+        .prompt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🗺️ Kaelia Prompt Explorer</h1>
+    
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search cities (e.g., 'Kaelia', 'Port')..." onkeyup="filterCities()">
+    </div>
+
+    <div id="results" class="results">
+        <!-- Content injected here -->
+    </div>
+</div>
+
+<script>
+    let allCities = [];
+
+    // Jaccard Similarity Helper
+    function calculateSimilarity(str1, str2) {
+        if (!str1 || !str2) return 0;
+        const set1 = new Set(str1.toLowerCase().split(/\W+/).filter(w => w.length > 2));
+        const set2 = new Set(str2.toLowerCase().split(/\W+/).filter(w => w.length > 2));
+        const intersection = new Set([...set1].filter(x => set2.has(x)));
+        const union = new Set([...set1, ...set2]);
+        return Math.round((intersection.size / union.size) * 100);
+    }
+
+    // Color code for similarity
+    function getSimilarityColor(percent) {
+        if (percent >= 50) return '#4caf50'; // Green
+        if (percent >= 30) return '#ff9800'; // Orange
+        return '#f44336'; // Red
+    }
+
+    // Fetch Data
+    fetch('/api/world')
+        .then(res => res.json())
+        .then(data => {
+            // Flatten structure
+            data.continents.forEach(cont => {
+                cont.countries.forEach(country => {
+                    country.cities.forEach(city => {
+                        allCities.push({
+                            ...city,
+                            countryName: country.name,
+                            continentName: cont.name
+                        });
+                    });
+                });
+            });
+            renderCities(allCities);
+        });
+
+    function renderCities(cities) {
+        const container = document.getElementById('results');
+        container.innerHTML = '';
+        
+        if (cities.length === 0) {
+            container.innerHTML = '<div style="text-align:center; padding:50px; color:#888;">No cities found matching your search.</div>';
+            return;
+        }
+
+        cities.slice(0, 50).forEach(city => { // Limit render for performance
+            const card = document.createElement('div');
+            card.className = 'city-card';
+            
+            // Construct Source Context String for comparison
+            const visualDataStr = JSON.stringify(city.visual_data || {});
+            const loreDesc = city.lore ? (typeof city.lore === 'string' ? city.lore : city.lore.desc) : '';
+            const heraldryDesc = city.heraldry ? (city.heraldry.description || '') + ' ' + (city.heraldry.motto || '') : '';
+            
+            const sourceContext = `${city.desc || ''} ${city.biome || ''} ${city.type || ''} ${visualDataStr} ${loreDesc} ${heraldryDesc}`;
+
+            // Metadata HTML
+            const metaHtml = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; background: #252525; padding: 15px; border-radius: 4px; margin-bottom: 15px; font-size: 0.9em;">
+                    <div><strong>Type:</strong> <span style="color:#bbb">${city.type || 'N/A'}</span></div>
+                    <div><strong>Coords:</strong> <span style="color:#bbb">${city.coords ? city.coords.join(', ') : 'N/A'}</span></div>
+                    <div><strong>Biome:</strong> <span style="color:#bbb">${city.biome || 'N/A'}</span></div>
+                    <div><strong>Population:</strong> <span style="color:#bbb">${city.population || 'N/A'}</span></div>
+                    <div><strong>Altitude:</strong> <span style="color:#bbb">${city.altitude || 'N/A'}</span></div>
+                    <div><strong>Motto:</strong> <span style="color:#bbb">${city.heraldry?.motto || 'N/A'}</span></div>
+                </div>
+                
+                <div style="margin-bottom: 8px;"><strong>Heraldry Description:</strong> <span style="color:#bbb">${city.heraldry?.description || 'N/A'}</span></div>
+                <div style="margin-bottom: 8px;"><strong>Lore/History:</strong> <span style="color:#bbb">${loreDesc || 'N/A'}</span></div>
+                <div style="margin-bottom: 8px;">
+                    <strong>Visual Data (Schema):</strong>
+                    <div style="background:#1a1a1a; padding:5px; margin-top:5px; font-family:monospace; font-size:0.8em; color:#888; white-space: pre-wrap; max-height:100px; overflow-y:auto;">${JSON.stringify(city.visual_data || {}, null, 2)}</div>
+                </div>
+            `;
+
+            let promptsHtml = '<div class="prompt-grid">';
+            const prompts = city.prompts || {};
+            
+            ['landscape_main', 'landscape_seq1', 'landscape_seq2', 'heraldry_flag', 'heraldry_arms'].forEach(type => {
+                const promptData = prompts[type];
+                if (promptData) {
+                    const jsonString = JSON.stringify(promptData, null, 2);
+                    
+                    // Calculate similarity
+                    const similarity = calculateSimilarity(sourceContext, jsonString);
+                    const simColor = getSimilarityColor(similarity);
+
+                    promptsHtml += `
+                        <div class="prompt-section">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                                <div class="prompt-type">${type.replace('_', ' ')}</div>
+                                <div style="font-size:0.8em; font-weight:bold; color:${simColor}; border:1px solid ${simColor}; padding:2px 6px; border-radius:4px;">
+                                    Similarity: ${similarity}%
+                                </div>
+                            </div>
+                            <div class="prompt-box">
+                                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                                ${jsonString}
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            promptsHtml += '</div>';
+
+            card.innerHTML = `
+                <div class="city-header">
+                    <div>
+                        <h2 class="city-title">${city.name}</h2>
+                        <div class="city-meta">${city.countryName}, ${city.continentName}</div>
+                    </div>
+                    <div style="text-align:right; font-size:0.8em; color:#666;">ID: ${city.id}</div>
+                </div>
+                <div style="margin-bottom:15px; font-style:italic; color:#ccc;">"${city.desc || 'No description.'}"</div>
+                ${metaHtml}
+                ${promptsHtml}
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function filterCities() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = allCities.filter(c => 
+            c.name.toLowerCase().includes(query) || 
+            c.countryName.toLowerCase().includes(query)
+        );
+        renderCities(filtered);
+    }
+
+    function copyText(btn) {
+        const text = btn.nextSibling.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            const original = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = original, 1500);
+        });
+    }
+</script>
+
+</body>
+</html>

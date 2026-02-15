@@ -26,7 +26,12 @@
 - [x] **Image Carousel System:** Multi-image carousel in the Map Viewer sidebar and wiki city profiles. Dynamic `/api/city-images` endpoint.
 - [x] **Climate Legend:** Toggle-able Leaflet legend control for the Climate layer.
 - [x] **Data Consolidation:** Flattened world hierarchy to a clean 3-tier structure (Continent → Country → City). Consolidated Betereko. Fixed Map Viewer crash (Pelak invalid type). Regenerated wiki for 36 countries and 61 cities.
-- [/] **AI Asset Generation:** Batch generation of flags, coats of arms, and regional landscape cards (Hybrid Pipeline Active).
+- [x] **AI Asset Generation:** Batch generation of flags, coats of arms, and regional landscape cards (Hybrid Pipeline Active).
+- [x] **3D Globe View:** Interactive `globe.gl` integration with 2D/3D toggle FAB, auto-rotate, and city markers.
+- [x] **Generation API:** Server-side `/api/generate-visual` and `/api/construct-prompt` endpoints with automatic file management and heraldry archiving.
+- [x] **Asset Auditor:** Automated asset-existence validation (`check_assets.js`) producing filesystem reports.
+- [x] **Movable Labels:** Draggable Continent and Country labels with persistent coordinate storage.
+- [x] **Prompt Explorer:** Dedicated UI tool for viewing, searching, and analyzing AI prompts per city.
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.
 

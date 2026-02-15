@@ -1,6 +1,6 @@
 # 📖 WORLD CODEX: Kaelia
  
-**Version:** 3.1.0 (Hierarchy Refactor)
+**Version:** 3.2.0 (3D Globe & Generation API)
 **Status:** Unified Master Reference
  
 > **Correction Note:** This document supersedes previous versions. Geography and climate data now match the Global Biome Scans (Whittaker Classification).
