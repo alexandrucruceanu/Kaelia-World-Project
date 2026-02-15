@@ -1534,7 +1534,6 @@
           },
           "id": "country_betereko"
         }
-
       ],
       "id": "cont_betereko"
     },
@@ -2436,7 +2435,7 @@
               "biome": "Boreal or Alpine Forest",
               "population": "850,000",
               "desc": "Sprawling industrial-residential metropolis on a frozen sea with massive naval shipyards.",
-              "image": "assets/images/Antarmund/NorKunta/jarnhöfn/jarnhöfn_main.png",
+              "image": "assets/images/Antarmund/NorKunta/jarnhofn/jarnhofn_main.png",
               "color": "#95a5a6",
               "lore": {
                 "desc": "Known as the 'Iron Harbor', Jarnhöfn is the logistical spine of the continent. Its nuclear-powered ice-breakers keep the trade lanes open year-round, defying the encroaching pack ice. The city's culture is one of rugged endurance, where every citizen is part of the great engine of commerce, and the docks never sleep.",
@@ -2487,8 +2486,8 @@
               "heraldry": {
                 "motto": "The Iron Harbor",
                 "description": "An iron anchor frozen in a blue block of ice.",
-                "flag": "/assets/heraldry/flags/city_jarnh_fn.png",
-                "coat_of_arms": "/assets/heraldry/arms/city_jarnh_fn.png"
+                "flag": "/assets/heraldry/flags/city_jarnhofn.png",
+                "coat_of_arms": "/assets/heraldry/arms/city_jarnhofn.png"
               }
             },
             {
@@ -2759,7 +2758,7 @@
               "heraldry": {
                 "motto": "Frozen Wisdom",
                 "description": "A crystalline vault door on a white field.",
-                "flag": "/assets/heraldry/flags/city_cryo_vault_09.png",
+                "flag": "/assets/heraldry/flags/city_cryo-vault_09.png",
                 "coat_of_arms": "/assets/heraldry/arms/city_cryo_vault_09.png"
               }
             },
@@ -3705,7 +3704,7 @@
               "type": "metropolis",
               "coords": [
                 318.12,
-                1552.0
+                1552
               ],
               "biome": "Temperate Forest",
               "population": "1,900,000",
@@ -4046,7 +4045,7 @@
               "type": "metropolis",
               "coords": [
                 325.2,
-                1450.0
+                1450
               ],
               "biome": "Temperate Forest",
               "population": "1,450,000",

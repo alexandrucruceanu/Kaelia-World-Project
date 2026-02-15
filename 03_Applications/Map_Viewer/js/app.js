@@ -1,9 +1,43 @@
 var map = L.map('map', {
-    crs: L.CRS.Simple, minZoom: -2, maxZoom: 2, zoomSnap: 0.5, zoomDelta: 0.5,
-    zoomControl: false // We will move it or use custom logic later
+    crs: L.CRS.Simple,
+    // minZoom: -2, // Overridden by dynamic logic
+    maxZoom: 2, 
+    zoomSnap: 0.1, // Smoother fitting
+    zoomDelta: 0.5,
+    zoomControl: false 
 });
 
-L.control.zoom({ position: 'bottomright' }).addTo(map); // Move zoom to bottom right
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+// --- Dynamic MinZoom ---
+function setMapMinZoom() {
+    // Map Width in CRS units = 2000
+    var mapWidth = 2000;
+    var windowWidth = window.innerWidth;
+    
+    // Calculate zoom needed to fill width: 2000 * 2^z = windowWidth
+    // 2^z = windowWidth / 2000
+    // z = log2(windowWidth / 2000)
+    var minZ = Math.log2(windowWidth / mapWidth);
+    
+    map.setMinZoom(minZ);
+    
+    // If current zoom is less than new min, snap to it
+    if (map.getZoom() < minZ) {
+        map.setZoom(minZ);
+    }
+    
+    // allow zooming out to at least -2 if window is huge? 
+    // User said: "dont want the map to be smaller than when it fits the width"
+    // So this logic enforces strictly "fits width".
+    
+    updateLayerVisibility(); // Force update in case thresholds changed
+}
+
+window.addEventListener('resize', setMapMinZoom);
+// Call once initially (after map is ready or immediately)
+setTimeout(setMapMinZoom, 100);
+
 
 var bounds = [[0,0], [1000,2000]];
 var satLayer = L.imageOverlay('img/satellite.jpg', bounds);
@@ -20,7 +54,8 @@ var categoryConfig = {
 };
 
 var layers = {
-    capital: L.layerGroup(), metropolis: L.layerGroup(), settlement: L.layerGroup(), village: L.layerGroup(), special: L.layerGroup()
+    capital: L.layerGroup(), metropolis: L.layerGroup(), settlement: L.layerGroup(), village: L.layerGroup(), special: L.layerGroup(),
+    continentLabels: L.layerGroup(), countryLabels: L.layerGroup()
 };
 
 var gridLayer = L.layerGroup();
@@ -39,6 +74,8 @@ var carouselImages = [];
 var currentSlide = 0;
 
 // --- Initialization ---
+map.on('zoomend', updateLayerVisibility);
+
 // --- Initialization ---
 // (Moved to bottom of file)
     
@@ -55,8 +92,13 @@ function loadMarkers() {
             
             console.log(`--- Loading Markers ---`);
             let count = 0;
+            
             data.continents.forEach(continent => {
+                let contLatSum = 0, contLngSum = 0, contCityCount = 0;
+                
                 continent.countries.forEach(country => {
+                    let countryLatSum = 0, countryLngSum = 0, countryCityCount = 0;
+                    
                     if (!country.cities) {
                         console.warn(`  [WARN] Country ${country.name} has no cities array.`);
                         return;
@@ -65,13 +107,56 @@ function loadMarkers() {
                         try {
                             createMarker(city, continent.name, country.name);
                             count++;
+                            
+                            // Accumulate for Centroids
+                            if (city.coords && city.coords.length === 2) {
+                                contLatSum += city.coords[0];
+                                contLngSum += city.coords[1];
+                                contCityCount++;
+                                countryLatSum += city.coords[0];
+                                countryLngSum += city.coords[1];
+                                countryCityCount++;
+                            }
                         } catch (e) {
                             console.error(`  [ERR] Failed to create marker for ${city.name}:`, e);
                         }
                     });
+                    
+                    // Create Country Label
+                    if (countryCityCount > 0) {
+                        var cLat = countryLatSum / countryCityCount;
+                        var cLng = countryLngSum / countryCityCount;
+                        var countryLabel = L.marker([cLat, cLng], {
+                            icon: L.divIcon({
+                                className: 'country-label-icon',
+                                html: `<div class="country-label">${country.name}</div>`,
+                                iconSize: [100, 20],
+                                iconAnchor: [50, 10]
+                            }),
+                            interactive: false
+                        });
+                        countryLabel.addTo(layers.countryLabels);
+                    }
                 });
+                
+                // Create Continent Label
+                if (contCityCount > 0) {
+                    var cLat = contLatSum / contCityCount;
+                    var cLng = contLngSum / contCityCount;
+                    var continentLabel = L.marker([cLat, cLng], {
+                        icon: L.divIcon({
+                            className: 'continent-label-icon',
+                            html: `<div class="continent-label">${continent.name}</div>`,
+                            iconSize: [200, 40],
+                            iconAnchor: [100, 20]
+                        }),
+                        interactive: false
+                    });
+                    continentLabel.addTo(layers.continentLabels);
+                }
             });
             console.log(`--- Loaded ${count} markers ---`);
+            updateLayerVisibility(); // Set initial state based on zoom
         });
 }
 
@@ -117,6 +202,61 @@ function createMarker(city, continentName, countryName) {
     marker.activeReference = { city, continentName, countryName }; // Store Ref
     var targetLayer = layers[city.type] || layers.settlement;
     marker.addTo(targetLayer);
+}
+
+// --- Layer Logic ---
+function updateLayerVisibility() {
+    var zoom = map.getZoom();
+    // console.log("Current Zoom:", zoom);
+    
+    // Define Layers for easy access
+    const continent = layers.continentLabels;
+    const country = layers.countryLabels;
+    const major = [layers.capital, layers.metropolis, layers.special];
+    const medium = [layers.settlement];
+    const minor = [layers.village];
+    const allCities = [...major, ...medium, ...minor];
+
+    // Helper to Show/Hide
+    const show = (layerOrArray) => {
+        if (Array.isArray(layerOrArray)) {
+            layerOrArray.forEach(l => { if (!map.hasLayer(l)) map.addLayer(l); });
+        } else {
+            if (!map.hasLayer(layerOrArray)) map.addLayer(layerOrArray);
+        }
+    };
+    const hide = (layerOrArray) => {
+        if (Array.isArray(layerOrArray)) {
+            layerOrArray.forEach(l => { if (map.hasLayer(l)) map.removeLayer(l); });
+        } else {
+            if (map.hasLayer(layerOrArray)) map.removeLayer(layerOrArray);
+        }
+    };
+
+    // Progressive Logic (Relative to Dynamic MinZoom)
+    var minZ = map.getMinZoom();
+    if (typeof minZ !== 'number') minZ = -2; // Fallback
+
+    if (zoom <= minZ + 0.5) {
+        // Broadest View: Standard Global
+        show([continent, country]);
+        hide(allCities);
+    } else if (zoom > minZ + 0.5 && zoom <= minZ + 1.2) {
+        // Regional: Continents fade, Major cities appear
+        hide(continent);
+        show(country);
+        show(major);
+        hide([...medium, ...minor]);
+    } else if (zoom > minZ + 1.2 && zoom <= minZ + 2.0) {
+        // Local: Countries fade, Settlements appear
+        hide([continent, country]);
+        show([...major, ...medium]);
+        hide(minor);
+    } else {
+        // Detailed: Everything visible
+        hide([continent, country]);
+        show(allCities);
+    }
 }
 
 // --- UI Logic: Sidebar ---
@@ -279,17 +419,20 @@ function openSidebarDetails(city, continentName, countryName) {
             };
         }
 
-        // Setup Generate Button
-        let genBtn = document.getElementById('btn-generate-visual');
-        if (!genBtn) {
-            genBtn = document.createElement('button');
-            genBtn.id = 'btn-generate-visual';
-            genBtn.className = 'action-btn';
-            genBtn.style.marginTop = '10px';
-            genBtn.innerText = "✨ Generate Visual";
-            visContainer.appendChild(genBtn);
+        // Setup Generation Buttons
+        let genBtnContainer = document.getElementById('gen-buttons-container');
+        if (!genBtnContainer) {
+            genBtnContainer = document.createElement('div');
+            genBtnContainer.id = 'gen-buttons-container';
+            genBtnContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;';
+            visContainer.appendChild(genBtnContainer);
         }
-        genBtn.onclick = () => openVisualModal(city);
+        genBtnContainer.innerHTML = `
+            <button class="action-btn gen-btn" style="font-size: 0.75rem; padding: 6px 10px;" onclick="openVisualModal('landscape_main')">🖼️ New Main Image</button>
+            <button class="action-btn gen-btn" style="font-size: 0.75rem; padding: 6px 10px;" onclick="openVisualModal('landscape_seq')">📸 Add to Gallery</button>
+            <button class="action-btn gen-btn" style="font-size: 0.75rem; padding: 6px 10px;" onclick="openVisualModal('heraldry_flag')">🏴 Generate Flag</button>
+            <button class="action-btn gen-btn" style="font-size: 0.75rem; padding: 6px 10px;" onclick="openVisualModal('heraldry_arms')">🛡️ Generate Arms</button>
+        `;
 
         const schemaDiv = document.getElementById('detail-schema');
         if (city.visual_data.schema && city.visual_data.schema.meta) {
@@ -345,6 +488,149 @@ function openSidebarDetails(city, continentName, countryName) {
     document.getElementById('btn-edit-loc').onclick = () => openSidebarEdit(city, continentName, countryName);
     
     openSidebar();
+}
+
+// --- Visual Generation Modal Logic ---
+var vmCurrentGenType = null;
+
+function openVisualModal(genType) {
+    if (!currentCity) return;
+    vmCurrentGenType = genType;
+    const city = currentCity.city;
+    
+    // Set modal info
+    document.getElementById('vm-city-name').innerText = city.name;
+    document.getElementById('vm-prompt').value = 'Loading prompt...';
+    document.getElementById('vm-prompt').disabled = true;
+    
+    // Status reset
+    const statusEl = document.getElementById('vm-status');
+    statusEl.style.display = 'none';
+    statusEl.innerText = '';
+    document.getElementById('btn-generate-confirm').disabled = false;
+    
+    // Type badge
+    const badge = document.getElementById('vm-type-badge');
+    const typeLabels = {
+        'landscape_main': '🖼️ Main Landscape',
+        'landscape_seq': '📸 Gallery Image',
+        'heraldry_flag': '🏴 Flag',
+        'heraldry_arms': '🛡️ Coat of Arms'
+    };
+    const typeColors = {
+        'landscape_main': { bg: '#e8f0fe', color: '#1a73e8' },
+        'landscape_seq': { bg: '#fce8e6', color: '#d93025' },
+        'heraldry_flag': { bg: '#e6f4ea', color: '#137333' },
+        'heraldry_arms': { bg: '#fef7e0', color: '#b06000' }
+    };
+    badge.innerText = typeLabels[genType] || genType;
+    badge.style.background = (typeColors[genType] || {}).bg || '#e8f0fe';
+    badge.style.color = (typeColors[genType] || {}).color || '#1a73e8';
+    
+    // Title
+    const titles = {
+        'landscape_main': '🖼️ Generate Main Landscape',
+        'landscape_seq': '📸 Generate Gallery Image',
+        'heraldry_flag': '🏴 Generate Flag',
+        'heraldry_arms': '🛡️ Generate Coat of Arms'
+    };
+    document.getElementById('vm-title').innerText = titles[genType] || '✨ Generate Visual';
+    
+    // Show modal
+    document.getElementById('visual-modal').style.display = 'flex';
+    
+    // Fetch auto-constructed prompt
+    fetch('/api/construct-prompt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cityId: city.id, genType: genType })
+    })
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById('vm-prompt').value = data.prompt || 'Could not construct prompt. Enter your own.';
+        document.getElementById('vm-prompt').disabled = false;
+    })
+    .catch(() => {
+        document.getElementById('vm-prompt').value = 'Error loading prompt. Enter your own.';
+        document.getElementById('vm-prompt').disabled = false;
+    });
+}
+
+function closeVisualModal() {
+    document.getElementById('visual-modal').style.display = 'none';
+    vmCurrentGenType = null;
+}
+
+function executeVisualGeneration() {
+    if (!currentCity || !vmCurrentGenType) return;
+    
+    const city = currentCity.city;
+    const prompt = document.getElementById('vm-prompt').value;
+    const model = document.getElementById('vm-model-select').value;
+    
+    const statusEl = document.getElementById('vm-status');
+    const genBtn = document.getElementById('btn-generate-confirm');
+    
+    statusEl.style.display = 'block';
+    statusEl.style.background = '#e8f0fe';
+    statusEl.style.color = '#1a73e8';
+    statusEl.innerHTML = '⏳ Generating... This may take 15-30 seconds.';
+    genBtn.disabled = true;
+    genBtn.innerText = '⏳ Generating...';
+    
+    fetch('/api/generate-visual', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            cityId: city.id,
+            model: model,
+            genType: vmCurrentGenType,
+            prompt: prompt
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.status === 'success') {
+            statusEl.style.background = '#e6f4ea';
+            statusEl.style.color = '#137333';
+            statusEl.innerHTML = `✅ Generated successfully!<br><small>${data.image_path}</small>`;
+            genBtn.innerText = '✅ Done';
+            
+            // Refresh the sidebar to show the new image
+            setTimeout(() => {
+                // Re-fetch world data to get updated paths
+                fetch('/api/world')
+                    .then(r => r.json())
+                    .then(worldData => {
+                        // Find the updated city
+                        for (const cont of worldData.continents) {
+                            for (const country of cont.countries) {
+                                for (const c of country.cities) {
+                                    if (c.id === city.id) {
+                                        openSidebarDetails(c, currentCity.continentName, currentCity.countryName);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    });
+                closeVisualModal();
+            }, 1500);
+        } else {
+            statusEl.style.background = '#fce8e6';
+            statusEl.style.color = '#d93025';
+            statusEl.innerHTML = `❌ Error: ${data.message || 'Generation failed'}`;
+            genBtn.disabled = false;
+            genBtn.innerText = '🚀 Retry';
+        }
+    })
+    .catch(err => {
+        statusEl.style.background = '#fce8e6';
+        statusEl.style.color = '#d93025';
+        statusEl.innerHTML = `❌ Network error: ${err.message}`;
+        genBtn.disabled = false;
+        genBtn.innerText = '🚀 Retry';
+    });
 }
 
 function openSidebarEdit(city = null, continentName = null, countryName = null) {
@@ -624,19 +910,6 @@ function handleSearch(e) {
     }
 }
 
-function openVisualModal(city) {
-    currentCityForGeneration = city;
-    document.getElementById('visual-modal').style.display = 'block';
-    document.getElementById('vm-city-name').innerText = city.name;
-    document.getElementById('vm-status').innerText = "";
-    document.getElementById('btn-generate-confirm').disabled = false;
-}
-
-function closeVisualModal() {
-    document.getElementById('visual-modal').style.display = 'none';
-    currentCityForGeneration = null;
-}
-
 function saveCityData() {
     var name = document.getElementById('edit-name').value;
     var type = document.getElementById('edit-type').value;
@@ -695,53 +968,6 @@ function saveCityData() {
     });
 }
 
-function executeVisualGeneration() {
-    if (!currentCityForGeneration) return;
-    
-    const model = document.getElementById('vm-model-select').value;
-    const statusDiv = document.getElementById('vm-status');
-    const btn = document.getElementById('btn-generate-confirm');
-    
-    btn.disabled = true;
-    statusDiv.innerHTML = "<span>⏳ Generating... This may take 10-20 seconds.</span>";
-    statusDiv.style.color = "blue";
-
-    fetch('/api/generate-visual', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            cityId: currentCityForGeneration.id,
-            model: model
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            statusDiv.innerText = "✅ Success! Image generated.";
-            statusDiv.style.color = "green";
-            
-            // Auto Update Main Image
-            const img = document.getElementById('detail-image');
-            img.src = data.image_path + "?t=" + new Date().getTime();
-            img.style.display = 'block';
-            
-            // Refresh Gallery
-            updateGallery(currentCityForGeneration.id);
-
-            setTimeout(closeVisualModal, 1500);
-        } else {
-            statusDiv.innerText = "❌ Error: " + data.message;
-            statusDiv.style.color = "red";
-            btn.disabled = false;
-        }
-    })
-    .catch(err => {
-        statusDiv.innerText = "❌ Network Error";
-        statusDiv.style.color = "red";
-        console.error(err);
-        btn.disabled = false;
-    });
-}
 
 function updateGallery(cityId) {
     const galleryContainer = document.getElementById('detail-gallery');

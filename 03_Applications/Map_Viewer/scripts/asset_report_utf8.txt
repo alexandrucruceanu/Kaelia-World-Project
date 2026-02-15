@@ -1,0 +1,10 @@
+--- Checking Asset Existence ---
+[MISSING] Brechar (Capital) (city_brechar): assets/images/Nordica/Brechar/brechar_main.png
+[MISSING] Kornmor (Capital) (city_kornmor): assets/images/Nordica/Kornmor/kornmor_main.png
+[NO_REF] Pelak (city_pelak) has no image property.
+[NO_REF] Yeldo (city_yeldo) has no image property.
+[NO_REF] Tailas Capital (city_auto_1_tailas) has no image property.
+[NO_REF] Norgkes Capital (city_auto_1_norgkes) has no image property.
+--------------------------------
+Checked: 61
+Missing: 2

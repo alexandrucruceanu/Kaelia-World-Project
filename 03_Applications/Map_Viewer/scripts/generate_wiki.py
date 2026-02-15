@@ -211,6 +211,98 @@ def wrap_html(content, title, depth=0):
         currentWikiSlide = n;
         updateWikiCarousel();
     }}
+    
+    // Wiki Generation Functions
+    var wikiGenCityId = null;
+    var wikiGenType = null;
+    
+    function wikiGenerate(cityId, genType) {{
+        wikiGenCityId = cityId;
+        wikiGenType = genType;
+        var titles = {{
+            'landscape_main': '🖼️ Generate Main Landscape',
+            'landscape_seq': '📸 Generate Gallery Image',
+            'heraldry_flag': '🏴 Generate Flag',
+            'heraldry_arms': '🛡️ Generate Coat of Arms'
+        }};
+        document.getElementById('wiki-gen-title').innerText = titles[genType] || 'Generate';
+        document.getElementById('wiki-gen-prompt').value = 'Loading prompt...';
+        document.getElementById('wiki-gen-prompt').disabled = true;
+        document.getElementById('wiki-gen-modal').style.display = 'block';
+        var statusEl = document.getElementById('wiki-gen-status');
+        statusEl.style.display = 'none';
+        document.getElementById('wiki-gen-confirm').disabled = false;
+        document.getElementById('wiki-gen-confirm').innerText = '🚀 Generate';
+        
+        // Get base URL (wiki pages are at /wiki/cities/, server at /)
+        var baseUrl = window.location.protocol + '//' + window.location.host;
+        
+        fetch(baseUrl + '/api/construct-prompt', {{
+            method: 'POST',
+            headers: {{ 'Content-Type': 'application/json' }},
+            body: JSON.stringify({{ cityId: cityId, genType: genType }})
+        }})
+        .then(function(r) {{ return r.json(); }})
+        .then(function(data) {{
+            document.getElementById('wiki-gen-prompt').value = data.prompt || 'Enter prompt manually.';
+            document.getElementById('wiki-gen-prompt').disabled = false;
+        }})
+        .catch(function() {{
+            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt. Enter your own.';
+            document.getElementById('wiki-gen-prompt').disabled = false;
+        }});
+    }}
+    
+    function wikiExecuteGeneration() {{
+        if (!wikiGenCityId || !wikiGenType) return;
+        var prompt = document.getElementById('wiki-gen-prompt').value;
+        var model = document.getElementById('wiki-gen-model').value;
+        var statusEl = document.getElementById('wiki-gen-status');
+        var btn = document.getElementById('wiki-gen-confirm');
+        
+        statusEl.style.display = 'block';
+        statusEl.style.background = '#e8f0fe';
+        statusEl.style.color = '#1a73e8';
+        statusEl.innerHTML = '⏳ Generating... This may take 15-30 seconds.';
+        btn.disabled = true;
+        btn.innerText = '⏳ Generating...';
+        
+        var baseUrl = window.location.protocol + '//' + window.location.host;
+        
+        fetch(baseUrl + '/api/generate-visual', {{
+            method: 'POST',
+            headers: {{ 'Content-Type': 'application/json' }},
+            body: JSON.stringify({{
+                cityId: wikiGenCityId,
+                model: model,
+                genType: wikiGenType,
+                prompt: prompt
+            }})
+        }})
+        .then(function(r) {{ return r.json(); }})
+        .then(function(data) {{
+            if (data.status === 'success') {{
+                statusEl.style.background = '#e6f4ea';
+                statusEl.style.color = '#137333';
+                statusEl.innerHTML = '✅ Generated! Reloading page...';
+                btn.innerText = '✅ Done';
+                setTimeout(function() {{ window.location.reload(); }}, 2000);
+            }} else {{
+                statusEl.style.background = '#fce8e6';
+                statusEl.style.color = '#d93025';
+                statusEl.innerHTML = '❌ Error: ' + (data.message || 'Generation failed');
+                btn.disabled = false;
+                btn.innerText = '🚀 Retry';
+            }}
+        }})
+        .catch(function(err) {{
+            statusEl.style.background = '#fce8e6';
+            statusEl.style.color = '#d93025';
+            statusEl.innerHTML = '❌ Network error: ' + err.message;
+            btn.disabled = false;
+            btn.innerText = '🚀 Retry';
+        }});
+    }}
     </script>
 </body>
 </html>"""
@@ -282,18 +374,20 @@ def generate_city_page(city, country_name, continent_name):
     slug = slugify(city['name'])
     rel = "../"
     
-    # Scan for images in standardize path
-    content_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(WIKI_DIR))))
-    # Wait, slugify is too aggressive for directory names which are MixCase often (Antarmund, NorKunta).
-    # Let's use more stable logic matching sync_city_image_data.py
-    def sanitize(text): return "".join(x for x in text if x.isalnum() or x in " _-").strip().replace(" ", "_")
-    
-    s_cont = sanitize(continent_name)
-    s_country = sanitize(country_name)
-    s_city = sanitize(city['name']).lower()
-    
-    img_dir_rel = f"assets/images/{s_cont}/{s_country}/{s_city}"
-    img_dir_abs = os.path.join(BASE_DIR, img_dir_rel)
+    # Scan for images - derive directory from city's image path when available
+    if city.get('image'):
+        # image is like "assets/images/Antarmund/NorKunta/jarnhofn/jarnhofn_main.png"
+        img_dir_rel = os.path.dirname(city['image'])
+        img_dir_abs = os.path.join(BASE_DIR, img_dir_rel)
+    else:
+        # Fallback: construct from names
+        content_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(WIKI_DIR))))
+        def sanitize(text): return "".join(x for x in text if x.isalnum() or x in " _-").strip().replace(" ", "_")
+        s_cont = sanitize(continent_name)
+        s_country = sanitize(country_name)
+        s_city = sanitize(city['name']).lower()
+        img_dir_rel = f"assets/images/{s_cont}/{s_country}/{s_city}"
+        img_dir_abs = os.path.join(BASE_DIR, img_dir_rel)
     
     found_images = []
     if os.path.exists(img_dir_abs):
@@ -370,6 +464,32 @@ def generate_city_page(city, country_name, continent_name):
 
     if city.get('visual_data', {}).get('prompt'):
         content += f"""<h2>Visual Profile</h2><div class="section-content"><p><i>"{city['visual_data']['prompt']}"</i></p></div>"""
+
+    # Generation Buttons
+    city_id = city.get('id', '')
+    content += f"""
+    <h2>Generate Assets</h2>
+    <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+        <button onclick="wikiGenerate('{city_id}', 'landscape_main')" class="wiki-gen-btn" style="padding: 8px 14px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🖼️ New Main Image</button>
+        <button onclick="wikiGenerate('{city_id}', 'landscape_seq')" class="wiki-gen-btn" style="padding: 8px 14px; background: #d93025; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">📸 Add to Gallery</button>
+        <button onclick="wikiGenerate('{city_id}', 'heraldry_flag')" class="wiki-gen-btn" style="padding: 8px 14px; background: #137333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🏴 Generate Flag</button>
+        <button onclick="wikiGenerate('{city_id}', 'heraldry_arms')" class="wiki-gen-btn" style="padding: 8px 14px; background: #b06000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">🛡️ Generate Arms</button>
+    </div>
+    <div id="wiki-gen-modal" style="display:none; background: #f8f9fa; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+        <h3 id="wiki-gen-title" style="margin-top:0; font-size: 1rem;"></h3>
+        <label style="font-size: 0.8rem; color: #5f6368; font-weight: 500;">Prompt (editable)</label>
+        <textarea id="wiki-gen-prompt" rows="5" style="width: 100%; box-sizing: border-box; font-family: monospace; font-size: 0.8rem; margin-top: 4px; padding: 8px; border: 1px solid #dadce0; border-radius: 4px; resize: vertical;"></textarea>
+        <div style="display: flex; gap: 8px; margin-top: 8px; align-items: center;">
+            <select id="wiki-gen-model" style="padding: 6px 10px; border: 1px solid #dadce0; border-radius: 4px;">
+                <option value="fast">Flash (Fast)</option>
+                <option value="pro">Pro (Hifi)</option>
+            </select>
+            <button id="wiki-gen-confirm" onclick="wikiExecuteGeneration()" style="padding: 8px 16px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer;">🚀 Generate</button>
+            <button onclick="document.getElementById('wiki-gen-modal').style.display='none'" style="padding: 8px 16px; background: none; border: 1px solid #dadce0; border-radius: 4px; cursor: pointer;">Cancel</button>
+        </div>
+        <div id="wiki-gen-status" style="margin-top: 8px; font-size: 0.85rem; display: none; padding: 8px; border-radius: 4px;"></div>
+    </div>
+    """
 
     html = wrap_html(content, city['name'], depth=1)
     path = os.path.join(WIKI_DIR, 'cities', f"{slug}.html")

@@ -70,11 +70,40 @@ def construct_prompt_from_schema(entity):
 
     return " ".join(prompt_parts)
 
+def construct_heraldry_prompt(entity, heraldry_type):
+    """Construct a prompt specifically for flag or coat of arms generation."""
+    heraldry = entity.get('heraldry', {})
+    name = entity.get('name', 'Unknown')
+    desc = heraldry.get('description', '')
+    motto = heraldry.get('motto', '')
+    biome = entity.get('biome', '')
+    
+    if heraldry_type == "flag":
+        prompt = f"A flat, clean national flag design for '{name}'. "
+        if desc:
+            prompt += f"The heraldic description is: {desc}. "
+        if motto:
+            prompt += f"Motto: \"{motto}\". "
+        prompt += "Design should be a simple, bold flag with clean geometric shapes and vibrant colors. "
+        prompt += "No text on the flag. Flat design, no 3D effects, no wrinkles, no fabric texture. "
+        prompt += f"The flag should evoke the spirit of a {biome} region."
+    else:  # arms
+        prompt = f"A detailed coat of arms / heraldic shield for '{name}'. "
+        if desc:
+            prompt += f"The heraldic description is: {desc}. "
+        if motto:
+            prompt += f"Motto: \"{motto}\". "
+        prompt += "Medieval European heraldic style with a central shield, supporters, and decorative elements. "
+        prompt += "Rich, detailed illustration on a transparent or solid background. "
+        prompt += f"The coat of arms should reflect a {biome} region."
+    
+    return prompt
+
 def generate_image(prompt, output_path, model, aspect_ratio="1:1"):
-    path = Path(output_path)
+    path_obj = Path(output_path)
     
     # Ensure directory exists
-    path.parent.mkdir(parents=True, exist_ok=True)
+    path_obj.parent.mkdir(parents=True, exist_ok=True)
 
     try:
         response = client.models.generate_content(
@@ -92,7 +121,7 @@ def generate_image(prompt, output_path, model, aspect_ratio="1:1"):
         for part in response.parts:
             if part.inline_data:
                 # Basic write for current SDK usage
-                with open(path, 'wb') as f:
+                with open(path_obj, 'wb') as f:
                     f.write(part.inline_data.data)
                 return True
                 
@@ -106,16 +135,23 @@ def generate_image(prompt, output_path, model, aspect_ratio="1:1"):
 def get_entity_by_id(data, target_id):
     for continent in data.get('continents', []):
         for country in continent.get('countries', []):
-             if country.get('id') == target_id: return country, "country", country.get('name')
+             if country.get('id') == target_id: return country, "country", country.get('name'), continent.get('name')
              for city in country.get('cities', []):
-                 if city.get('id') == target_id: return city, "city", country.get('name')
-    return None, None, None
+                 if city.get('id') == target_id: return city, "city", country.get('name'), continent.get('name')
+    return None, None, None, None
+
+def sanitize_name(text):
+    """ASCII-safe name sanitization."""
+    return "".join(x for x in text if x.isascii() and (x.isalnum() or x in " _-")).strip().replace(" ", "_")
 
 def main():
     parser = argparse.ArgumentParser(description="Generate assets for Kaelia.")
     parser.add_argument("--id", help="Specific Entity ID to generate for")
     parser.add_argument("--model", choices=["fast", "pro"], default="fast", help="Model tier to use")
     parser.add_argument("--type", choices=["landscape", "flag", "arms"], default="landscape", help="Asset type")
+    parser.add_argument("--prompt", help="Custom prompt (overrides auto-construction)", default=None)
+    parser.add_argument("--output", help="Explicit output file path (overrides auto-path)", default=None)
+    parser.add_argument("--construct-only", action="store_true", help="Only return the constructed prompt, don't generate")
     
     args = parser.parse_args()
     
@@ -125,45 +161,47 @@ def main():
 
     # Mode: Single Entity (API Usage)
     if args.id:
-        entity, entity_type, country_name = get_entity_by_id(data, args.id)
+        entity, entity_type, country_name, continent_name = get_entity_by_id(data, args.id)
         if not entity:
             print(json.dumps({"status": "error", "message": "Entity not found"}))
             return
 
         model = MODEL_PRO if args.model == "pro" else MODEL_FAST
-        # Landscape only valid for cities usually, but let's be flexible
         
-        output_path = ""
-        prompt = ""
-        
+        # Construct prompt based on type
         if args.type == "landscape":
-            # Sanitize names
-            # Use lower() for city to match legacy sequence and migration
-            safe_country = "".join(x for x in country_name if x.isalnum() or x in " _-").strip().replace(" ", "_")
-            safe_city = "".join(x for x in entity['name'] if x.isalnum() or x in " _-").strip().replace(" ", "_").lower()
-            
-            # Find Continent for structure (perf hit but cleaner)
-            continent_name = "Unknown"
-            for cont in data['continents']:
-                for c in cont['countries']:
-                    if c['name'] == country_name:
-                        continent_name = cont['name']
-                        break
-            safe_continent = "".join(x for x in continent_name if x.isalnum() or x in " _-").strip().replace(" ", "_")
-
-            # Structure: assets/images/{Continent}/{Country}/{City}/
-            # Filename: {city_slug}_main.png or {city_slug}_{n}.png
+            prompt = args.prompt if args.prompt else construct_prompt_from_schema(entity)
+        else:
+            prompt = args.prompt if args.prompt else construct_heraldry_prompt(entity, args.type)
+        
+        # If construct-only mode, just return the prompt
+        if args.construct_only:
+            print(json.dumps({
+                "status": "success",
+                "prompt": prompt,
+                "type": args.type,
+                "entity_name": entity.get('name')
+            }))
+            return
+        
+        # Determine output path
+        if args.output:
+            output_path = args.output
+            output_rel = os.path.relpath(output_path, os.path.join(SCRIPT_DIR, "..")).replace("\\", "/")
+        elif args.type == "landscape":
+            safe_continent = sanitize_name(continent_name)
+            safe_country = sanitize_name(country_name)
+            safe_city = sanitize_name(entity['name']).lower()
             
             output_abs_dir = os.path.join(ASSETS_DIR, "images", safe_continent, safe_country, safe_city)
             output_rel_dir = os.path.join("assets", "images", safe_continent, safe_country, safe_city)
             os.makedirs(output_abs_dir, exist_ok=True)
             
-            # Determine filename
+            # Always create as main or next sequence
             main_file = os.path.join(output_abs_dir, f"{safe_city}_main.png")
             if not os.path.exists(main_file):
                 filename = f"{safe_city}_main.png"
             else:
-                # Find next sequence
                 idx = 1
                 while True:
                     next_file = os.path.join(output_abs_dir, f"{safe_city}_{idx}.png")
@@ -173,24 +211,30 @@ def main():
                     idx += 1
             
             output_path = os.path.join(output_abs_dir, filename)
-            
-            prompt = construct_prompt_from_schema(entity)
-            
-            # Generate
-            success = generate_image(prompt, output_path, model, "16:9")
-            
-            # Return JSON result
-            result = {
-                "status": "success" if success else "error",
-                "image_path": os.path.join(output_rel_dir, filename).replace("\\", "/"), # Return relative path for frontend
-                "prompt_used": prompt,
-                "model_used": model
-            }
-            print(json.dumps(result))
-
-        elif args.type in ["flag", "arms"]:
-            # Logic for heraldry not requested in this UI flow yet, effectively
-            print(json.dumps({"status": "error", "message": "Heraldry generation not yet hooked up to CLI"}))
+            output_rel = os.path.join(output_rel_dir, filename).replace("\\", "/")
+        else:
+            # Heraldry: flag or arms
+            safe_city = sanitize_name(entity['name']).lower()
+            sub = "flags" if args.type == "flag" else "arms"
+            filename = f"city_{safe_city}.png"
+            output_path = os.path.join(ASSETS_DIR, "heraldry", sub, filename)
+            output_rel = f"assets/heraldry/{sub}/{filename}"
+        
+        # Determine aspect ratio
+        aspect_ratio = "16:9" if args.type == "landscape" else "1:1"
+        
+        # Generate
+        success = generate_image(prompt, output_path, model, aspect_ratio)
+        
+        # Return JSON result
+        result = {
+            "status": "success" if success else "error",
+            "image_path": output_rel,
+            "prompt_used": prompt,
+            "model_used": model,
+            "type": args.type
+        }
+        print(json.dumps(result))
 
     else:
         # Mode: Bulk (Legacy/Maintenance)
