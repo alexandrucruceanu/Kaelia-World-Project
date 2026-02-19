@@ -32,9 +32,9 @@ Finished exports and media organized by scale.
 
 ### 💻 03_Applications
 Interactive tools used to explore the world.
-*   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern interactive explorer (Google Maps style). Features **Search**, **City Details Drawer** with **Image Carousel**, **Climate Legend**, **Direct Wiki Linking**, **Add/Edit Capabilities**, **3D Globe View** (globe.gl toggle), **Movable Labels** (Draggable Continents/Countries), and **AI Generation API** (server-side prompt construction and visual generation).
-*   **Prompt Explorer:** Dedicated tool at `/prompt-explorer` to search and view all 5 AI prompt types per city, with metadata and Similarity Scoring.
-*   **[Kaelia Encyclopedia](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/wiki/index.html):** Comprehensive multi-page wiki with profiles for **36 countries** and **61 cities**, including lore, heraldry, and **Image Carousels**. Features **Dark Mode** and **High-Res Image Lightbox**.
+*   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern interactive explorer. Features **Search**, **City Details**, **Image Carousel**, **Climate Legend**, and **Edit Button Redirect** (links to Prompt Explorer).
+*   **Prompt Explorer:** Dedicated tool at `/prompt-explorer` to search and view all AI prompt types. Features **Deep Linking** (`?cityId`), **Continent/Country Filters**, **City Editing**, and **On-Demand Generation** (Gemini 2.0 Flash).
+*   **[Kaelia Encyclopedia](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/wiki/index.html):** Comprehensive multi-page wiki with profiles for **36 countries** and **61 cities**, including lore, heraldry, and **Image Carousels**. Features **Dark Mode**, **High-Res Image Lightbox**, and **Enhanced Breadcrumb Navigation**.
 *   **Asset Auditor** (`check_assets.js`): Validates all city image references against the filesystem.
 *   **[Legacy Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Legacy_Viewer/Public%20link.htm):** Original 2014 zoomable tiled map.
 

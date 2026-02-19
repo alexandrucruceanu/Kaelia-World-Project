@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.6.0] - 2026-02-19
+### 📄 Documentation & Data Schema Optimization
+*   **Visual Data Flattening:** Simplified the `visual_data` field in `master_world_data.json` from a complex JSON schema to a plain-text prompt string. Updated the Map Viewer and Prompt Explorer to render and edit this data more efficiently.
+*   **Wiki Breadcrumbs:** Enhanced the Kaelia Encyclopedia with a full breadcrumb trail: **Kaelia > Continent > Country > City**, improving navigation and spatial context across all wiki pages.
+*   **Wiki Sync Stability:** Improved `sync_wiki.py` with more robust path handling and localized update logic, resolving potential "File not found" errors during synchronization.
+*   **Documentation Audit:** Updated `README.md` and `ROADMAP.md` to reflect the latest project state and completed the final infrastructure milestones of Phase 3.
+
+## [3.5.0] - 2026-02-17
+### 🔗 Navigation Integration & UI Cleanup
+*   **Edit → Prompt Explorer:** The "Edit" button in the Map Viewer sidebar now opens the Prompt Explorer in a new tab, deep-linking directly to the selected city via `?cityId=`. The Prompt Explorer auto-filters and scrolls to the target city with a highlight effect.
+*   **Add → Prompt Explorer:** The "Add Location" (➕) FAB in the Map Viewer now opens the Prompt Explorer with an "Add New City" modal (`?mode=add`). The modal features cascading Continent/Country dropdowns and placeholder-guided fields for all city data.
+*   **UI Cleanup:** Removed legacy "Generate Visual" buttons and modal from the Map Viewer and "Generate Assets" buttons from the Wiki. Regenerated all wiki pages.
+*   **Server Fix:** Fixed `server.js` route matching for `/prompt-explorer` to correctly handle URL query parameters.
+
+## [3.4.0] - 2026-02-17
+### 🤖 Prompt Explorer & Wiki Sync Fix
+*   **Wiki Synchronization Fix:** Resolved a critical path resolution bug in `sync_wiki.py` that prevented HTML updates. Restored the missing city **"Kaldakinn"** to Oighear and forced a global HTML update.
+*   **Prompt Explorer Enhancements:** Added **Continent & Country Filters** with cascading logic to the Prompt Explorer, making it easier to navigate the growing dataset.
+*   **City Editing:** Implemented a direct **Edit Mode** for cities. Users can now modify population, descriptions, and JSON fields (Lore, Visual Data) directly from the UI, with changes persisting to `master_world_data.json`.
+*   **Prompt Generation Service:** Integrated **Gemini 2.0 Flash** for on-demand prompt generation. Added a "✨ Generate Prompts" button to city cards that creates 5 unique prompt types (Aerial, Street, Reportage, Flag, Arms) and saves them to the prompt explorer.
+
 ## [3.3.0] - 2026-02-15
 ### 🏷️ Movable Labels & Prompt Explorer
 *   **Movable Labels:** Enabled **drag-and-drop** functionality for Continent and Country labels in the Map Viewer. Users can now toggle "Move Mode" (Hand FAB) to reposition labels, with new coordinates automatically persisted to `master_world_data.json` via new `PUT` API endpoints.
