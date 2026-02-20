@@ -4,8 +4,12 @@ import time
 import argparse
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+
+# Load .env file
+load_dotenv()
 
 # Configuration
 API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -15,7 +19,7 @@ DATA_FILE = os.path.join(SCRIPT_DIR, "..", "data", "master_world_data.json")
 ASSETS_DIR = os.path.join(SCRIPT_DIR, "..", "assets")
 
 # Models
-MODEL_FAST = "gemini-2.5-flash-image" # Nano Banana (Speed/Efficiency)
+MODEL_FAST = "gemini-3-flash-preview" # Nano Banana (Speed/Efficiency)
 MODEL_PRO = "gemini-3-pro-image-preview" # Nano Banana Pro (High Fidelity/Reasoning)
 
 # Client initialization

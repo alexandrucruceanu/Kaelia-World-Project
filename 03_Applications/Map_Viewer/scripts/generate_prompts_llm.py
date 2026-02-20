@@ -2,11 +2,16 @@ import os
 import sys
 import json
 import argparse
+from pathlib import Path
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-# Default to Gemini 2.0 Flash
-MODEL_ID = "gemini-2.0-flash"
+# Load .env file
+load_dotenv()
+
+# Default to Gemini 3.0 Flash
+MODEL_ID = "gemini-3-flash-preview"
 
 SYSTEM_INSTRUCTION = """
 You are an expert World-Building Artist and Prompt Engineer for a high-end fantasy/sci-fi project called 'Kaelia'.
