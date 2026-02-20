@@ -107,13 +107,13 @@
                 <h3 style="font-size: 1rem; color: #202124; margin-bottom: 5px;">Visual Generation Data</h3>
                 <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #dadce0;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <span style="font-weight: 500; color: #5f6368;">Schema</span>
-                        <button id="btn-copy-schema" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; border: 1px solid #dadce0; background: white; border-radius: 4px;">Copy Schema</button>
+                        <span style="font-weight: 500; color: #5f6368;">Visual Details</span>
+                        <button id="btn-copy-schema" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; border: 1px solid #dadce0; background: white; border-radius: 4px;">Copy Text</button>
                     </div>
                     <div id="detail-schema" style="margin-top: 8px; border-top: 1px solid #eee; padding-top: 8px;"></div>
                     
                     <details style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 5px;">
-                        <summary style="cursor: pointer; color: #1a73e8; font-weight: 500; outline: none; list-style: none;">Show JSON Schema</summary>
+                        <summary style="cursor: pointer; color: #1a73e8; font-weight: 500; outline: none; list-style: none;">Show Raw Text</summary>
                         <pre id="detail-json" style="white-space: pre-wrap; word-wrap: break-word; font-family: monospace; color: #444; background: #eee; padding: 5px; border-radius: 4px; margin-top: 5px; font-size: 0.75rem;"></pre>
                     </details>
                 </div>
@@ -200,38 +200,7 @@
 <canvas id="political-canvas" style="display:none;"></canvas>
 <canvas id="altitude-canvas" style="display:none;"></canvas>
 
-<!-- Visual Generation Modal -->
-<div id="visual-modal" class="modal">
-    <div class="modal-content" style="max-width: 550px; padding: 24px;">
-        <span class="close" onclick="closeVisualModal()">&times;</span>
-        <h2 id="vm-title" style="margin-top: 0; font-size: 1.2rem;">✨ Generate Visual</h2>
-        <p style="font-size: 0.85rem; color: #555;">Generate for <b id="vm-city-name"></b></p>
-        
-        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-            <span id="vm-type-badge" style="padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; background: #e8f0fe; color: #1a73e8;"></span>
-        </div>
-
-        <label style="font-size: 0.8rem; font-weight: 500; color: #5f6368; display: block; margin-bottom: 4px;">Prompt (editable)</label>
-        <textarea id="vm-prompt" class="google-input" rows="6" style="width: 100%; box-sizing: border-box; font-family: monospace; font-size: 0.8rem; resize: vertical;"></textarea>
-        
-        <div style="display: flex; gap: 12px; margin-top: 12px;">
-            <div style="flex: 1;">
-                <label style="font-size: 0.8rem; font-weight: 500; color: #5f6368; display: block; margin-bottom: 4px;">Model</label>
-                <select id="vm-model-select" class="google-input" style="width: 100%;">
-                    <option value="fast">Flash (Fast)</option>
-                    <option value="pro">Pro (Hifi Preview)</option>
-                </select>
-            </div>
-        </div>
-        
-        <div id="vm-status" style="font-size: 0.85rem; margin: 12px 0; min-height: 20px; padding: 8px; border-radius: 6px; display: none;"></div>
-        
-        <div style="display: flex; gap: 8px; margin-top: 16px;">
-            <button id="btn-generate-confirm" class="action-btn" style="flex: 1; padding: 10px;" onclick="executeVisualGeneration()">🚀 Generate</button>
-            <button class="btn-text" onclick="closeVisualModal()" style="padding: 10px 16px;">Cancel</button>
-        </div>
-    </div>
-</div>
+<!-- Visual Generation Modal removed per user request -->
 
 <script src="js/app.js"></script>
 <script src="js/globe_view.js"></script>

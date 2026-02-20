@@ -33,86 +33,66 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
 
 ---
 
-## 🏔️ Continent 1: Nordica
+🏔️ Continent 1: Nordica
 * **Location:** North-West Hemisphere
 * **Visual Biome:** **Alpine Tundra (Grey)** & **Boreal Forest (Purple)**
 * **Corrected Climate:** **Sub-Arctic / Taiga.**
 * *Correction:* Previous references to "Temperate" zones are removed except for the extreme southern tip. This is a harsh, frozen continent.
 
-### 1. Gryning (The Wind Coast)
-* **Biome:** **Boreal Forest (Purple)**.
-* **Geography:** Dense, dark coniferous forests (Taiga) that run right up to the jagged western coast. The trees here are ancient and hardy, adapted to low light and heavy snow.
-* **Infrastructure Match:** The **Global Wind-Grid** towers rise *above* the dense tree line to catch the high-altitude laminar flow winds, as the forest floor is too wind-blocked by vegetation.
-* **Culture:** Stoic, digital-wind adapters. Traditional seafaring has evolved into high-tech autonomous fishing fleets.
-* **Metropolis:** **Skýjakot** ("Cloud House") - Built *atop* the canopy layer to escape the gloom of the forest floor. Architecture features sleek glass and wood, integrated with massive vertical wind-shafts. 
+### 1. Gryning
+* **Metropolis:** **Skýjakot** - Skýjakot, often derisively called 'The Rattle' by locals, is less a 'Cloud House' and more a survivalist rig bolted to the spine of the world. While it escapes the suffocating darkness of the Gryning forest floor, the city is a marvel of brute-force engineering; massive, rusting hydraulic clamps grip the ancient sequoia-like pines, stabilizing the city against gale-force winds. The sleek glass of the original design is now reinforced with steel mesh, and the 'Undercanopy' below has become a graveyard of dropped machinery—a dark zone where only scavengers dare to tread.
 *   **Settlements:**
-    *   **Hafnir:** High-tech automated port city, center of the Northern shipping lanes.
-    *   **Bjarnarfjörður:** Mountain resort and research station for natural phenomena.
-    *   **Árbær:** Rural smart-village; center of traditional-digital handicraft exports.
-    *   **Vík:** Coastal hub known for ultra-modern tourism and climate research on the black sand banks.
-*   **Villages:** Kaldakinn (Glacier research hamlet), Sólheimar (Sustainable tech-hub), Vatnsdalur (Digital artists), Fjallabak (High-altitude transport node).
-*   **Islands:** **Blakkar** (Eastern coast) - Site of a mysterious automated signal array; rumored to be haunted by digital echoes.
+    *   **Hafnir:** High-tech automated port city.
+    *   **Bjarnarfjörður:** Mountain resort and research station.
+    *   **Vík:** Coastal hub for tourism and research.
+*   **Villages:** Árbær (Rural smart-village.).
 
-### 2. Oighear (The Frost-Lands)
-* **Biome:** **Alpine Tundra (Grey)**.
-* **Geography:** A massive expanse of permafrost and exposed bedrock. It is too cold for trees (Purple zone ends at the border).
-* **Modern Infrastructure:** The **Tundra-Plain Rail Link** is elevated on heat-sinking pylons to prevent melting the permafrost foundation.
-* **Culture:** Proud horse-lords. **Lore Update:** They do not graze on grass; they herd **Reindeer and Muskox** (tundra megafauna) that feed on lichen and moss. They utilize high-tech pastoral drones and bio-monitoring.
-* **Metropolis:** **Khuruldai** ("The Assembly") - A sprawling, low-profile modern city designed to blend into the plains. Center of world-leading bio-tech and animal husbandry research.
+### 2. Oighear
+* **Metropolis:** **Khuruldai** - Khuruldai, 'The Assembly,' stands as a testament to Oighear's adaptation to the tundra, a low-profile metropolis that blends seamlessly with the vast plains. It serves as the heart of bio-tech innovation and advanced animal husbandry, leading research into tundra megafauna and sustainable living in the harsh landscape.
 *   **Settlements:**
-    *   **Chaghan Khan:** Mountain-integrated mining city using automated nanotech extraction.
-    *   **Lahorebaig:** The "Digital Bazaar" - A major international server and trade hub.
-    *   **Tsetseg Nuur:** Lakeside eco-city; center for aquatic biodiversity research.
-    *   **Khüiten Peak:** Vertical alpine city for high-altitude endurance testing and tourism.
-*   **Villages:** Bayan-Ölgii (High-tech nomadic junction), Barchin (Desert-edge solar farm), Bulgan (Media/Writing hub), Erdene Zuu (Ancient temple complex with digital archival vaults).
+    *   **Chaghan Khan:** Mountain-integrated mining city.
+    *   **Lahorebaig:** Major international server and trade hub.
+*   **Villages:** Kaldakinn (Glacier research hamlet.).
 
-### 3. Keunmor (The Iron Peaks)
-* **Biome:** **Alpine/Glacial (Grey/White)**.
-* **Geography:** High-altitude glacier fields and bare rock mountains.
-* **Modern Infrastructure:** **Deep-Core Geothermal Grids**. **Lore Update:** Geothermal is a survival necessity. With no biomass for burning and solar being inefficient at this latitude, they rely entirely on the planet's internal heat.
-* **Culture:** Industrialists who view machines as extensions of the clan. Rugged, tech-literate, but socially insular.
-* **Metropolis:** **Ardmore** ("High Great") - A vertical megastructure city carved into a mountain. Features external glass skylifts and internally heated terraced gardens.
+### 3. Keunmor
+* **Metropolis:** **Ardmore** - Ardmore, meaning "High Great," is a striking vertical megastructure city carved directly into the Keunmorian mountainside. This industrial hub relies on deep-core geothermal grids and external glass skylifts to sustain life in the harsh alpine environment, showcasing the clan's ingenuity and hardy spirit.
 *   **Settlements:**
     *   **Dún na nGall:** Modern deep-water automated seaport.
-    *   **Corcaigh:** River-based tech-industrial hub; music and digital arts scene.
-    *   **Baile Átha Cliath:** The continent's financial capital; a hyper-dense urban forest.
-    *   **Tír Eoghain:** Research city built amidst ancient ruins; focus on archaeological cybernetics.
-*   **Villages:** An Bun Beag (Smart-fishing), Lios Tuathail (3D-printing artisan hub), Cill Chainnigh (Spiritual-digital learning), Gleann Cholm Cille (Folklore archive).
+    *   **Baile Átha Cliath:** Financial capital.
 
 ### 4. Brechar
-*   **Geography:** Eastern coastal region; sprawling forests (Taiga transitions).
-*   **Culture:** Laid-back and nature-loving. The "secondary breadbasket" of Nordica (specialized cold-crops).
-*   **Conflict:** Often clashes with Keunmor over land rights.
+* **Metropolis:** **Brechar (Capital)** - Brechar (Capital) is the agricultural heart of the eastern Nordican coast, specializing in cold-crop farming within the vast, misty Taiga forests. Known for its laid-back culture and deep reverence for nature, the city often finds itself at odds with the industrial intensity of Keunmor.
 
 ### 5. Kornmor
-*   **Geography:** Southern tip; milder, oceanic temperate climate.
-*   **Culture:** Cosmopolitan, trade-focused. Renowned for fine textiles, wines, and art.
+* **Metropolis:** **Kornmor (Capital)** - Kornmor (Capital) is the vibrant, cosmopolitan hub of Nordica's southern tip. Unlike the frozen north, it enjoys a milder oceanic climate, making it a premier center for fine textiles, wines, and world-class artistry. It serves as the primary trade gateway between Nordica and the warmer southern continents.
 
----
 
-## ☀️ Continent 2: The Kasy Federation
+☀️ Continent 2: The Kasy Federation
 * **Location:** South-West Archipelago
 * **Visual Biome:** **Chaparral (Olive/Yellow)** & **Temperate Forest (Green)**
 * **Corrected Climate:** **Mediterranean / Semi-Arid.**
 * *Correction:* The "Desert" classification was incorrect. The region is actually a **Chaparral zone** (hot, dry summers; mild, wet winters), similar to California or the Mediterranean.
 
-### 1. Akasy & Bakausy
-* **Description:** Rival tech-cities specializing in atmospheric water generation.
-* **Biome:** **Chaparral**.
+### 1. Akasy
+* **Metropolis:** **Akasy Capital** - Akasy Capital is a technological marvel, renowned for its advanced atmospheric water generation systems that provide a vital resource to the Kasy Federation. The city is a hub of innovation and commerce, characterized by its gleaming towers and intricate networks of aqueducts and climate-control facilities.
 
-### 2. Yokasy
-* **Description:** Subterranean metropolis; architecture uses light-shafts and natural cooling. The world's primary MAGLEV terminal.
+### 2. Bakausy
+* **Metropolis:** **Bakausy Capital** - Bakausy Capital is a technologically advanced city renowned for its atmospheric water generation, a vital resource in the semi-arid Kasy Federation. As a rival tech-city to Akasy, Bakausy boasts stunning architecture that blends seamlessly with its commitment to sustainability and water conservation.
 
-### 3. Vorkasy
-* **Description:** High-tech mega-fauna preservation and eco-tourism.
+### 3. Pomkasy
+* **Metropolis:** **Pomkasy** - Built into a massive, genetically engineered mangrove forest, Pomkasy is a city that breathes with the tide. Its structures are woven from steel-reinforced root systems, protecting it from tropical storms while serving as a hidden hub for pearl-biotech and synthetic dyes.
 
-### 4. Pomkasy
-* **Description:** Coastal smart-port; wealthy from synthetic dyes and pearl-biotech.
+### 4. Saskasy
 
-### 5. Saskasy
-* **Description:** Scientific research outpost in the deep dunes.
+### 5. Vorkasy
+*   **Settlements:**
+    *   **Vorkasy:** Floating solar-grid archipelago protecting a coral reef.
 
-## ❄️ Continent 3: Betereko
+### 6. Yokasy
+* **Metropolis:** **Yokasy** - Yokasy is a marvel of bio-architecture, built not on the ground, but within the massive, hollowed trunks and branches of the Ironwood giants. It is a vertical city of hanging bridges, bioluminescent lighting, and harmonious existence with the dense tropical rainforest.
+
+
+❄️ Continent 3: Betereko
 *   **Political Status:** A unified **Continent-State** (similar to Earth's Australia). The entire landmass is governed as a single sovereign entity: **The Betereko Technocracy**.
 *   **Geography:** Sub-Polar Monolithic Plateau.
 *   **Location:** High Southern Latitudes (Proximal to the South Pole).
@@ -121,83 +101,107 @@ The planet is defined by a severe **North-South Temperature Gradient**. The Nort
 *   **Culture:** Technocratic and highly regimented. They believe their isolation and extreme environment give them a "superior perspective" on global data.
 *   **Metropolis (Capital):** **Apex** - Perched on the precipice of the eastern cliffs, Apex represents the cleaner air-boundary of the sub-polar south. It is the planet's premier center for long-range telecommunications, data storage, and global meteorology. The city is characterized by dignified stone and glass architecture, hosting international research institutes and massive radio-dish arrays that overlook the "Endless Drop" into the ocean.
 
+### 1. Betereko
+* **Metropolis:** **Apex (Capital)** - Apex is the heartbeat of Betereko, perched precariously on the eastern cliffs of the sub-polar monolithic plateau. It serves as the planet's premier hub for global meteorology, quantum computing, and long-range telecommunications. The city's 'Endless Drop' overlooks the vast ocean, symbolizing the frontier perspective of its technocratic society.
 
----
 
-## 🌲 Continent 4: The Mirelands
+🌲 Continent 4: The Mirelands
 * **Location:** Central "Shattered" Landmass
 * **Visual Biome:** **Boreal Forest (Purple)** with **Wetland Margins (Cyan/Green)**
 * **Corrected Climate:** **Cold Taiga / Sub-Arctic Swamp.**
 
-### 1. Niruz
-* **Description:** Agri-tech powerhouse specializing in flood-resistant smart-crops.
+### 1. Ax Pelak Yeldo
+*   **Settlements:**
+    *   **Pelak:** Industrial shipyard island.
+    *   **Yeldo:** Bioluminescent reef-farming island.
 
-### 2. Tailas
-* **Description:** Southern delta region with high-speed hydro-transport.
+### 2. Aghaz
+* **Metropolis:** **Aghaz Capital** - Aghaz Capital stands as a formidable bastion in the Mirelands, its fortress-cities perched atop the few peaks that rise above the swamp. In the modern era, these ancient strongholds have been repurposed as secure global data vaults, leveraging their natural defenses and isolation for digital preservation.
 
-### 3. Aghaz
-* **Description:** Fortress-cities on peaks, now serving as secure global data vaults.
+### 3. Menulys
+* **Metropolis:** **Menulys Capital** - Menulys Capital, nestled deep within the Mirelands' swampy embrace, is a testament to resilience and innovation. The city is built on a network of interconnected platforms and waterways, where bio-luminescent flora lights the perpetual twilight, and the focus is on carbon sequestration technologies to combat global climate challenges.
 
-### 4. Pateraz
-* **Description:** River-state corridors and wetland industrial hubs.
+### 4. Mesek
+* **Metropolis:** **Mesek Capital** - Mesek Capital, nestled deep within the Mirelands, is the heart of bio-luminescent research and fiber-optic weaving. The city glows with an ethereal light, powered by intricate networks of living fibers, a testament to Mesek's innovative blend of nature and technology.
 
 ### 5. Misyats
-* **Description:** High-tech lunar-aligned theocracy; optimized for low-light environments.
+*   **Settlements:**
+    *   **Misyats (Capital):** High-tech lunar-aligned theocracy.
 
-### 6. Mesek
-* **Description:** Center for bio-luminescent research and fiber-optic weaving.
+### 6. Nechars
 
-### 7. Menulys
-* **Description:** High-latitude swamp region focusing on carbon sequestration.
+### 7. Niruz
+*   **Settlements:**
+    *   **Niruz (Capital):** Powerhouse for flood-resistant crops.
 
-### 8. Redez
-* **Description:** Industrial wetland rim; specialized in amphibious logistics.
+### 8. Pateraz
+* **Metropolis:** **Pateraz Capital** - Pateraz Capital, nestled within the Mirelands' river-state corridors, is a testament to wetland adaptation and industry. As a hub for bio-energy initiatives and wetland infrastructure, the city seamlessly blends modern industrial innovation with the unique environment of the Mirelands.
 
-### 9. Nechars
-* **Description:** Northernmost frontier; guardians of the Permafrost Vaults.
+### 9. Redez
+* **Metropolis:** **Redez (Capital)** - Industrial wetland rim; specialized in amphibious logistics.
 
-### 2. Ax Pelak Yeldo (Central Archipelago)
-*   **Geography:** A massive, dense archipelago located south of The Mirelands, in the strategic center of the global ocean.
-*   **Modern Context:** A highly contested zone for telecommunications and sea-lane monitoring. Home to several independent island-nations and autonomous floating research platforms.
+### 10. Tailas
+* **Metropolis:** **Tailas Capital** - Tailas Capital, situated in the southern Mirelands, is a hub of hydro-transport and wetland commerce, with canals crisscrossing through bio-luminescent forests. It is the heart of the Tailas state, known for its innovative use of flood-resilient infrastructure and high-speed aquatic logistics.
 
-## 🏛️ Continent 5: Antarmund (The Eastern Super-Continent)
+
+🏛️ Continent 5: Antarmund (The Eastern Super-Continent)
 * **Location:** Eastern Hemisphere
 * **Visual Biome:** **Gradient** from **Tundra (North)** to **Temperate Rainforest (South)**.
 
 ### 1. NorKunta
-* **Description:** Center of Kaelia’s global aerospace and heavy robotics production. Mirror of Nordica—harsh, frozen, and industrial.
+* **Metropolis:** **NorKunta Prime** - NorKunta Prime is an anomaly: a colossal industrial sprawl (Pop: 4.2M) located in a geothermally warmed valley. It is the beating heart of the north, where heavy industry meets high-density living. The city is divided into the 'Furnace' industrial zones, the 'Hearth' residential mega-blocks, and the ice-free 'Iron Harbor' that connects it to the frozen sea. It is a place of steam, steel, and unceasing activity.
+* **Metropolis:** **Sydgard** - The 'Green Gateway' is the cultural and agricultural anomaly of NorKunta. Warmed by converging river deltas and sheltered from the polar winds, it serves as the primary breadbasket and the diplomatic interface with the southern continents. It is a city of parks, universities, and trade agreements, offering a glimpse of softness in a hard land.
+*   **Settlements:**
+    *   **Jarnhöfn:** Sprawling industrial-residential metropolis on a frozen sea with massive naval shipyards.
+    *   **Titansmidja:** Concentric industrial city in a caldera with a steaming meltwater river and 'Magma Core' industry.
+    *   **Cryo-Vault 09:** Heavily guarded global seed bank and DNA repository buried deep in the permafrost.
+    *   **Borealis Station:** Atmospheric research hub and 'Aurora Harvesting' energy arrays.
+    *   **Koldfisk Rig:** Massive inland aquaculture facility utilizing heated glacial lakes.
+*   **Villages:** Ice-Hauler's Rest (Vital truck stop and logistics hub for the treacherous ice road network.), Glacial Edge (), Echo Ridge (), Sleet-Watch (), Thermal-Springs ().
 
-### 2. Metsemania
-* **Description:** Massive Old-Growth Redwood/Sequoia region focusing on bio-integrated nanotechnology.
+### 2. Dirka'Merik
+* **Metropolis:** **Dirka'Merik Capital** - Dirka'Merik Capital, the heart of Antarmund's economic and cultural engine, is a sprawling metropolis renowned for its cutting-edge technological advancements and harmonious blend of modern innovation with ancient traditions. As the crown jewel of Dirka'Merik, the Capital is a beacon of progress and stability in the ever-evolving landscape of Kaelia.
 
 ### 3. Fyny'Dor
-* **Description:** The "Breadbasket" region; cool, wet, and suitable for large-scale grain farming.
+*   **Settlements:**
+    *   **Fyny'Dor (Capital):** Primary agricultural engine.
 
-### 4. Valermond
-* **Description:** Alchemical (physics) engineering center set in vibrant deciduous forests.
+### 4. Guldhorn
+*   **Settlements:**
+    *   **Guldhorn (Capital):** Digital finance hub.
 
-### 5. Guldhorn
-* **Description:** The world's premier digital finance hub.
+### 5. Kasim'Merik
+* **Metropolis:** **Kasim'Merik Capital** - Kasim'Merik Capital is the heart of the Kasim'Merik region, a testament to their advanced technology and reverence for ancient traditions. Gleaming towers rise amidst carefully preserved historical sites, showcasing the region's unique blend of progress and heritage, and serving as a center for trade and cultural exchange.
 
-### 6. Norgborg
-* **Description:** Naval-militaristic smart city protecting the southern trade gates.
+### 6. Laendamania
+* **Metropolis:** **Laendamania Capital** - Laendamania Capital is a majestic city nestled within the heart of the Southern Prosperity Rim, known for its stunning blend of natural beauty and advanced technology. As the cultural and political center of Laendamania, it showcases exquisite architecture interwoven with lush gardens, embodying a commitment to both innovation and harmony with nature.
 
-### 7. Laendamania & Melynmania
-* **Description:** Sister states specializing in global media and cultural exports.
+### 7. Meit'Val
+* **Metropolis:** **Meit'Val Capital** - Meit'Val Capital stands as a beacon of progress and tradition within Meit'Val, Antarmund, showcasing the continent's modern-ancient synthesis. The city serves as a hub for innovation and cultural preservation, blending technological advancements with time-honored customs.
 
-### 8. Sigmarignen
-* **Description:** The continent’s historical capital of high-tradition and modern art.
+### 8. Melynmania
+* **Metropolis:** **Melynmania Capital** - Melynmania Capital, a bustling metropolis in the heart of Melynmania, serves as the cultural and political epicenter of Antarmund, showcasing the continent's blend of ancient traditions and modern innovation. The city is renowned for its vibrant arts scene, advanced technological infrastructure, and intricate network of canals that weave through its diverse districts.
 
-### 9. Nargkes & Norginde
-* **Description:** Industrial corridor specializing in geothermal heavy machinery.
+### 9. Metsemania
+* **Metropolis:** **Metsemania (Capital)** - A city built within a temperate rainforest, where lab towers merge with giant redwood bark.
 
-### 10. Kasim'Merik & Dirka'Merik
-* **Description:** Maritime powerhouses and autonomous shipping centers.
+### 10. Norgborg
+*   **Settlements:**
+    *   **Norgborg (Capital):** Militaristic smart city.
 
-### 11. Meit'Val
-* **Description:** Agricultural and luxury resource states of the deep south.
+### 11. Norginde
+* **Metropolis:** **Norginde Capital** - Norginde Capital, a frozen metropolis in the northern reaches of Antarmund, stands as a testament to industrial might and frigid adaptation. Serving as a critical nexus for aerospace engineering and heavy robotics, the city thrives despite its harsh climate, relying on imports from the south and fiercely defending the trade routes that sustain it.
 
----
+### 12. Norgkes
+* **Metropolis:** **Norgkes Capital** - Norgkes Capital, a major industrial hub in northern Antarmund, bridges a glacial valley and a deep-water harbor. Foundries and automotive plants dominate the city's landscape, fueled by northern minerals and connected to the world via massive ice-breaker shipping lanes, making it a crucial center for global aerospace and heavy robotics production.
+
+### 13. Sigmarignen
+*   **Settlements:**
+    *   **Sigmarignen (Capital):** Capital of tradition and modern art.
+
+### 14. Valermond
+* **Metropolis:** **Valermond (Capital)** - The primary gateway to Antarmund's industrial and cultural heartland.
+
 
 ## 🔍 Strategic Resource Correction
 Based on the Biome Map, the global economy is driven by **Scarcity**:

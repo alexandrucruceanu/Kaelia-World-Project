@@ -12,6 +12,7 @@
         
         .search-bar { padding: 20px; background: #1e1e1e; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; display: flex; gap: 10px; }
         input[type="text"] { flex-grow: 1; padding: 10px; border-radius: 4px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; }
+        select { padding: 10px; border-radius: 4px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; cursor: pointer; }
         button { padding: 10px 20px; border-radius: 4px; border: none; cursor: pointer; background: #03dac6; color: black; font-weight: bold; }
         button:hover { opacity: 0.9; }
 
@@ -52,6 +53,27 @@
         .copy-btn:active { background: #03dac6; color: black; }
 
         .prompt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+        .modal-content { background-color: #1e1e1e; margin: 5% auto; padding: 20px; border: 1px solid #333; width: 80%; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+        .close-modal { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close-modal:hover, .close-modal:focus { color: #fff; text-decoration: none; cursor: pointer; }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #bb86fc; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #444; background: #2d2d2d; color: white; box-sizing: border-box; font-family: 'Consolas', monospace; }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        .btn-primary { background: #bb86fc; color: black; width: 100%; padding: 12px; font-size: 1.1em; margin-top: 10px; }
+        .btn-primary:hover { background: #9965f4; }
+        
+        .edit-btn { background: #333; color: #ccc; padding: 5px 10px; font-size: 0.8em; margin-left: 10px; border: 1px solid #444; cursor: pointer; }
+        .edit-btn:hover { background: #555; color: white; }
+
+        .gen-btn { background: #0b3d91; color: white; padding: 5px 10px; font-size: 0.8em; margin-left: 5px; border: 1px solid #1e90ff; cursor: pointer; }
+        .gen-btn:hover { background: #1e90ff; }
     </style>
 </head>
 <body>
@@ -60,11 +82,101 @@
     <h1>🗺️ Kaelia Prompt Explorer</h1>
     
     <div class="search-bar">
+        <select id="continentSelect">
+            <option value="">All Continents</option>
+        </select>
+        <select id="countrySelect" onchange="filterCities()">
+            <option value="">All Countries</option>
+        </select>
         <input type="text" id="searchInput" placeholder="Search cities (e.g., 'Kaelia', 'Port')..." onkeyup="filterCities()">
     </div>
 
     <div id="results" class="results">
         <!-- Content injected here -->
+    </div>
+</div>
+
+<!-- Edit/Add Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle" style="margin-top:0; color:#bb86fc;">Edit City Details</h2>
+        <form id="editForm" onsubmit="event.preventDefault(); saveCityChanges();">
+            <input type="hidden" id="editCityId">
+            <input type="hidden" id="editMode" value="edit">
+            
+            <div class="form-row" id="modalLocationRow" style="display:none;">
+                <div class="form-group">
+                    <label>Continent</label>
+                    <select id="modalContinentSelect" style="width:100%; padding:10px; background:#1e1e1e; color:#e0e0e0; border:1px solid #333; border-radius:4px;">
+                        <option value="">-- Select Continent --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <select id="modalCountrySelect" style="width:100%; padding:10px; background:#1e1e1e; color:#e0e0e0; border:1px solid #333; border-radius:4px;">
+                        <option value="">-- Select Country --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <input type="text" id="editType" placeholder="e.g., metropolis, city, town, village">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Population</label>
+                    <input type="text" id="editPopulation" placeholder="e.g., 500,000">
+                </div>
+                <div class="form-group">
+                    <label>Coordinates (lat, lng)</label>
+                    <input type="text" id="editCoords" placeholder="e.g., 450.0, 1200.0">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="editDesc" rows="3" placeholder="A brief description of the city..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Visual Data (Text)</label>
+                <textarea id="editVisualData" placeholder="Describe the visual appearance of the city..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Lore (JSON or String)</label>
+                <textarea id="editLore" placeholder='Lore text or {"desc": "..."}'></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Heraldry (JSON)</label>
+                <textarea id="editHeraldry" placeholder='{"motto": "...", "description": "..."}'></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" id="modalSubmitBtn">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<!-- Error Log Modal -->
+<div id="errorModal" class="modal">
+    <div class="modal-content" style="border-color: #cf6679;">
+        <span class="close-modal" onclick="document.getElementById('errorModal').style.display='none'">&times;</span>
+        <h2 style="margin-top:0; color:#cf6679;">Error Log</h2>
+        <p>An error occurred during the process. Please check the details below:</p>
+        <div class="form-group">
+            <textarea id="errorLogContent" style="width:100%; height:300px; font-family:monospace; background:#121212; color:#cf6679; border:1px solid #333;" readonly></textarea>
+        </div>
+        <button class="btn-primary" onclick="document.getElementById('errorModal').style.display='none'" style="background:#cf6679;">Close</button>
     </div>
 </div>
 
@@ -104,8 +216,89 @@
                     });
                 });
             });
+
+            populateFilters(data);
+            cachedWorldData = data; // Cache for modal dropdowns
             renderCities(allCities);
+            
+            // Check for cityId query param (deep link from Map Viewer)
+            const urlParams = new URLSearchParams(window.location.search);
+            const cityId = urlParams.get('cityId');
+            const mode = urlParams.get('mode');
+
+            if (mode === 'add') {
+                // Open Add City modal immediately
+                openAddModal();
+            } else if (cityId) {
+                const city = allCities.find(c => c.id === cityId);
+                if (city) {
+                    // Set search input to find just this city (or close matches)
+                    // Actually, let's just use the ID filtering if possible, or name
+                    document.getElementById('searchInput').value = city.name;
+                    filterCities();
+                    
+                    // Scroll to it
+                    setTimeout(() => {
+                        const card = document.getElementById(`city-card-${cityId}`);
+                        if (card) {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            card.style.border = '2px solid #03dac6';
+                            card.style.boxShadow = '0 0 15px rgba(3, 218, 198, 0.5)';
+                        }
+                    }, 500); // Small delay to ensure render
+                }
+            }
         });
+
+    function populateFilters(data) {
+        const continents = data.continents.map(c => c.name).sort();
+        const continentSelect = document.getElementById('continentSelect');
+        
+        continents.forEach(cont => {
+            const option = document.createElement('option');
+            option.value = cont;
+            option.textContent = cont;
+            continentSelect.appendChild(option);
+        });
+
+        // Add event listener to update countries when continent changes
+        continentSelect.addEventListener('change', () => {
+             updateCountryOptions(data);
+             filterCities(); // Re-trigger filter
+        });
+        
+        // Initial Country Population (All)
+        updateCountryOptions(data);
+    }
+
+    function updateCountryOptions(data) {
+        const selectedContinent = document.getElementById('continentSelect').value;
+        const countrySelect = document.getElementById('countrySelect');
+        const currentCountry = countrySelect.value;
+        
+        // Clear existing options except first
+        countrySelect.innerHTML = '<option value="">All Countries</option>';
+        
+        let availableCountries = new Set();
+        
+        data.continents.forEach(cont => {
+            if (!selectedContinent || cont.name === selectedContinent) {
+                cont.countries.forEach(c => availableCountries.add(c.name));
+            }
+        });
+        
+        Array.from(availableCountries).sort().forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            countrySelect.appendChild(option);
+        });
+        
+        // Restore selection if still valid
+        if (availableCountries.has(currentCountry)) {
+            countrySelect.value = currentCountry;
+        }
+    }
 
     function renderCities(cities) {
         const container = document.getElementById('results');
@@ -118,10 +311,11 @@
 
         cities.slice(0, 50).forEach(city => { // Limit render for performance
             const card = document.createElement('div');
+            card.id = `city-card-${city.id}`;
             card.className = 'city-card';
             
             // Construct Source Context String for comparison
-            const visualDataStr = JSON.stringify(city.visual_data || {});
+            const visualDataStr = city.visual_data || '';
             const loreDesc = city.lore ? (typeof city.lore === 'string' ? city.lore : city.lore.desc) : '';
             const heraldryDesc = city.heraldry ? (city.heraldry.description || '') + ' ' + (city.heraldry.motto || '') : '';
             
@@ -141,8 +335,8 @@
                 <div style="margin-bottom: 8px;"><strong>Heraldry Description:</strong> <span style="color:#bbb">${city.heraldry?.description || 'N/A'}</span></div>
                 <div style="margin-bottom: 8px;"><strong>Lore/History:</strong> <span style="color:#bbb">${loreDesc || 'N/A'}</span></div>
                 <div style="margin-bottom: 8px;">
-                    <strong>Visual Data (Schema):</strong>
-                    <div style="background:#1a1a1a; padding:5px; margin-top:5px; font-family:monospace; font-size:0.8em; color:#888; white-space: pre-wrap; max-height:100px; overflow-y:auto;">${JSON.stringify(city.visual_data || {}, null, 2)}</div>
+                    <strong>Visual Data (Text):</strong>
+                    <div style="background:#1a1a1a; padding:5px; margin-top:5px; font-family:monospace; font-size:0.8em; color:#888; white-space: pre-wrap; max-height:100px; overflow-y:auto;">${city.visual_data || 'N/A'}</div>
                 </div>
             `;
 
@@ -179,7 +373,9 @@
             card.innerHTML = `
                 <div class="city-header">
                     <div>
-                        <h2 class="city-title">${city.name}</h2>
+                        <h2 class="city-title" style="display:inline-block;">${city.name}</h2>
+                        <button class="edit-btn" onclick="openEditModal('${city.id}')">✏️ Edit</button>
+                        <button class="gen-btn" onclick="generatePrompts('${city.id}', this)">✨ Generate Prompts</button>
                         <div class="city-meta">${city.countryName}, ${city.continentName}</div>
                     </div>
                     <div style="text-align:right; font-size:0.8em; color:#666;">ID: ${city.id}</div>
@@ -194,10 +390,33 @@
 
     function filterCities() {
         const query = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = allCities.filter(c => 
-            c.name.toLowerCase().includes(query) || 
-            c.countryName.toLowerCase().includes(query)
-        );
+        const selectedContinent = document.getElementById('continentSelect').value;
+        const selectedCountry = document.getElementById('countrySelect').value;
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlCityId = urlParams.get('cityId');
+
+        const filtered = allCities.filter(c => {
+            // If URL has cityId and search is exact match to that city's name (auto-populated), ensure we show it.
+            // But standard name search should cover it.
+            // Let's just do standard filtering.
+            
+            const matchesSearch = c.name.toLowerCase().includes(query) || c.countryName.toLowerCase().includes(query);
+            const matchesContinent = !selectedContinent || c.continentName === selectedContinent;
+            const matchesCountry = !selectedCountry || c.countryName === selectedCountry;
+            
+            return matchesSearch && matchesContinent && matchesCountry;
+        });
+        
+        // If we are targeting a specific city via URL, ensure it is in the list even if limit is hit (50)
+        // Usage: The render limit is 50. If our city is #51, it won't show.
+        // We should sort matches to put the URL target first.
+        
+        if (urlCityId) {
+             filtered.sort((a, b) => {
+                 return (a.id === urlCityId) ? -1 : (b.id === urlCityId) ? 1 : 0;
+             });
+        }
+        
         renderCities(filtered);
     }
 
@@ -208,6 +427,224 @@
             btn.textContent = 'Copied!';
             setTimeout(() => btn.textContent = original, 1500);
         });
+    }
+
+    // --- Edit Modal Logic ---
+    const modal = document.getElementById('editModal');
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    function openEditModal(cityId) {
+        const city = allCities.find(c => c.id === cityId);
+        if (!city) return;
+
+        document.getElementById('editMode').value = 'edit';
+        document.getElementById('modalTitle').textContent = 'Edit City Details';
+        document.getElementById('modalSubmitBtn').textContent = 'Save Changes';
+        document.getElementById('modalLocationRow').style.display = 'none';
+
+        document.getElementById('editCityId').value = city.id;
+        document.getElementById('editName').value = city.name || '';
+        document.getElementById('editType').value = city.type || '';
+        document.getElementById('editPopulation').value = city.population || '';
+        document.getElementById('editCoords').value = city.coords ? city.coords.join(', ') : '';
+        document.getElementById('editDesc').value = city.desc || '';
+
+        // Text Fields
+        document.getElementById('editVisualData').value = city.visual_data || '';
+        document.getElementById('editLore').value = typeof city.lore === 'object' ? JSON.stringify(city.lore || {}, null, 2) : (city.lore || '');
+        document.getElementById('editHeraldry').value = JSON.stringify(city.heraldry || {}, null, 2);
+
+        modal.style.display = "block";
+    }
+
+    function openAddModal() {
+        document.getElementById('editMode').value = 'add';
+        document.getElementById('modalTitle').textContent = '➕ Add New City';
+        document.getElementById('modalSubmitBtn').textContent = 'Create City';
+        document.getElementById('modalLocationRow').style.display = 'flex';
+
+        // Clear all fields
+        document.getElementById('editCityId').value = '';
+        document.getElementById('editName').value = '';
+        document.getElementById('editType').value = '';
+        document.getElementById('editPopulation').value = '';
+        document.getElementById('editCoords').value = '';
+        document.getElementById('editDesc').value = '';
+        document.getElementById('editVisualData').value = '';
+        document.getElementById('editLore').value = '';
+        document.getElementById('editHeraldry').value = '{"motto": "", "description": ""}';
+
+        // Populate continent/country dropdowns from cached world data
+        populateModalDropdowns();
+
+        modal.style.display = "block";
+    }
+
+    let cachedWorldData = null;
+
+    function populateModalDropdowns() {
+        if (!cachedWorldData) return;
+        const contSelect = document.getElementById('modalContinentSelect');
+        const countSelect = document.getElementById('modalCountrySelect');
+        
+        contSelect.innerHTML = '<option value="">-- Select Continent --</option>';
+        cachedWorldData.continents.forEach(cont => {
+            const opt = document.createElement('option');
+            opt.value = cont.name;
+            opt.textContent = cont.name;
+            contSelect.appendChild(opt);
+        });
+
+        contSelect.onchange = function() {
+            countSelect.innerHTML = '<option value="">-- Select Country --</option>';
+            const cont = cachedWorldData.continents.find(c => c.name === this.value);
+            if (cont) {
+                cont.countries.forEach(country => {
+                    const opt = document.createElement('option');
+                    opt.value = country.name;
+                    opt.textContent = country.name;
+                    countSelect.appendChild(opt);
+                });
+            }
+        };
+    }
+
+    function saveCityChanges() {
+        const mode = document.getElementById('editMode').value;
+        const cityId = document.getElementById('editCityId').value;
+
+        try {
+            const cityData = {
+                name: document.getElementById('editName').value,
+                type: document.getElementById('editType').value,
+                population: document.getElementById('editPopulation').value,
+                desc: document.getElementById('editDesc').value,
+                coords: document.getElementById('editCoords').value.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n))
+            };
+
+            // Get text fields
+            cityData.visual_data = document.getElementById('editVisualData').value;
+
+            const loreStr = document.getElementById('editLore').value;
+            try {
+                cityData.lore = JSON.parse(loreStr);
+            } catch {
+                cityData.lore = loreStr;
+            }
+
+            const heraldryStr = document.getElementById('editHeraldry').value;
+            cityData.heraldry = heraldryStr ? JSON.parse(heraldryStr) : {};
+
+            if (mode === 'add') {
+                // --- ADD NEW CITY ---
+                const continentName = document.getElementById('modalContinentSelect').value;
+                const countryName = document.getElementById('modalCountrySelect').value;
+
+                if (!continentName || !countryName) {
+                    alert('Please select both a Continent and a Country.');
+                    return;
+                }
+                if (!cityData.name) {
+                    alert('Please enter a city name.');
+                    return;
+                }
+
+                fetch('/api/cities', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ continentName, countryName, city: cityData })
+                })
+                .then(res => {
+                    if (res.ok) {
+                        alert('City created successfully!');
+                        closeModal();
+                        location.reload();
+                    } else {
+                        res.text().then(t => alert('Error creating city: ' + t));
+                    }
+                })
+                .catch(err => alert('Network error: ' + err));
+
+            } else {
+                // --- EDIT EXISTING CITY ---
+                const originalCity = allCities.find(c => c.id === cityId);
+                if (!originalCity) return;
+
+                const updatedCity = { ...originalCity, ...cityData };
+
+                fetch('/api/cities', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        continentName: originalCity.continentName,
+                        countryName: originalCity.countryName,
+                        city: updatedCity
+                    })
+                })
+                .then(res => {
+                    if (res.ok) {
+                        alert('City updated successfully!');
+                        closeModal();
+                        location.reload();
+                    } else {
+                        res.text().then(t => alert('Error updating city: ' + t));
+                    }
+                })
+                .catch(err => alert('Network error: ' + err));
+            }
+
+        } catch (e) {
+            alert('Error parsing JSON fields: ' + e.message);
+        }
+    }
+
+    function generatePrompts(cityId, btn) {
+        if (!confirm('This will use Gemini AI to generate new prompts and OVERWRITE existing ones. Continue?')) return;
+
+        const originalText = btn.textContent;
+        btn.textContent = '✨ Dreaming...';
+        btn.disabled = true;
+        btn.style.cursor = 'wait';
+
+        fetch('/api/generate-prompts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cityId: cityId })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Prompts generated successfully!');
+                location.reload();
+            } else {
+                showErrorLog(data.message + '\n\n' + (data.details || ''));
+                btn.textContent = originalText;
+                btn.disabled = false;
+                btn.style.cursor = 'pointer';
+            }
+        })
+        .catch(err => {
+            showErrorLog('Network Error:\n' + err);
+            btn.textContent = originalText;
+            btn.disabled = false;
+            btn.style.cursor = 'pointer';
+        });
+    }
+
+    function showErrorLog(message) {
+        const modal = document.getElementById('errorModal');
+        const content = document.getElementById('errorLogContent');
+        content.value = message;
+        modal.style.display = 'block';
     }
 </script>
 

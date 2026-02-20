@@ -157,6 +157,8 @@ const server = http.createServer((req, res) => {
                         res.writeHead(500);
                         return res.end('Error saving data');
                     }
+                    console.log(`✅ City updated: ${city.name}`);
+                    triggerWikiSync(); // Auto-Sync Wiki
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify(city));
                 });
@@ -167,33 +169,98 @@ const server = http.createServer((req, res) => {
 
     // --- Construct Prompt Endpoint ---
     if (req.url === '/api/construct-prompt' && req.method === 'POST') {
-        console.log('📝 /api/construct-prompt called');
+        // ... (existing code for construct-prompt)
+    }
+
+    // --- Generate Prompts via LLM Endpoint ---
+    if (req.url === '/api/generate-prompts' && req.method === 'POST') {
+        console.log('✨ /api/generate-prompts called');
         let body = '';
         req.on('data', chunk => { body += chunk.toString(); });
         req.on('end', () => {
-            const { cityId, genType } = JSON.parse(body);
-            const { spawn } = require('child_process');
-            const pythonScript = path.join(__dirname, 'scripts', 'generate_assets_hybrid.py');
-            const pyType = genType;
-            
-            const pyProcess = spawn('python', [pythonScript, '--id', cityId, '--type', pyType, '--construct-only']);
-            let stdoutData = '';
-            pyProcess.stdout.on('data', d => { stdoutData += d.toString(); });
-            pyProcess.stderr.on('data', d => { console.error(`Prompt construct error: ${d}`); });
-            pyProcess.on('close', (code) => {
-                res.writeHead(code === 0 ? 200 : 500, { 'Content-Type': 'application/json' });
-                try {
-                    res.end(stdoutData.trim());
-                } catch(e) {
-                    res.end(JSON.stringify({ status: 'error', message: 'Failed to construct prompt' }));
+            const { cityId } = JSON.parse(body);
+
+            // Read World Data
+            fs.readFile(DATA_FILE, 'utf8', (err, data) => {
+                if (err) { res.writeHead(500); return res.end('Error reading data'); }
+                const world = JSON.parse(data);
+                
+                // Find City
+                let targetCity = null, tCountry = null, tContinent = null;
+                world.continents.forEach(cont => {
+                    cont.countries.forEach(country => {
+                        const city = country.cities.find(c => c.id === cityId);
+                        if (city) { targetCity = city; tCountry = country; tContinent = cont; }
+                    });
+                });
+
+                if (!targetCity) {
+                    res.writeHead(404, { 'Content-Type': 'application/json' });
+                    return res.end(JSON.stringify({ status: 'error', message: 'City not found' }));
                 }
+
+                // Prepare Data for Script
+                const cityContext = {
+                    ...targetCity,
+                    countryName: tCountry.name,
+                    continentName: tContinent.name
+                };
+
+                // Spawn Python Script
+                const { spawn } = require('child_process');
+                const pythonScript = path.join(__dirname, 'scripts', 'generate_prompts_llm.py');
+                
+                const pyProcess = spawn('python', [pythonScript, '--city_json', JSON.stringify(cityContext)]);
+                
+                let stdoutData = '';
+                let stderrData = '';
+
+                pyProcess.stdout.on('data', d => { stdoutData += d.toString(); });
+                pyProcess.stderr.on('data', d => { stderrData += d.toString(); });
+
+                pyProcess.on('close', (code) => {
+                    if (code !== 0) {
+                        console.error('Python Script Error:', stderrData);
+                        res.writeHead(500, { 'Content-Type': 'application/json' });
+                        return res.end(JSON.stringify({ status: 'error', message: 'Script failed', details: stderrData }));
+                    }
+
+                    try {
+                        const generatedPrompts = JSON.parse(stdoutData.trim());
+                        
+                        if (generatedPrompts.error) {
+                             res.writeHead(500, { 'Content-Type': 'application/json' });
+                             return res.end(JSON.stringify({ status: 'error', message: generatedPrompts.error }));
+                        }
+
+                        // Update City Data
+                        targetCity.prompts = generatedPrompts;
+
+                        // Save World Data
+                        fs.writeFile(DATA_FILE, JSON.stringify(world, null, 2), (err) => {
+                            if (err) {
+                                res.writeHead(500, { 'Content-Type': 'application/json' });
+                                return res.end(JSON.stringify({ status: 'error', message: 'Error saving data' }));
+                            }
+                            console.log(`✅ Prompts generated and saved for ${targetCity.name}`);
+                            triggerWikiSync(); // Auto-Sync Wiki
+                            res.writeHead(200, { 'Content-Type': 'application/json' });
+                            res.end(JSON.stringify({ status: 'success', prompts: generatedPrompts }));
+                        });
+
+                    } catch (e) {
+                        res.writeHead(500, { 'Content-Type': 'application/json' });
+                        res.end(JSON.stringify({ status: 'error', message: 'Invalid JSON from script', output: stdoutData }));
+                    }
+                });
             });
         });
         return;
     }
 
-    // --- Generate Visual Endpoint (expanded) ---
-    if (req.url === '/prompt-explorer') {
+    // --- Prompt Explorer Endpoint ---
+    const urlObj = new URL(req.url, `http://${req.headers.host}`);
+    if (urlObj.pathname === '/prompt-explorer') {
         const html = fs.readFileSync(path.join(__dirname, 'public', 'prompt_explorer.html'), 'utf8');
         res.writeHead(200, { 'Content-Type': 'text/html' });
         return res.end(html);
@@ -453,6 +520,20 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(PORT, () => {
-    console.log(`Kaelia Map Server (Zero-Dep) running at http://localhost:${PORT}`);
-});
+    // --- Wiki Sync Function ---
+    function triggerWikiSync() {
+        console.log('🔄 Triggering Wiki Sync...');
+        const { spawn } = require('child_process');
+        const pythonScript = path.join(__dirname, 'scripts', 'sync_wiki.py');
+        const pyProcess = spawn('python', [pythonScript]);
+        
+        pyProcess.stdout.on('data', d => console.log(`Wiki Sync: ${d}`));
+        pyProcess.stderr.on('data', d => console.error(`Wiki Sync Error: ${d}`));
+    }
+
+    // Trigger on startup
+    triggerWikiSync();
+
+    server.listen(PORT, () => {
+        console.log(`Kaelia Map Server (Zero-Dep) running at http://localhost:${PORT}`);
+    });

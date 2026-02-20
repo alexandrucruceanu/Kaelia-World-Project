@@ -120,7 +120,7 @@ a:hover { text-decoration: underline; }
 </head>
 <body>
     <div class="breadcrumb">
-        <a href="../index.html">Kaelia</a>  >  Guldhorn
+        <a href="../index.html">Kaelia</a> &gt; <a href="../continents/antarmund.html">Antarmund</a> &gt; Guldhorn
     </div>
     <div class="header-container">
         <div>
@@ -211,99 +211,7 @@ a:hover { text-decoration: underline; }
         updateWikiCarousel();
     }
     
-    // Wiki Generation Functions
-    var wikiGenCityId = null;
-    var wikiGenType = null;
-    
-    function wikiGenerate(cityId, genType) {
-        wikiGenCityId = cityId;
-        wikiGenType = genType;
-        var titles = {
-            'landscape_main': '🖼️ Generate Main (Aerial)',
-            'landscape_seq1': '📸 Generate Seq1 (Eye-Level)',
-            'landscape_seq2': '🧑‍🏭 Generate Seq2 (Reportage)',
-            'heraldry_flag': '🏴 Generate Flag',
-            'heraldry_arms': '🛡️ Generate Coat of Arms'
-        };
-        document.getElementById('wiki-gen-title').innerText = titles[genType] || 'Generate';
-        document.getElementById('wiki-gen-prompt').value = 'Loading prompt...';
-        document.getElementById('wiki-gen-prompt').disabled = true;
-        document.getElementById('wiki-gen-modal').style.display = 'block';
-        var statusEl = document.getElementById('wiki-gen-status');
-        statusEl.style.display = 'none';
-        document.getElementById('wiki-gen-confirm').disabled = false;
-        document.getElementById('wiki-gen-confirm').innerText = '🚀 Generate';
-        
-        // Get base URL (wiki pages are at /wiki/cities/, server at /)
-        var baseUrl = window.location.protocol + '//' + window.location.host;
-        
-        fetch(baseUrl + '/api/construct-prompt', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ cityId: cityId, genType: genType })
-        })
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            document.getElementById('wiki-gen-prompt').value = data.prompt || 'Enter prompt manually.';
-            document.getElementById('wiki-gen-prompt').disabled = false;
-        })
-        .catch(function(err) {
-            console.error(err);
-            document.getElementById('wiki-gen-prompt').value = 'Error loading prompt from server. Please check console logs.';
-            document.getElementById('wiki-gen-prompt').disabled = false;
-        });
-    }
-    
-    function wikiExecuteGeneration() {
-        if (!wikiGenCityId || !wikiGenType) return;
-        var prompt = document.getElementById('wiki-gen-prompt').value;
-        var model = document.getElementById('wiki-gen-model').value;
-        var statusEl = document.getElementById('wiki-gen-status');
-        var btn = document.getElementById('wiki-gen-confirm');
-        
-        statusEl.style.display = 'block';
-        statusEl.style.background = '#e8f0fe';
-        statusEl.style.color = '#1a73e8';
-        statusEl.innerHTML = '⏳ Generating... This may take 15-30 seconds.';
-        btn.disabled = true;
-        btn.innerText = '⏳ Generating...';
-        
-        var baseUrl = window.location.protocol + '//' + window.location.host;
-        
-        fetch(baseUrl + '/api/generate-visual', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                cityId: wikiGenCityId,
-                model: model,
-                genType: wikiGenType,
-                prompt: prompt
-            })
-        })
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            if (data.status === 'success') {
-                statusEl.style.background = '#e6f4ea';
-                statusEl.style.color = '#137333';
-                statusEl.innerHTML = '✅ Generated! Reloading page...';
-                btn.innerText = '✅ Done';
-                setTimeout(function() { window.location.reload(); }, 2000);
-            } else {
-                statusEl.style.background = '#fce8e6';
-                statusEl.style.color = '#d93025';
-                statusEl.innerHTML = '❌ Error: ' + (data.message || 'Generation failed');
-                btn.disabled = false;
-                btn.innerText = '🚀 Retry';
-            }
-        })
-        .catch(function(err) {
-            statusEl.style.background = '#fce8e6';
-            statusEl.style.color = '#d93025';
-            statusEl.innerHTML = '❌ Network error: ' + err.message;
-            btn.disabled = false;
-            btn.innerText = '🚀 Retry';
-        });
-    }
+    // Wiki Generation Functions removed per user request.
     </script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+🔄 Force Syncing Wiki HTML...
+✅ Updated HTML for Gryning
+✅ Updated HTML for Oighear
+✅ Updated HTML for Keunmor
+✅ Updated HTML for Brechar
+✅ Updated HTML for Kornmor
+✅ Updated HTML for Akasy
+✅ Updated HTML for Bakausy
+✅ Updated HTML for Pomkasy
+✅ Updated HTML for Saskasy
+✅ Updated HTML for Vorkasy
+✅ Updated HTML for Yokasy
+✅ Updated HTML for Betereko
+✅ Updated HTML for Ax Pelak Yeldo
+✅ Updated HTML for Aghaz
+✅ Updated HTML for Menulys
+✅ Updated HTML for Mesek
+✅ Updated HTML for Misyats
+✅ Updated HTML for Nechars
+✅ Updated HTML for Niruz
+✅ Updated HTML for Pateraz
+✅ Updated HTML for Redez
+✅ Updated HTML for Tailas
+✅ Updated HTML for NorKunta
+⚠️ HTML file not found for Dirka'Merik: c:\Proyectos_Local\Software-Development\Simulations\World_Building_Project\03_Applications\Map_Viewer\wiki\countries\dirka'merik.html
+⚠️ HTML file not found for Fyny'Dor: c:\Proyectos_Local\Software-Development\Simulations\World_Building_Project\03_Applications\Map_Viewer\wiki\countries\fyny'dor.html
+✅ Updated HTML for Guldhorn
+⚠️ HTML file not found for Kasim'Merik: c:\Proyectos_Local\Software-Development\Simulations\World_Building_Project\03_Applications\Map_Viewer\wiki\countries\kasim'merik.html
+✅ Updated HTML for Laendamania
+⚠️ HTML file not found for Meit'Val: c:\Proyectos_Local\Software-Development\Simulations\World_Building_Project\03_Applications\Map_Viewer\wiki\countries\meit'val.html
+✅ Updated HTML for Melynmania
+✅ Updated HTML for Metsemania
+✅ Updated HTML for Norgborg
+✅ Updated HTML for Norginde
+✅ Updated HTML for Norgkes
+✅ Updated HTML for Sigmarignen
+✅ Updated HTML for Valermond

@@ -33,9 +33,11 @@
 - [x] **Movable Labels:** Draggable Continent and Country labels with persistent coordinate storage.
 - [x] **Prompt Explorer:** Dedicated tool for viewing, searching, and analyzing AI prompts per city. **V2 Update:** Added Filtering, Deep Linking (`?cityId`), City Editing, and On-Demand Generation.
 - [x] **City Editing:** Direct modification of city data (Population, Lore, JSON) via UI.
-- [x] **Wiki Synchronization:** Automated HTML updates and fixed path resolution bugs.
-- [x] **Navigation Integration:** Direct deep-linking from Map Viewer "Edit" button to Prompt Explorer.
-- [x] **UI Cleanup:** Removed legacy generation buttons to declutter main interfaces.
+- [x] Wiki Synchronization: Automated HTML updates and fixed path resolution bugs.
+- [x] Navigation Integration: Direct deep-linking from Map Viewer "Edit" button to Prompt Explorer.
+- [x] UI Cleanup: Removed legacy generation buttons to declutter main interfaces.
+- [x] **Visual Data Schema:** Flattened `visual_data` from JSON to text for better performance and editing.
+- [x] **Enhanced Breadcrumbs:** Full path navigation (Kaelia > Continent > Country > City) across the Encyclopedia.
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.
 
