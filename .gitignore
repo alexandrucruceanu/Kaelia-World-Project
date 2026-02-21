@@ -1,6 +1,7 @@
 ﻿# System files
 [Tt]humbs.db
 [Dd][Ss]_[Ss]tore
+.env
 
 # Large binary files and design sources
 01_Design_Sources/

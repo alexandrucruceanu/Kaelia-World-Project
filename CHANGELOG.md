@@ -1,5 +1,11 @@
 # Changelog
-
+ 
+## [3.7.0] - 2026-02-21
+### 🔐 Security & AI Verification
+*   **Git Security:** Added `.env` to the root `.gitignore` to prevent accidental exposure of API keys and credentials.
+*   **Gemini Setup Verification:** Audited and verified the `GEMINI_SETUP.md` requirements. Confirmed successful integration of `google-generativeai` and `python-dotenv` for backend services.
+*   **Prompt Explorer Launch:** Successfully deployed and verified the dedicated Prompt Explorer tool for real-time AI generation and city data management.
+ 
 ## [3.6.0] - 2026-02-19
 ### 📄 Documentation & Data Schema Optimization
 *   **Visual Data Flattening:** Simplified the `visual_data` field in `master_world_data.json` from a complex JSON schema to a plain-text prompt string. Updated the Map Viewer and Prompt Explorer to render and edit this data more efficiently.
