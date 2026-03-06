@@ -33,7 +33,7 @@ Finished exports and media organized by scale.
 ### 💻 03_Applications
 Interactive tools used to explore the world.
 *   **[Map Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/index.html):** Modern interactive explorer. Features **Search**, **City Details**, **Image Carousel**, **Climate Legend**, and **Edit Button Redirect** (links to Prompt Explorer).
-*   **Prompt Explorer:** Dedicated tool at `/prompt-explorer` to search and view all AI prompt types. Features **Deep Linking** (`?cityId`), **Continent/Country Filters**, **City Editing**, and **On-Demand Generation** (Gemini 2.0 Flash).
+*   **Prompt Explorer:** Dedicated tool at `/prompt-explorer` to search and view all AI prompt types. Features **Deep Linking** (`?cityId`), **Continent/Country Filters**, **City Editing**, and **On-Demand Generation** (`gemini-3-flash-preview` for JSON, `gemini-3-pro-image-preview` for images).
 *   **[Kaelia Encyclopedia](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Map_Viewer/wiki/index.html):** Comprehensive multi-page wiki with profiles for **36 countries** and **61 cities**, including lore, heraldry, and **Image Carousels**. Features **Dark Mode**, **High-Res Image Lightbox**, and **Enhanced Breadcrumb Navigation**.
 *   **Asset Auditor** (`check_assets.js`): Validates all city image references against the filesystem.
 *   **[Legacy Viewer](file:///g:/Mi%20unidad/01_Alex/30_Tecnologia_y_Proyectos/World_Building_Project/03_Applications/Legacy_Viewer/Public%20link.htm):** Original 2014 zoomable tiled map.

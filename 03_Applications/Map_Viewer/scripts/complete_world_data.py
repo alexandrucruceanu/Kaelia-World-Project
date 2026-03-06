@@ -60,7 +60,7 @@ def generate_lore(city_name, country_name, continent_name, context_text):
     """
     try:
         response = client.models.generate_content(
-            model='gemini-2.0-flash', contents=prompt,
+            model='gemini-3-flash-preview', contents=prompt,
             config=types.GenerateContentConfig(response_mime_type='application/json')
         )
         return json.loads(response.text)
@@ -85,7 +85,7 @@ def generate_schema(city_name, country_name, continent_name, city_desc, context_
     """
     try:
         response = client.models.generate_content(
-            model='gemini-2.0-flash', contents=prompt,
+            model='gemini-3-flash-preview', contents=prompt,
             config=types.GenerateContentConfig(response_mime_type='application/json')
         )
         return json.loads(response.text)

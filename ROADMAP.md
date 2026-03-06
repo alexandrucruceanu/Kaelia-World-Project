@@ -39,7 +39,7 @@
 - [x] **Visual Data Schema:** Flattened `visual_data` from JSON to text for better performance and editing.
 - [x] **Enhanced Breadcrumbs:** Full path navigation (Kaelia > Continent > Country > City) across the Encyclopedia.
 - [x] **Security Audit:** Standardized `.gitignore` to protect sensitive `.env` files across the application suite.
-- [x] **Gemini 3.0 Verification:** Full audit of API integration, script integrity, and dependency management for automated world building.
+- [x] **Gemini Model Upgrade:** Migrated all scripts to `gemini-3-flash-preview` (JSON/text) and `gemini-3-pro-image-preview` (vision). Full audit of API integration, script integrity, and dependency management for automated world building.
 - [ ] **AI Upscaling:** Remaster legacy renders and maps to 4K.
 - [ ] **3D Porting:** Port `.c4d` models to Blender for modern PBR rendering.
 

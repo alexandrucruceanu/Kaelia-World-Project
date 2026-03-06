@@ -87,7 +87,7 @@ def generate_prompts(api_key, city_data):
         return {"error": str(e)}
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate Kaelia city prompts using Gemini 2.0 Flash.")
+    parser = argparse.ArgumentParser(description="Generate Kaelia city prompts using Gemini 3 Flash.")
     parser.add_argument("--city_json", help="JSON string of city data", required=True)
     args = parser.parse_args()
 

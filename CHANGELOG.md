@@ -1,5 +1,14 @@
 # Changelog
  
+## [3.8.0] - 2026-03-06
+### 🤖 Gemini Model Upgrade
+*   **Model Migration:** Upgraded all AI generation scripts to the latest recommended models: `gemini-3-flash-preview` (JSON/text) and `gemini-3-pro-image-preview` (vision/image generation).
+*   **`complete_world_data.py`:** Migrated from `gemini-2.0-flash` to `gemini-3-flash-preview` for lore and visual schema generation.
+*   **`generate_prompts_llm.py`:** Fixed stale description referencing "Gemini 2.0 Flash"; model was already updated.
+*   **`generate_assets_hybrid.py`:** Verified correct routing — `MODEL_FAST` targets `gemini-3-flash-preview` for structural/JSON endpoints, `MODEL_PRO` targets `gemini-3-pro-image-preview` for visual generation.
+*   **Validation:** All 5 asset types (landscape_main, landscape_seq1, landscape_seq2, heraldry_flag, heraldry_arms) tested with construct-only mode — valid JSON output confirmed.
+*   **Documentation:** Updated `README.md`, `ROADMAP.md`, `LLM_PRIMER_PROMPT.md`, and `CHANGELOG.md` to reflect the new models.
+
 ## [3.7.0] - 2026-02-21
 ### 🔐 Security & AI Verification
 *   **Git Security:** Added `.env` to the root `.gitignore` to prevent accidental exposure of API keys and credentials.
