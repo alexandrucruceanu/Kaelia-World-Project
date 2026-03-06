@@ -2429,8 +2429,8 @@
               "name": "Ardmore",
               "type": "metropolis",
               "coords": [
-                700,
-                250
+                757,
+                265.1
               ],
               "biome": "Boreal or Alpine Forest",
               "population": "3,500,000",
@@ -2625,7 +2625,8 @@
                     }
                   ]
                 }
-              }
+              },
+              "climate": "Boreal or Alpine Forest"
             },
             {
               "id": "city_13",
